@@ -4131,7 +4131,8 @@
    "stone": "limestonePH",
    "floor": "pavingStonePH",
    "floorGrey": "pavingStonePH"
-  }
+  },
+  "trees": "trees"
  },
  "disclaimer": {
   "az": "Bu, ölçülmüş data deyil, kodla qurulmuş təxmini memarlıq maketidir. Mətnlərdəki faktlar tarixçi tərəfindən yoxlanılmalıdır.",

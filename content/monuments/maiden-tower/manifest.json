@@ -4807,7 +4807,8 @@
    "stoneGrey": "towerStoneGreyPH",
    "floorGrey": "pavingStonePH",
    "c:#b9a57f": "groundPH"
-  }
+  },
+  "trees": "trees"
  },
  "disclaimer": {
   "az": "Bu, ölçülmüş data deyil: əsas ölçülər mənbələrdən götürülüb, daxili pilləkənin yeri, çıxıntının ölçüləri və mərtəbə detalları təxminidir. Faktlar tarixçi tərəfindən yoxlanılmalıdır.",

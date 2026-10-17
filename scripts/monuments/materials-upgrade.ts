@@ -32,6 +32,7 @@ for (const [slug, up] of Object.entries(UPGRADES)) {
   const m = JSON.parse(raw);
   m.walk.clouds = up.clouds;
   m.walk.alias = up.alias;
+  m.walk.trees = "trees"; // low-poly tree pack (content/models/trees) for every tree, cypress and bush
   let out = JSON.stringify(m, null, 1) + "\n";
   if (crlf) out = out.replace(/\n/g, "\r\n");
   fs.writeFileSync(file, out);

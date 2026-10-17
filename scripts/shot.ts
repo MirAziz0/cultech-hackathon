@@ -1,5 +1,5 @@
 /* Screenshot a walk zone from a chosen heading — for visual review.
-   usage: BASE=http://localhost:3100 npx tsx scripts/shot.ts <slug> <zone> [yawDeg] [pitch] [x,z] */
+   usage: [ERA=ruin] BASE=http://localhost:3100 npx tsx scripts/shot.ts <slug> <zone> [yawDeg] [pitch] [x,z] */
 import { chromium } from "playwright";
 
 const [slug, zone, yaw, pitch, at] = process.argv.slice(2);
@@ -8,7 +8,7 @@ const BASE = process.env.BASE ?? "http://localhost:3000";
 async function main() {
   const b = await chromium.launch({ args: ["--use-angle=d3d11", "--ignore-gpu-blocklist", "--enable-gpu"] });
   const p = await b.newPage({ viewport: { width: 1280, height: 800 } });
-  await p.goto(`${BASE}/m/${slug}/walk`, { waitUntil: "networkidle" });
+  await p.goto(`${BASE}/m/${slug}/walk${process.env.ERA ? `?era=${process.env.ERA}` : ""}`, { waitUntil: "networkidle" });
   await p.waitForFunction(() => !!(window as unknown as { __walk?: unknown }).__walk);
   await p.getByRole("button", { name: /Gəzintiyə başla|Start the walk/ }).click();
   await p.evaluate(({ zone, yaw, pitch, at }) => {
@@ -25,7 +25,7 @@ async function main() {
   // hide UI chrome for a clean view
   await p.addStyleTag({ content: "section[aria-label], figure, nav, .glass, canvas[aria-hidden] { display: none !important }" });
   await p.waitForTimeout(1500);
-  const file = `screenshots/shot-${slug}-${zone}${yaw ? "-" + yaw : ""}.png`;
+  const file = `screenshots/shot-${slug}${process.env.ERA ? "-" + process.env.ERA : ""}-${zone}${yaw ? "-" + yaw : ""}.png`;
   await p.screenshot({ path: file });
   console.log(file);
   await b.close();

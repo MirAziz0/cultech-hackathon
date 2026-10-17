@@ -41,8 +41,8 @@ export interface WalkWorld {
   scene: THREE.Scene;
   /** sky dome that follows the camera (null = flat sky colour) */
   sky: THREE.Mesh | null;
-  /** [x, y, z, height, seed] of trees to place as instanced models */
-  treeSpots: [number, number, number, number, number][];
+  /** [x, y, z, height, seed, width] of trees to place as instanced models (width = crown scale relative to height) */
+  treeSpots: [number, number, number, number, number, number][];
   pool: LightPool;
   /** animate extras (dust motes); cheap, skipped on the low tier */
   update(time: number): void;
@@ -73,9 +73,15 @@ export function buildWalkWorld(spec: WalkSpec, renderer: THREE.WebGLRenderer, op
   const models = forEra(spec.elements, opts.era).filter((e) => e.t === "model") as Extract<El, { t: "model" }>[];
   const hideT = new Set(models.flatMap((m) => m.replaces?.types ?? [])), hideM = new Set(models.flatMap((m) => m.replaces?.mats ?? []));
   // with imported tree models, tree furniture becomes instanced models (placed by the viewer)
-  const treeSpots: [number, number, number, number, number][] = [];
+  const treeSpots: [number, number, number, number, number, number][] = [];
   for (const e of forEra(spec.elements, opts.era)) {
-    if (spec.trees && e.t === "furniture" && e.kind === "tree") { treeSpots.push([e.at[0], e.at[1], e.at[2], e.h ?? 6, e.seed ?? treeSpots.length]); continue; }
+    // with a tree pack, every tree-like furniture becomes an instanced model: cypress → slim, bush → low and wide
+    if (spec.trees && e.t === "furniture") {
+      const n = treeSpots.length;
+      if (e.kind === "tree") { treeSpots.push([e.at[0], e.at[1], e.at[2], e.h ?? 6, e.seed ?? n, 0.85]); continue; }
+      if (e.kind === "cypress") { treeSpots.push([e.at[0], e.at[1], e.at[2], e.h ?? 5.5, n, 0.42]); continue; }
+      if (e.kind === "bush") { const r = e.r ?? 0.45; treeSpots.push([e.at[0], e.at[1], e.at[2], r * 2.2, n, 1.5]); continue; }
+    }
     if (!hideT.has(e.t) && !(e.mat && hideM.has(e.mat))) buildEl(B, e);
   }
   const group = B.finish();

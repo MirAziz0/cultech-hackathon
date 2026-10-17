@@ -113,9 +113,9 @@ export class WalkViewer {
         const spots = w.treeSpots.filter((s) => Math.abs(Math.round(s[4])) % variants.length === k);
         if (!spots.length) return;
         const inst = new THREE.InstancedMesh(v.geometry, v.material, spots.length);
-        spots.forEach(([x, y, z, h, seed], i) => {
+        spots.forEach(([x, y, z, h, seed, wd], i) => {
           q.setFromAxisAngle(up, (seed * 2.399) % (Math.PI * 2));
-          m4.compose(new THREE.Vector3(x, y, z), q, new THREE.Vector3(h * 0.85, h, h * 0.85));
+          m4.compose(new THREE.Vector3(x, y, z), q, new THREE.Vector3(h * wd, h, h * wd));
           inst.setMatrixAt(i, m4);
         });
         inst.computeBoundingSphere();
