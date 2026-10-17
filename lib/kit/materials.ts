@@ -9,13 +9,37 @@ export interface MatInfo { mat: THREE.Material; worldUV?: number }
 
 const S = (o: THREE.MeshStandardMaterialParameters) => new THREE.MeshStandardMaterial({ roughness: 0.9, metalness: 0, ...o });
 
-/* photo textures from content/textures (served at /textures, CC0 Poly Haven); load lazily, appear when ready */
+/* photo textures from content/textures (served at /textures, CC0 Poly Haven); load lazily, appear when ready.
+   Until the JPG arrives a texture shows a 1×1 placeholder (the photo's average colour, or a flat normal),
+   so surfaces never render black on the first frames. */
+const AVG: Record<string, string> = {
+  asphalt_02: "#5a5a54", brick_floor: "#645746", castle_wall_slates: "#8a7e66", dry_ground_01: "#847969", grey_plaster_02: "#8e816c",
+  leafy_grass: "#978359", marble_01: "#b19d7a", marble_tiles: "#8c8172", old_stone_wall: "#877763", painted_plaster_wall: "#aba3a0",
+  patterned_paving_02: "#736151", red_brick_03: "#6a534b", rock_face: "#614532", rock_tile_floor: "#948d83", sandstone_blocks_08: "#a59275",
+};
+function pixel(css: string): HTMLCanvasElement {
+  const c = document.createElement("canvas");
+  c.width = c.height = 1;
+  const x = c.getContext("2d")!;
+  x.fillStyle = css;
+  x.fillRect(0, 0, 1, 1);
+  return c;
+}
 const texCache = new Map<string, THREE.Texture>();
 function photoTex(name: string, color = true): THREE.Texture {
   const key = `${name}:${color}`;
   let t = texCache.get(key);
   if (!t) {
-    t = typeof document === "undefined" ? new THREE.Texture() : new THREE.TextureLoader().load(`/textures/${name}.jpg`);
+    if (typeof document === "undefined") t = new THREE.Texture();
+    else {
+      const tex = (t = new THREE.Texture(pixel(color ? AVG[name.replace(/_(diff|nor)$/, "")] ?? "#9a8f80" : "#8080ff")));
+      tex.needsUpdate = true;
+      new THREE.ImageLoader().load(`/textures/${name}.jpg`, (img) => {
+        tex.dispose(); // the GPU copy has the placeholder's size; drop it so the full image is uploaded
+        tex.image = img;
+        tex.needsUpdate = true;
+      });
+    }
     t.wrapS = t.wrapT = THREE.RepeatWrapping;
     t.anisotropy = 8;
     if (color) t.colorSpace = THREE.SRGBColorSpace;
