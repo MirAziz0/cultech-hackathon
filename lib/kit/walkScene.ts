@@ -41,6 +41,8 @@ export interface WalkWorld {
   scene: THREE.Scene;
   /** sky dome that follows the camera (null = flat sky colour) */
   sky: THREE.Mesh | null;
+  /** [x, y, z, height, seed] of trees to place as instanced models */
+  treeSpots: [number, number, number, number, number][];
   pool: LightPool;
   /** animate extras (dust motes); cheap, skipped on the low tier */
   update(time: number): void;
@@ -70,7 +72,12 @@ export function buildWalkWorld(spec: WalkSpec, renderer: THREE.WebGLRenderer, op
   // a textured model shown in this era can replace kit parts (e.g. the scene's own minarets)
   const models = forEra(spec.elements, opts.era).filter((e) => e.t === "model") as Extract<El, { t: "model" }>[];
   const hideT = new Set(models.flatMap((m) => m.replaces?.types ?? [])), hideM = new Set(models.flatMap((m) => m.replaces?.mats ?? []));
-  for (const e of forEra(spec.elements, opts.era)) if (!hideT.has(e.t) && !(e.mat && hideM.has(e.mat))) buildEl(B, e);
+  // with imported tree models, tree furniture becomes instanced models (placed by the viewer)
+  const treeSpots: [number, number, number, number, number][] = [];
+  for (const e of forEra(spec.elements, opts.era)) {
+    if (spec.trees && e.t === "furniture" && e.kind === "tree") { treeSpots.push([e.at[0], e.at[1], e.at[2], e.h ?? 6, e.seed ?? treeSpots.length]); continue; }
+    if (!hideT.has(e.t) && !(e.mat && hideM.has(e.mat))) buildEl(B, e);
+  }
   const group = B.finish();
   scene.add(group);
   const clouds = look.clouds ?? spec.clouds;
@@ -103,6 +110,7 @@ export function buildWalkWorld(spec: WalkSpec, renderer: THREE.WebGLRenderer, op
     scene,
     pool,
     sky: skyDome,
+    treeSpots,
     update(time: number) { for (const f of animated) f(time); },
     materials: B.mats,
     stats: { meshes: group.children.length, tris, lamps: B.lights.length },

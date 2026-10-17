@@ -168,6 +168,8 @@ export interface WalkSpec {
   /** sky, fog and light per era */
   /** sky dome with clouds (zenith colour; the horizon uses `sky`) */
   clouds?: string;
+  /** content/models/<id> tree variants (scripts/import-trees.ts) used for every { kind: "tree" } furniture */
+  trees?: string;
   eraLook?: Partial<Record<Era, { clouds?: string; exposure?: number; sky?: string; fog?: Vec2; sun?: { dir: Vec3; intensity?: number }; ambient?: number; /** material aliases, e.g. { wallIn: "limeWorn" } */ alias?: Record<string, string> }>>;
   defaultEra?: Era;
   elements: El[];

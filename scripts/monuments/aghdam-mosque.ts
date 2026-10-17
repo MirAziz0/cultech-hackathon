@@ -315,14 +315,13 @@ function walk(): { elements: El[]; zones: Zone[]; obstacles: [number, number, nu
   for (const s of [-1, 1]) {
     E.push({ t: "box", min: [s * 4.2 - 0.45, 0, -40], max: [s * 4.2 + 0.45, 0.9, -18], mat: "hedgePH", eras: [TODAY] });
     for (let i = 0; i < 5; i++) {
-      E.push({ t: "box", min: [s * 12 - 0.12, 0, -36 + i * 5 - 0.12], max: [s * 12 + 0.12, 1.8, -36 + i * 5 + 0.12], mat: "c:#6b4a2e", eras: [TODAY] });
-      E.push({ t: "furniture", kind: "bush", at: [s * 12, 1.5, -36 + i * 5], r: 1.3, eras: [TODAY] });
+      E.push({ t: "furniture", kind: "tree", at: [s * 12, 0, -36 + i * 5], h: 5.5, seed: i + (s > 0 ? 1 : 0), eras: [TODAY] });
     }
   }
   E.push({ t: "box", min: [5.0, 0, -21.5], max: [6.4, 1.6, -20.4], mat: "c:#8f6f62", eras: [TODAY] });
   // today: the textured model of the restored mosque (content/models/aghdam-mosque) replaces the kit's outside
   // fitted to the kit's footprint (x ±9.9, z −13.9…10.9); the kit's outer surfaces are hidden in this era
-  E.push({ t: "model", src: "aghdam-mosque", at: [0, -0.7, -1.5], rotY: 180, scale: [0.985, 1, 1.214], cut: [[-0.95, 0.95, -0.8, 2.6, -10.8, -7.9]], eras: [TODAY], replaces: { types: ["minaret"], mats: ["metalRoof", "domeOut", "wallOut", "iwan", "roofSlab"] } });
+  E.push({ t: "model", src: "aghdam-mosque", at: [0, -1.16, -1.5], rotY: 180, scale: [0.985, 1, 1.214], cut: [[-0.95, 0.95, -1.3, 2.6, -10.8, -7.9]], eras: [TODAY], replaces: { types: ["minaret"], mats: ["metalRoof", "domeOut", "wallOut", "iwan", "roofSlab"] } });
   // closed surroundings: perimeter wall with a gate to the road, trees along it, a tree line beyond
   for (const [a, b] of [[[-30, -50], [-4.5, -50]], [[4.5, -50], [30, -50]], [[30, -50], [30, 24]], [[30, 24], [-30, 24]], [[-30, 24], [-30, -50]]] as [Vec2, Vec2][])
     E.push({ t: "wall", from: a, to: b, y0: 0, h: 2.6, th: 0.5, mat: "fence", eras: [TODAY] });

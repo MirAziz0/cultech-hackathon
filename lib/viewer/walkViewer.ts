@@ -56,6 +56,7 @@ export class WalkViewer {
     this.era = spec.eras?.length ? (era && spec.eras.includes(era) ? era : spec.defaultEra ?? spec.eras[0]) : undefined;
     this.world = buildWalkWorld(spec, r, { era: this.era });
     this.addModels(this.world, this.era);
+    this.addTrees(this.world);
     r.toneMappingExposure = (this.era && spec.eraLook?.[this.era]?.exposure) || 1;
     this.worlds.set(this.era ?? "", this.world);
     this.map = new ZoneMap(spec.zones, spec.defaultFloor ?? 0, spec.obstacles ?? []);
@@ -72,7 +73,7 @@ export class WalkViewer {
     if (!this.spec.eras?.includes(era) || era === this.era) return;
     this.era = era;
     let w = this.worlds.get(era);
-    if (!w) { w = buildWalkWorld(this.spec, this.renderer, { era }); this.worlds.set(era, w); this.addModels(w, era); }
+    if (!w) { w = buildWalkWorld(this.spec, this.renderer, { era }); this.worlds.set(era, w); this.addModels(w, era); this.addTrees(w); }
     this.renderer.toneMappingExposure = this.spec.eraLook?.[era]?.exposure || 1;
     this.world = w;
     for (const a of this.actors) w.scene.add(a);
@@ -97,6 +98,30 @@ export class WalkViewer {
         w.scene.add(o);
       }).catch((err) => console.warn(`[walk] model ${e.src} not loaded:`, err));
     }
+  }
+
+  /** imported tree variants, instanced: one draw call per variant however many trees */
+  private addTrees(w: WalkWorld) {
+    const src = this.spec.trees;
+    if (!src || !w.treeSpots.length) return;
+    loadModel(src).then((obj) => {
+      const variants: THREE.Mesh[] = [];
+      obj.traverse((o) => { if ((o as THREE.Mesh).isMesh) variants.push(o as THREE.Mesh); });
+      if (!variants.length) return;
+      const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), up = new THREE.Vector3(0, 1, 0);
+      variants.forEach((v, k) => {
+        const spots = w.treeSpots.filter((s) => Math.abs(Math.round(s[4])) % variants.length === k);
+        if (!spots.length) return;
+        const inst = new THREE.InstancedMesh(v.geometry, v.material, spots.length);
+        spots.forEach(([x, y, z, h, seed], i) => {
+          q.setFromAxisAngle(up, (seed * 2.399) % (Math.PI * 2));
+          m4.compose(new THREE.Vector3(x, y, z), q, new THREE.Vector3(h * 0.85, h, h * 0.85));
+          inst.setMatrixAt(i, m4);
+        });
+        inst.computeBoundingSphere();
+        w.scene.add(inst);
+      });
+    }).catch((err) => console.warn(`[walk] trees ${src} not loaded:`, err));
   }
 
   addActor(o: THREE.Object3D) {
