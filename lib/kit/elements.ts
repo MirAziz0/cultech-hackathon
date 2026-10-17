@@ -7,9 +7,10 @@ import { Builder, D2R } from "./builder";
 import { gallery, kColumn, minaret, patches, rubble, sailVault } from "./karabakh";
 
 /* ---------------- arches ---------------- */
-/** pointed (two-centred) arch between a and b springing at yS; from reference archPts */
-export function archPts(a: number, b: number, yS: number, n = 10) {
-  const w = b - a, m = (a + b) / 2, c = w * 0.16, r = w / 2 + c, rise = Math.sqrt(r * r - c * c), pts: [number, number][] = [];
+/** pointed (two-centred) arch between a and b springing at yS; from reference archPts.
+    cRatio = 0 gives a semicircular (round) arch. */
+export function archPts(a: number, b: number, yS: number, n = 10, cRatio = 0.16) {
+  const w = b - a, m = (a + b) / 2, c = w * cRatio, r = w / 2 + c, rise = Math.sqrt(r * r - c * c), pts: [number, number][] = [];
   const aR = Math.atan2(rise, c);
   for (let i = 0; i <= n; i++) { const t = (aR * i) / n; pts.push([m - c + r * Math.cos(t), yS + r * Math.sin(t)]); }
   const aL = Math.atan2(rise, -c);
@@ -22,6 +23,31 @@ export function frameMatrix(f: Frame) {
 }
 
 /* ---------------- walls ---------------- */
+/** UVs in metres for a round wall around (cx, cz): u = arc length, v = height on the side faces, plan x/z on the
+    top and bottom faces. The planar world UVs would streak where a curved face turns through 45°. */
+export function arcUV(geo: THREE.BufferGeometry, cx: number, cz: number): THREE.BufferGeometry {
+  const g = geo.index ? geo.toNonIndexed() : geo;
+  if (g !== geo) geo.dispose();
+  g.computeVertexNormals();
+  const p = g.attributes.position, n = g.attributes.normal, uv = new Float32Array(p.count * 2);
+  for (let t = 0; t < p.count; t += 3) {
+    // unwrap the three angles of a triangle against its first vertex, so no triangle spans the ±π seam
+    const a0 = Math.atan2(p.getZ(t) - cz, p.getX(t) - cx);
+    for (let k = 0; k < 3; k++) {
+      const i = t + k, dx = p.getX(i) - cx, dz = p.getZ(i) - cz;
+      if (Math.abs(n.getY(i)) > 0.7) { uv[i * 2] = p.getX(i); uv[i * 2 + 1] = p.getZ(i); continue; }
+      let a = Math.atan2(dz, dx);
+      while (a - a0 > Math.PI) a -= 2 * Math.PI;
+      while (a - a0 < -Math.PI) a += 2 * Math.PI;
+      uv[i * 2] = a * Math.hypot(dx, dz);
+      uv[i * 2 + 1] = p.getY(i);
+    }
+  }
+  g.setAttribute("uv", new THREE.BufferAttribute(uv, 2));
+  g.userData.uvMetres = true;
+  return g;
+}
+
 /** wall from (x1,z1) to (x2,z2); interior on local +z. Openings are cut as pointed arches.
    Openings that overlap along the wall are stacked (e.g. lower and upper windows of a two-storey hall). */
 export function wall(B: Builder, x1: number, z1: number, x2: number, z2: number, y0: number, h: number, th: number, ops: Op[] = [], mat = "stone") {
@@ -47,7 +73,7 @@ export function wall(B: Builder, x1: number, z1: number, x2: number, z2: number,
     let prevTop = y0;
     stack.forEach((op, k) => {
       const a = op.u - op.w / 2, b = op.u + op.w / 2, ys = y0 + op.sill + op.spring;
-      const { pts, apex } = archPts(a, b, ys);
+      const { pts, apex } = archPts(a, b, ys, op.round ? 14 : 10, op.round ? 0 : 0.16);
       const next = stack[k + 1];
       const top = next ? Math.max(apex + 0.15, y0 + next.sill) : Math.max(y0 + h, apex + 0.15);
       // solid below the opening, and beside it if the column is wider than this opening
@@ -116,9 +142,11 @@ export function vault(B: Builder, x0: number, x1: number, z0: number, z1: number
   else { lun((x0 + x1) / 2, z0, 0); lun((x0 + x1) / 2, z1, 0); }
 }
 
-export function dome(B: Builder, cx: number, cz: number, r: number, y: number, sy = 1, mat = "stoneDS", hole = 0) {
+export function dome(B: Builder, cx: number, cz: number, r: number, y: number, sy = 1, mat = "stoneDS", hole = 0, arc?: [number, number]) {
   const t0 = hole > 0 ? Math.asin(Math.min(0.99, hole / r)) : 0;
-  const g = new THREE.SphereGeometry(r, 32, 14, 0, Math.PI * 2, t0, Math.PI / 2 - t0);
+  // SphereGeometry puts phi at (-cos φ, sin φ) in x/z, so an arc a0…a0+len (x toward z) is φ = π − angle
+  const [p0, pl] = arc ? [Math.PI - (arc[0] + arc[1]) * D2R, arc[1] * D2R] : [0, Math.PI * 2];
+  const g = new THREE.SphereGeometry(r, 32, 14, p0, pl, t0, Math.PI / 2 - t0);
   g.scale(1, sy, 1);
   g.translate(cx, y, cz);
   B.add(g, mat);
@@ -356,10 +384,16 @@ export function furniture(B: Builder, f: Furniture) {
       break;
     }
     case "lampRing": {
-      const t = new THREE.TorusGeometry(f.r, 0.03, 6, 32); t.rotateX(Math.PI / 2); t.translate(x, y, z); B.add(t, "gold");
+      const t = new THREE.TorusGeometry(f.r, 0.03, 6, 32); t.rotateX(Math.PI / 2); t.translate(x, y, z); B.add(t, f.metal ?? "gold");
       const n = f.n ?? 12;
       for (let i = 0; i < n; i++) { const a = (i / n) * Math.PI * 2, l = new THREE.SphereGeometry(0.07, 8, 6); l.translate(x + Math.cos(a) * f.r, y - 0.08, z + Math.sin(a) * f.r); B.add(l, "glow"); }
-      for (let i = 0; i < 3; i++) { const a = (i / 3) * Math.PI * 2, c = new THREE.CylinderGeometry(0.008, 0.008, 2, 3); c.rotateZ(Math.atan2(f.r, 2) * (i ? 1 : 1)); c.translate(x + Math.cos(a) * f.r * 0.5, y + 1, z + Math.sin(a) * f.r * 0.5); B.add(c, "dark"); }
+      // three chains from the ring up to one hook 2 m above its centre
+      for (let i = 0; i < 3; i++) {
+        const a = (i / 3) * Math.PI * 2, foot = new THREE.Vector3(x + Math.cos(a) * f.r, y, z + Math.sin(a) * f.r), hook = new THREE.Vector3(x, y + 2, z);
+        const dir = hook.clone().sub(foot), c = new THREE.CylinderGeometry(0.008, 0.008, dir.length(), 3);
+        c.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.clone().normalize()));
+        const mid = foot.add(hook).multiplyScalar(0.5); c.translate(mid.x, mid.y, mid.z); B.add(c, "dark");
+      }
       break;
     }
     case "bench": {
@@ -398,6 +432,84 @@ export function furniture(B: Builder, f: Furniture) {
       const l = new THREE.CylinderGeometry(0.04, 0.04, 0.35, 6); l.translate(x, y + 0.17, z); B.add(l, "iron");
       const e = new THREE.SphereGeometry(0.2, 10, 6, 0, Math.PI * 2, 0, Math.PI / 2); e.translate(x, y + 0.62, z); B.add(e, "glow");
       B.light(x, y + 1, z, 0.6, 6, 0xff9a50);
+      break;
+    }
+    case "vitrine": {
+      const [sx, sy, sz] = f.size, m = new THREE.Matrix4().makeRotationY((f.rotY ?? 0) * D2R).setPosition(x, y, z);
+      const ped = sy * 0.55, glassH = sy - ped - 0.05;
+      const base = new THREE.BoxGeometry(sx, ped, sz); base.translate(0, ped / 2, 0); B.add(base, "c:#e6dac2", m);
+      const top = new THREE.BoxGeometry(sx + 0.06, 0.05, sz + 0.06); top.translate(0, ped + 0.025, 0); B.add(top, "wood", m.clone());
+      const glass = new THREE.BoxGeometry(sx - 0.04, glassH, sz - 0.04); glass.translate(0, ped + 0.05 + glassH / 2, 0); B.add(glass, "glass", m.clone());
+      const lid = new THREE.BoxGeometry(sx + 0.04, 0.04, sz + 0.04); lid.translate(0, sy + 0.02, 0); B.add(lid, "wood", m.clone());
+      // a few clay pots on the shelf
+      const r = Math.abs(Math.sin((f.seed ?? 1) * 12.9898)) * 1000;
+      const pots = ["#a8643e", "#8c5a3c", "#b9825a"];
+      for (let i = 0; i < 3; i++) {
+        const u = (i - 1) * sx * 0.28, s = 0.14 + ((r * (i + 1)) % 7) * 0.012;
+        const p = new THREE.Vector3(u, ped + 0.05, ((r * (i + 3)) % 5 - 2) * 0.03).applyMatrix4(m);
+        furniture(B, { kind: "jug", at: [p.x, p.y, p.z], s, color: pots[(i + (f.seed ?? 0)) % 3] });
+      }
+      break;
+    }
+    case "sconce": {
+      const m = new THREE.Matrix4().makeRotationY((f.rotY ?? 0) * D2R).setPosition(x, y, z);
+      const plate = new THREE.BoxGeometry(0.1, 0.32, 0.03); plate.translate(0, 0, 0.015); B.add(plate, "iron", m);
+      const arm = new THREE.BoxGeometry(0.42, 0.025, 0.025); arm.translate(0, -0.05, -0.12); B.add(arm, "iron", m.clone());
+      const stem = new THREE.BoxGeometry(0.025, 0.025, 0.14); stem.translate(0, -0.05, -0.06); B.add(stem, "iron", m.clone());
+      for (const u of [-0.2, 0.2]) {
+        const c = new THREE.CylinderGeometry(0.018, 0.018, 0.14, 8); c.translate(u, 0.03, -0.12); B.add(c, "c:#efe6d2", m.clone());
+        const fl = new THREE.SphereGeometry(0.022, 8, 6); fl.scale(1, 1.6, 1); fl.translate(u, 0.13, -0.12); B.add(fl, "glow", m.clone());
+      }
+      const lp = new THREE.Vector3(0, 0.1, -0.35).applyMatrix4(m);
+      if (f.light) B.light(lp.x, lp.y, lp.z, f.light, 4.5, 0xffc27a);
+      break;
+    }
+    case "bust": {
+      const m = new THREE.Matrix4().makeRotationY((f.rotY ?? 0) * D2R).setPosition(x, y, z);
+      const ped = new THREE.BoxGeometry(0.55, 1.25, 0.55); ped.translate(0, 0.625, 0); B.add(ped, "stoneGrey", m);
+      const cap = new THREE.BoxGeometry(0.65, 0.08, 0.65); cap.translate(0, 1.29, 0); B.add(cap, "stoneGrey", m.clone());
+      const chest = new THREE.SphereGeometry(0.26, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2); chest.scale(1.25, 1.1, 0.75); chest.translate(0, 1.33, 0); B.add(chest, "bronze", m.clone());
+      const neck = new THREE.CylinderGeometry(0.07, 0.08, 0.14, 10); neck.translate(0, 1.66, 0); B.add(neck, "bronze", m.clone());
+      const head = new THREE.SphereGeometry(0.13, 16, 12); head.scale(0.9, 1.15, 1); head.translate(0, 1.84, -0.01); B.add(head, "bronze", m.clone());
+      break;
+    }
+    case "roses": {
+      const [w, d] = f.size, n = f.n ?? Math.round(w * d * 1.6);
+      let s = f.seed ?? 3;
+      const r = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+      const greens = ["#3f6b2c", "#4a7a32", "#365f27"];
+      for (let i = 0; i < n; i++) {
+        const px = x - w / 2 + r() * w, pz = z - d / 2 + r() * d, rr = 0.18 + r() * 0.14;
+        const g = new THREE.IcosahedronGeometry(rr, 1); g.scale(1, 0.8, 1); g.translate(px, y + rr * 0.75, pz);
+        B.add(g, "c:" + greens[i % 3]);
+        for (let k = 0; k < 4; k++) {
+          const a = r() * Math.PI * 2, bl = new THREE.SphereGeometry(0.03 + r() * 0.018, 8, 6);
+          bl.translate(px + Math.cos(a) * rr * 0.75, y + rr * (1.0 + r() * 0.35), pz + Math.sin(a) * rr * 0.75);
+          B.add(bl, "c:" + (f.bloom ?? (k % 3 ? "#c8283f" : "#e8577a")));
+        }
+      }
+      break;
+    }
+    case "gravePit": {
+      const [w, d] = f.size, dep = f.depth ?? 0.8, m = new THREE.Matrix4().makeRotationY((f.rotY ?? 0) * D2R).setPosition(x, y, z);
+      // earth sides and bottom, a skeleton lying west–east (head toward −x), a glass cover on an iron frame
+      for (const [sx, sz, px, pz] of [[w, 0.06, 0, -d / 2], [w, 0.06, 0, d / 2], [0.06, d, -w / 2, 0], [0.06, d, w / 2, 0]]) {
+        const s = new THREE.BoxGeometry(sx, dep, sz); s.translate(px, -dep / 2, pz); B.add(s, "c:#7d6648", m.clone());
+      }
+      const bot = new THREE.PlaneGeometry(w, d); bot.rotateX(-Math.PI / 2); bot.translate(0, -dep, 0); B.add(bot, "c:#6e583c", m.clone());
+      const bone = "c:#e3d9c0", L = Math.min(w * 0.8, 1.7), y0 = -dep + 0.04;
+      const skull = new THREE.SphereGeometry(0.1, 12, 8); skull.translate(-L / 2, y0 + 0.05, 0); B.add(skull, bone, m.clone());
+      const spine = new THREE.BoxGeometry(L * 0.38, 0.04, 0.05); spine.translate(-L / 2 + 0.12 + L * 0.19, y0, 0); B.add(spine, bone, m.clone());
+      for (let i = 0; i < 5; i++) { const rib = new THREE.BoxGeometry(0.03, 0.03, 0.3); rib.translate(-L / 2 + 0.2 + i * 0.07, y0 + 0.01, 0); B.add(rib, bone, m.clone()); }
+      for (const s of [-1, 1]) {
+        const arm = new THREE.BoxGeometry(L * 0.33, 0.035, 0.035); arm.translate(-L / 2 + 0.15 + L * 0.17, y0, s * 0.2); B.add(arm, bone, m.clone());
+        const leg = new THREE.BoxGeometry(L * 0.5, 0.045, 0.045); leg.translate(L / 2 - L * 0.25, y0, s * 0.08); B.add(leg, bone, m.clone());
+      }
+      const pelvis = new THREE.BoxGeometry(0.14, 0.05, 0.26); pelvis.translate(-L / 2 + 0.16 + L * 0.38, y0, 0); B.add(pelvis, bone, m.clone());
+      for (const [sx, sz, px, pz] of [[w + 0.12, 0.06, 0, -d / 2 - 0.03], [w + 0.12, 0.06, 0, d / 2 + 0.03], [0.06, d, -w / 2 - 0.03, 0], [0.06, d, w / 2 + 0.03, 0]]) {
+        const fr = new THREE.BoxGeometry(sx, 0.08, sz); fr.translate(px, 0.04, pz); B.add(fr, "iron", m.clone());
+      }
+      const gl = new THREE.PlaneGeometry(w, d); gl.rotateX(-Math.PI / 2); gl.translate(0, 0.07, 0); B.add(gl, "glass", m.clone());
       break;
     }
   }
@@ -483,7 +595,7 @@ export function buildEl(B: Builder, e: El) {
       vault(B, e.x[0], e.x[1], e.z[0], e.z[1], e.y, e.axis, e.scaleY ?? 1, mat ?? "stoneDS");
       break;
     case "dome":
-      dome(B, e.c[0], e.c[1], e.r, e.y, e.sy ?? 1, mat ?? "stoneDS", e.hole ?? 0);
+      dome(B, e.c[0], e.c[1], e.r, e.y, e.sy ?? 1, mat ?? "stoneDS", e.hole ?? 0, e.arc);
       break;
     case "octRing":
       octRing(B, e.c[0], e.c[1], e.a, e.y0, e.h, mat ?? "stoneDS", e.n ?? 8);
@@ -508,19 +620,27 @@ export function buildEl(B: Builder, e: El) {
       if (th > 0) {
         // thick ring wall (towers): extruded annulus
         const sh = new THREE.Shape();
-        sh.absarc(0, 0, e.r + th, 0, Math.PI * 2, false);
-        const hole = new THREE.Path();
-        hole.absarc(0, 0, e.r, 0, Math.PI * 2, true);
-        sh.holes.push(hole);
+        if (e.arc) {
+          // annular sector; arc uses the thin wall's convention (θ from +z toward +x) → shape angle φ = θ − 90°
+          const a0 = (e.arc[0] - 90) * D2R, a1 = a0 + e.arc[1] * D2R;
+          sh.absarc(0, 0, e.r + th, a0, a1, false);
+          sh.absarc(0, 0, e.r, a1, a0, true);
+          sh.closePath();
+        } else {
+          sh.absarc(0, 0, e.r + th, 0, Math.PI * 2, false);
+          const hole = new THREE.Path();
+          hole.absarc(0, 0, e.r, 0, Math.PI * 2, true);
+          sh.holes.push(hole);
+        }
         const g = new THREE.ExtrudeGeometry(sh, { depth: e.h, bevelEnabled: false, curveSegments: n });
         g.rotateX(-Math.PI / 2);
         g.translate(e.c[0], e.y0, e.c[1]);
-        B.add(g, mat ?? "stone");
+        B.add(arcUV(g, e.c[0], e.c[1]), mat ?? "stone");
       } else {
         const [s, len] = e.arc ? [e.arc[0] * D2R, e.arc[1] * D2R] : [0, Math.PI * 2];
         const g = new THREE.CylinderGeometry(e.r, e.r, e.h, n, 1, true, s, len);
         g.translate(e.c[0], e.y0 + e.h / 2, e.c[1]);
-        B.add(g, mat ?? "stoneDS");
+        B.add(arcUV(g, e.c[0], e.c[1]), mat ?? "stoneDS");
       }
       break;
     }

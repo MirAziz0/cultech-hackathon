@@ -5,6 +5,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import type { Era, ExteriorSpec, InteriorSpec, Vec3 } from "../types";
 import { anchor, buildExterior } from "../kit/exterior";
 import { buildInterior } from "../kit/interior";
+import { photoTexture, textureLoaded } from "../kit/materials";
 
 export interface LabelPos { id: string; x: number; y: number; visible: boolean }
 
@@ -118,7 +119,8 @@ export class ExteriorViewer {
   load(initial?: Era) {
     if (initial) this.era = initial;
     for (const era of this.eras) {
-      const g = buildExterior(this.spec, era);
+      const g = buildExterior(this.spec, era, { texture: photoTexture });
+      if (this.spec.textures) textureLoaded.add(this.redraw);
       g.visible = era === this.era;
       const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 1e6);
       g.traverse((o) => {
@@ -303,7 +305,10 @@ export class ExteriorViewer {
     );
   }
 
+  private redraw = () => { this.dirty = true; };
+
   dispose() {
+    textureLoaded.delete(this.redraw);
     cancelAnimationFrame(this.raf);
     this.ro.disconnect();
     this.controls.dispose();

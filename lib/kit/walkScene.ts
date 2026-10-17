@@ -87,7 +87,7 @@ export function buildWalkWorld(spec: WalkSpec, renderer: THREE.WebGLRenderer, op
   const group = B.finish();
   scene.add(group);
   const clouds = look.clouds ?? spec.clouds;
-  const skyDome = clouds ? makeSky(clouds, look.sky ?? spec.sky ?? "#bcd6e8") : null;
+  const skyDome = clouds ? makeSky(clouds, look.sky ?? spec.sky ?? "#bcd6e8", look.mountains ?? spec.mountains) : null;
   if (skyDome) scene.add(skyDome);
 
   // image-based ambient: a neutral room environment gives metals/mirrors something to reflect
@@ -128,8 +128,9 @@ export function buildWalkWorld(spec: WalkSpec, renderer: THREE.WebGLRenderer, op
 }
 
 /** sky dome: zenith → horizon gradient with soft clouds (canvas texture), drawn behind everything */
-function makeSky(zenith: string, horizon: string): THREE.Mesh {
-  const W = 1024, H = 512, c = document.createElement("canvas");
+function makeSky(zenith: string, horizon: string, mountains?: string): THREE.Mesh {
+  // mountains need a sharper canvas (their outline sits right at the horizon)
+  const W = mountains ? 2048 : 1024, H = W / 2, c = document.createElement("canvas");
   c.width = W; c.height = H;
   const x = c.getContext("2d")!;
   const g = x.createLinearGradient(0, 0, 0, H / 2);
@@ -139,7 +140,7 @@ function makeSky(zenith: string, horizon: string): THREE.Mesh {
   let seed = 7;
   const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
   for (let i = 0; i < 38; i++) {
-    const cx = rnd() * W, cy = H * (0.12 + rnd() * 0.3), r = 18 + rnd() * 46;
+    const cx = rnd() * W, cy = H * (0.12 + rnd() * 0.3), r = (18 + rnd() * 46) * (W / 1024);
     for (let k = 0; k < 6; k++) {
       const px = cx + (rnd() - 0.5) * r * 2.4, py = cy + (rnd() - 0.5) * r * 0.5, pr = r * (0.5 + rnd() * 0.6);
       const rg = x.createRadialGradient(px, py, 0, px, py, pr);
@@ -153,6 +154,7 @@ function makeSky(zenith: string, horizon: string): THREE.Mesh {
       }
     }
   }
+  if (mountains) paintMountains(x, W, H, mountains, horizon);
   const tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.wrapS = THREE.RepeatWrapping;
@@ -160,4 +162,42 @@ function makeSky(zenith: string, horizon: string): THREE.Mesh {
   m.renderOrder = -10;
   m.frustumCulled = false;
   return m;
+}
+
+/** two forested ridges around the horizon (far one hazy): smooth periodic noise, so the dome wraps without a seam */
+function paintMountains(x: CanvasRenderingContext2D, W: number, H: number, near: string, horizon: string) {
+  const ridge = (amp: number, base: number, k: number[], ph: number[]) => (u: number) =>
+    base + amp * k.reduce((a, kk, i) => a + Math.sin((u / W) * Math.PI * 2 * kk + ph[i]) / (i + 1.4), 0);
+  const far = ridge(H * 0.035, H * 0.075, [3, 7, 13, 23], [0.4, 2.1, 4.0, 1.3]);
+  const nearR = ridge(H * 0.03, H * 0.045, [2, 5, 11, 19], [1.7, 0.2, 3.3, 5.1]);
+  const mix = (a: string, b: string, t: number) => {
+    const ca = new THREE.Color(a), cb = new THREE.Color(b);
+    return "#" + ca.lerp(cb, t).getHexString();
+  };
+  let seed = 11;
+  const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  for (const [fn, col, dense] of [[far, mix(near, horizon, 0.55), 0.35], [nearR, near, 1]] as [(u: number) => number, string, number][]) {
+    x.fillStyle = col;
+    x.beginPath();
+    x.moveTo(0, H / 2 + 2);
+    for (let u = 0; u <= W; u += 2) x.lineTo(u, H / 2 - Math.max(3, fn(u)));
+    x.lineTo(W, H / 2 + 2);
+    x.closePath();
+    x.fill();
+    // forest texture: darker and lighter tree crowns inside the ridge
+    x.save();
+    x.clip();
+    for (let i = 0; i < W * 1.4 * dense; i++) {
+      const u = rnd() * W, top = H / 2 - fn(u), v = top + rnd() * (H / 2 - top), s = (1.5 + rnd() * 2.5) * (W / 2048);
+      x.fillStyle = rnd() < 0.6 ? "rgba(20,40,15,.18)" : "rgba(160,190,120,.12)";
+      x.beginPath(); x.ellipse(u, v, s * 1.3, s, 0, 0, Math.PI * 2); x.fill();
+    }
+    x.restore();
+  }
+  // a little haze along the foot of the ridges
+  const g = x.createLinearGradient(0, H / 2 - H * 0.03, 0, H / 2);
+  g.addColorStop(0, "rgba(255,255,255,0)");
+  g.addColorStop(1, horizon);
+  x.fillStyle = g;
+  x.fillRect(0, H / 2 - H * 0.03, W, H * 0.03 + 2);
 }

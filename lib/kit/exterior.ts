@@ -17,6 +17,7 @@ function rng(seed: number) {
 
 /** pointed arch outline, from build_model.arch_poly */
 function archShape(w: number, hs: number, cRatio = 0.18, n = 10) {
+  if (cRatio === 0) n = 14;
   const c = w * cRatio, r = w / 2 + c, top = hs + Math.sqrt(r * r - c * c);
   const left: [number, number][] = [];
   const a0 = Math.PI, a1 = Math.atan2(top - hs, 0 - c);
@@ -52,14 +53,17 @@ class ExtBuilder {
     g.translate(p.x, p.y, p.z);
     this.add(g, mat);
   }
-  cyl(r: number, h: number, x: number, y: number, z: number, mat: string, sides = 16, r2?: number) {
-    const g = new THREE.CylinderGeometry(r2 ?? r, r, h, sides);
+  /** arc = [startDeg, lengthDeg] from +x toward +y; three's theta runs from +z toward +x, so θ = angle + 90° */
+  cyl(r: number, h: number, x: number, y: number, z: number, mat: string, sides = 16, r2?: number, arc?: [number, number]) {
+    const g = arc ? new THREE.CylinderGeometry(r2 ?? r, r, h, sides, 1, false, (arc[0] + 90) * D2R, arc[1] * D2R) : new THREE.CylinderGeometry(r2 ?? r, r, h, sides);
     const p = tp(x, y, z + h / 2);
     g.translate(p.x, p.y, p.z);
     this.add(g, mat);
   }
-  lathe(pts: [number, number][], x: number, y: number, z: number, mat: string, sides: number) {
-    const g = new THREE.LatheGeometry(pts.map(([a, b]) => new THREE.Vector2(a, b)), sides);
+  lathe(pts: [number, number][], x: number, y: number, z: number, mat: string, sides: number, arc?: [number, number]) {
+    const g = arc
+      ? new THREE.LatheGeometry(pts.map(([a, b]) => new THREE.Vector2(a, b)), sides, (arc[0] + 90) * D2R, arc[1] * D2R)
+      : new THREE.LatheGeometry(pts.map(([a, b]) => new THREE.Vector2(a, b)), sides);
     const p = tp(x, y, z);
     g.translate(p.x, p.y, p.z);
     this.add(g, mat);
@@ -75,8 +79,8 @@ class ExtBuilder {
     this.lathe(pts, x, y, z, mat, sides);
   }
   /** dark pointed-arch plate standing on a facade, protruding `depth` outward */
-  niche(w: number, hs: number, x: number, y: number, z: number, facing: number, mat: string, depth = 0.25) {
-    const g = new THREE.ExtrudeGeometry(archShape(w, hs), { depth, bevelEnabled: false, curveSegments: 6 });
+  niche(w: number, hs: number, x: number, y: number, z: number, facing: number, mat: string, depth = 0.25, round = false) {
+    const g = new THREE.ExtrudeGeometry(archShape(w, hs, round ? 0 : 0.18), { depth, bevelEnabled: false, curveSegments: 6 });
     g.rotateY((facing + 90) * D2R);
     const p = tp(x, y, z);
     g.translate(p.x, p.y, p.z);
@@ -114,16 +118,21 @@ function part(b: ExtBuilder, p: ExteriorPart, era: Era, r: ReturnType<typeof rng
   const mat = p.matByEra?.[era] ?? p.mat;
   switch (p.t) {
     case "box": b.box(p.size[0], p.size[1], p.size[2], ...p.at, mat ?? "stone"); break;
-    case "cyl": b.cyl(p.r, p.h, ...p.at, mat ?? "stone", p.sides ?? 16, p.r2); break;
+    case "cyl": b.cyl(p.r, p.h, ...p.at, mat ?? "stone", p.sides ?? 16, p.r2, p.arc); break;
     case "dome": b.dome(p.r, p.h, ...p.at, mat ?? "dome", p.sides ?? 28, p.pointed ?? 0.18); break;
-    case "tent": b.lathe([[p.r, 0], [0.0001, p.h]], ...p.at, mat ?? "dome", p.sides ?? 8); break;
-    case "niche": b.niche(p.w, p.spring, ...p.at, p.facing, mat ?? "niche", p.depth ?? 0.25); break;
+    case "tent": {
+      b.lathe([[p.r, 0], [0.0001, p.h]], ...p.at, mat ?? "dome", p.sides ?? 8, p.arc);
+      // underside, so the eaves are not see-through from below
+      b.lathe([[0.0001, 0.001], [p.r, 0]], ...p.at, mat ?? "dome", p.sides ?? 8, p.arc);
+      break;
+    }
+    case "niche": b.niche(p.w, p.spring, ...p.at, p.facing, mat ?? "niche", p.depth ?? 0.25, p.round); break;
     case "portal": b.portal(p.w, p.h, ...p.at, p.facing, p.depth ?? 1, mat ?? "stone", p.nicheMat ?? "niche"); break;
     case "windowRow":
       for (let i = 0; i < p.n; i++) {
         const t = p.from + ((p.to - p.from) * (i + 0.5)) / p.n;
         const [x, y] = p.along === "x" ? [t, p.at[1]] : [p.at[0], t];
-        b.niche(p.w ?? 1.1, p.spring ?? 1.4, x, y, p.z, p.facing, mat ?? "window", 0.15);
+        b.niche(p.w ?? 1.1, p.spring ?? 1.4, x, y, p.z, p.facing, mat ?? "window", 0.15, p.round);
       }
       break;
     case "tree": b.tree(...p.at, p.s ?? 1, p.kind); break;
@@ -247,6 +256,22 @@ function part(b: ExtBuilder, p: ExteriorPart, era: Era, r: ReturnType<typeof rng
       }
       break;
     }
+    case "gableRoof": {
+      const [cx, cy, cz] = p.at, [sx, sy] = p.size, h = p.h, alongX = p.axis === "x";
+      const L = (alongX ? sx : sy) / 2, W = (alongX ? sy : sx) / 2;
+      // local (u along the ridge, v across) → build coords
+      const P = (u: number, v: number, z: number) => (alongX ? tp(cx + u, cy + v, cz + z) : tp(cx + v, cy + u, cz + z));
+      const slopes = [P(-L, -W, 0), P(L, -W, 0), P(L, 0, h), P(-L, -W, 0), P(L, 0, h), P(-L, 0, h),
+        P(L, W, 0), P(-L, W, 0), P(-L, 0, h), P(L, W, 0), P(-L, 0, h), P(L, 0, h)];
+      const ends = [P(-L, -W, 0), P(-L, 0, h), P(-L, W, 0), P(L, W, 0), P(L, 0, h), P(L, -W, 0)];
+      for (const [pts, m] of [[slopes, mat ?? "roof"], [ends, p.gableMat ?? "stone"]] as [THREE.Vector3[], string][])
+        for (const set of [pts, [...pts].reverse()]) {
+          const g = new THREE.BufferGeometry().setFromPoints(set);
+          g.computeVertexNormals();
+          b.add(g, m);
+        }
+      break;
+    }
     case "bush": {
       const s = p.s ?? 1;
       const t = new THREE.IcosahedronGeometry(1.1 * s, 0);
@@ -259,6 +284,18 @@ function part(b: ExtBuilder, p: ExteriorPart, era: Era, r: ReturnType<typeof rng
   }
 }
 
+/** planar world UVs (metres / size) by the dominant normal axis, as in the walk kit */
+function planarUV(geo: THREE.BufferGeometry, size: number) {
+  const p = geo.attributes.position, n = geo.attributes.normal, uv = new Float32Array(p.count * 2);
+  for (let i = 0; i < p.count; i++) {
+    const ax = Math.abs(n.getX(i)), ay = Math.abs(n.getY(i)), az = Math.abs(n.getZ(i));
+    const [u, v] = ay >= ax && ay >= az ? [p.getX(i), p.getZ(i)] : ax >= az ? [p.getZ(i), p.getY(i)] : [p.getX(i), p.getY(i)];
+    uv[i * 2] = u / size;
+    uv[i * 2 + 1] = v / size;
+  }
+  geo.setAttribute("uv", new THREE.BufferAttribute(uv, 2));
+}
+
 const DEFAULT_PALETTE: Record<string, [number, number, number]> = {
   base: [92, 66, 48], ground: [196, 178, 140], terrace: [184, 164, 126], stone: [214, 192, 150], stone_rs: [230, 211, 168],
   stone_old: [176, 156, 120], dome: [205, 184, 140], niche: [92, 72, 52], window: [70, 56, 42], water: [58, 143, 160],
@@ -267,7 +304,8 @@ const DEFAULT_PALETTE: Record<string, [number, number, number]> = {
 };
 
 /** build one era of the maquette; returns a Group already scaled & converted to Y-up */
-export function buildExterior(spec: ExteriorSpec & { eraMat?: Partial<Record<Era, Record<string, string>>> }, era: Era): THREE.Group {
+export function buildExterior(spec: ExteriorSpec & { eraMat?: Partial<Record<Era, Record<string, string>>> }, era: Era,
+  opts: { /** photo texture loader (browser only); without it every surface keeps its flat palette colour */ texture?: (name: string, color: boolean) => THREE.Texture } = {}): THREE.Group {
   const palette = { ...DEFAULT_PALETTE, ...spec.palette };
   const alias = spec.eraMat?.[era] ?? {};
   const b = new ExtBuilder((m) => alias[m] ?? m);
@@ -280,12 +318,28 @@ export function buildExterior(spec: ExteriorSpec & { eraMat?: Partial<Record<Era
     const flat = mergeGeometries(geos, false);
     geos.forEach((g) => g.dispose());
     if (!flat) continue;
+    const tx = opts.texture ? spec.textures?.[key] : undefined;
+    if (tx) planarUV(flat, tx.size); // in metres, before the maquette scale
     // weld identical vertices back into an indexed mesh (≈4× smaller GLBs)
     const merged = mergeVertices(flat);
     flat.dispose();
     merged.scale(spec.scale, spec.scale, spec.scale);
     merged.computeBoundingSphere();
     const c = palette[key] ?? [200, 200, 200];
+    if (tx && opts.texture) {
+      const t = tx.tint ?? [255, 255, 255];
+      const mat = new THREE.MeshStandardMaterial({
+        name: key, roughness: 0.9, metalness: 0,
+        color: new THREE.Color(t[0] / 255, t[1] / 255, t[2] / 255),
+        map: opts.texture(`${tx.tex}_diff`, true), normalMap: opts.texture(`${tx.tex}_nor`, false), normalScale: new THREE.Vector2(0.7, 0.7),
+      });
+      const mesh = new THREE.Mesh(merged, mat);
+      mesh.name = key;
+      mesh.castShadow = key !== "base" && key !== "ground";
+      mesh.receiveShadow = true;
+      group.add(mesh);
+      continue;
+    }
     const mat = new THREE.MeshStandardMaterial({
       name: key,
       // the Python generator wrote palette/255 into glTF linear baseColorFactor; keep that for parity

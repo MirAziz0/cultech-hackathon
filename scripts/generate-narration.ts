@@ -59,9 +59,12 @@ async function run(slug: string) {
   const facts: FactsFile = JSON.parse(fs.readFileSync(path.join(dir, "facts.json"), "utf8"));
   const ndir = path.join(dir, "narration");
   fs.mkdirSync(ndir, { recursive: true });
-  // with walk eras every zone has one narration per era: <zone>.<era>.json
+  // with walk eras every zone has one narration per era: <zone>.<era>.json — unless one shared <zone>.json exists
+  // (the guide falls back to it in every era)
   const eras: (string | undefined)[] = m.walk.eras?.length ? m.walk.eras : [undefined];
-  const zones = ["intro", ...Object.keys(m.walk.zoneInfo)].filter((z) => !zoneOnly || z === zoneOnly).flatMap((z) => eras.map((e) => ({ zone: z, era: e })));
+  const shared = (z: string) => fs.existsSync(path.join(ndir, `${z}.json`));
+  const zones = ["intro", ...Object.keys(m.walk.zoneInfo)].filter((z) => !zoneOnly || z === zoneOnly)
+    .flatMap((z) => (shared(z) ? [{ zone: z, era: undefined as string | undefined }] : eras.map((e) => ({ zone: z, era: e }))));
   const wantText = flag("--text"), wantAudio = flag("--audio");
   const client = wantText && (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN) ? new Anthropic() : null;
   if (wantText && !client) console.warn("  ! --text needs ANTHROPIC_API_KEY; keeping existing scripts");

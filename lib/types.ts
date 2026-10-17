@@ -97,17 +97,26 @@ export interface ExteriorSpec {
   /** per-era material aliases, e.g. { past: { stone: "stone_rs" } } */
   eraMat?: Partial<Record<Era, Record<string, string>>>;
   overviewPhotos?: string[];
+  /** photo textures for palette keys in the browser maquette (content/textures/<tex>_diff/_nor.jpg, `size` = metres per
+      tile, `tint` multiplies it); the AR export keeps the flat palette colours */
+  textures?: Record<string, { tex: string; size: number; tint?: [number, number, number] }>;
 }
 
 type PartBase = { eras?: Era[]; mat?: string; /** material per era */ matByEra?: Partial<Record<Era, string>>; /** confidence for this part (documentation only) */ conf?: Confidence };
 export type ExteriorPart = PartBase & (
   | { t: "box"; size: Vec3; at: Vec3 }                                  // bottom-centred at `at`
-  | { t: "cyl"; r: number; h: number; at: Vec3; sides?: number; r2?: number }
+  /** arc = [startDeg, lengthDeg] from +x toward +y (half cylinders: apses) */
+  | { t: "cyl"; r: number; h: number; at: Vec3; sides?: number; r2?: number; arc?: Vec2 }
   | { t: "dome"; r: number; h: number; at: Vec3; pointed?: number; sides?: number }
-  | { t: "tent"; r: number; h: number; at: Vec3; sides?: number }
-  | { t: "niche"; w: number; spring: number; at: Vec3; facing: number; depth?: number }
+  /** cone roof; arc as for cyl (half cone over an apse) */
+  | { t: "tent"; r: number; h: number; at: Vec3; sides?: number; arc?: Vec2 }
+  /** round = semicircular arch instead of a pointed one */
+  | { t: "niche"; w: number; spring: number; at: Vec3; facing: number; depth?: number; round?: boolean }
   | { t: "portal"; w: number; h: number; at: Vec3; facing: number; depth?: number; nicheMat?: string }
-  | { t: "windowRow"; from: number; to: number; along: "x" | "y"; at: Vec2; z: number; facing: number; n: number; w?: number; spring?: number }
+  | { t: "windowRow"; from: number; to: number; along: "x" | "y"; at: Vec2; z: number; facing: number; n: number; w?: number; spring?: number; round?: boolean }
+  /** pitched roof with gable ends; `at` = centre at eave height, ridge along `axis`, size = [along x, along y];
+      gableMat colours the two end triangles (default: the wall stone) */
+  | { t: "gableRoof"; at: Vec3; size: Vec2; h: number; axis: "x" | "y"; gableMat?: string }
   | { t: "tree"; at: Vec3; s?: number; kind?: "round" | "cypress" }
   | { t: "steps"; from: Vec2; dir: Vec2; width: number; n: number; run: number; z0: number; z1: number }
   /** perimeter wall along a closed polyline, merlons, optional corner towers; ruined=true breaks it randomly */
@@ -168,13 +177,15 @@ export interface WalkSpec {
   /** sky, fog and light per era */
   /** sky dome with clouds (zenith colour; the horizon uses `sky`) */
   clouds?: string;
+  /** mountain ridges painted on the sky dome around the horizon (colour of the near ridge) */
+  mountains?: string;
   /** events of the place (sieges, earthquakes, rebuildings) for the zone card's History tab (scripts/monuments/history.ts) */
   history?: HistoryEvent[];
   /** material aliases for every era (era aliases win), e.g. { stone: "limestonePH" } */
   alias?: Record<string, string>;
   /** content/models/<id> tree variants (scripts/import-trees.ts) used for every { kind: "tree" } furniture */
   trees?: string;
-  eraLook?: Partial<Record<Era, { clouds?: string; exposure?: number; sky?: string; fog?: Vec2; sun?: { dir: Vec3; intensity?: number }; ambient?: number; /** material aliases, e.g. { wallIn: "limeWorn" } */ alias?: Record<string, string> }>>;
+  eraLook?: Partial<Record<Era, { clouds?: string; mountains?: string; exposure?: number; sky?: string; fog?: Vec2; sun?: { dir: Vec3; intensity?: number }; ambient?: number; /** material aliases, e.g. { wallIn: "limeWorn" } */ alias?: Record<string, string> }>>;
   defaultEra?: Era;
   elements: El[];
   zones: Zone[];
@@ -258,6 +269,8 @@ export interface Op {
   spring: number;
   kind: "door" | "window" | "niche";
   back?: number;
+  /** semicircular (round) arch instead of the default pointed one */
+  round?: boolean;
   /** window filling */
   fill?: "shebeke" | "glass" | "open" | "mirror";
 }
@@ -273,7 +286,7 @@ export type El = ElBase & (
   | { t: "ngonWalls"; c: Vec2; r: number; n: number; th: number; y0: number; h: number; rot?: number; faces?: (Partial<Op> | null)[] }
   | { t: "room"; x: Vec2; z: Vec2; y0: number; h: number; th: number; ops?: { n?: Op[]; e?: Op[]; s?: Op[]; w?: Op[] }; vault?: "x" | "z" | "flat" | "none"; vaultScale?: number; ceilingMat?: string }
   | { t: "vault"; x: Vec2; z: Vec2; y: number; axis: "x" | "z"; scaleY?: number; pointed?: boolean }
-  | { t: "dome"; c: Vec2; r: number; y: number; sy?: number; outside?: boolean; /** radius of a central opening (oculus) */ hole?: number }
+  | { t: "dome"; c: Vec2; r: number; y: number; sy?: number; outside?: boolean; /** radius of a central opening (oculus) */ hole?: number; /** part of the dome only (semi-dome of an apse): [startDeg, lengthDeg] from +x toward +z */ arc?: Vec2 }
   | { t: "octRing"; c: Vec2; a: number; y0: number; h: number; n?: number }
   | { t: "ringCap"; c: Vec2; r0: number; r1: number; y: number; n?: number }
   | { t: "muqarnas"; c: Vec2; r: number; y: number; tiers?: number; n?: number }
@@ -329,7 +342,18 @@ export type Furniture =
   | { kind: "cenotaph"; at: Vec3; size: Vec3; rotY?: number }
   | { kind: "mihrab"; at: Vec3; rotY?: number; w?: number }
   | { kind: "minbar"; at: Vec3; rotY?: number; steps?: number }
-  | { kind: "lampRing"; at: Vec3; r: number; n?: number }
+  /** ring of candles; metal = the ring's material (default gold) */
+  | { kind: "lampRing"; at: Vec3; r: number; n?: number; metal?: string }
+  /** museum showcase: stone pedestal, glass box, wooden lid, a few pots inside */
+  | { kind: "vitrine"; at: Vec3; size: Vec3; rotY?: number; seed?: number }
+  /** wrought-iron wall sconce with two candles; front faces -z before rotY */
+  | { kind: "sconce"; at: Vec3; rotY?: number; light?: number }
+  /** bronze portrait bust on a stone pedestal */
+  | { kind: "bust"; at: Vec3; rotY?: number }
+  /** bed of rose bushes: leafy clumps with blooms */
+  | { kind: "roses"; at: Vec3; size: Vec2; n?: number; seed?: number; bloom?: string }
+  /** excavated grave shown under glass: a pit in the floor with a skeleton (the floor must leave the pit open) */
+  | { kind: "gravePit"; at: Vec3; size: Vec2; depth?: number; rotY?: number }
   | { kind: "bench"; at: Vec3; size: Vec3; rotY?: number }
   | { kind: "cannon"; at: Vec3; rotY?: number }
   | { kind: "pool"; at: Vec3; r: number; sides?: number }

@@ -63,8 +63,13 @@ function setText(file: string, lang: Lang, text: string, base: Json) {
   write(file, j);
 }
 
-const slugs = fs.readdirSync(path.join(ROOT, "scripts")).map((f) => f.split(".")[0]).filter((s, i, a) => a.indexOf(s) === i && (!only.length || only.includes(s)));
+// every script is parsed (so the historian checklist always covers all monuments); only the chosen ones are written
+const slugs = fs.readdirSync(path.join(ROOT, "scripts")).map((f) => f.split(".")[0]).filter((s, i, a) => a.indexOf(s) === i);
 for (const slug of slugs) {
+  if (only.length && !only.includes(slug)) {
+    for (const lang of LANGS) { const f = path.join(ROOT, "scripts", `${slug}.${lang}.md`); if (fs.existsSync(f)) parse(f); }
+    continue;
+  }
   const m = JSON.parse(fs.readFileSync(path.join(ROOT, "monuments", slug, "manifest.json"), "utf8")) as Manifest;
   const ndir = path.join(ROOT, "monuments", slug, "narration"), sdir = path.join(ndir, "stops");
   const eras = m.walk?.eras ?? [];

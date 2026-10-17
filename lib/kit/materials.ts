@@ -16,6 +16,7 @@ const AVG: Record<string, string> = {
   asphalt_02: "#5a5a54", brick_floor: "#645746", castle_wall_slates: "#8a7e66", dry_ground_01: "#847969", grey_plaster_02: "#8e816c",
   leafy_grass: "#978359", marble_01: "#b19d7a", marble_tiles: "#8c8172", old_stone_wall: "#877763", painted_plaster_wall: "#aba3a0",
   patterned_paving_02: "#736151", red_brick_03: "#6a534b", rock_face: "#614532", rock_tile_floor: "#948d83", sandstone_blocks_08: "#a59275",
+  kish_wall: "#978366", clay_roof_tiles_02: "#91502b", grey_stone_path: "#5e564c",
 };
 function pixel(css: string): HTMLCanvasElement {
   const c = document.createElement("canvas");
@@ -26,6 +27,8 @@ function pixel(css: string): HTMLCanvasElement {
   return c;
 }
 const texCache = new Map<string, THREE.Texture>();
+/** called whenever a photo texture finishes loading (render-on-demand viewers redraw then) */
+export const textureLoaded = new Set<() => void>();
 function photoTex(name: string, color = true): THREE.Texture {
   const key = `${name}:${color}`;
   let t = texCache.get(key);
@@ -38,6 +41,7 @@ function photoTex(name: string, color = true): THREE.Texture {
         tex.dispose(); // the GPU copy has the placeholder's size; drop it so the full image is uploaded
         tex.image = img;
         tex.needsUpdate = true;
+        textureLoaded.forEach((f) => f());
       });
     }
     t.wrapS = t.wrapT = THREE.RepeatWrapping;
@@ -47,6 +51,9 @@ function photoTex(name: string, color = true): THREE.Texture {
   }
   return t;
 }
+/** a content/textures photo (lazy, placeholder colour until loaded) — also used by the exterior maquette */
+export const photoTexture = (name: string, color = true) => photoTex(name, color);
+
 const P = (name: string, worldUV: number, o: THREE.MeshStandardMaterialParameters = {}): MatInfo => ({
   mat: S({ map: photoTex(`${name}_diff`), normalMap: photoTex(`${name}_nor`, false), normalScale: new THREE.Vector2(0.8, 0.8), ...o }),
   worldUV,
@@ -123,6 +130,17 @@ const factories: Record<string, () => MatInfo> = {
   granitePH: () => ({ mat: S({ map: graniteTex(), roughness: 0.72 }), worldUV: 0.8 }), // pink granite (procedural)
   bronzePlaque: () => ({ mat: S({ map: plaqueTex(), metalness: 0.7, roughness: 0.38, envMapIntensity: 1.4 }) }),
   grassBankPH: () => P("leafy_grass", 4, { color: 0xb8d898 }),
+  // Kish church: warm coursed limestone blocks (outside a little sunburnt, inside paler), orange clay roof tiles,
+  // grey flagstone paving of the churchyard
+  kishWallPH: () => P("kish_wall", 4.2, { color: 0xfff4e4, normalScale: new THREE.Vector2(1, 1) }),
+  // inside the stone is paler (photos 2018–2024): the texture also drives a soft emissive lift, so the pattern stays
+  kishWallInPH: () => ({ mat: S({ map: photoTex("kish_wall_diff"), normalMap: photoTex("kish_wall_nor", false), normalScale: new THREE.Vector2(0.6, 0.6), color: 0xfff8ee, emissive: 0x8a8070, emissiveMap: photoTex("kish_wall_diff"), emissiveIntensity: 0.55, side: THREE.DoubleSide }), worldUV: 4.2 }),
+  // lime-plastered vaults and dome: cream, a little self-light
+  kishVaultPH: () => P("painted_plaster_wall", 3, { side: THREE.DoubleSide, color: 0xf1e3c8, emissive: 0x4a4236, emissiveIntensity: 0.45 }),
+  roofTilePH: () => P("clay_roof_tiles_02", 1.6, { color: 0xffe2cc, side: THREE.DoubleSide, normalScale: new THREE.Vector2(1.2, 1.2) }),
+  flagstonePH: () => P("grey_stone_path", 2.6, { color: 0xf2ece4 }),
+  glass: () => ({ mat: S({ color: 0xd8ecf0, roughness: 0.08, metalness: 0.1, transparent: true, opacity: 0.1, depthWrite: false, side: THREE.DoubleSide, envMapIntensity: 0.6 }) }),
+  bronze: () => ({ mat: S({ color: 0x5f4a30, metalness: 0.75, roughness: 0.38, envMapIntensity: 1.4 }) }),
   // vault and dome undersides: a little self-light so crowns read as lit plaster, not shadow
   vaultLime: () => ({ mat: S({ map: plasterTex(false), side: THREE.DoubleSide, emissive: 0x5c574e, emissiveIntensity: 0.55 }), worldUV: 4 }),
   vaultLimeWorn: () => ({ mat: S({ map: plasterTex(true), side: THREE.DoubleSide, emissive: 0x4e4840, emissiveIntensity: 0.5 }), worldUV: 4 }),

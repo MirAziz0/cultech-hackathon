@@ -64,7 +64,9 @@ export class Builder {
     if (local) geo.applyMatrix4(local);
     geo.applyMatrix4(this.frame);
     const info = this.mats.get(key);
-    if (info.worldUV) worldUV(geo, info.worldUV);
+    // curved walls bring their own UVs in metres (arc length × height): only scale them
+    if (info.worldUV && geo.userData.uvMetres) { const uv = geo.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) / info.worldUV, uv.getY(i) / info.worldUV); }
+    else if (info.worldUV) worldUV(geo, info.worldUV);
     let g = geo.index ? geo.toNonIndexed() : geo;
     if (g !== geo) geo.dispose();
     // keep only shared attributes so buckets merge cleanly

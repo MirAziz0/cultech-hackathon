@@ -21,7 +21,7 @@ These came up while collecting facts. Each needs a historian's decision; the app
 - **Erivan Fortress — portraits.** The museum holding them is named as the State Museum of Georgia in one place and the National Gallery of Georgia in another.
 - **Erivan Fortress — gates.** Names (Tabriz, Shirvan, Korpu) are sourced; their positions in the model are a hypothesis.
 - **Erivan Fortress — Hall of Mirrors dimensions.** Unknown. The model's 9 × 12 m hall with a two-column open front follows Gagarin's lithograph proportions.
-- **All monuments — architects.** Usta Rəşid, Usta Fərrux and Usta Kərim are invented representative characters, not historical people, and say so when asked.
+- **All monuments — architects.** Usta Rəşid, Usta Fərrux, Usta Kərim and the Kish master ("Kiş ustası") are invented representative characters, not historical people, and say so when asked.
 
 ### Aghdam Juma Mosque (added October 2026)
 
@@ -37,6 +37,18 @@ These came up while collecting facts. Each needs a historian's decision; the app
 - **Courtyard, streets and houses (19th century).** Pure hypothesis; no plan of 19th-century Aghdam was found.
 - **Square after 2024.** Hedges, paths and trees approximate the 2024 photos; the layout is not surveyed.
 - **Architect persona.** Kərbəlayi Səfixan Qarabaği is a real person; no authentic portrait is known (a 2016 stamp shows a depiction). The app's figure is an original stylised drawing and says so. He speaks first-hand only about events up to 1885 and quotes sources for anything later.
+
+### Kish Albanian Church (added October 2026)
+
+- **No measured plan.** All dimensions (body about 10.4 × 8 m with 1 m walls, eaves 6.6 m, drum Ø 3.7 m, cone apex ≈ 15.3 m, apse r 2.9 m) are estimated from Commons photos (2008–2026). The Armenian survey site raa.am, which may have a plan, could not be reached.
+- **Date.** The state plaque at the gate says "I–V əsr"; the heritage service's reserve page says 12th century; radiocarbon (Beta Analytic, 2000) gives 990–1160 AD for the nave and 3360–3030 BC for the pit under the altar. The app gives all three with attribution.
+- **Which church.** Called a Caucasian Albanian church in Azerbaijan; Wikipedia cites a Georgian chronicle (Georgian Orthodoxy from the 10th c.) and Storfjell's diophysite → monophysite reading. The app says "sources differ" and takes no side.
+- **Chancel floor stages.** Storfjell: 30–40 cm, later about 1 m (17th c.). Albanyolu: raised by 20 cm, later by a further 30 cm. The model uses 0.35 m (12th c.) and 1.0 m (today).
+- **Drum rebuilding.** Albanyolu reads the proportions as a sign of rebuilding (7th–8th c. dome, 12th–13th c. drum, per a garbled passage). The 12th-century view shows today's drum; flagged as uncertain.
+- **19th–20th century use.** Albanyolu: repaired and altered in the 1850s–60s, used as a mosque and a school in the 1920s; single source, not repeated in the narration beyond "repaired, then neglected".
+- **Heyerdahl.** The bust is documented by a photo caption only; its place in the yard is a guess. Heyerdahl's personal role in the Kish project is not confirmed by the sources read.
+- **12th-century yard and village.** River-stone wall, flat-roofed houses and walnut trees are a hypothesis. The roof covering of the 12th century is unknown (the model shows tiles as today).
+- **Today's yard.** Gate, stalls, flower beds, cypresses and the grave under glass follow the 2015–2024 photos; positions are approximate.
 
 ### Materials (October 2026)
 
@@ -56,6 +68,12 @@ The stories in content/scripts/ marked these details for a historian; the guide 
 - erivan-fortress.en.md @court: verify — "One of them belonged to the Rajab Pasha Mosque, built in 1725.…"
 - erivan-fortress.en.md @court: verify — "In 1865, the land was bought by a merchant, and in the 1880s a brandy factory was built on part of the site.…"
 - erivan-fortress.en.md @court: verify — "From drawings by artists who passed through. From descriptions written by travellers. From old plans, old phot…"
+- kish-church.az.md @court: büstün yeri və Heyerdalın layihəyə bağlılığı — "Bir də o tərəfdəki büstə bax. Bu, norveçli səyyah Tur Heyerdaldır. O, Azərbaycanla Skandinaviya arasında qədim…"
+- kish-church.az.md @dome: barabanın yenidən tikilməsi — "Bir maraqlı fikir də var. Tədqiqatçılar düşünür ki, bu baraban sonradan yenidən tikilib, çünki alt və üst hiss…"
+- kish-church.az.md @altar: döşəmə mərhələləri mənbələrdə fərqli göstərilir — "Əvvəlcə cəmi 30–40 santimetr hündür idi. Sonradan təxminən bir metrə qaldırılıb.…"
+- kish-church.en.md @court: the bust's place and Heyerdahl's link to the project — "And look at the bust over there. That's the Norwegian explorer Thor Heyerdahl. He was searching for ancient li…"
+- kish-church.en.md @dome: the drum's rebuilding — "And there's an interesting idea. Researchers think the drum was rebuilt later, because the proportions of the…"
+- kish-church.en.md @altar: sources describe the floor stages differently — "At first it was only 30 to 40 centimetres higher. Later it was raised to about a metre.…"
 - maiden-tower.en.md @intro: about 29.5 m — "This is the Maiden Tower. Almost thirty metres of stone rising from the edge of the Old City.…"
 - maiden-tower.en.md @stop:arrival: verify — "Every child in Baku knows it. It's on postcards, on banknotes, on souvenirs.…"
 - maiden-tower.en.md @stop:inscription: verify — "High on the tower's wall there's an old inscription in Kufic script. It mentions a name, Masud ibn Davud. Some…"
@@ -64,6 +82,10 @@ The stories in content/scripts/ marked these details for a historian; the guide 
 - maiden-tower.en.md @stop:legend: verify — "Some scholars believe the tower was a defensive tower. Others think it was something completely different: per…"
 - maiden-tower.en.md @stop:roof: how close — "Today the sea is a little further away, and the boulevard runs along the shore. But long ago, the water came m…"
 - maiden-tower.en.md @stop:roof: verify — "Some think it made the tower stronger. Some think it pointed in a special direction, toward sunrise on a certa…"
+- shirvanshahs.az.md @court: verify — "Çox illər əvvəl Şirvan hökmdarları Şamaxıda yaşayırdılar. Amma Şamaxı zəlzələlər şəhəri idi. Ona görə şahlar ö…"
+- shirvanshahs.az.md @corr: verify — "Budur Şirvanşahlar türbəsi. Şah I Xəlilullah onu 1435-ci ildə ailəsi üçün, anası və kiçik oğlu üçün tikdirib.…"
+- shirvanshahs.az.md @r3: verify — "Bu gün burada yalnız alçaq divarlar və yerdə otaqların izlərini görəcəksən. Hamam əsrlərlə torpağın altında gi…"
+- shirvanshahs.az.md @stair: verify — "Onlar vaxtilə Bakı yaxınlığında dayanan, sonra isə Xəzərin suları altında qalan bir qaladan gəlir. Üzərlərində…"
 - shirvanshahs.en.md @court: verify — "Long ago, the rulers of Shirvan lived in Shamakhi. But Shamakhi was a city of earthquakes. So the shahs looked…"
 - shirvanshahs.en.md @corr: verify — "Here is the tomb of the Shirvanshahs. Shah Khalilullah I built it in 1435 for his family: his mother and his y…"
 - shirvanshahs.en.md @r3: verify — "Today you'll see only low walls and the shapes of rooms in the ground. It was hidden underground for centuries…"
@@ -147,6 +169,42 @@ The stories in content/scripts/ marked these details for a historian; the guide 
 ### Narration
 
 - [ ] review 8 narration scripts in `content/monuments/erivan-fortress/narration/` (written from facts.json; check wording and hedges)
+
+## Kiş alban məbədi / Kish Albanian Church (`kish-church`)
+
+### Facts marked for verification (5 of 20)
+
+- [ ] **kc-dating-differs** (evidence-based reconstruction) — Sources date it differently: the state plaque at the entrance says '1st–5th century', while the heritage service's reserve page dates the church to the 12th century. The radiocarbon analysis of 2000 places the present building in about the 12th century.
+  - source: [Wikimedia Commons: the plaque at the entrance](https://commons.wikimedia.org/wiki/File:Kish_Albanian_Church_entrance_door.jpg)
+  - source: [Heritage service: Kish Historical-Architectural Reserve](https://www.heritage.org.az/en/managed-units/kish-historical-architectural-reserve)
+  - source: [Azerbaijan International 11.1: The Church in Kish (B. Storfjell)](https://azer.com/aiweb/categories/magazine/ai111_folder/111_articles/111_kish_church.html)
+- [ ] **kc-chancel** (evidence-based reconstruction) — The excavations showed two floor levels: at first the chancel stood 30–40 cm above the nave, later it was raised to about 1 metre. Storfjell dates this change to the 17th century; another study describes the stages as raisings of 20 and 30 cm.
+  - source: [Azerbaijan International 11.1: The Church in Kish (B. Storfjell)](https://azer.com/aiweb/categories/magazine/ai111_folder/111_articles/111_kish_church.html)
+  - source: [Albanyolu.az: Kish Church](https://albanyolu.az/en/blog/churches/24-kish-church.html)
+- [ ] **kc-affiliation** (evidence-based reconstruction) — Sources differ on which church it belonged to. In Azerbaijan it is known as a church of Caucasian Albania; a Georgian chronicle says the village adopted Georgian Orthodoxy in the 10th century; Storfjell thinks the building served first one Christian community and later another. Some historians believe the Udi language prevailed in the village until the 19th century.
+  - source: [Wikipedia: Church of Kish](https://en.wikipedia.org/wiki/Church_of_Kish)
+  - source: [Heritage service: Kish Historical-Architectural Reserve](https://www.heritage.org.az/en/managed-units/kish-historical-architectural-reserve)
+- [ ] **kc-later-use** (evidence-based reconstruction) — According to one source the church was repaired and altered in the mid-19th century, and in the 1920s the building was also used as a school. Before 2000 it stood neglected and abandoned.
+  - source: [Albanyolu.az: Kish Church](https://albanyolu.az/en/blog/churches/24-kish-church.html)
+  - source: [Azerbaijan International 11.1: The Kish project](https://azer.com/aiweb/categories/magazine/ai111_folder/111_articles/111_kish_project.html)
+- [ ] **kc-heyerdahl** (evidence-based reconstruction) — A bust of the Norwegian explorer Thor Heyerdahl stands in the yard. Heyerdahl believed in ancient links between Azerbaijan and Scandinavia; Storfjell, the archaeological advisor of the Kish project, later worked on his final project too.
+  - source: [molon.de: Kish photo gallery](https://molon.de/galleries/Azerbaijan/Kish/)
+  - source: [Azerbaijan International 11.1: The Church in Kish (B. Storfjell)](https://azer.com/aiweb/categories/magazine/ai111_folder/111_articles/111_kish_church.html)
+
+### Reconstructed parts (3D model)
+
+- [ ] building **drum** — evidence-based reconstruction: A tall drum with a tent-shaped roof on top of the large lower body. The sharp difference in proportions suggests a later rebuilding to researchers.
+- [ ] building **village** — hypothesis: Houses of river stone, a wall and trees. What the 12th-century village looked like is unknown: this is an artistic hypothesis.
+- [ ] walk zone **yard** (12th c.) — hypothesis: What the yard looked like in the 12th century is unknown. The river-stone wall, the village houses and the trees are an artistic hypothesis — the old houses of Kish were built of grey river stone.
+- [ ] walk zone **court** (12th c.) — hypothesis: The building's form follows its present state. Researchers think the drum was rebuilt later, so the upper part may have looked different in the 12th century. The roof covering and the yard are an artistic hypothesis.
+- [ ] walk zone **crypt** (12th c.) — evidence-based reconstruction: In the 12th century these graves lay under the ground; the excavations of 2000–2001 opened them. In the model the spot is plain ground.
+- [ ] walk zone **nave** (12th c.) — hypothesis: The hall was plain, with no seats. Traces of frescoes depicting saints were found on the walls. The floor and the oil lamps are an artistic hypothesis.
+- [ ] walk zone **dome** (12th c.) — evidence-based reconstruction: Researchers think the drum was rebuilt later; the exact form of the 12th-century crown is unknown. The model shows the present form.
+- [ ] walk zone **altar** (12th c.) — evidence-based reconstruction: At first the chancel stood only 30–40 cm above the hall; later it was raised to about a metre. Even in the 12th century, the cult pit beneath the altar was already more than 4,000 years old.
+
+### Narration
+
+- [ ] review 8 narration scripts in `content/monuments/kish-church/narration/` (written from facts.json; check wording and hedges)
 
 ## Qız qalası / Maiden Tower (`maiden-tower`)
 

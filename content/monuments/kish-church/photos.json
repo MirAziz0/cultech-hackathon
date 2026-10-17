@@ -1,0 +1,289 @@
+{
+ "photos": [
+  {
+   "id": "today_south",
+   "file": "today_south.jpg",
+   "commons": "Church of Kish (south view), Azerbaijan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Church_of_Kish_(south_view),_Azerbaijan.jpg",
+   "author": "Petar Milošević",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Cənubdan görünüş: zal, xaçvari fronton, baraban və apsida, 2026",
+    "en": "From the south: the hall, the cross gable, the drum and the apse, 2026"
+   },
+   "w": 1200,
+   "h": 971
+  },
+  {
+   "id": "today_southeast",
+   "file": "today_southeast.jpg",
+   "commons": "Church of Kish (south-east view), Azerbaijan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Church_of_Kish_(south-east_view),_Azerbaijan.jpg",
+   "author": "Petar Milošević",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Cənub-şərqdən: yarımdairəvi apsida və onun kirəmit örtüyü, 2026",
+    "en": "From the south-east: the semicircular apse and its tiled roof, 2026"
+   },
+   "w": 800,
+   "h": 1200
+  },
+  {
+   "id": "today_west",
+   "file": "today_west.jpg",
+   "commons": "Church of Kish 1.2.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Church_of_Kish_1.2.jpg",
+   "author": "Emin Allahverdi",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Qərb fasadı: qoşa tağlı giriş, üstündə dar pəncərə, 2018",
+    "en": "The west front: the double-arched door with a narrow window above, 2018"
+   },
+   "w": 900,
+   "h": 1200
+  },
+  {
+   "id": "today_steps",
+   "file": "today_steps.jpg",
+   "commons": "Church of Kish 1.1.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Church_of_Kish_1.1.jpg",
+   "author": "Emin Allahverdi",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Məbədə qalxan pilləkən və daş döşənmiş həyət, 2018",
+    "en": "The steps up to the church and the stone-paved yard, 2018"
+   },
+   "w": 900,
+   "h": 1200
+  },
+  {
+   "id": "today_northwest",
+   "file": "today_northwest.jpg",
+   "commons": "Church of Kish - photo 3.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Church_of_Kish_-_photo_3.jpg",
+   "author": "Rüfət Həsənli",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "caption": {
+    "az": "Şimal-qərbdən görünüş, arxada Böyük Qafqazın meşəli dağları, 2024",
+    "en": "From the north-west, with the forested Greater Caucasus behind, 2024"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "today_drum",
+   "file": "today_drum.jpg",
+   "commons": "Kish Albanian Church from side.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kish_Albanian_Church_from_side.jpg",
+   "author": "havin_hp",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Baraban: dar pəncərələr, karniz və kirəmitli konus, 2017",
+    "en": "The drum: narrow windows, the cornice and the tiled cone, 2017"
+   },
+   "w": 1096,
+   "h": 1200
+  },
+  {
+   "id": "today_roof",
+   "file": "today_roof.jpg",
+   "commons": "Orange roof of Kish Albanian church in Sheki.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Orange_roof_of_Kish_Albanian_church_in_Sheki.jpg",
+   "author": "havin_hp",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Barabanın narıncı kirəmit örtüyü, 2017",
+    "en": "The orange clay tiles of the drum roof, 2017"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "today_yard",
+   "file": "today_yard.jpg",
+   "commons": "Kish Church Yard.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kish_Church_Yard.jpg",
+   "author": "Fmelikov",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Giriş darvazası və həyət, 2018",
+    "en": "The entrance gate and the yard, 2018"
+   },
+   "w": 1008,
+   "h": 756
+  },
+  {
+   "id": "today_plaque",
+   "file": "today_plaque.jpg",
+   "commons": "Kish Albanian Church entrance door.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kish_Albanian_Church_entrance_door.jpg",
+   "author": "havin_hp",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Darvazadakı dövlət lövhəsi: «Kiş alban məbədi, I–V əsr», 2017",
+    "en": "The state plaque at the gate: 'Kish Albanian Temple, 1st–5th century', 2017"
+   },
+   "w": 1200,
+   "h": 366
+  },
+  {
+   "id": "today_garden",
+   "file": "today_garden.jpg",
+   "commons": "Church, Kish (P1090438).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Church,_Kish_(P1090438).jpg",
+   "author": "Matti Blume",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Bağ və məbəd, 2019",
+    "en": "The garden and the church, 2019"
+   },
+   "w": 900,
+   "h": 1200
+  },
+  {
+   "id": "view_2010",
+   "file": "view_2010.jpg",
+   "commons": "Kish Albanian Church.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kish_Albanian_Church.jpg",
+   "author": "John Deckinga",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Qərbdən görünüş, 2010",
+    "en": "From the west, 2010"
+   },
+   "w": 713,
+   "h": 1080
+  },
+  {
+   "id": "view_2008",
+   "file": "view_2008.jpg",
+   "commons": "Alban Church, Kish village, Shaki, Azerbaijan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Alban_Church,_Kish_village,_Shaki,_Azerbaijan.jpg",
+   "author": "Rhajizada",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Qərbdən görünüş, 2008",
+    "en": "From the west, 2008"
+   },
+   "w": 900,
+   "h": 1200
+  },
+  {
+   "id": "inside_apse",
+   "file": "inside_apse.jpg",
+   "commons": "Kish Church Inside 4.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kish_Church_Inside_4.jpg",
+   "author": "Fmelikov",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "İçəridən şərqə baxış: apsida, altar, çilçıraq və vitrinlər, 2018",
+    "en": "Looking east inside: the apse, the altar, the chandelier and the showcases, 2018"
+   },
+   "w": 1008,
+   "h": 756
+  },
+  {
+   "id": "inside_museum",
+   "file": "inside_museum.jpg",
+   "commons": "Kish Church Inside 1.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kish_Church_Inside_1.jpg",
+   "author": "Fmelikov",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Vitrinlərdə qazıntı tapıntıları, 2018",
+    "en": "Excavation finds in the showcases, 2018"
+   },
+   "w": 1200,
+   "h": 900
+  },
+  {
+   "id": "inside_altar",
+   "file": "inside_altar.jpg",
+   "commons": "Church of Kish 1.4.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Church_of_Kish_1.4.jpg",
+   "author": "Emin Allahverdi",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Hündür altar hissəsi və apsidanın pəncərəsi, 2018",
+    "en": "The raised chancel and the apse window, 2018"
+   },
+   "w": 900,
+   "h": 1200
+  },
+  {
+   "id": "inside_dome",
+   "file": "inside_dome.jpg",
+   "commons": "Interior of Church of Kish - photo 2.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Interior_of_Church_of_Kish_-_photo_2.jpg",
+   "author": "Rüfət Həsənli",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "caption": {
+    "az": "Yelkənlər üzərində günbəz və dəmir çilçıraq, 2024",
+    "en": "The dome on pendentives and the iron chandelier, 2024"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "burial",
+   "file": "burial.jpg",
+   "commons": "Church of Kish burial.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Church_of_Kish_burial.JPG",
+   "author": "Interfase",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Həyətdə şüşə altında göstərilən qəbir, 2015",
+    "en": "A grave shown under glass in the yard, 2015"
+   },
+   "w": 500,
+   "h": 1100
+  },
+  {
+   "id": "finds_pottery",
+   "file": "finds_pottery.jpg",
+   "commons": "Albanian Church, Kish (P1090403).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Albanian_Church,_Kish_(P1090403).jpg",
+   "author": "Matti Blume",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Orta Tunc – antik dövr saxsı qabları, 2019",
+    "en": "Pottery from the Middle Bronze Age to antiquity, 2019"
+   },
+   "w": 1200,
+   "h": 900
+  },
+  {
+   "id": "finds_crosses",
+   "file": "finds_crosses.jpg",
+   "commons": "Kish temple crosses.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kish_temple_crosses.jpg",
+   "author": "Aykhan Zayedzadeh",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "caption": {
+    "az": "Məbəddə nümayiş olunan metal xaç, 2024",
+    "en": "A metal cross on display in the church, 2024"
+   },
+   "w": 990,
+   "h": 1200
+  }
+ ]
+}
