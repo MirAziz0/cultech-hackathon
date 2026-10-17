@@ -12,11 +12,31 @@ export const geminiConfigured = () => !!process.env.GEMINI_API_KEY;
 const MODEL = () => process.env.GEMINI_TTS_MODEL || "gemini-3.8-flash-tts";
 /** Algieba (smooth, lower pitch — chosen by the project owner) and Sulafat (warm, female); override with GEMINI_VOICE_MALE / GEMINI_VOICE_FEMALE */
 const VOICE = (v: "male" | "female") => (v === "male" ? process.env.GEMINI_VOICE_MALE || "Algieba" : process.env.GEMINI_VOICE_FEMALE || "Sulafat");
-const STYLE: Record<Lang, string> = {
-  az: "A calm, warm museum guide telling a story to one visitor, in native Azerbaijani (Baku) pronunciation. Unhurried, friendly, with natural pauses; questions rise gently, sentences ending in an ellipsis trail off.",
-  en: "A calm, warm museum guide telling a story to one visitor, in clear British English. Unhurried, friendly, with natural pauses; questions rise gently, sentences ending in an ellipsis trail off.",
-};
+/** English: one request for the whole text (the project owner liked this delivery as it is) */
+const STYLE_EN = "A calm, warm museum guide telling a story to one visitor, in clear British English. Unhurried, friendly, with natural pauses; questions rise gently, sentences ending in an ellipsis trail off.";
 const SERIOUS = " Lines that matter most are spoken slower, lower and with weight.";
+
+/* Azerbaijani: read in one request it sounded flat, so every paragraph (or two plain ones together) is its own
+   turn with a short emotion direction taken from its punctuation, joined with pauses that follow that tone.
+   Short styles on purpose: Google's guide says long direction blocks make the voice drift. */
+type Tone = "say" | "ask" | "exclaim" | "trail" | "serious" | "quote";
+const TONE: Record<Tone, { style: string; gap: number }> = {
+  say: { style: "warm and lively storyteller, smiling, natural conversational rhythm", gap: 380 },
+  ask: { style: "curious and inviting, really asking the listener, the question rising", gap: 700 },
+  exclaim: { style: "excited and amazed, full of wonder", gap: 450 },
+  trail: { style: "thoughtful and wistful, slowing down, voice softening", gap: 850 },
+  serious: { style: "slow, quiet and moved, with awe", gap: 950 },
+  quote: { style: "playful, acting out the quoted voices", gap: 500 },
+};
+function toneOf(text: string, serious: boolean): Tone {
+  if (serious) return "serious";
+  const t = text.trim();
+  if (/(…|\.\.\.)$/.test(t)) return "trail";
+  if (/\?$/.test(t)) return "ask";
+  if (/!$/.test(t)) return "exclaim";
+  if (/["“”«»]/.test(t)) return "quote";
+  return "say";
+}
 
 /** markers out of the spoken text, positions kept (same rules as the Edge path) */
 function stripMarkers(src: string): { plain: string; at: { pos: number; name: string }[] } {
@@ -30,10 +50,10 @@ function stripMarkers(src: string): { plain: string; at: { pos: number; name: st
   return { plain: plain.replace(/[ \t]+/g, " ").trim(), at };
 }
 
-async function request(text: string, lang: Lang, voice: "male" | "female", serious: boolean): Promise<Buffer> {
+async function request(text: string, voice: "male" | "female", style: string): Promise<Buffer> {
   const body = {
     model: MODEL(),
-    input: [{ type: "user_input", content: [{ type: "text", text, annotations: [{ type: "speech_metadata", style: STYLE[lang] + (serious ? SERIOUS : "") }] }] }],
+    input: [{ type: "user_input", content: [{ type: "text", text, annotations: [{ type: "speech_metadata", style }] }] }],
     response_format: { type: "audio" },
     generation_config: { speech_config: [{ voice: VOICE(voice) }] },
   };
@@ -110,12 +130,57 @@ function visemesFromAudio(text: string, pcm: Int16Array, rate: number): Viseme[]
   return out;
 }
 
+/** cut leading/trailing near-silence (keeps 40 ms), so the pauses between turns are ours */
+function trim(pcm: Int16Array, rate: number): Int16Array {
+  const n = Math.round(rate * 0.01), keep = Math.round(rate * 0.04);
+  const loud = (i: number) => { let m = 0; for (let k = i; k < Math.min(pcm.length, i + n); k++) m = Math.max(m, Math.abs(pcm[k])); return m > 900; };
+  let a = 0, b = pcm.length;
+  while (a < b && !loud(a)) a += n;
+  while (b > a && !loud(Math.max(0, b - n))) b -= n;
+  return pcm.subarray(Math.max(0, a - keep), Math.min(pcm.length, b + keep));
+}
+
 export async function geminiSynthesizeStory(src: string, lang: Lang, voice: "male" | "female"): Promise<{ audio: Buffer; visemes: Viseme[]; marks: { t: number; name: string }[] }> {
-  const { plain, at } = stripMarkers(src);
-  const { pcm, rate } = readWav(await request(plain, lang, voice, at.some((m) => m.name === "serious")));
-  const durMs = (pcm.length / rate) * 1000;
-  const marks = at.map((m) => ({ t: Math.round((m.pos / Math.max(1, plain.length)) * durMs), name: m.name }));
-  return { audio: await toMp3(pcm, rate), visemes: visemesFromAudio(plain, pcm, rate), marks };
+  if (lang === "en") {
+    const { plain, at } = stripMarkers(src);
+    const { pcm, rate } = readWav(await request(plain, voice, STYLE_EN + (at.some((m) => m.name === "serious") ? SERIOUS : "")));
+    const durMs = (pcm.length / rate) * 1000;
+    const marks = at.map((m) => ({ t: Math.round((m.pos / Math.max(1, plain.length)) * durMs), name: m.name }));
+    return { audio: await toMp3(pcm, rate), visemes: visemesFromAudio(plain, pcm, rate), marks };
+  }
+  // paragraphs → turns: consecutive plain ("say") paragraphs are read together, two at most
+  const paras = src.split(/\n+/).map((p) => p.trim()).filter(Boolean).map((p) => {
+    const { plain, at } = stripMarkers(p);
+    return { plain, at, tone: toneOf(plain, at.some((m) => m.name === "serious")), n: 1 };
+  }).filter((p) => p.plain || p.at.length);
+  const turns: typeof paras = [];
+  for (const p of paras) {
+    const last = turns[turns.length - 1];
+    if (last && p.tone === "say" && last.tone === "say" && last.n < 2) {
+      const off = last.plain.length + 1;
+      last.plain += " " + p.plain;
+      last.at.push(...p.at.map((m) => ({ pos: m.pos + off, name: m.name })));
+      last.n++;
+    } else turns.push({ ...p, at: [...p.at] });
+  }
+  let rate = 24000;
+  const parts: Int16Array[] = [], marks: { t: number; name: string }[] = [];
+  let ms = 0;
+  for (const [i, t] of turns.entries()) {
+    if (!t.plain) { marks.push(...t.at.map((m) => ({ t: Math.round(ms), name: m.name }))); continue; }
+    const w = readWav(await request(t.plain, voice, TONE[t.tone].style));
+    rate = w.rate;
+    const pcm = trim(w.pcm, rate), dur = (pcm.length / rate) * 1000;
+    marks.push(...t.at.map((m) => ({ t: Math.round(ms + (m.pos / Math.max(1, t.plain.length)) * dur), name: m.name })));
+    parts.push(pcm);
+    ms += dur;
+    if (i < turns.length - 1) { const gap = new Int16Array(Math.round((TONE[t.tone].gap / 1000) * rate)); parts.push(gap); ms += TONE[t.tone].gap; }
+  }
+  const all = new Int16Array(parts.reduce((a, p) => a + p.length, 0));
+  let o = 0;
+  for (const p of parts) { all.set(p, o); o += p.length; }
+  const plainAll = turns.map((t) => t.plain).join(" ");
+  return { audio: await toMp3(all, rate), visemes: visemesFromAudio(plainAll, all, rate), marks };
 }
 
 export async function geminiSynthesize(text: string, lang: Lang, voice: "male" | "female"): Promise<{ audio: Buffer; visemes: Viseme[] }> {
