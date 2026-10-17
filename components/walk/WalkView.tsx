@@ -287,9 +287,6 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
         </div>
         <canvas ref={miniRef} aria-hidden="true" className="pointer-events-none h-[112px] w-[168px] rounded border border-white/25 max-sm:h-[80px] max-sm:w-[120px]" />
       </div>
-      <div className="glass pointer-events-none absolute top-[max(14px,env(safe-area-inset-top))] left-1/2 -translate-x-1/2 rounded-[3px] px-2.5 py-1.5 font-mono text-[11px] whitespace-nowrap max-lg:hidden">
-        {t("walkHint")}
-      </div>
       {walkEras.length > 1 && (
         <div role="group" aria-label={t("era")}
           className="glass absolute top-[calc(max(12px,env(safe-area-inset-top))+52px)] left-1/2 z-10 flex -translate-x-1/2 gap-1 rounded-full p-1 max-sm:top-[calc(max(12px,env(safe-area-inset-top))+90px)] max-sm:right-[max(12px,env(safe-area-inset-right))] max-sm:left-auto max-sm:translate-x-0">
