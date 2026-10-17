@@ -1,0 +1,13 @@
+{
+ "zone": "street",
+ "text": {
+  "az": "Bu, qalanın küçələrindən biridir. Mənbələrə görə qalada səkkiz yüzə yaxın ev və iki minlik qarnizon olub. Uzaqda Sərdar məscidinin günbəzi görünür. Küçənin özü və evlərin görünüşü bizim təxminimizdir. Qarşıdakı darvaza sarayın həyətinə aparır.",
+  "en": "This is one of the fortress streets. The sources say the fortress held some eight hundred houses and a garrison of two thousand. In the distance you see the dome of the Sardar's Mosque. The street itself and the houses are our estimate. The gate ahead leads into the palace courtyard."
+ },
+ "factIds": [
+  "ef-size",
+  "ef-garrison",
+  "ef-mosques"
+ ],
+ "generatedBy": "hand"
+}

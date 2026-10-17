@@ -1,0 +1,13 @@
+{
+ "zone": "l1",
+ "text": {
+  "az": "Hər mərtəbəni ortasında açıq yeri olan dayaz daş günbəzlə örtdük. Divar boyu saxsı borulara diqqət et — ikinci mərtəbədən yeddinciyə qədər hər mərtəbədə belə novlar var. Bəziləri hesab edir ki, onlar yağış suyunu quyuya ötürürdü.",
+  "en": "We covered every storey with a shallow stone cupola that has an opening in the middle. Notice the clay pipes along the wall — every storey from the second to the seventh has such gutters. Some think they carried rainwater down to the well."
+ },
+ "factIds": [
+  "mt-floors",
+  "mt-gutters",
+  "mt-well"
+ ],
+ "generatedBy": "hand"
+}

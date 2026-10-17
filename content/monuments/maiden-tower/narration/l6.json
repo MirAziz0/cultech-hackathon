@@ -1,0 +1,11 @@
+{
+ "zone": "l6",
+ "text": {
+  "az": "Adının mənşəyi barədə bir neçə əfsanə danışılır: birində qız düşmən sərkərdəsini təkbətək döyüşdə məğlub edir, başqasında özünü qurban verir. Bunlar xalq rəvayətidir, tarix deyil. Amma bu əfsanələr min illərdir qalanı yaşadır.",
+  "en": "Several legends tell where the name comes from: in one a girl defeats the enemy commander in single combat, in another she sacrifices herself. These are folk tales, not history. Yet these legends have kept the tower alive for centuries."
+ },
+ "factIds": [
+  "mt-legend"
+ ],
+ "generatedBy": "hand"
+}

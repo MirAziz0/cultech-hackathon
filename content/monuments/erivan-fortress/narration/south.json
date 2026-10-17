@@ -1,0 +1,12 @@
+{
+ "zone": "south",
+ "text": {
+  "az": "Bu otağı kaşı və rəsmlərlə bəzədik. Sarayda naxışlı kaşıların işləndiyi bilinir, amma bu otağın özü təsəvvürdür. Sarayın Qacar dövrünə aid bəzi əşyaları bərpa edilib və iki min on doqquzuncu ildə Bakıda nümayiş olunub.",
+  "en": "We decorated this room with tiles and paintings. Patterned tiles are known from the palace, but this room itself is imagined. Some Qajar-period items from the palace were restored and shown in Baku in 2019."
+ },
+ "factIds": [
+  "sp-mirrors",
+  "sp-tiles"
+ ],
+ "generatedBy": "hand"
+}

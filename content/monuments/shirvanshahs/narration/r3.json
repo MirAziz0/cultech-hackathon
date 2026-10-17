@@ -1,0 +1,12 @@
+{
+ "zone": "r3",
+ "text": {
+  "az": "Şərq otağında hündür taxt və kitab rəhləsi təsəvvür etdik. Deyilənə görə, şərq fasadında da erkər pəncərə var idi; ona görə taxtı pəncərənin qarşısına qoyduq ki, oxuyanın üstünə səhər işığı düşsün. Bu otağın əsl təyinatını tarixçilər hələ dəqiq bilmir.",
+  "en": "In the east room we imagined a raised platform and a book stand. It is said the east facade also had a bay window, so we set the platform in front of it, letting the morning light fall on whoever was reading. Historians still do not know this room's true purpose."
+ },
+ "factIds": [
+  "bay-windows",
+  "palace-rooms"
+ ],
+ "generatedBy": "hand"
+}

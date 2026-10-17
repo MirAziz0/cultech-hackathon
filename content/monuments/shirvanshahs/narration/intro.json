@@ -1,0 +1,12 @@
+{
+ "zone": "intro",
+ "text": {
+  "az": "Salam, xoş gəlmisən! Mən Usta Rəşidəm — bu sarayı tikən Şirvan ustalarından biri kimi səninlə danışıram. Deyilənə görə, Şirvanşah İbrahim dağıdıcı zəlzələdən sonra paytaxtı Şamaxıdan Bakıya köçürdü və bu təpədə saray ucaltdıq. Gəl, qərb portalından içəri keçək — hər zalı sənə özüm göstərəcəyəm.",
+  "en": "Greetings, and welcome! I am Master Rashid — I speak as one of the Shirvan masters who built this palace. It is said that Shirvanshah Ibrahim moved the capital from Shamakhi to Baku after a terrible earthquake, and so we raised a palace on this hill. Come, let us enter through the west portal — I will show you every hall myself."
+ },
+ "factIds": [
+  "capital-move",
+  "palace-15c"
+ ],
+ "generatedBy": "hand"
+}

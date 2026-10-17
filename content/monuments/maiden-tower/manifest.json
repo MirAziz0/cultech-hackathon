@@ -1,0 +1,4607 @@
+{
+ "slug": "maiden-tower",
+ "order": 2,
+ "name": {
+  "az": "Qız qalası",
+  "en": "Maiden Tower"
+ },
+ "tagline": {
+  "az": "Sirli qala, səkkiz mərtəbə",
+  "en": "A mysterious tower of eight storeys"
+ },
+ "period": {
+  "az": "XII əsr (mübahisəli)",
+  "en": "12th century (debated)"
+ },
+ "location": {
+  "lat": 40.3661,
+  "lon": 49.8372,
+  "place": {
+   "az": "İçərişəhər, Bakı",
+   "en": "Old City, Baku"
+  }
+ },
+ "cover": "ext_0",
+ "eras": {
+  "past": {
+   "label": {
+    "az": "Orta əsrlər",
+    "en": "Middle Ages"
+   },
+   "badge": {
+    "az": "ORTA ƏSRLƏR · BƏRPA",
+    "en": "MIDDLE AGES · RECONSTRUCTION"
+   },
+   "summary": {
+    "az": "Bərpa versiyası qalanı orta əsr şəhərinin kənarında göstərir; dəniz sahilinin yaxın olması fərziyyədir. Qalanın tikilmə tarixi hələ də mübahisəlidir.",
+    "en": "The reconstruction shows the tower at the edge of the medieval town; the nearby shoreline is a hypothesis. The tower's date is still debated."
+   }
+  },
+  "today": {
+   "label": {
+    "az": "Bu gün",
+    "en": "Today"
+   },
+   "badge": {
+    "az": "BU GÜN · MUZEY",
+    "en": "TODAY · MUSEUM"
+   },
+   "summary": {
+    "az": "Bu gün qala Bakının tarixinə həsr olunmuş muzeydir; damından İçərişəhər və Bakı buxtası görünür.",
+    "en": "Today the tower is a museum of Baku's history; its roof overlooks the Old City and Baku Bay."
+   }
+  }
+ },
+ "defaultEra": "past",
+ "architect": {
+  "name": {
+   "az": "Usta Fərrux",
+   "en": "Master Farrukh"
+  },
+  "role": {
+   "az": "Orta əsr Bakı qala ustası · təmsili obraz",
+   "en": "Medieval Baku tower master · representative character"
+  },
+  "voice": "male",
+  "look": {
+   "robe": "#6b4a2e",
+   "sash": "#2f7d78",
+   "headwear": "cap",
+   "beard": true
+  },
+  "greeting": {
+   "az": "Xoş gəldin! Mən bu qalanı tikən ustaları təmsil edən obrazam. Bil ki, qalanın sirləri çoxdur — tarixçilər hələ də mübahisə edir. Bildiyimizi deyəcəm, bilmədiyimizi də gizlətməyəcəm.",
+   "en": "Welcome! I am a character standing for the masters who built this tower. Know that it keeps many secrets — historians still argue. I'll tell you what we know and won't hide what we don't."
+  }
+ },
+ "exterior": {
+  "scale": 0.016,
+  "seed": 3,
+  "palette": {
+   "tower": [
+    178,
+    166,
+    140
+   ],
+   "house": [
+    214,
+    198,
+    162
+   ],
+   "inscr": [
+    96,
+    84,
+    66
+   ],
+   "ground": [
+    200,
+    186,
+    152
+   ]
+  },
+  "home": {
+   "target": [
+    0,
+    0.18,
+    0
+   ],
+   "az": -30,
+   "pol": 60,
+   "dist": 1.05
+  },
+  "parts": [
+   {
+    "t": "box",
+    "size": [
+     60,
+     54,
+     1.2
+    ],
+    "at": [
+     0,
+     -2,
+     -1.2
+    ],
+    "mat": "base"
+   },
+   {
+    "t": "box",
+    "size": [
+     58,
+     52,
+     0.08
+    ],
+    "at": [
+     0,
+     -2,
+     -0.06
+    ],
+    "mat": "ground"
+   },
+   {
+    "t": "water",
+    "size": [
+     58,
+     13
+    ],
+    "at": [
+     0,
+     -21.5,
+     0
+    ],
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "box",
+    "size": [
+     58,
+     3,
+     0.3
+    ],
+    "at": [
+     0,
+     -14,
+     0
+    ],
+    "mat": "path",
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "box",
+    "size": [
+     58,
+     9,
+     0.1
+    ],
+    "at": [
+     0,
+     -21,
+     0
+    ],
+    "mat": "path",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -24,
+     -18,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -21,
+     -24,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -18,
+     -18,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -15,
+     -24,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -12,
+     -18,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -9,
+     -24,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -6,
+     -18,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -3,
+     -24,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     0,
+     -18,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     3,
+     -24,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     6,
+     -18,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     9,
+     -24,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     12,
+     -18,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     15,
+     -24,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     18,
+     -18,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     21,
+     -24,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     24,
+     -18,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     27,
+     -24,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "wallLoop",
+    "pts": [
+     [
+      -28,
+      6
+     ],
+     [
+      -18,
+      20
+     ],
+     [
+      4,
+      23
+     ],
+     [
+      24,
+      21
+     ]
+    ],
+    "h": 6,
+    "th": 2.2,
+    "merlons": true,
+    "towers": {
+     "r": 2.4,
+     "h": 8
+    },
+    "closed": false
+   },
+   {
+    "t": "box",
+    "size": [
+     6.773,
+     4.931,
+     4.524
+    ],
+    "at": [
+     -3.024,
+     14.598,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.379,
+     4.188,
+     3.91
+    ],
+    "at": [
+     0.131,
+     15.299,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.08,
+     4.084,
+     5.947
+    ],
+    "at": [
+     -22.194,
+     17.096,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     5.847,
+     4.315,
+     3.045
+    ],
+    "at": [
+     24.132,
+     15.539,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     4.09,
+     4.928,
+     4.322
+    ],
+    "at": [
+     -16.919,
+     11.419,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     5.921,
+     5.0,
+     4.987
+    ],
+    "at": [
+     17.649,
+     14.191,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.521,
+     5.416,
+     3.946
+    ],
+    "at": [
+     25.876,
+     18.957,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     4.211,
+     5.533,
+     4.201
+    ],
+    "at": [
+     -14.828,
+     11.89,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.874,
+     5.695,
+     3.002
+    ],
+    "at": [
+     17.869,
+     12.865,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     5.41,
+     5.961,
+     4.192
+    ],
+    "at": [
+     -15.885,
+     18.103,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.336,
+     4.54,
+     3.261
+    ],
+    "at": [
+     -23.129,
+     15.295,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.274,
+     4.236,
+     3.739
+    ],
+    "at": [
+     -9.373,
+     18.641,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.391,
+     4.355,
+     4.678
+    ],
+    "at": [
+     -21.645,
+     9.599,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     5.931,
+     4.233,
+     4.262
+    ],
+    "at": [
+     11.79,
+     10.31,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.913,
+     5.607,
+     3.912
+    ],
+    "at": [
+     -15.718,
+     11.698,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     5.183,
+     5.709,
+     4.926
+    ],
+    "at": [
+     19.898,
+     11.107,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     4.64,
+     4.517,
+     5.318
+    ],
+    "at": [
+     -21.682,
+     18.893,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     4.22,
+     4.18,
+     4.748
+    ],
+    "at": [
+     -9.565,
+     11.963,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     5.115,
+     4.906,
+     5.877
+    ],
+    "at": [
+     -14.12,
+     15.013,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.6,
+     4.366,
+     3.462
+    ],
+    "at": [
+     -1.363,
+     14.746,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     4.748,
+     4.38,
+     5.218
+    ],
+    "at": [
+     21.146,
+     17.178,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.85,
+     5.764,
+     4.811
+    ],
+    "at": [
+     22.841,
+     10.966,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     4.077,
+     5.925,
+     3.477
+    ],
+    "at": [
+     -21.521,
+     -8.131,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     5.647,
+     5.193,
+     3.587
+    ],
+    "at": [
+     -17.84,
+     -5.374,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     4.138,
+     4.457,
+     4.119
+    ],
+    "at": [
+     -24.719,
+     2.966,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     4.56,
+     5.835,
+     3.408
+    ],
+    "at": [
+     -15.919,
+     1.057,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     4.891,
+     4.121,
+     3.353
+    ],
+    "at": [
+     -26.785,
+     -5.155,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     4.263,
+     4.724,
+     4.782
+    ],
+    "at": [
+     -22.206,
+     0.299,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     5.382,
+     5.169,
+     3.281
+    ],
+    "at": [
+     -14.254,
+     1.825,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     5.82,
+     5.402,
+     4.926
+    ],
+    "at": [
+     -26.544,
+     -9.678,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     4.964,
+     5.461,
+     3.638
+    ],
+    "at": [
+     -26.724,
+     1.451,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     5.092,
+     5.474,
+     4.8
+    ],
+    "at": [
+     -14.008,
+     -8.645,
+     0
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "cyl",
+    "r": 8.25,
+    "h": 29.5,
+    "at": [
+     0,
+     0,
+     0
+    ],
+    "sides": 56,
+    "mat": "tower"
+   },
+   {
+    "t": "cyl",
+    "r": 8.4,
+    "h": 0.5,
+    "at": [
+     0,
+     0,
+     29.0
+    ],
+    "sides": 56,
+    "mat": "tower"
+   },
+   {
+    "t": "prism",
+    "pts": [
+     [
+      6.6,
+      -2.5
+     ],
+     [
+      10.4,
+      -2.5
+     ],
+     [
+      12.2,
+      -1.3
+     ],
+     [
+      12.7,
+      0
+     ],
+     [
+      12.2,
+      1.3
+     ],
+     [
+      10.4,
+      2.5
+     ],
+     [
+      6.6,
+      2.5
+     ]
+    ],
+    "h": 27.2,
+    "z": 0,
+    "mat": "tower"
+   },
+   {
+    "t": "niche",
+    "w": 1.8,
+    "spring": 1.7,
+    "at": [
+     5.834,
+     -5.834,
+     0
+    ],
+    "facing": -45,
+    "depth": 0.3
+   },
+   {
+    "t": "niche",
+    "w": 0.5,
+    "spring": 1.1,
+    "at": [
+     -7.752,
+     -2.822,
+     5
+    ],
+    "facing": 200,
+    "depth": 0.12,
+    "mat": "window"
+   },
+   {
+    "t": "niche",
+    "w": 0.5,
+    "spring": 1.1,
+    "at": [
+     -1.433,
+     -8.125,
+     8.5
+    ],
+    "facing": -100,
+    "depth": 0.12,
+    "mat": "window"
+   },
+   {
+    "t": "niche",
+    "w": 0.5,
+    "spring": 1.1,
+    "at": [
+     -7.145,
+     4.125,
+     12
+    ],
+    "facing": 150,
+    "depth": 0.12,
+    "mat": "window"
+   },
+   {
+    "t": "niche",
+    "w": 0.5,
+    "spring": 1.1,
+    "at": [
+     4.125,
+     7.145,
+     15.5
+    ],
+    "facing": 60,
+    "depth": 0.12,
+    "mat": "window"
+   },
+   {
+    "t": "niche",
+    "w": 0.5,
+    "spring": 1.1,
+    "at": [
+     -7.145,
+     -4.125,
+     19
+    ],
+    "facing": -150,
+    "depth": 0.12,
+    "mat": "window"
+   },
+   {
+    "t": "niche",
+    "w": 0.5,
+    "spring": 1.1,
+    "at": [
+     -2.822,
+     7.752,
+     22.5
+    ],
+    "facing": 110,
+    "depth": 0.12,
+    "mat": "window"
+   },
+   {
+    "t": "niche",
+    "w": 0.5,
+    "spring": 1.1,
+    "at": [
+     7.145,
+     -4.125,
+     26
+    ],
+    "facing": -30,
+    "depth": 0.12,
+    "mat": "window"
+   },
+   {
+    "t": "niche",
+    "w": 0.5,
+    "spring": 1.1,
+    "at": [
+     -1.433,
+     8.125,
+     9
+    ],
+    "facing": 100,
+    "depth": 0.12,
+    "mat": "window"
+   },
+   {
+    "t": "niche",
+    "w": 0.5,
+    "spring": 1.1,
+    "at": [
+     -2.822,
+     -7.752,
+     16
+    ],
+    "facing": 250,
+    "depth": 0.12,
+    "mat": "window"
+   },
+   {
+    "t": "niche",
+    "w": 0.5,
+    "spring": 1.1,
+    "at": [
+     7.752,
+     2.822,
+     23
+    ],
+    "facing": 20,
+    "depth": 0.12,
+    "mat": "window"
+   },
+   {
+    "t": "box",
+    "size": [
+     3.2,
+     0.25,
+     0.8
+    ],
+    "at": [
+     0,
+     -8.3,
+     14
+    ],
+    "mat": "inscr"
+   },
+   {
+    "t": "tree",
+    "at": [
+     -12,
+     -9,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     12,
+     -11,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -15,
+     2,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     16,
+     6,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ]
+   }
+  ],
+  "overviewPhotos": [
+   "ext_1",
+   "old_0"
+  ]
+ },
+ "buildings": [
+  {
+   "id": "tower",
+   "name": {
+    "az": "Qız qalası",
+    "en": "Maiden Tower"
+   },
+   "date": {
+    "az": "XII ƏSR (MÜBAHİSƏLİ)",
+    "en": "12TH C. (DEBATED)"
+   },
+   "pos": [
+    -3,
+    3,
+    31
+   ],
+   "conf": "ok",
+   "walk": true,
+   "text": {
+    "az": "29,5 metr hündürlüyündə, diametri 16,5 metr olan silindrik daş qala. Səkkiz mərtəbəsi var, hər mərtəbə ortasında açıq yeri olan dayaz daş günbəzlə örtülüb. Tikilmə tarixi mübahisəlidir.",
+    "en": "A cylindrical stone tower 29.5 m high and 16.5 m across. It has eight storeys, each covered by a shallow stone cupola with an opening in the middle. Its date is debated."
+   },
+   "photos": [
+    "ext_0",
+    "ext_1",
+    "ext_3",
+    "night_0"
+   ],
+   "factIds": [
+    "mt-size",
+    "mt-floors",
+    "mt-dating"
+   ]
+  },
+  {
+   "id": "buttress",
+   "name": {
+    "az": "Şərq çıxıntısı",
+    "en": "East buttress"
+   },
+   "date": {
+    "az": "QALA İLƏ BİRLİKDƏ",
+    "en": "WITH THE TOWER"
+   },
+   "pos": [
+    11,
+    0,
+    24
+   ],
+   "conf": "mid",
+   "text": {
+    "az": "Qalanın şərq tərəfindəki uzun, bütöv daş çıxıntı. Bəzi tədqiqatçılar onun gün-gecə bərabərliyi istiqamətinə yönəldiyini və astronomik məna daşıdığını düşünür, amma bu fərziyyədir. Maketdə ölçüləri təxminidir.",
+    "en": "The long solid projection on the tower's east side. Some researchers think it points to the equinox sunrise and had an astronomical meaning, but this is a hypothesis. Its size in the model is approximate."
+   },
+   "photos": [
+    "ext_0",
+    "inside_2"
+   ],
+   "factIds": [
+    "mt-buttress"
+   ]
+  },
+  {
+   "id": "entrance",
+   "name": {
+    "az": "Giriş",
+    "en": "Entrance"
+   },
+   "date": {
+    "az": "CƏNUB-ŞƏRQ",
+    "en": "SOUTH-EAST"
+   },
+   "pos": [
+    6.4,
+    -6.4,
+    4
+   ],
+   "conf": "ok",
+   "text": {
+    "az": "Qalanın qapısı cənub-şərqə baxır. Qalın divarın içindən keçən dar keçid birinci mərtəbəyə aparır.",
+    "en": "The tower's door faces south-east. A narrow passage through the thick wall leads to the ground floor."
+   },
+   "photos": [
+    "ext_2"
+   ],
+   "factIds": [
+    "mt-entrance",
+    "mt-walls"
+   ]
+  },
+  {
+   "id": "inscription",
+   "name": {
+    "az": "Kufi kitabə",
+    "en": "Kufic inscription"
+   },
+   "date": {
+    "az": "14 M HÜNDÜRLÜKDƏ",
+    "en": "14 M UP"
+   },
+   "pos": [
+    0,
+    -9,
+    15.5
+   ],
+   "conf": "ok",
+   "text": {
+    "az": "Cənub divarında, təxminən 14 metr hündürlükdə kufi xətli kitabə var: orada “Qubbeyi Məsud ibn Davud” adı oxunur. Bu adın memara aid olub-olmadığı mübahisəlidir.",
+    "en": "On the south wall, about 14 m up, is a Kufic inscription reading “Qubbeye Masud ibn Davud”. Whether the name refers to the architect is disputed."
+   },
+   "photos": [
+    "ext_3"
+   ],
+   "factIds": [
+    "mt-inscription"
+   ]
+  },
+  {
+   "id": "wall",
+   "name": {
+    "az": "İçərişəhər qala divarı",
+    "en": "Old City wall"
+   },
+   "date": {
+    "az": "ORTA ƏSRLƏR",
+    "en": "MEDIEVAL"
+   },
+   "pos": [
+    -6,
+    22,
+    9
+   ],
+   "conf": "ok",
+   "text": {
+    "az": "Qız qalası İçərişəhərin cənub-şərq hissəsində, qala divarlarına yaxın yerləşir. Maketdə divar və evlər sxematikdir.",
+    "en": "The Maiden Tower stands in the south-east of the Old City, near its walls. Walls and houses in the model are schematic."
+   },
+   "photos": [
+    "model_0"
+   ],
+   "factIds": [
+    "mt-unesco"
+   ]
+  },
+  {
+   "id": "shore",
+   "name": {
+    "az": "Xəzər sahili (fərziyyə)",
+    "en": "Caspian shore (hypothesis)"
+   },
+   "date": {
+    "az": "BƏRPA",
+    "en": "RECONSTRUCTION"
+   },
+   "pos": [
+    0,
+    -21,
+    1.5
+   ],
+   "conf": "hyp",
+   "pastOnly": true,
+   "text": {
+    "az": "Fərziyyə: keçmişdə dəniz qalaya indikindən daha yaxın ola bilərdi. Maketdə sahil xətti təxminidir, tarixçi təsdiqi lazımdır.",
+    "en": "Hypothesis: in the past the sea may have come closer to the tower than today. The shoreline in the model is approximate and needs a historian's check."
+   },
+   "photos": [
+    "old_0",
+    "old_1"
+   ],
+   "factIds": [
+    "mt-roof-view"
+   ]
+  }
+ ],
+ "walk": {
+  "title": {
+   "az": "Qız qalasının içində",
+   "en": "Inside the Maiden Tower"
+  },
+  "eye": 1.62,
+  "defaultFloor": 0,
+  "start": {
+   "x": 12.021,
+   "z": 12.021,
+   "yaw": 45,
+   "pitch": 0.12
+  },
+  "sky": "#a9cbe0",
+  "fog": [
+   70,
+   300
+  ],
+  "map": {
+   "bounds": [
+    -9.5,
+    13,
+    -9.5,
+    9.5
+   ],
+   "hide": [
+    "plaza"
+   ],
+   "levels": [
+    {
+     "name": {
+      "az": "1",
+      "en": "1"
+     },
+     "y": 0.0,
+     "at": [
+      0.531,
+      1.98
+     ],
+     "yaw": 15.0
+    },
+    {
+     "name": {
+      "az": "2",
+      "en": "2"
+     },
+     "y": 3.5,
+     "at": [
+      -0.568,
+      -2.118
+     ],
+     "yaw": -165.0
+    },
+    {
+     "name": {
+      "az": "3",
+      "en": "3"
+     },
+     "y": 7.0,
+     "at": [
+      0.605,
+      2.256
+     ],
+     "yaw": 15.0
+    },
+    {
+     "name": {
+      "az": "4",
+      "en": "4"
+     },
+     "y": 10.5,
+     "at": [
+      -0.642,
+      -2.395
+     ],
+     "yaw": -165.0
+    },
+    {
+     "name": {
+      "az": "5",
+      "en": "5"
+     },
+     "y": 14.0,
+     "at": [
+      0.678,
+      2.532
+     ],
+     "yaw": 15.0
+    },
+    {
+     "name": {
+      "az": "6",
+      "en": "6"
+     },
+     "y": 17.5,
+     "at": [
+      -0.715,
+      -2.67
+     ],
+     "yaw": -165.0
+    },
+    {
+     "name": {
+      "az": "7",
+      "en": "7"
+     },
+     "y": 21.0,
+     "at": [
+      0.752,
+      2.808
+     ],
+     "yaw": 15.0
+    },
+    {
+     "name": {
+      "az": "8",
+      "en": "8"
+     },
+     "y": 24.5,
+     "at": [
+      -0.789,
+      -2.946
+     ],
+     "yaw": -165.0
+    },
+    {
+     "name": {
+      "az": "Dam",
+      "en": "Roof"
+     },
+     "y": 28.0,
+     "at": [
+      -6.39,
+      -2.326
+     ],
+     "yaw": -135,
+     "pitch": -0.32
+    }
+   ]
+  },
+  "sun": {
+   "dir": [
+    18,
+    30,
+    22
+   ],
+   "intensity": 0.95
+  },
+  "ambient": 0.55,
+  "elements": [
+   {
+    "t": "terrain",
+    "rect": [
+     -120,
+     120,
+     -120,
+     120
+    ],
+    "y": -0.02,
+    "color": "#b9a57f"
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -28,
+     28,
+     -28,
+     28
+    ],
+    "y": 0,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "plane",
+    "at": [
+     60,
+     -1.2,
+     140
+    ],
+    "size": [
+     400,
+     160
+    ],
+    "rotX": -90,
+    "mat": "water"
+   },
+   {
+    "t": "box",
+    "min": [
+     -55.576,
+     0,
+     -54.614
+    ],
+    "max": [
+     -46.6,
+     6.699,
+     -44.902
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     25.958,
+     0,
+     -20.584
+    ],
+    "max": [
+     33.286,
+     6.245,
+     -10.867
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     27.196,
+     0,
+     -25.278
+    ],
+    "max": [
+     34.541,
+     5.719,
+     -19.045
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -32.271,
+     0,
+     -17.848
+    ],
+    "max": [
+     -26.188,
+     7.582,
+     -11.45
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -0.502,
+     0,
+     -43.109
+    ],
+    "max": [
+     8.484,
+     6.087,
+     -37.415
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     17.772,
+     0,
+     19.911
+    ],
+    "max": [
+     27.129,
+     4.077,
+     25.959
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     74.538,
+     0,
+     -13.528
+    ],
+    "max": [
+     80.984,
+     5.696,
+     -3.72
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -23.625,
+     0,
+     -42.749
+    ],
+    "max": [
+     -13.92,
+     7.833,
+     -34.296
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     34.162,
+     0,
+     -32.532
+    ],
+    "max": [
+     40.968,
+     3.729,
+     -26.702
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     40.002,
+     0,
+     16.582
+    ],
+    "max": [
+     48.018,
+     6.39,
+     21.599
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -29.953,
+     0,
+     37.526
+    ],
+    "max": [
+     -20.86,
+     4.579,
+     44.93
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -71.508,
+     0,
+     3.227
+    ],
+    "max": [
+     -66.223,
+     3.114,
+     13.102
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -2.644,
+     0,
+     -81.248
+    ],
+    "max": [
+     2.446,
+     4.831,
+     -72.309
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -31.225,
+     0,
+     -18.335
+    ],
+    "max": [
+     -25.991,
+     7.776,
+     -12.43
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     70.694,
+     0,
+     -38.431
+    ],
+    "max": [
+     77.416,
+     5.624,
+     -31.657
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     1.672,
+     0,
+     -41.733
+    ],
+    "max": [
+     10.414,
+     7.298,
+     -32.747
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     77.234,
+     0,
+     15.384
+    ],
+    "max": [
+     82.69,
+     6.054,
+     22.088
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     38.728,
+     0,
+     -28.484
+    ],
+    "max": [
+     48.349,
+     4.562,
+     -20.758
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -19.569,
+     0,
+     34.94
+    ],
+    "max": [
+     -14.178,
+     6.446,
+     40.685
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     37.931,
+     0,
+     -5.801
+    ],
+    "max": [
+     43.174,
+     5.668,
+     4.133
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -40.994,
+     0,
+     20.285
+    ],
+    "max": [
+     -33.025,
+     5.278,
+     29.417
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -35.603,
+     0,
+     13.917
+    ],
+    "max": [
+     -26.023,
+     5.468,
+     19.081
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     16.2,
+     0,
+     -37.94
+    ],
+    "max": [
+     24.858,
+     6.152,
+     -28.191
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     5.32,
+     0,
+     -39.456
+    ],
+    "max": [
+     12.493,
+     7.224,
+     -33.71
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     72.229,
+     0,
+     -3.973
+    ],
+    "max": [
+     82.109,
+     5.441,
+     3.294
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -10.597,
+     0,
+     -60.424
+    ],
+    "max": [
+     -4.142,
+     3.733,
+     -53.405
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -65.314,
+     0,
+     54.847
+    ],
+    "max": [
+     -55.515,
+     5.497,
+     62.982
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -22.561,
+     0,
+     26.739
+    ],
+    "max": [
+     -16.2,
+     7.337,
+     35.649
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -51.861,
+     0,
+     52.126
+    ],
+    "max": [
+     -42.986,
+     6.32,
+     60.599
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -1.159,
+     0,
+     -54.37
+    ],
+    "max": [
+     7.364,
+     5.428,
+     -47.966
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     5.257,
+     0,
+     -72.953
+    ],
+    "max": [
+     11.727,
+     6.248,
+     -63.225
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -32.382,
+     0,
+     -18.957
+    ],
+    "max": [
+     -24.647,
+     6.358,
+     -12.704
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -77.371,
+     0,
+     12.879
+    ],
+    "max": [
+     -69.134,
+     4.739,
+     21.867
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -48.481,
+     0,
+     -59.301
+    ],
+    "max": [
+     -39.34,
+     7.214,
+     -52.551
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     41.911,
+     0,
+     -54.839
+    ],
+    "max": [
+     51.792,
+     5.591,
+     -45.056
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -44.707,
+     0,
+     -12.324
+    ],
+    "max": [
+     -35.524,
+     5.386,
+     -2.637
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -29.562,
+     0,
+     -68.376
+    ],
+    "max": [
+     -20.91,
+     6.902,
+     -62.517
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -62.332,
+     0,
+     -36.782
+    ],
+    "max": [
+     -55.228,
+     6.874,
+     -28.663
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -48.361,
+     0,
+     -56.085
+    ],
+    "max": [
+     -43.222,
+     5.205,
+     -50.285
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -29.822,
+     0,
+     -39.376
+    ],
+    "max": [
+     -21.392,
+     3.209,
+     -31.222
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -45.927,
+     0,
+     4.978
+    ],
+    "max": [
+     -40.656,
+     4.587,
+     10.646
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     15.027,
+     0,
+     34.737
+    ],
+    "max": [
+     20.205,
+     4.901,
+     42.064
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -51.394,
+     0,
+     -45.64
+    ],
+    "max": [
+     -45.205,
+     3.003,
+     -36.124
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -42.263,
+     0,
+     23.405
+    ],
+    "max": [
+     -35.213,
+     7.157,
+     28.98
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -27.843,
+     0,
+     21.41
+    ],
+    "max": [
+     -19.776,
+     5.726,
+     26.884
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     69.261,
+     0,
+     -24.058
+    ],
+    "max": [
+     76.357,
+     6.211,
+     -14.993
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -30.95,
+     0,
+     25.002
+    ],
+    "max": [
+     -22.971,
+     7.786,
+     32.822
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     59.584,
+     0,
+     -17.568
+    ],
+    "max": [
+     66.339,
+     3.005,
+     -8.1
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     44.237,
+     0,
+     36.033
+    ],
+    "max": [
+     52.313,
+     6.147,
+     41.736
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     36.691,
+     0,
+     -35.838
+    ],
+    "max": [
+     43.849,
+     4.457,
+     -29.706
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     46.447,
+     0,
+     -13.761
+    ],
+    "max": [
+     56.252,
+     5.979,
+     -4.193
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -57.304,
+     0,
+     -3.707
+    ],
+    "max": [
+     -50.709,
+     5.459,
+     6.215
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     43.207,
+     0,
+     41.786
+    ],
+    "max": [
+     50.425,
+     6.909,
+     48.252
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     11.344,
+     0,
+     -32.15
+    ],
+    "max": [
+     19.006,
+     7.676,
+     -25.781
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     5.796,
+     0,
+     -47.005
+    ],
+    "max": [
+     12.134,
+     7.944,
+     -41.231
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -69.349,
+     0,
+     6.145
+    ],
+    "max": [
+     -61.33,
+     3.591,
+     14.863
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -0.704,
+     0,
+     -51.175
+    ],
+    "max": [
+     6.964,
+     4.484,
+     -44.494
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -59.019,
+     0,
+     -14.924
+    ],
+    "max": [
+     -52.213,
+     5.954,
+     -6.199
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     40.556,
+     0,
+     5.505
+    ],
+    "max": [
+     47.834,
+     7.44,
+     15.088
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -35.882,
+     0,
+     -12.829
+    ],
+    "max": [
+     -26.99,
+     5.878,
+     -5.691
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -20.72,
+     0,
+     -68.039
+    ],
+    "max": [
+     -13.311,
+     4.927,
+     -58.481
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -63.009,
+     0,
+     45.236
+    ],
+    "max": [
+     -57.027,
+     7.15,
+     51.719
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     65.607,
+     0,
+     27.193
+    ],
+    "max": [
+     74.08,
+     4.432,
+     34.357
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     12.545,
+     0,
+     -82.47
+    ],
+    "max": [
+     18.258,
+     5.745,
+     -75.078
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     -20,
+     0,
+     14
+    ],
+    "h": 6
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     -14,
+     0,
+     22
+    ],
+    "h": 6
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     14,
+     0,
+     20
+    ],
+    "h": 6
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     22,
+     0,
+     12
+    ],
+    "h": 6
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     -22,
+     0,
+     -6
+    ],
+    "h": 6
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     20,
+     0,
+     -16
+    ],
+    "h": 6
+   },
+   {
+    "t": "ngonWalls",
+    "c": [
+     0,
+     0
+    ],
+    "r": 5.6,
+    "n": 40,
+    "th": 2.6500000000000004,
+    "y0": 0,
+    "h": 3.5,
+    "rot": 0,
+    "mat": "stoneGrey",
+    "faces": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 1.6,
+      "sill": 0,
+      "spring": 1.5,
+      "kind": "door"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "t": "cylWall",
+    "c": [
+     0,
+     0
+    ],
+    "r": 5.6,
+    "th": 2.6500000000000004,
+    "y0": 3.5,
+    "h": 26.0,
+    "sides": 56,
+    "mat": "stoneGrey"
+   },
+   {
+    "t": "box",
+    "min": [
+     6.8,
+     0,
+     -2.5
+    ],
+    "max": [
+     11.6,
+     27.2,
+     2.5
+    ],
+    "mat": "stoneGrey"
+   },
+   {
+    "t": "relief",
+    "at": [
+     0,
+     14.4,
+     8.29
+    ],
+    "size": [
+     3.4,
+     0.8
+    ],
+    "rotY": 0,
+    "pattern": "kufic"
+   },
+   {
+    "t": "group",
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 45
+    },
+    "children": [
+     {
+      "t": "box",
+      "min": [
+       3.0,
+       0,
+       -1.25
+      ],
+      "max": [
+       8.25,
+       2.9,
+       -0.8
+      ],
+      "mat": "stoneGrey"
+     },
+     {
+      "t": "box",
+      "min": [
+       3.0,
+       0,
+       0.8
+      ],
+      "max": [
+       8.25,
+       2.9,
+       1.25
+      ],
+      "mat": "stoneGrey"
+     },
+     {
+      "t": "box",
+      "min": [
+       3.0,
+       2.5,
+       -1.25
+      ],
+      "max": [
+       8.25,
+       2.9,
+       1.25
+      ],
+      "mat": "stoneGrey"
+     },
+     {
+      "t": "floor",
+      "rect": [
+       3.0,
+       8.75,
+       -0.8,
+       0.8
+      ],
+      "y": 0.005,
+      "mat": "floorGrey"
+     }
+    ]
+   },
+   {
+    "t": "ngonWalls",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.25,
+    "n": 24,
+    "th": 1.35,
+    "y0": 0.0,
+    "h": 3.5,
+    "rot": 0,
+    "mat": "stoneGrey",
+    "faces": [
+     null,
+     null,
+     null,
+     {
+      "w": 1.6,
+      "sill": 0,
+      "spring": 1.5,
+      "kind": "door"
+     },
+     null,
+     {
+      "w": 1.0,
+      "sill": 0,
+      "spring": 1.6,
+      "kind": "door"
+     },
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "t": "disc",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.27,
+    "hole": 0.35,
+    "y": 0.005,
+    "sides": 48,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.25,
+    "y": 2.665,
+    "sy": 0.22,
+    "hole": 0.62,
+    "mat": "stoneGreyDS"
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     -1.464,
+     2.6,
+     -1.025
+    ],
+    "light": 0.9,
+    "distance": 9
+   },
+   {
+    "t": "shaft",
+    "at": [
+     -1.625,
+     2.0,
+     2.815
+    ],
+    "to": [
+     -0.406,
+     0.0,
+     0.704
+    ],
+    "w": 0.5
+   },
+   {
+    "t": "ngonWalls",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.393,
+    "n": 24,
+    "th": 1.207,
+    "y0": 3.5,
+    "h": 3.5,
+    "rot": 0,
+    "mat": "stoneGrey",
+    "faces": [
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "w": 1.0,
+      "sill": 0,
+      "spring": 1.6,
+      "kind": "door"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "t": "disc",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.413,
+    "hole": 0.6,
+    "y": 3.505,
+    "sides": 48,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.393,
+    "y": 6.134,
+    "sy": 0.22,
+    "hole": 0.62,
+    "mat": "stoneGreyDS"
+   },
+   {
+    "t": "cylWall",
+    "c": [
+     0,
+     0
+    ],
+    "r": 0.68,
+    "y0": 3.5,
+    "h": 0.95,
+    "sides": 20,
+    "mat": "iron"
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     1.529,
+     6.1,
+     1.07
+    ],
+    "light": 0.9,
+    "distance": 9
+   },
+   {
+    "t": "shaft",
+    "at": [
+     1.697,
+     5.5,
+     2.938
+    ],
+    "to": [
+     0.424,
+     3.5,
+     0.735
+    ],
+    "w": 0.5
+   },
+   {
+    "t": "ngonWalls",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.536,
+    "n": 24,
+    "th": 1.064,
+    "y0": 7.0,
+    "h": 3.5,
+    "rot": 0,
+    "mat": "stoneGrey",
+    "faces": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 1.0,
+      "sill": 0,
+      "spring": 1.6,
+      "kind": "door"
+     },
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "t": "disc",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.556,
+    "hole": 0.6,
+    "y": 7.005,
+    "sides": 48,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.536,
+    "y": 9.602,
+    "sy": 0.22,
+    "hole": 0.62,
+    "mat": "stoneGreyDS"
+   },
+   {
+    "t": "cylWall",
+    "c": [
+     0,
+     0
+    ],
+    "r": 0.68,
+    "y0": 7.0,
+    "h": 0.95,
+    "sides": 20,
+    "mat": "iron"
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     -1.593,
+     9.6,
+     -1.115
+    ],
+    "light": 0.9,
+    "distance": 9
+   },
+   {
+    "t": "shaft",
+    "at": [
+     -1.768,
+     9.0,
+     3.062
+    ],
+    "to": [
+     -0.442,
+     7.0,
+     0.766
+    ],
+    "w": 0.5
+   },
+   {
+    "t": "ngonWalls",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.679,
+    "n": 24,
+    "th": 0.921,
+    "y0": 10.5,
+    "h": 3.5,
+    "rot": 0,
+    "mat": "stoneGrey",
+    "faces": [
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "w": 1.0,
+      "sill": 0,
+      "spring": 1.6,
+      "kind": "door"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "t": "disc",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.699,
+    "hole": 0.6,
+    "y": 10.505,
+    "sides": 48,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.679,
+    "y": 13.071,
+    "sy": 0.22,
+    "hole": 0.62,
+    "mat": "stoneGreyDS"
+   },
+   {
+    "t": "cylWall",
+    "c": [
+     0,
+     0
+    ],
+    "r": 0.68,
+    "y0": 10.5,
+    "h": 0.95,
+    "sides": 20,
+    "mat": "iron"
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     1.658,
+     13.1,
+     1.161
+    ],
+    "light": 0.9,
+    "distance": 9
+   },
+   {
+    "t": "shaft",
+    "at": [
+     1.84,
+     12.5,
+     3.186
+    ],
+    "to": [
+     0.46,
+     10.5,
+     0.797
+    ],
+    "w": 0.5
+   },
+   {
+    "t": "ngonWalls",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.821,
+    "n": 24,
+    "th": 0.779,
+    "y0": 14.0,
+    "h": 3.5,
+    "rot": 0,
+    "mat": "stoneGrey",
+    "faces": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 1.0,
+      "sill": 0,
+      "spring": 1.6,
+      "kind": "door"
+     },
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "t": "disc",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.841,
+    "hole": 0.6,
+    "y": 14.005,
+    "sides": 48,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.821,
+    "y": 16.539,
+    "sy": 0.22,
+    "hole": 0.62,
+    "mat": "stoneGreyDS"
+   },
+   {
+    "t": "cylWall",
+    "c": [
+     0,
+     0
+    ],
+    "r": 0.68,
+    "y0": 14.0,
+    "h": 0.95,
+    "sides": 20,
+    "mat": "iron"
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     -1.721,
+     16.6,
+     -1.205
+    ],
+    "light": 0.9,
+    "distance": 9
+   },
+   {
+    "t": "shaft",
+    "at": [
+     -1.91,
+     16.0,
+     3.309
+    ],
+    "to": [
+     -0.478,
+     14.0,
+     0.827
+    ],
+    "w": 0.5
+   },
+   {
+    "t": "ngonWalls",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.964,
+    "n": 24,
+    "th": 0.636,
+    "y0": 17.5,
+    "h": 3.5,
+    "rot": 0,
+    "mat": "stoneGrey",
+    "faces": [
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "w": 1.0,
+      "sill": 0,
+      "spring": 1.6,
+      "kind": "door"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "t": "disc",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.984,
+    "hole": 0.6,
+    "y": 17.505,
+    "sides": 48,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.964,
+    "y": 20.008,
+    "sy": 0.22,
+    "hole": 0.62,
+    "mat": "stoneGreyDS"
+   },
+   {
+    "t": "cylWall",
+    "c": [
+     0,
+     0
+    ],
+    "r": 0.68,
+    "y0": 17.5,
+    "h": 0.95,
+    "sides": 20,
+    "mat": "iron"
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     1.786,
+     20.1,
+     1.251
+    ],
+    "light": 0.9,
+    "distance": 9
+   },
+   {
+    "t": "shaft",
+    "at": [
+     1.982,
+     19.5,
+     3.433
+    ],
+    "to": [
+     0.496,
+     17.5,
+     0.858
+    ],
+    "w": 0.5
+   },
+   {
+    "t": "ngonWalls",
+    "c": [
+     0,
+     0
+    ],
+    "r": 4.107,
+    "n": 24,
+    "th": 0.493,
+    "y0": 21.0,
+    "h": 3.5,
+    "rot": 0,
+    "mat": "stoneGrey",
+    "faces": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 1.0,
+      "sill": 0,
+      "spring": 1.6,
+      "kind": "door"
+     },
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "t": "disc",
+    "c": [
+     0,
+     0
+    ],
+    "r": 4.127,
+    "hole": 0.6,
+    "y": 21.005,
+    "sides": 48,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     0
+    ],
+    "r": 4.107,
+    "y": 23.476,
+    "sy": 0.22,
+    "hole": 0.62,
+    "mat": "stoneGreyDS"
+   },
+   {
+    "t": "cylWall",
+    "c": [
+     0,
+     0
+    ],
+    "r": 0.68,
+    "y0": 21.0,
+    "h": 0.95,
+    "sides": 20,
+    "mat": "iron"
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     -1.85,
+     23.6,
+     -1.296
+    ],
+    "light": 0.9,
+    "distance": 9
+   },
+   {
+    "t": "shaft",
+    "at": [
+     -2.053,
+     23.0,
+     3.557
+    ],
+    "to": [
+     -0.513,
+     21.0,
+     0.889
+    ],
+    "w": 0.5
+   },
+   {
+    "t": "ngonWalls",
+    "c": [
+     0,
+     0
+    ],
+    "r": 4.25,
+    "n": 24,
+    "th": 0.35,
+    "y0": 24.5,
+    "h": 3.5,
+    "rot": 0,
+    "mat": "stoneGrey",
+    "faces": [
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     {
+      "w": 0.4,
+      "sill": 1.3,
+      "spring": 0.9,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "w": 1.0,
+      "sill": 0,
+      "spring": 1.6,
+      "kind": "door"
+     },
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "t": "disc",
+    "c": [
+     0,
+     0
+    ],
+    "r": 4.27,
+    "hole": 0.6,
+    "y": 24.505,
+    "sides": 48,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     0
+    ],
+    "r": 4.25,
+    "y": 26.945,
+    "sy": 0.22,
+    "hole": 0.62,
+    "mat": "stoneGreyDS"
+   },
+   {
+    "t": "cylWall",
+    "c": [
+     0,
+     0
+    ],
+    "r": 0.68,
+    "y0": 24.5,
+    "h": 0.95,
+    "sides": 20,
+    "mat": "iron"
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     1.915,
+     27.1,
+     1.341
+    ],
+    "light": 0.9,
+    "distance": 9
+   },
+   {
+    "t": "shaft",
+    "at": [
+     2.125,
+     26.5,
+     3.681
+    ],
+    "to": [
+     0.531,
+     24.5,
+     0.92
+    ],
+    "w": 0.5
+   },
+   {
+    "t": "well",
+    "c": [
+     0,
+     0
+    ],
+    "r": 0.35,
+    "y": 0,
+    "depth": 21,
+    "mat": "stoneGrey"
+   },
+   {
+    "t": "light",
+    "at": [
+     0,
+     1.2,
+     0
+    ],
+    "intensity": 0.3,
+    "distance": 3,
+    "color": "#9fd7ff"
+   },
+   {
+    "t": "column",
+    "c": [
+     1.525,
+     -2.641
+    ],
+    "r": 0.12,
+    "y0": 3.5,
+    "h": 17.5,
+    "sides": 10,
+    "mat": "c:#a8673a"
+   },
+   {
+    "t": "box",
+    "min": [
+     -2.404,
+     10.5,
+     -1.147
+    ],
+    "max": [
+     -0.604,
+     11.35,
+     0.053
+    ],
+    "mat": "wood"
+   },
+   {
+    "t": "box",
+    "min": [
+     -2.204,
+     11.35,
+     -0.947
+    ],
+    "max": [
+     -1.854,
+     11.4,
+     -0.697
+    ],
+    "mat": "c:#e3d3b0"
+   },
+   {
+    "t": "box",
+    "min": [
+     -1.654,
+     11.35,
+     -0.947
+    ],
+    "max": [
+     -1.304,
+     11.55,
+     -0.697
+    ],
+    "mat": "c:#e3d3b0"
+   },
+   {
+    "t": "box",
+    "min": [
+     -1.104,
+     11.35,
+     -0.947
+    ],
+    "max": [
+     -0.754,
+     11.5,
+     -0.697
+    ],
+    "mat": "c:#e3d3b0"
+   },
+   {
+    "t": "box",
+    "min": [
+     -2.204,
+     11.35,
+     -0.567
+    ],
+    "max": [
+     -1.854,
+     11.45,
+     -0.317
+    ],
+    "mat": "c:#e3d3b0"
+   },
+   {
+    "t": "box",
+    "min": [
+     -1.654,
+     11.35,
+     -0.567
+    ],
+    "max": [
+     -1.304,
+     11.4,
+     -0.317
+    ],
+    "mat": "c:#e3d3b0"
+   },
+   {
+    "t": "box",
+    "min": [
+     -1.104,
+     11.35,
+     -0.567
+    ],
+    "max": [
+     -0.754,
+     11.55,
+     -0.317
+    ],
+    "mat": "c:#e3d3b0"
+   },
+   {
+    "t": "box",
+    "min": [
+     -2.204,
+     11.35,
+     -0.187
+    ],
+    "max": [
+     -1.854,
+     11.5,
+     0.063
+    ],
+    "mat": "c:#e3d3b0"
+   },
+   {
+    "t": "box",
+    "min": [
+     -1.654,
+     11.35,
+     -0.187
+    ],
+    "max": [
+     -1.304,
+     11.45,
+     0.063
+    ],
+    "mat": "c:#e3d3b0"
+   },
+   {
+    "t": "box",
+    "min": [
+     -1.104,
+     11.35,
+     -0.187
+    ],
+    "max": [
+     -0.754,
+     11.4,
+     0.063
+    ],
+    "mat": "c:#e3d3b0"
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     -1.35,
+     7.0,
+     2.338
+    ],
+    "s": 0.3,
+    "color": "#a86b2d"
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     -2.006,
+     7.0,
+     1.807
+    ],
+    "s": 0.3,
+    "color": "#2f7d78"
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     -2.467,
+     7.0,
+     1.098
+    ],
+    "s": 0.3,
+    "color": "#d9c49a"
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     -2.685,
+     7.0,
+     0.282
+    ],
+    "s": 0.3,
+    "color": "#a86b2d"
+   },
+   {
+    "t": "relief",
+    "at": [
+     0.0,
+     15.7,
+     3.783
+    ],
+    "size": [
+     2.2,
+     0.6
+    ],
+    "rotY": 180,
+    "pattern": "kufic"
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     1.559,
+     21.0,
+     -0.9
+    ],
+    "size": [
+     1.4,
+     2.0
+    ],
+    "pattern": 2,
+    "rotY": 60
+   },
+   {
+    "t": "ringStair",
+    "c": [
+     0,
+     0
+    ],
+    "r0": 4.6,
+    "r1": 5.6,
+    "y0": 0,
+    "a0": 75,
+    "turnDeg": 1440.0,
+    "steps": 144,
+    "rise": 0.194,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "ringStair",
+    "c": [
+     0,
+     0
+    ],
+    "r0": 4.6,
+    "r1": 5.6,
+    "y0": 2.55,
+    "a0": 75,
+    "turnDeg": 1300.0,
+    "steps": 130,
+    "rise": 0.194,
+    "mat": "stoneGrey"
+   },
+   {
+    "t": "light",
+    "at": [
+     -4.926,
+     3.0,
+     1.32
+    ],
+    "intensity": 0.45,
+    "distance": 5
+   },
+   {
+    "t": "light",
+    "at": [
+     4.926,
+     10.0,
+     -1.32
+    ],
+    "intensity": 0.45,
+    "distance": 5
+   },
+   {
+    "t": "light",
+    "at": [
+     -4.926,
+     17.0,
+     1.32
+    ],
+    "intensity": 0.45,
+    "distance": 5
+   },
+   {
+    "t": "light",
+    "at": [
+     4.926,
+     24.0,
+     -1.32
+    ],
+    "intensity": 0.45,
+    "distance": 5
+   },
+   {
+    "t": "disc",
+    "c": [
+     0,
+     0
+    ],
+    "r": 4.6,
+    "hole": 0.6,
+    "y": 28.0,
+    "sides": 48,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "disc",
+    "c": [
+     0,
+     0
+    ],
+    "r": 8.25,
+    "hole": 5.6,
+    "y": 28.0,
+    "sides": 56,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "disc",
+    "c": [
+     0,
+     0
+    ],
+    "r": 5.6,
+    "hole": 4.6,
+    "y": 28.0,
+    "sides": 48,
+    "arc": [
+     75,
+     270
+    ],
+    "mat": "floorGrey"
+   },
+   {
+    "t": "cylWall",
+    "c": [
+     0,
+     0
+    ],
+    "r": 7.8,
+    "th": 0.45,
+    "y0": 28.0,
+    "h": 1.15,
+    "sides": 56,
+    "mat": "stoneGrey"
+   },
+   {
+    "t": "cylWall",
+    "c": [
+     0,
+     0
+    ],
+    "r": 0.68,
+    "y0": 28.0,
+    "h": 0.95,
+    "sides": 20,
+    "mat": "iron"
+   }
+  ],
+  "zones": [
+   {
+    "id": "plaza",
+    "ring": [
+     0,
+     0,
+     8.7,
+     27
+    ],
+    "floor": 0
+   },
+   {
+    "id": "entrance",
+    "rect": [
+     2.6,
+     8.95,
+     -0.55,
+     0.55
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 45
+    },
+    "floor": 0
+   },
+   {
+    "id": "stair",
+    "ring": [
+     0,
+     0,
+     4.72,
+     5.4799999999999995
+    ],
+    "floor": {
+     "helix": {
+      "c": [
+       0,
+       0
+      ],
+      "a0": 75,
+      "y0": 0.1,
+      "y1": 28.0,
+      "risePerTurn": 7.0
+     }
+    }
+   },
+   {
+    "id": "roof",
+    "ring": [
+     0,
+     0,
+     0.95,
+     4.55
+    ],
+    "floor": 28.0
+   },
+   {
+    "id": "roof",
+    "ring": [
+     0,
+     0,
+     5.6499999999999995,
+     7.55
+    ],
+    "floor": 28.0
+   },
+   {
+    "id": "roof",
+    "rect": [
+     4.3,
+     5.8999999999999995,
+     -0.45,
+     0.45
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 165
+    },
+    "floor": 28.0
+   },
+   {
+    "id": "roof",
+    "rect": [
+     4.3,
+     5.8999999999999995,
+     -0.45,
+     0.45
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 255
+    },
+    "floor": 28.0
+   },
+   {
+    "id": "roof",
+    "rect": [
+     4.3,
+     5.8999999999999995,
+     -0.45,
+     0.45
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 345
+    },
+    "floor": 28.0
+   },
+   {
+    "id": "l0",
+    "ring": [
+     0,
+     0,
+     0.75,
+     2.9
+    ],
+    "floor": 0.0
+   },
+   {
+    "id": "l0",
+    "rect": [
+     2.8,
+     4.85,
+     -0.4,
+     0.4
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 75.0
+    },
+    "floor": 0.0
+   },
+   {
+    "id": "l1",
+    "ring": [
+     0,
+     0,
+     0.9,
+     3.043
+    ],
+    "floor": 3.5
+   },
+   {
+    "id": "l1",
+    "rect": [
+     2.943,
+     4.85,
+     -0.4,
+     0.4
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 255.0
+    },
+    "floor": 3.5
+   },
+   {
+    "id": "l2",
+    "ring": [
+     0,
+     0,
+     0.9,
+     3.186
+    ],
+    "floor": 7.0
+   },
+   {
+    "id": "l2",
+    "rect": [
+     3.086,
+     4.85,
+     -0.4,
+     0.4
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 75.0
+    },
+    "floor": 7.0
+   },
+   {
+    "id": "l3",
+    "ring": [
+     0,
+     0,
+     0.9,
+     3.329
+    ],
+    "floor": 10.5
+   },
+   {
+    "id": "l3",
+    "rect": [
+     3.229,
+     4.85,
+     -0.4,
+     0.4
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 255.0
+    },
+    "floor": 10.5
+   },
+   {
+    "id": "l4",
+    "ring": [
+     0,
+     0,
+     0.9,
+     3.471
+    ],
+    "floor": 14.0
+   },
+   {
+    "id": "l4",
+    "rect": [
+     3.371,
+     4.85,
+     -0.4,
+     0.4
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 75.0
+    },
+    "floor": 14.0
+   },
+   {
+    "id": "l5",
+    "ring": [
+     0,
+     0,
+     0.9,
+     3.614
+    ],
+    "floor": 17.5
+   },
+   {
+    "id": "l5",
+    "rect": [
+     3.514,
+     4.85,
+     -0.4,
+     0.4
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 255.0
+    },
+    "floor": 17.5
+   },
+   {
+    "id": "l6",
+    "ring": [
+     0,
+     0,
+     0.9,
+     3.757
+    ],
+    "floor": 21.0
+   },
+   {
+    "id": "l6",
+    "rect": [
+     3.657,
+     4.85,
+     -0.4,
+     0.4
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 75.0
+    },
+    "floor": 21.0
+   },
+   {
+    "id": "l7",
+    "ring": [
+     0,
+     0,
+     0.9,
+     3.9
+    ],
+    "floor": 24.5
+   },
+   {
+    "id": "l7",
+    "rect": [
+     3.8,
+     4.85,
+     -0.4,
+     0.4
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 255.0
+    },
+    "floor": 24.5
+   }
+  ],
+  "obstacles": [
+   [
+    9.2,
+    0,
+    2.6
+   ],
+   [
+    11.2,
+    0,
+    1.6
+   ]
+  ],
+  "zoneInfo": {
+   "plaza": {
+    "title": {
+     "az": "Qala önündəki meydan",
+     "en": "Square at the tower's foot"
+    },
+    "text": {
+     "az": "Qalanın ətrafı. Şərqdə uzun daş çıxıntı, cənub divarında yuxarıda kufi kitabə görünür. Giriş cənub-şərqdədir.",
+     "en": "Around the tower. The long stone buttress is on the east; the Kufic inscription is high on the south wall. The entrance is on the south-east."
+    },
+    "conf": "ok",
+    "photos": [
+     "ext_0",
+     "ext_1",
+     "ext_2",
+     "night_0"
+    ],
+    "factIds": [
+     "mt-size",
+     "mt-buttress",
+     "mt-entrance"
+    ]
+   },
+   "entrance": {
+    "title": {
+     "az": "Divarın içindən keçid",
+     "en": "Passage through the wall"
+    },
+    "text": {
+     "az": "Divarlar aşağıda təxminən 5 metr qalınlığındadır. Bu dar keçid birinci mərtəbəyə aparır.",
+     "en": "The walls are about 5 m thick at the base. This narrow passage leads to the ground floor."
+    },
+    "conf": "mid",
+    "photos": [
+     "ext_3",
+     "inside_0"
+    ],
+    "factIds": [
+     "mt-walls",
+     "mt-entrance"
+    ]
+   },
+   "l0": {
+    "title": {
+     "az": "1-ci mərtəbə: quyu",
+     "en": "1st storey: the well"
+    },
+    "text": {
+     "az": "Ortada 0,7 metr enində, 21 metr dərinlikdə quyu var. Yuxarıdakı mərtəbələrin ortasındakı açıq yerlər bir-birinin üstünə düşür.",
+     "en": "In the middle is a well 0.7 m wide and 21 m deep. The central openings of the storeys above line up over it."
+    },
+    "conf": "ok",
+    "photos": [
+     "level3_0",
+     "floor_0"
+    ],
+    "factIds": [
+     "mt-well",
+     "mt-floors"
+    ]
+   },
+   "l1": {
+    "title": {
+     "az": "2-ci mərtəbə",
+     "en": "2nd storey"
+    },
+    "text": {
+     "az": "Hər mərtəbə ortasında açıq yeri olan dayaz daş günbəzlə örtülüb. Divar boyu saxsı borular başlayır.",
+     "en": "Each storey is covered by a shallow stone cupola with a central opening. Clay pipes start along the wall here."
+    },
+    "conf": "ok",
+    "photos": [
+     "floor_0",
+     "inside_1"
+    ],
+    "factIds": [
+     "mt-floors",
+     "mt-gutters",
+     "mt-well"
+    ]
+   },
+   "l2": {
+    "title": {
+     "az": "3-cü mərtəbə",
+     "en": "3rd storey"
+    },
+    "text": {
+     "az": "Ortadakı açıq yerdən aşağıya, quyuya qədər baxmaq olur. Divardakı dar pəncərələr içəriyə doğru genişlənir.",
+     "en": "Through the central opening you can look all the way down to the well. The narrow windows widen toward the inside."
+    },
+    "conf": "ok",
+    "photos": [
+     "level3_0",
+     "inside_0"
+    ],
+    "factIds": [
+     "mt-floors",
+     "mt-windows"
+    ]
+   },
+   "l3": {
+    "title": {
+     "az": "4-cü mərtəbə: İçərişəhər maketi",
+     "en": "4th storey: Old City model"
+    },
+    "text": {
+     "az": "Bu gün muzeyin bu mərtəbəsində İçərişəhərin maketi nümayiş olunur. Masadakı maket sxematikdir.",
+     "en": "Today the museum shows a model of the Old City on this storey. The model on the table here is schematic."
+    },
+    "conf": "mid",
+    "photos": [
+     "model_0",
+     "inside_0"
+    ],
+    "factIds": [
+     "mt-museum"
+    ]
+   },
+   "l4": {
+    "title": {
+     "az": "5-ci mərtəbə",
+     "en": "5th storey"
+    },
+    "text": {
+     "az": "Təxminən bu hündürlükdə, qalanın cənub divarının bayır üzündə kufi kitabə yerləşir.",
+     "en": "At about this height, on the outside of the south wall, is the Kufic inscription."
+    },
+    "conf": "ok",
+    "photos": [
+     "ext_3"
+    ],
+    "factIds": [
+     "mt-inscription"
+    ]
+   },
+   "l5": {
+    "title": {
+     "az": "6-cı mərtəbə: tarix sirri",
+     "en": "6th storey: a dating puzzle"
+    },
+    "text": {
+     "az": "Qalanın nə vaxt tikildiyi mübahisəlidir: bəziləri onu islamdan əvvəlki dövrə, çoxları isə əsasən XII əsrə aid edir.",
+     "en": "When the tower was built is debated: some date it to pre-Islamic times, while many place most of it in the 12th century."
+    },
+    "conf": "mid",
+    "photos": [
+     "old_0",
+     "ext_1"
+    ],
+    "factIds": [
+     "mt-dating"
+    ]
+   },
+   "l6": {
+    "title": {
+     "az": "7-ci mərtəbə: əfsanə",
+     "en": "7th storey: the legend"
+    },
+    "text": {
+     "az": "“Qız qalası” adının mənşəyi barədə bir neçə əfsanə var. Bunlar tarixi fakt deyil, xalq rəvayətləridir.",
+     "en": "Several legends explain the name “Maiden Tower”. They are folk tales, not historical facts."
+    },
+    "conf": "hyp",
+    "photos": [
+     "night_0"
+    ],
+    "factIds": [
+     "mt-legend"
+    ]
+   },
+   "l7": {
+    "title": {
+     "az": "8-ci mərtəbə",
+     "en": "8th storey"
+    },
+    "text": {
+     "az": "Yuxarı mərtəbələrdə divarlar nazikləşir və otaq genişlənir. Dama çıxış pilləkənin sonundadır.",
+     "en": "On the upper storeys the walls get thinner and the room wider. The stair ends with an exit to the roof."
+    },
+    "conf": "ok",
+    "photos": [
+     "inside_3"
+    ],
+    "factIds": [
+     "mt-walls",
+     "mt-floors"
+    ]
+   },
+   "stair": {
+    "title": {
+     "az": "Divar içindəki pilləkən",
+     "en": "Stair inside the wall"
+    },
+    "text": {
+     "az": "Mərtəbələri divar boyu qalxan pilləkən birləşdirir. Maketdə onu qalın divarın içindən keçən dolama pilləkən kimi göstərmişik.",
+     "en": "A stair along the wall links the storeys. In the model we show it as a spiral stair inside the thick wall."
+    },
+    "conf": "mid",
+    "photos": [
+     "stair_0"
+    ],
+    "factIds": [
+     "mt-stair"
+    ]
+   },
+   "roof": {
+    "title": {
+     "az": "Dam: İçərişəhər və Bakı buxtası",
+     "en": "Roof: Old City and Baku Bay"
+    },
+    "text": {
+     "az": "Damdan İçərişəhərə, dənizkənarı bulvara və Bakı buxtasına baxılır. Uzaqdakı evlər və sahil sxematikdir.",
+     "en": "From the roof you see the Old City, the seaside boulevard and Baku Bay. The distant houses and shore are schematic."
+    },
+    "conf": "ok",
+    "photos": [
+     "ext_1",
+     "old_1"
+    ],
+    "factIds": [
+     "mt-roof-view",
+     "mt-size"
+    ]
+   }
+  },
+  "testRoute": [
+   {
+    "key": "KeyW",
+    "ms": 4500,
+    "expect": "entrance"
+   },
+   {
+    "key": "KeyW",
+    "ms": 3500,
+    "expect": "l0"
+   }
+  ],
+  "testShots": [
+   "entrance",
+   "l0",
+   "l2",
+   "l3",
+   "stair",
+   "roof"
+  ]
+ },
+ "disclaimer": {
+  "az": "Bu, ölçülmüş data deyil: əsas ölçülər mənbələrdən götürülüb, daxili pilləkənin yeri, çıxıntının ölçüləri və mərtəbə detalları təxminidir. Faktlar tarixçi tərəfindən yoxlanılmalıdır.",
+  "en": "This is not measured data: the main dimensions come from sources; the inner stair's position, the buttress size and storey details are approximate. Facts must be checked by a historian."
+ },
+ "introFacts": [
+  "mt-size",
+  "mt-dating"
+ ]
+}

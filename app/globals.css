@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
+/* Palette and type ported from the reference demo (museum maquette on limestone). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #ece6da;
+  --surface: #f7f3eb;
+  --ink: #2a241d;
+  --muted: #6e6455;
+  --line: #d6ccba;
+  --accent: #1f7a80;
+  --accent-ink: #ffffff;
+  --ok: #3e7b3a;
+  --mid: #b08a1e;
+  --hyp: #a33a2b;
+  --stage: #dcd3c2;
+  --gold: #b8862b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161411;
+    --surface: #1f1c18;
+    --ink: #ede3d3;
+    --muted: #a79a86;
+    --line: #3a342c;
+    --accent: #4fb3b8;
+    --accent-ink: #0e1a1b;
+    --ok: #7dba72;
+    --mid: #d9b44a;
+    --hyp: #e07a68;
+    --stage: #24201b;
+    --gold: #d9a441;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161411;
+  --surface: #1f1c18;
+  --ink: #ede3d3;
+  --muted: #a79a86;
+  --line: #3a342c;
+  --accent: #4fb3b8;
+  --accent-ink: #0e1a1b;
+  --ok: #7dba72;
+  --mid: #d9b44a;
+  --hyp: #e07a68;
+  --stage: #24201b;
+  --gold: #d9a441;
+  color-scheme: dark;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-ok: var(--ok);
+  --color-mid: var(--mid);
+  --color-hyp: var(--hyp);
+  --color-stage: var(--stage);
+  --color-gold: var(--gold);
+  --font-display: var(--font-spectral), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-manrope), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, Menlo, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { background: var(--bg); color: var(--ink); }
+body { font-family: var(--font-sans); font-size: 15px; line-height: 1.55; -webkit-tap-highlight-color: transparent; }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.eyebrow { font: 500 11px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; }
+.btn { display: inline-flex; align-items: center; gap: 6px; font: 600 13px/1 var(--font-sans); padding: 10px 13px; border-radius: 4px;
+  border: 1px solid var(--line); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; min-height: 40px; }
+.btn:hover { background: var(--bg); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { filter: brightness(1.06); }
+.btn:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
+.dot.ok { background: var(--ok); } .dot.mid { background: var(--mid); } .dot.hyp { background: var(--hyp); }
+
+/* overlays on dark 3D scenes always use a fixed dark glass, independent of theme */
+.glass { background: rgba(20, 17, 14, .66); color: #f3ead9; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+
+@keyframes zcin { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+.anim-in { animation: zcin .45s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .anim-in { animation: none; }
+  * { transition: none !important; }
 }

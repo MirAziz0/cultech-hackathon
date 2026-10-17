@@ -1,0 +1,12 @@
+{
+ "zone": "l0",
+ "text": {
+  "az": "Ortadakı quyuya bax: eni cəmi yetmiş santimetr, dərinliyi isə iyirmi bir metrdir — yeraltı suya qədər gedir. Yuxarı baxsan, hər mərtəbənin ortasındakı açıq yerləri bir xətt üzərində görəcəksən. Pilləkən qapısı divardadır.",
+  "en": "Look at the well in the middle: only seventy centimetres wide, yet twenty-one metres deep — it reaches the groundwater. If you look up, you will see the openings in the middle of every storey lined up above it. The stair door is in the wall."
+ },
+ "factIds": [
+  "mt-well",
+  "mt-floors"
+ ],
+ "generatedBy": "hand"
+}

@@ -1,0 +1,13 @@
+{
+ "zone": "hall",
+ "text": {
+  "az": "Bu, Güzgülü salondur. Tavanı güzgü ilə örtdük, güzgüləri taxçalara və portretlərin arasına da yerləşdirdik. Divarlar naxışlı kaşı, döşəmə şirli kərpicdir. Ortada fəvvarəli mərmər səki, arxada isə çaya baxan rəngli şüşəli böyük pəncərə var. Bu görünüşü əsasən Qaqarinin litoqrafiyasından bərpa etmişik.",
+  "en": "This is the Hall of Mirrors. We covered the ceiling with mirrors and set mirrors into the recesses and between the portraits. The walls are patterned tiles, the floor glazed brick. In the middle is a marble platform with a fountain, and behind, a great coloured-glass window over the river. We rebuilt this view mainly from Gagarin's lithograph."
+ },
+ "factIds": [
+  "sp-mirrors",
+  "sp-portraits",
+  "sp-gagarin"
+ ],
+ "generatedBy": "hand"
+}

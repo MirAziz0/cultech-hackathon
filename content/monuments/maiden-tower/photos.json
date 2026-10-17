@@ -1,0 +1,226 @@
+{
+ "photos": [
+  {
+   "id": "ext_0",
+   "file": "ext_0.jpg",
+   "commons": "Maiden Tower (Baku).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Maiden_Tower_(Baku).jpg",
+   "author": "Fariz Abasov",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "caption": {
+    "az": "Qız qalası və şərq çıxıntısı yaxından",
+    "en": "The Maiden Tower and its east buttress, close up"
+   },
+   "w": 1200,
+   "h": 803
+  },
+  {
+   "id": "ext_1",
+   "file": "ext_1.jpg",
+   "commons": "Baku Maiden Tower.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Baku_Maiden_Tower.jpg",
+   "author": "Derek Jones",
+   "license": "CC BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "caption": {
+    "az": "Qız qalası bu gün",
+    "en": "The Maiden Tower today"
+   },
+   "w": 900,
+   "h": 1200
+  },
+  {
+   "id": "ext_2",
+   "file": "ext_2.jpg",
+   "commons": "Maiden Tower in Baku 2015.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Maiden_Tower_in_Baku_2015.jpg",
+   "author": "AlixSaz",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Qala və ətrafındakı meydan",
+    "en": "The tower and the square around it"
+   },
+   "w": 800,
+   "h": 1200
+  },
+  {
+   "id": "ext_3",
+   "file": "ext_3.jpg",
+   "commons": "Unusual construction of the Maiden Tower, Baku (36898425612).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Unusual_construction_of_the_Maiden_Tower,_Baku_(36898425612).jpg",
+   "author": "shankar s. from Dubai, united arab emirates",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "caption": {
+    "az": "Qalanın daş hörgüsü və çıxıntısı",
+    "en": "The tower's stone masonry and buttress"
+   },
+   "w": 900,
+   "h": 1200
+  },
+  {
+   "id": "floor_0",
+   "file": "floor_0.jpg",
+   "commons": "Baku Maiden Tower floor.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Baku_Maiden_Tower_floor.JPG",
+   "author": "Photo by MrArifnajafov (Photography from the original).",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "caption": {
+    "az": "Mərtəbə: ortadakı açıq yer və muzey eksponatları",
+    "en": "A storey: the central opening and museum displays"
+   },
+   "w": 1200,
+   "h": 795
+  },
+  {
+   "id": "inside_0",
+   "file": "inside_0.jpg",
+   "commons": "Inside of Maiden Tower in Baku.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Inside_of_Maiden_Tower_in_Baku.JPG",
+   "author": "Xoncha",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Qalanın içində: dar pəncərə və muzey maketləri",
+    "en": "Inside the tower: a narrow window and museum models"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "inside_1",
+   "file": "inside_1.jpg",
+   "commons": "Баку Девичья Башня вид изнутри.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%B0%D0%BA%D1%83_%D0%94%D0%B5%D0%B2%D0%B8%D1%87%D1%8C%D1%8F_%D0%91%D0%B0%D1%88%D0%BD%D1%8F_%D0%B2%D0%B8%D0%B4_%D0%B8%D0%B7%D0%BD%D1%83%D1%82%D1%80%D0%B8.jpg",
+   "author": "Gulustan",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "caption": {
+    "az": "Muzeydə xalça və toxuculuq nümunələri",
+    "en": "Carpets and textiles in the museum"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "stair_0",
+   "file": "stair_0.jpg",
+   "commons": "Qız qalası mərtəbələrarası pilləkən.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Q%C4%B1z_qalas%C4%B1_m%C9%99rt%C9%99b%C9%99l%C9%99raras%C4%B1_pill%C9%99k%C9%99n.JPG",
+   "author": "Urmen19",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Mərtəbələrarası dar daş pilləkən",
+    "en": "The narrow stone stair between storeys"
+   },
+   "w": 800,
+   "h": 1200
+  },
+  {
+   "id": "level3_0",
+   "file": "level3_0.jpg",
+   "commons": "Qız qalası.3 cü mərtəbə.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Q%C4%B1z_qalas%C4%B1.3_c%C3%BC_m%C9%99rt%C9%99b%C9%99.jpg",
+   "author": "Toghrul Rahimli",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Ortadakı açıq yerdən aşağı baxış",
+    "en": "Looking down through the central opening"
+   },
+   "w": 800,
+   "h": 1200
+  },
+  {
+   "id": "model_0",
+   "file": "model_0.jpg",
+   "commons": "Qız qalası. 4-cü mərtəbədəki maket.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Q%C4%B1z_qalas%C4%B1._4-c%C3%BC_m%C9%99rt%C9%99b%C9%99d%C9%99ki_maket.jpg",
+   "author": "Toghrul Rahimli",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "4-cü mərtəbədəki İçərişəhər maketi",
+    "en": "Model of the Old City on the 4th storey"
+   },
+   "w": 1200,
+   "h": 842
+  },
+  {
+   "id": "inside_2",
+   "file": "inside_2.jpg",
+   "commons": "Maiden Tower - 54632676630.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Maiden_Tower_-_54632676630.jpg",
+   "author": "xiquinhosilva",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "caption": {
+    "az": "Qala və çıxıntı aşağıdan",
+    "en": "The tower and buttress from below"
+   },
+   "w": 800,
+   "h": 1200
+  },
+  {
+   "id": "inside_3",
+   "file": "inside_3.jpg",
+   "commons": "Maiden Tower - 54632374416.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Maiden_Tower_-_54632374416.jpg",
+   "author": "xiquinhosilva",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "caption": {
+    "az": "Qız qalası, bağ tərəfdən",
+    "en": "The Maiden Tower seen from the garden"
+   },
+   "w": 800,
+   "h": 1200
+  },
+  {
+   "id": "old_0",
+   "file": "old_0.jpg",
+   "commons": "Баку. Гавань. Фотопленки Поля Надара (1890) - 19.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%B0%D0%BA%D1%83._%D0%93%D0%B0%D0%B2%D0%B0%D0%BD%D1%8C._%D0%A4%D0%BE%D1%82%D0%BE%D0%BF%D0%BB%D0%B5%D0%BD%D0%BA%D0%B8_%D0%9F%D0%BE%D0%BB%D1%8F_%D0%9D%D0%B0%D0%B4%D0%B0%D1%80%D0%B0_(1890)_-_19.jpg",
+   "author": "Paul Nadar",
+   "license": "Public domain",
+   "caption": {
+    "az": "Bakı limanı, 1890-cı il (Pol Nadarın fotosu)",
+    "en": "Baku harbour, 1890 (photo by Paul Nadar)"
+   },
+   "w": 800,
+   "h": 580
+  },
+  {
+   "id": "old_1",
+   "file": "old_1.jpg",
+   "commons": "Баку. Вид на прибрежную часть города. Фотопленки Поля Надара (1890) - 2.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%B0%D0%BA%D1%83._%D0%92%D0%B8%D0%B4_%D0%BD%D0%B0_%D0%BF%D1%80%D0%B8%D0%B1%D1%80%D0%B5%D0%B6%D0%BD%D1%83%D1%8E_%D1%87%D0%B0%D1%81%D1%82%D1%8C_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0._%D0%A4%D0%BE%D1%82%D0%BE%D0%BF%D0%BB%D0%B5%D0%BD%D0%BA%D0%B8_%D0%9F%D0%BE%D0%BB%D1%8F_%D0%9D%D0%B0%D0%B4%D0%B0%D1%80%D0%B0_(1890)_-_2.jpg",
+   "author": "Paul Nadar",
+   "license": "Public domain",
+   "caption": {
+    "az": "Dənizdən şəhər görünüşü, 1890-cı il (Pol Nadarın fotosu)",
+    "en": "The city seen from the sea, 1890 (photo by Paul Nadar)"
+   },
+   "w": 800,
+   "h": 550
+  },
+  {
+   "id": "night_0",
+   "file": "night_0.jpg",
+   "commons": "Maiden Tower in Baku, Azerbaijan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Maiden_Tower_in_Baku,_Azerbaijan.jpg",
+   "author": "Razoler",
+   "license": "Public domain",
+   "caption": {
+    "az": "Qız qalası və İçərişəhər",
+    "en": "The Maiden Tower and the Old City"
+   },
+   "w": 1024,
+   "h": 768
+  }
+ ]
+}

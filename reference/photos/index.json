@@ -1,0 +1,122 @@
+{
+ "overview": [
+  {
+   "file": "photos/overview_0.jpg",
+   "name": "Palace of the Shirvan shahs, 1927.jpg",
+   "size": [
+    900,
+    629
+   ]
+  }
+ ],
+ "palace": [
+  {
+   "file": "photos/palace_0.jpg",
+   "name": "Şirvanşahların yaşayış binası.jpg",
+   "size": [
+    900,
+    675
+   ]
+  },
+  {
+   "file": "photos/palace_1.jpg",
+   "name": "Şirvanşahlar saray kompleksində yaşayış binasının Qəbul salonu.jpg",
+   "size": [
+    763,
+    900
+   ]
+  },
+  {
+   "file": "photos/palace_2.jpg",
+   "name": "Interior Room - Palace of the Shirvanshahs - Baku - Azerbaijan (17310631074).jpg",
+   "size": [
+    900,
+    675
+   ]
+  }
+ ],
+ "divan": [
+  {
+   "file": "photos/divan_0.jpg",
+   "name": "Şirvanşahlar sarayı - divanxana.jpg",
+   "size": [
+    624,
+    900
+   ]
+  },
+  {
+   "file": "photos/divan_1.jpg",
+   "name": "Portal inside the Palace of Shirvanshahs.jpg",
+   "size": [
+    536,
+    900
+   ]
+  }
+ ],
+ "yahya": [
+  {
+   "file": "photos/yahya_0.jpg",
+   "name": "Bakuvitomb.jpg",
+   "size": [
+    900,
+    675
+   ]
+  }
+ ],
+ "mosque": [
+  {
+   "file": "photos/mosque_0.jpg",
+   "name": "Şirvanşahlar saray kompleksində minarə.jpg",
+   "size": [
+    900,
+    662
+   ]
+  },
+  {
+   "file": "photos/mosque_1.jpg",
+   "name": "Shirvanshah's Palace Mosque's carpet.jpg",
+   "size": [
+    900,
+    505
+   ]
+  }
+ ],
+ "turbe": [
+  {
+   "file": "photos/turbe_0.jpg",
+   "name": "İçərişəhər. Şirvanşahlar türbəsi.jpg",
+   "size": [
+    601,
+    900
+   ]
+  },
+  {
+   "file": "photos/turbe_1.jpg",
+   "name": "Family grave Khalilullah I.jpg",
+   "size": [
+    900,
+    675
+   ]
+  }
+ ],
+ "bath": [
+  {
+   "file": "photos/bath_0.jpg",
+   "name": "Palace of Shirvanshahs common.JPG",
+   "size": [
+    900,
+    544
+   ]
+  }
+ ],
+ "garden": [
+  {
+   "file": "photos/garden_0.jpg",
+   "name": "Palace of the Shirvanshahs - fountain.JPG",
+   "size": [
+    900,
+    598
+   ]
+  }
+ ]
+}

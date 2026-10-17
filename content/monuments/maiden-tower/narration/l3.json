@@ -1,0 +1,11 @@
+{
+ "zone": "l3",
+ "text": {
+  "az": "Bu gün qalada Bakının tarixinə həsr olunmuş muzey var, bu mərtəbədə isə İçərişəhərin maketi nümayiş olunur. Masadakı maket bizim sadə təsvirimizdir. Bax, qala şəhərin hansı küncündə durur — İçərişəhərin cənub-şərqində.",
+  "en": "Today the tower houses a museum of Baku's history, and this storey shows a model of the Old City. The model on this table is only our simple sketch. See which corner of the town the tower stands in — the south-east of the Old City."
+ },
+ "factIds": [
+  "mt-museum"
+ ],
+ "generatedBy": "hand"
+}

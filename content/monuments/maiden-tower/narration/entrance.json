@@ -1,0 +1,11 @@
+{
+ "zone": "entrance",
+ "text": {
+  "az": "İndi divarın içindən keçirsən. Aşağıda divarlar təxminən beş metr qalınlığındadır — yuxarı qalxdıqca nazikləşir. Belə qalın divar həm düşmənə, həm də zamana qarşı dayanıb. Bir az da irəli get, birinci mərtəbəyə çıxacaqsan.",
+  "en": "Now you are passing through the wall itself. Down here the walls are about five metres thick — they get thinner as you climb. Walls this thick have stood against enemies and against time. Go a little further and you will reach the first storey."
+ },
+ "factIds": [
+  "mt-walls"
+ ],
+ "generatedBy": "hand"
+}

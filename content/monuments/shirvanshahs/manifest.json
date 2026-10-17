@@ -1,0 +1,4138 @@
+{
+ "slug": "shirvanshahs",
+ "order": 1,
+ "name": {
+  "az": "Şirvanşahlar Sarayı",
+  "en": "Palace of the Shirvanshahs"
+ },
+ "tagline": {
+  "az": "Bu gün və XV əsrdə",
+  "en": "Today and in the 15th century"
+ },
+ "period": {
+  "az": "XV əsr",
+  "en": "15th century"
+ },
+ "location": {
+  "lat": 40.3664,
+  "lon": 49.8331,
+  "place": {
+   "az": "İçərişəhər, Bakı",
+   "en": "Old City, Baku"
+  }
+ },
+ "cover": "facade_0",
+ "eras": {
+  "past": {
+   "label": {
+    "az": "XV əsr",
+    "en": "15th c."
+   },
+   "badge": {
+    "az": "XV ƏSR · BƏRPA",
+    "en": "15TH C. · RECONSTRUCTION"
+   },
+   "summary": {
+    "az": "Bərpa versiyası hamamı, tam qala divarlarını və saray bağını göstərir. Rənglər hər hissənin nə qədər etibarlı olduğunu bildirir.",
+    "en": "The reconstruction shows the bathhouse, complete walls and the palace garden. Colours show how reliable each part is."
+   }
+  },
+  "today": {
+   "label": {
+    "az": "Bu gün",
+    "en": "Today"
+   },
+   "badge": {
+    "az": "BU GÜN · MÖVCUD VƏZİYYƏT",
+    "en": "TODAY · CURRENT STATE"
+   },
+   "summary": {
+    "az": "Əsas binalar bu gün də dayanır. Hamam isə yalnız qalıqlar şəklindədir, divarların bəzi hissələri dağılıb.",
+    "en": "The main buildings still stand. The bathhouse survives only as remains and parts of the walls have collapsed."
+   }
+  }
+ },
+ "defaultEra": "past",
+ "architect": {
+  "name": {
+   "az": "Usta Rəşid",
+   "en": "Master Rashid"
+  },
+  "role": {
+   "az": "XV əsr Şirvan memarı · təmsili obraz",
+   "en": "15th-century Shirvan master builder · representative character"
+  },
+  "voice": "male",
+  "look": {
+   "robe": "#2f5d7c",
+   "sash": "#d9a441",
+   "headwear": "turban",
+   "beard": true
+  },
+  "greeting": {
+   "az": "Xoş gəldin! Mən bu sarayı tikən ustalardan biri kimi danışıram. Gəz, soruş — bildiyimizi deyərəm, bilmədiyimizi də düz deyərəm.",
+   "en": "Welcome! I speak as one of the masters who built this palace. Walk and ask — I'll tell you what we know, and honestly say what we don't."
+  }
+ },
+ "exterior": {
+  "scale": 0.008,
+  "seed": 7,
+  "palette": {},
+  "eraMat": {
+   "past": {
+    "stone": "stone_rs"
+   }
+  },
+  "home": {
+   "target": [
+    0,
+    0.06,
+    0
+   ],
+   "az": -38,
+   "pol": 58,
+   "dist": 1.05
+  },
+  "parts": [
+   {
+    "t": "box",
+    "size": [
+     86,
+     76,
+     1.6
+    ],
+    "at": [
+     0,
+     -4,
+     -1.6
+    ],
+    "mat": "base"
+   },
+   {
+    "t": "box",
+    "size": [
+     84,
+     74,
+     0.08
+    ],
+    "at": [
+     0,
+     -4,
+     -0.06
+    ],
+    "mat": "ground"
+   },
+   {
+    "t": "box",
+    "size": [
+     62,
+     34,
+     4.0
+    ],
+    "at": [
+     -6,
+     14,
+     0
+    ],
+    "mat": "terrace"
+   },
+   {
+    "t": "box",
+    "size": [
+     46,
+     22,
+     2.0
+    ],
+    "at": [
+     14,
+     -11,
+     0
+    ],
+    "mat": "terrace"
+   },
+   {
+    "t": "steps",
+    "from": [
+     -2,
+     -2.6
+    ],
+    "dir": [
+     0,
+     -1
+    ],
+    "width": 4,
+    "n": 5,
+    "run": 0.9,
+    "z0": 2.0,
+    "z1": 4.0,
+    "mat": "path"
+   },
+   {
+    "t": "steps",
+    "from": [
+     30,
+     -21.5
+    ],
+    "dir": [
+     0,
+     -1
+    ],
+    "width": 4,
+    "n": 5,
+    "run": 0.9,
+    "z0": 0,
+    "z1": 2.0,
+    "mat": "path"
+   },
+   {
+    "t": "box",
+    "size": [
+     22,
+     14,
+     11
+    ],
+    "at": [
+     -24,
+     18,
+     4.0
+    ]
+   },
+   {
+    "t": "box",
+    "size": [
+     10,
+     10,
+     9
+    ],
+    "at": [
+     -30,
+     7,
+     4.0
+    ]
+   },
+   {
+    "t": "box",
+    "size": [
+     22.4,
+     14.4,
+     0.6
+    ],
+    "at": [
+     -24,
+     18,
+     15.0
+    ]
+   },
+   {
+    "t": "box",
+    "size": [
+     10.4,
+     10.4,
+     0.6
+    ],
+    "at": [
+     -30,
+     7,
+     13.0
+    ]
+   },
+   {
+    "t": "windowRow",
+    "along": "x",
+    "from": -34,
+    "to": -14,
+    "at": [
+     0,
+     11
+    ],
+    "z": 5.0,
+    "facing": -90,
+    "n": 7,
+    "w": 1.1,
+    "spring": 1.4
+   },
+   {
+    "t": "windowRow",
+    "along": "x",
+    "from": -34,
+    "to": -14,
+    "at": [
+     0,
+     11
+    ],
+    "z": 10.0,
+    "facing": -90,
+    "n": 7,
+    "w": 1.1,
+    "spring": 1.4
+   },
+   {
+    "t": "windowRow",
+    "along": "y",
+    "from": 12,
+    "to": 24,
+    "at": [
+     -13,
+     0
+    ],
+    "z": 5.0,
+    "facing": 0,
+    "n": 4,
+    "w": 1.1,
+    "spring": 1.4
+   },
+   {
+    "t": "windowRow",
+    "along": "y",
+    "from": 12,
+    "to": 24,
+    "at": [
+     -13,
+     0
+    ],
+    "z": 10.0,
+    "facing": 0,
+    "n": 4,
+    "w": 1.1,
+    "spring": 1.4
+   },
+   {
+    "t": "windowRow",
+    "along": "x",
+    "from": -34,
+    "to": -26,
+    "at": [
+     0,
+     2
+    ],
+    "z": 5.0,
+    "facing": -90,
+    "n": 3,
+    "w": 1.1,
+    "spring": 1.4
+   },
+   {
+    "t": "windowRow",
+    "along": "x",
+    "from": -34,
+    "to": -26,
+    "at": [
+     0,
+     2
+    ],
+    "z": 9.0,
+    "facing": -90,
+    "n": 3,
+    "w": 1.1,
+    "spring": 1.4
+   },
+   {
+    "t": "portal",
+    "w": 4.0,
+    "h": 8.5,
+    "at": [
+     -20,
+     11,
+     4.0
+    ],
+    "facing": -90,
+    "depth": 0.8
+   },
+   {
+    "t": "box",
+    "size": [
+     20,
+     2.2,
+     5.0
+    ],
+    "at": [
+     6,
+     29.0,
+     4.0
+    ]
+   },
+   {
+    "t": "windowRow",
+    "along": "x",
+    "from": -3.0,
+    "to": 15.0,
+    "at": [
+     0,
+     27.9
+    ],
+    "z": 4.0,
+    "facing": -90,
+    "n": 7,
+    "w": 1.6,
+    "spring": 2.6
+   },
+   {
+    "t": "box",
+    "size": [
+     20,
+     2.2,
+     5.0
+    ],
+    "at": [
+     6,
+     11.0,
+     4.0
+    ]
+   },
+   {
+    "t": "windowRow",
+    "along": "x",
+    "from": -3.0,
+    "to": 15.0,
+    "at": [
+     0,
+     12.1
+    ],
+    "z": 4.0,
+    "facing": 90,
+    "n": 7,
+    "w": 1.6,
+    "spring": 2.6
+   },
+   {
+    "t": "windowRow",
+    "along": "x",
+    "from": -3.0,
+    "to": 15.0,
+    "at": [
+     0,
+     9.9
+    ],
+    "z": 4.5,
+    "facing": -90,
+    "n": 7,
+    "w": 1.0,
+    "spring": 1.6
+   },
+   {
+    "t": "box",
+    "size": [
+     2.2,
+     18,
+     5.0
+    ],
+    "at": [
+     16.0,
+     20,
+     4.0
+    ]
+   },
+   {
+    "t": "windowRow",
+    "along": "y",
+    "from": 12.0,
+    "to": 28.0,
+    "at": [
+     14.9,
+     0
+    ],
+    "z": 4.0,
+    "facing": 180,
+    "n": 6,
+    "w": 1.6,
+    "spring": 2.6
+   },
+   {
+    "t": "box",
+    "size": [
+     2.2,
+     18,
+     6.0
+    ],
+    "at": [
+     -4.0,
+     20,
+     4.0
+    ]
+   },
+   {
+    "t": "portal",
+    "w": 6.0,
+    "h": 11.0,
+    "at": [
+     -5.1,
+     20,
+     4.0
+    ],
+    "facing": 180,
+    "depth": 1.2
+   },
+   {
+    "t": "cyl",
+    "r": 4.6,
+    "h": 1.2,
+    "at": [
+     7,
+     20,
+     4.0
+    ],
+    "sides": 8
+   },
+   {
+    "t": "cyl",
+    "r": 3.6,
+    "h": 5.0,
+    "at": [
+     7,
+     20,
+     5.2
+    ],
+    "sides": 8
+   },
+   {
+    "t": "niche",
+    "w": 1.4,
+    "spring": 2.2,
+    "at": [
+     10.095,
+     21.282,
+     5.6
+    ],
+    "facing": 22.5,
+    "depth": 0.2
+   },
+   {
+    "t": "niche",
+    "w": 1.4,
+    "spring": 2.2,
+    "at": [
+     8.282,
+     23.095,
+     5.6
+    ],
+    "facing": 67.5,
+    "depth": 0.2
+   },
+   {
+    "t": "niche",
+    "w": 1.4,
+    "spring": 2.2,
+    "at": [
+     5.718,
+     23.095,
+     5.6
+    ],
+    "facing": 112.5,
+    "depth": 0.2
+   },
+   {
+    "t": "niche",
+    "w": 1.4,
+    "spring": 2.2,
+    "at": [
+     3.905,
+     21.282,
+     5.6
+    ],
+    "facing": 157.5,
+    "depth": 0.2
+   },
+   {
+    "t": "niche",
+    "w": 1.4,
+    "spring": 2.2,
+    "at": [
+     3.905,
+     18.718,
+     5.6
+    ],
+    "facing": 202.5,
+    "depth": 0.2
+   },
+   {
+    "t": "niche",
+    "w": 1.4,
+    "spring": 2.2,
+    "at": [
+     5.718,
+     16.905,
+     5.6
+    ],
+    "facing": 247.5,
+    "depth": 0.2
+   },
+   {
+    "t": "niche",
+    "w": 1.4,
+    "spring": 2.2,
+    "at": [
+     8.282,
+     16.905,
+     5.6
+    ],
+    "facing": 292.5,
+    "depth": 0.2
+   },
+   {
+    "t": "niche",
+    "w": 1.4,
+    "spring": 2.2,
+    "at": [
+     10.095,
+     18.718,
+     5.6
+    ],
+    "facing": 337.5,
+    "depth": 0.2
+   },
+   {
+    "t": "cyl",
+    "r": 3.0,
+    "h": 1.0,
+    "at": [
+     7,
+     20,
+     10.2
+    ],
+    "sides": 16
+   },
+   {
+    "t": "dome",
+    "r": 3.0,
+    "h": 3.2,
+    "at": [
+     7,
+     20,
+     11.2
+    ],
+    "pointed": 0.25,
+    "sides": 28,
+    "mat": "dome"
+   },
+   {
+    "t": "water",
+    "size": [
+     2,
+     6
+    ],
+    "at": [
+     1,
+     20,
+     4.0
+    ],
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -0.5,
+     25.5,
+     4.0
+    ],
+    "s": 0.7,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -0.5,
+     14.5,
+     4.0
+    ],
+    "s": 0.7,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "cyl",
+    "r": 3.4,
+    "h": 0.8,
+    "at": [
+     -4,
+     0,
+     4.0
+    ],
+    "sides": 8
+   },
+   {
+    "t": "cyl",
+    "r": 3.0,
+    "h": 7.0,
+    "at": [
+     -4,
+     0,
+     4.8
+    ],
+    "sides": 8
+   },
+   {
+    "t": "tent",
+    "r": 3.3,
+    "h": 4.2,
+    "at": [
+     -4,
+     0,
+     11.8
+    ],
+    "sides": 8,
+    "mat": "dome"
+   },
+   {
+    "t": "niche",
+    "w": 1.3,
+    "spring": 2.0,
+    "at": [
+     -2.928,
+     -2.587,
+     4.8
+    ],
+    "facing": -67.5,
+    "depth": 0.15
+   },
+   {
+    "t": "box",
+    "size": [
+     14,
+     10,
+     8
+    ],
+    "at": [
+     12,
+     -10,
+     2.0
+    ]
+   },
+   {
+    "t": "box",
+    "size": [
+     14.4,
+     10.4,
+     0.5
+    ],
+    "at": [
+     12,
+     -10,
+     10.0
+    ]
+   },
+   {
+    "t": "cyl",
+    "r": 3.2,
+    "h": 1.2,
+    "at": [
+     13,
+     -10,
+     10.5
+    ],
+    "sides": 16
+   },
+   {
+    "t": "dome",
+    "r": 3.2,
+    "h": 3.0,
+    "at": [
+     13,
+     -10,
+     11.7
+    ],
+    "pointed": 0.2,
+    "sides": 28,
+    "mat": "dome"
+   },
+   {
+    "t": "portal",
+    "w": 4.5,
+    "h": 9.5,
+    "at": [
+     10,
+     -15,
+     2.0
+    ],
+    "facing": -90,
+    "depth": 1.0
+   },
+   {
+    "t": "cyl",
+    "r": 1.6,
+    "h": 2.0,
+    "at": [
+     18,
+     -6,
+     10.0
+    ],
+    "sides": 16
+   },
+   {
+    "t": "cyl",
+    "r": 1.25,
+    "h": 12.0,
+    "at": [
+     18,
+     -6,
+     12.0
+    ],
+    "sides": 16
+   },
+   {
+    "t": "cyl",
+    "r": 2.0,
+    "h": 0.8,
+    "at": [
+     18,
+     -6,
+     21.0
+    ],
+    "sides": 16
+   },
+   {
+    "t": "cyl",
+    "r": 0.95,
+    "h": 3.0,
+    "at": [
+     18,
+     -6,
+     21.8
+    ],
+    "sides": 16
+   },
+   {
+    "t": "tent",
+    "r": 1.05,
+    "h": 2.2,
+    "at": [
+     18,
+     -6,
+     24.8
+    ],
+    "sides": 16,
+    "matByEra": {
+     "past": "tile",
+     "today": "dome"
+    }
+   },
+   {
+    "t": "cyl",
+    "r": 1.28,
+    "h": 0.6,
+    "at": [
+     18,
+     -6,
+     18.5
+    ],
+    "sides": 16,
+    "mat": "tile",
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "box",
+    "size": [
+     9,
+     9,
+     8.5
+    ],
+    "at": [
+     26,
+     -10,
+     2.0
+    ]
+   },
+   {
+    "t": "cyl",
+    "r": 3.4,
+    "h": 1.0,
+    "at": [
+     26,
+     -10,
+     10.5
+    ],
+    "sides": 16
+   },
+   {
+    "t": "dome",
+    "r": 3.4,
+    "h": 3.6,
+    "at": [
+     26,
+     -10,
+     11.5
+    ],
+    "pointed": 0.25,
+    "sides": 28,
+    "matByEra": {
+     "past": "tile",
+     "today": "dome"
+    }
+   },
+   {
+    "t": "portal",
+    "w": 5.0,
+    "h": 10.5,
+    "at": [
+     26,
+     -14.5,
+     2.0
+    ],
+    "facing": -90,
+    "depth": 1.0
+   },
+   {
+    "t": "box",
+    "size": [
+     1.5,
+     6,
+     7
+    ],
+    "at": [
+     26,
+     6,
+     4.0
+    ]
+   },
+   {
+    "t": "niche",
+    "w": 3.0,
+    "spring": 3.5,
+    "at": [
+     26.76,
+     6,
+     4.0
+    ],
+    "facing": 0,
+    "depth": 0.15
+   },
+   {
+    "t": "niche",
+    "w": 3.0,
+    "spring": 3.5,
+    "at": [
+     25.24,
+     6,
+     4.0
+    ],
+    "facing": 180,
+    "depth": 0.15
+   },
+   {
+    "t": "box",
+    "size": [
+     1.9,
+     6.4,
+     0.4
+    ],
+    "at": [
+     26,
+     6,
+     11.0
+    ]
+   },
+   {
+    "t": "box",
+    "size": [
+     20,
+     18,
+     0.4
+    ],
+    "at": [
+     22,
+     -30,
+     0.0
+    ],
+    "mat": "stone_rs",
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "rooms",
+    "at": [
+     22,
+     -30,
+     0.4
+    ],
+    "rooms": [
+     [
+      -6,
+      0,
+      6
+     ],
+     [
+      0,
+      0,
+      7
+     ],
+     [
+      6,
+      0,
+      6
+     ],
+     [
+      -3,
+      -6,
+      5
+     ],
+     [
+      3,
+      -6,
+      5
+     ],
+     [
+      0,
+      6,
+      5
+     ]
+    ],
+    "mode": "domed",
+    "h": 3.6,
+    "mat": "stone_rs",
+    "domeMat": "dome",
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "portal",
+    "w": 3.0,
+    "h": 5.5,
+    "at": [
+     22,
+     -21,
+     0.4
+    ],
+    "facing": 90,
+    "depth": 0.7,
+    "mat": "stone_rs",
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "box",
+    "size": [
+     20,
+     18,
+     0.25
+    ],
+    "at": [
+     22,
+     -30,
+     0.0
+    ],
+    "mat": "stone_old",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "rooms",
+    "at": [
+     22,
+     -30,
+     0.25
+    ],
+    "rooms": [
+     [
+      -6,
+      0,
+      6
+     ],
+     [
+      0,
+      0,
+      7
+     ],
+     [
+      6,
+      0,
+      6
+     ],
+     [
+      -3,
+      -6,
+      5
+     ],
+     [
+      3,
+      -6,
+      5
+     ],
+     [
+      0,
+      6,
+      5
+     ]
+    ],
+    "mode": "ruin",
+    "mat": "stone_old",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "scatter",
+    "at": [
+     22,
+     -30,
+     0.25
+    ],
+    "area": [
+     11,
+     10
+    ],
+    "n": 28,
+    "size": [
+     0.3,
+     0.8
+    ],
+    "mat": "stone_old",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "wallLoop",
+    "pts": [
+     [
+      -40,
+      -40
+     ],
+     [
+      40,
+      -40
+     ],
+     [
+      40,
+      32
+     ],
+     [
+      -40,
+      32
+     ]
+    ],
+    "h": 3.2,
+    "th": 1.0,
+    "merlons": true,
+    "towers": {
+     "r": 2.2,
+     "h": 5
+    },
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "wallLoop",
+    "pts": [
+     [
+      -40,
+      -40
+     ],
+     [
+      40,
+      -40
+     ],
+     [
+      40,
+      32
+     ],
+     [
+      -40,
+      32
+     ]
+    ],
+    "h": 3.2,
+    "th": 1.0,
+    "merlons": true,
+    "towers": {
+     "r": 2.2,
+     "h": 5
+    },
+    "ruined": 0.3,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "water",
+    "size": [
+     16,
+     5
+    ],
+    "at": [
+     -22,
+     -22,
+     0
+    ],
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "box",
+    "size": [
+     18,
+     7,
+     0.12
+    ],
+    "at": [
+     -22,
+     -22,
+     0
+    ],
+    "mat": "path",
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -30,
+     -16.5,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -30,
+     -27.5,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -26,
+     -16.5,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -26,
+     -27.5,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -22,
+     -16.5,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -22,
+     -27.5,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -18,
+     -16.5,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -18,
+     -27.5,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -14,
+     -16.5,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -14,
+     -27.5,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -34,
+     0,
+     0
+    ],
+    "s": 1.0,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -8,
+     -30,
+     0
+    ],
+    "s": 1.0,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     2,
+     -34,
+     0
+    ],
+    "s": 1.0,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     36,
+     -6,
+     2.0
+    ],
+    "s": 1.0,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -34,
+     26,
+     4.0
+    ],
+    "s": 1.0,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     20,
+     26,
+     4.0
+    ],
+    "s": 1.0,
+    "eras": [
+     "past"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -30,
+     -20,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     0,
+     -32,
+     0
+    ],
+    "s": 0.8,
+    "eras": [
+     "today"
+    ]
+   }
+  ],
+  "overviewPhotos": [
+   "overview_0"
+  ]
+ },
+ "buildings": [
+  {
+   "id": "palace",
+   "name": {
+    "az": "Saray binası",
+    "en": "Palace building"
+   },
+   "date": {
+    "az": "XV ƏSR",
+    "en": "15TH C."
+   },
+   "pos": [
+    -24,
+    18,
+    15
+   ],
+   "conf": "ok",
+   "walk": true,
+   "text": {
+    "az": "Şirvanşahların Bakıdakı iki mərtəbəli iqamətgahı, kompleksin əsas binası. Otaqlar dar dəhlizlər və pilləkənlərlə birləşir.",
+    "en": "The two-storey Baku residence of the Shirvanshahs and the main building of the complex. Rooms are linked by narrow passages and stairs."
+   },
+   "photos": [
+    "palace_0",
+    "facade_0",
+    "palace_1",
+    "dome_1",
+    "expo_0"
+   ],
+   "factIds": [
+    "palace-15c",
+    "palace-rooms",
+    "spiral-stairs",
+    "octagonal-hall"
+   ]
+  },
+  {
+   "id": "divan",
+   "name": {
+    "az": "Divanxana",
+    "en": "Divankhana"
+   },
+   "date": {
+    "az": "XV ƏSR",
+    "en": "15TH C."
+   },
+   "pos": [
+    7,
+    20,
+    14.4
+   ],
+   "conf": "ok",
+   "interior": "divan",
+   "text": {
+    "az": "Arkadalı həyətin ortasında səkkizguşəli, günbəzli rotonda. Təyinatı mübahisəlidir: divan, yəni məclis zalı və ya türbə ola biləcəyi ehtimal olunur.",
+    "en": "An octagonal domed rotunda in the middle of an arcaded courtyard. Its purpose is debated: a council hall (divan) or a mausoleum."
+   },
+   "photos": [
+    "divan_0",
+    "divan_1"
+   ],
+   "factIds": [
+    "divan"
+   ]
+  },
+  {
+   "id": "yahya",
+   "name": {
+    "az": "Seyid Yəhya Bakuvi türbəsi",
+    "en": "Mausoleum of Seyid Yahya Bakuvi"
+   },
+   "date": {
+    "az": "XV ƏSR",
+    "en": "15TH C."
+   },
+   "pos": [
+    -4,
+    0,
+    16
+   ],
+   "conf": "ok",
+   "text": {
+    "az": "Saray alimi Seyid Yəhya Bakuviyə aid edilən səkkizguşəli türbə, piramidal daş örtüklə. Xalq arasında “Dərviş türbəsi” də adlanır.",
+    "en": "An octagonal mausoleum with a pyramidal stone roof, attributed to the court scholar Seyid Yahya Bakuvi. Locally also called the “Dervish's tomb”."
+   },
+   "photos": [
+    "yahya_0"
+   ],
+   "factIds": [
+    "yahya"
+   ]
+  },
+  {
+   "id": "mosque",
+   "name": {
+    "az": "Şah məscidi və minarə",
+    "en": "Shah Mosque and minaret"
+   },
+   "date": {
+    "az": "1441",
+    "en": "1441"
+   },
+   "pos": [
+    18,
+    -6,
+    27
+   ],
+   "conf": "ok",
+   "interior": "mosque",
+   "text": {
+    "az": "Kompleksin məscidi. Minarədəki kitabə tikinti tarixini hicri 845-ci il (1441/42) kimi göstərir. Bərpa versiyasında minarə başlığı firuzəyi kaşı ilə təsəvvür edilib.",
+    "en": "The mosque of the complex. The minaret inscription gives 845 AH (1441/42). In the restored version the minaret cap is imagined in turquoise tiles."
+   },
+   "photos": [
+    "mosque_0",
+    "mosque_1"
+   ],
+   "factIds": [
+    "mosque-1441"
+   ]
+  },
+  {
+   "id": "turbe",
+   "name": {
+    "az": "Şirvanşahlar türbəsi",
+    "en": "Shirvanshahs' mausoleum"
+   },
+   "date": {
+    "az": "1435",
+    "en": "1435"
+   },
+   "pos": [
+    26,
+    -10,
+    15.1
+   ],
+   "conf": "ok",
+   "interior": "turbe",
+   "text": {
+    "az": "I Xəlilullahın anası və oğlu üçün tikdirdiyi günbəzli türbə (hicri 839, yəni 1435/36). Cənub tərəfdəki hündür, oyma bəzəkli portalı ilə tanınır.",
+    "en": "A domed mausoleum built by Khalilullah I for his mother and son (839 AH, 1435/36). Known for its tall carved portal on the south side."
+   },
+   "photos": [
+    "turbe_0",
+    "turbe_1"
+   ],
+   "factIds": [
+    "turbe-1435"
+   ]
+  },
+  {
+   "id": "murad",
+   "name": {
+    "az": "Murad qapısı",
+    "en": "Murad's Gate"
+   },
+   "date": {
+    "az": "1585",
+    "en": "1585"
+   },
+   "pos": [
+    26,
+    6,
+    11.4
+   ],
+   "conf": "ok",
+   "text": {
+    "az": "Osmanlı dövründə, Sultan III Muradın hakimiyyəti illərində tikilmiş daş portal (hicri 994, yəni 1585/86). Kompleksin ən gec tikililərindən biridir.",
+    "en": "A stone portal from the Ottoman period, in the reign of Sultan Murad III (994 AH, 1585/86). One of the latest structures in the complex."
+   },
+   "photos": [],
+   "factIds": [
+    "murad-1585"
+   ]
+  },
+  {
+   "id": "bath",
+   "name": {
+    "az": "Saray hamamı",
+    "en": "Palace bathhouse"
+   },
+   "date": {
+    "az": "XV ƏSR",
+    "en": "15TH C."
+   },
+   "pos": [
+    22,
+    -30,
+    6
+   ],
+   "conf": "mid",
+   "interior": "bath",
+   "today": {
+    "az": "Bu gün yalnız yarıyeraltı divar qalıqları var. Hamam qazıntı zamanı aşkarlanıb.",
+    "en": "Today only half-buried wall remains survive. The bathhouse was uncovered by excavation."
+   },
+   "past": {
+    "az": "Qalıqların planı əsasında günbəzli otaqlarla bərpa edilib. Günbəzlərin hündürlüyü və forması təxminidir.",
+    "en": "Restored with domed rooms on the plan of the remains. The height and shape of the domes are approximate."
+   },
+   "photos": [
+    "bath_0"
+   ],
+   "factIds": [
+    "bath"
+   ]
+  },
+  {
+   "id": "garden",
+   "name": {
+    "az": "Aşağı bağ və hovuz",
+    "en": "Lower garden and pool"
+   },
+   "date": {
+    "az": "BƏRPA",
+    "en": "RECONSTRUCTION"
+   },
+   "pos": [
+    -22,
+    -22,
+    3
+   ],
+   "conf": "hyp",
+   "pastOnly": true,
+   "text": {
+    "az": "AI fərziyyəsi: dövrün saray ənənəsinə əsaslanan bağ və hovuz təsəvvürü. Real arxeoloji əsası yoxdur, nümunə kimi göstərilir.",
+    "en": "AI hypothesis: a garden and pool imagined from period palace traditions. There is no archaeological basis; shown as an example."
+   },
+   "photos": [
+    "garden_0"
+   ],
+   "factIds": [
+    "garden-hyp"
+   ]
+  }
+ ],
+ "interiors": {
+  "divan": {
+   "title": {
+    "az": "Divanxananın içi",
+    "en": "Inside the Divankhana"
+   },
+   "note": {
+    "az": "Səkkizguşəli zal, divarlarda taxçalar, yuxarıda yazı qurşağı və günbəz.",
+    "en": "Octagonal hall with wall niches, an inscription band and a dome."
+   },
+   "shape": "oct",
+   "size": 3.6,
+   "h": 4.6,
+   "band": true,
+   "dome": {
+    "r": 3.35,
+    "sy": 1.15,
+    "muqarnas": true,
+    "drum": 0.8
+   },
+   "openings": [
+    {
+     "side": 0,
+     "kind": "niche",
+     "w": 1.7,
+     "h": 2.0,
+     "sill": 0.45
+    },
+    {
+     "side": 1,
+     "kind": "niche",
+     "w": 1.7,
+     "h": 2.0,
+     "sill": 0.45
+    },
+    {
+     "side": 2,
+     "kind": "niche",
+     "w": 1.7,
+     "h": 2.0,
+     "sill": 0.45
+    },
+    {
+     "side": 3,
+     "kind": "niche",
+     "w": 1.7,
+     "h": 2.0,
+     "sill": 0.45
+    },
+    {
+     "side": 4,
+     "kind": "door",
+     "w": 1.6,
+     "h": 2.2,
+     "sill": 0
+    },
+    {
+     "side": 5,
+     "kind": "niche",
+     "w": 1.7,
+     "h": 2.0,
+     "sill": 0.45
+    },
+    {
+     "side": 6,
+     "kind": "niche",
+     "w": 1.7,
+     "h": 2.0,
+     "sill": 0.45
+    },
+    {
+     "side": 7,
+     "kind": "niche",
+     "w": 1.7,
+     "h": 2.0,
+     "sill": 0.45
+    }
+   ],
+   "furniture": [],
+   "light": {
+    "color": "#ffdcae",
+    "intensity": 1.3,
+    "y": 3.5
+   },
+   "eye": 1.6,
+   "reach": 2.6
+  },
+  "turbe": {
+   "title": {
+    "az": "Türbənin içi",
+    "en": "Inside the mausoleum"
+   },
+   "note": {
+    "az": "Kvadrat zal, künclərdə günbəzə keçid tağları, ortada daş sənduqələr.",
+    "en": "A square hall, corner squinches carrying the dome, stone cenotaphs in the middle."
+   },
+   "shape": "rect",
+   "size": [
+    7,
+    7
+   ],
+   "h": 6,
+   "band": true,
+   "squinches": true,
+   "dome": {
+    "r": 3.4,
+    "sy": 1.1
+   },
+   "openings": [
+    {
+     "side": "s",
+     "kind": "door",
+     "w": 1.6,
+     "h": 2.4
+    },
+    {
+     "side": "n",
+     "kind": "niche",
+     "w": 2,
+     "h": 2.4,
+     "sill": 0.4
+    },
+    {
+     "side": "w",
+     "kind": "niche",
+     "w": 2,
+     "h": 2.4,
+     "sill": 0.4
+    },
+    {
+     "side": "e",
+     "kind": "niche",
+     "w": 2,
+     "h": 2.4,
+     "sill": 0.4
+    }
+   ],
+   "furniture": [
+    {
+     "kind": "cenotaph",
+     "at": [
+      -1.3,
+      0,
+      -0.6
+     ],
+     "size": [
+      0.8,
+      0.5,
+      2.1
+     ]
+    },
+    {
+     "kind": "cenotaph",
+     "at": [
+      0,
+      0,
+      -0.6
+     ],
+     "size": [
+      0.8,
+      0.45,
+      2.1
+     ]
+    },
+    {
+     "kind": "cenotaph",
+     "at": [
+      1.3,
+      0,
+      -0.6
+     ],
+     "size": [
+      0.8,
+      0.4,
+      2.1
+     ]
+    }
+   ],
+   "light": {
+    "color": "#ffd09a",
+    "intensity": 1.1,
+    "y": 4
+   },
+   "eye": 1.6,
+   "reach": 2.4
+  },
+  "mosque": {
+   "title": {
+    "az": "Şah məscidinin içi",
+    "en": "Inside the Shah Mosque"
+   },
+   "note": {
+    "az": "Mehrab, minbər, asma çıraq və döşəmədə xalça. Xalça naxışı təsəvvürdür.",
+    "en": "Mihrab, minbar, hanging lamp ring and a carpet. The carpet pattern is imagined."
+   },
+   "shape": "rect",
+   "size": [
+    10,
+    8
+   ],
+   "h": 6.5,
+   "band": true,
+   "dome": {
+    "r": 3.6,
+    "sy": 1.0
+   },
+   "openings": [
+    {
+     "side": "s",
+     "kind": "window",
+     "w": 0.8,
+     "h": 1.2,
+     "sill": 2.2,
+     "offset": -3.2
+    },
+    {
+     "side": "s",
+     "kind": "window",
+     "w": 0.8,
+     "h": 1.2,
+     "sill": 2.2,
+     "offset": 3.2
+    },
+    {
+     "side": "w",
+     "kind": "window",
+     "w": 0.8,
+     "h": 1.2,
+     "sill": 2.2,
+     "offset": -2
+    },
+    {
+     "side": "w",
+     "kind": "window",
+     "w": 0.8,
+     "h": 1.2,
+     "sill": 2.2,
+     "offset": 2
+    },
+    {
+     "side": "e",
+     "kind": "window",
+     "w": 0.8,
+     "h": 1.2,
+     "sill": 2.2,
+     "offset": -2
+    },
+    {
+     "side": "e",
+     "kind": "window",
+     "w": 0.8,
+     "h": 1.2,
+     "sill": 2.2,
+     "offset": 2
+    },
+    {
+     "side": "n",
+     "kind": "door",
+     "w": 1.6,
+     "h": 2.3,
+     "offset": -2.5
+    }
+   ],
+   "furniture": [
+    {
+     "kind": "carpet",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "size": [
+      4.2,
+      6.2
+     ],
+     "pattern": 0
+    },
+    {
+     "kind": "mihrab",
+     "at": [
+      0,
+      0,
+      3.95
+     ],
+     "rotY": 180
+    },
+    {
+     "kind": "minbar",
+     "at": [
+      1.6,
+      0,
+      3.6
+     ],
+     "rotY": 0
+    },
+    {
+     "kind": "lampRing",
+     "at": [
+      0,
+      3.6,
+      0
+     ],
+     "r": 1.1,
+     "n": 12
+    }
+   ],
+   "light": {
+    "color": "#ffcf90",
+    "intensity": 1.4,
+    "y": 3.4
+   },
+   "eye": 1.6,
+   "reach": 3.2
+  },
+  "bath": {
+   "title": {
+    "az": "Hamamın mərkəzi zalı",
+    "en": "Central hall of the bathhouse"
+   },
+   "note": {
+    "az": "Mərkəzi hovuz, oturacaq taxçaları, günbəzdə ulduzvari işıq dəlikləri.",
+    "en": "Central pool, bench niches and star-shaped skylights in the dome."
+   },
+   "shape": "oct",
+   "size": 4,
+   "h": 3.2,
+   "dome": {
+    "r": 4,
+    "sy": 0.85,
+    "skylights": true
+   },
+   "openings": [
+    {
+     "side": 0,
+     "kind": "niche",
+     "w": 1.9,
+     "h": 1.6
+    },
+    {
+     "side": 1,
+     "kind": "niche",
+     "w": 1.9,
+     "h": 1.6
+    },
+    {
+     "side": 2,
+     "kind": "door",
+     "w": 1.9,
+     "h": 1.6
+    },
+    {
+     "side": 3,
+     "kind": "niche",
+     "w": 1.9,
+     "h": 1.6
+    },
+    {
+     "side": 4,
+     "kind": "niche",
+     "w": 1.9,
+     "h": 1.6
+    },
+    {
+     "side": 5,
+     "kind": "niche",
+     "w": 1.9,
+     "h": 1.6
+    },
+    {
+     "side": 6,
+     "kind": "niche",
+     "w": 1.9,
+     "h": 1.6
+    },
+    {
+     "side": 7,
+     "kind": "niche",
+     "w": 1.9,
+     "h": 1.6
+    }
+   ],
+   "furniture": [
+    {
+     "kind": "bench",
+     "at": [
+      3.25,
+      0,
+      0.0
+     ],
+     "size": [
+      0.6,
+      0.45,
+      1.6
+     ],
+     "rotY": 0
+    },
+    {
+     "kind": "bench",
+     "at": [
+      2.298,
+      0,
+      2.298
+     ],
+     "size": [
+      0.6,
+      0.45,
+      1.6
+     ],
+     "rotY": -45
+    },
+    {
+     "kind": "bench",
+     "at": [
+      -2.298,
+      0,
+      2.298
+     ],
+     "size": [
+      0.6,
+      0.45,
+      1.6
+     ],
+     "rotY": -135
+    },
+    {
+     "kind": "bench",
+     "at": [
+      -3.25,
+      0,
+      0.0
+     ],
+     "size": [
+      0.6,
+      0.45,
+      1.6
+     ],
+     "rotY": -180
+    },
+    {
+     "kind": "bench",
+     "at": [
+      -2.298,
+      0,
+      -2.298
+     ],
+     "size": [
+      0.6,
+      0.45,
+      1.6
+     ],
+     "rotY": -225
+    },
+    {
+     "kind": "bench",
+     "at": [
+      -0.0,
+      0,
+      -3.25
+     ],
+     "size": [
+      0.6,
+      0.45,
+      1.6
+     ],
+     "rotY": -270
+    },
+    {
+     "kind": "bench",
+     "at": [
+      2.298,
+      0,
+      -2.298
+     ],
+     "size": [
+      0.6,
+      0.45,
+      1.6
+     ],
+     "rotY": -315
+    },
+    {
+     "kind": "pool",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "r": 1.5,
+     "sides": 8
+    }
+   ],
+   "light": {
+    "color": "#fff0d0",
+    "intensity": 1.0,
+    "y": 2.6
+   },
+   "eye": 1.5,
+   "reach": 2.8
+  }
+ },
+ "walk": {
+  "title": {
+   "az": "Saray binasının içində gəzinti",
+   "en": "Walk through the palace building"
+  },
+  "eye": 1.62,
+  "defaultFloor": 1.2,
+  "start": {
+   "x": -20,
+   "z": 0,
+   "yaw": -90,
+   "pitch": 0.08
+  },
+  "sky": "#bcd6e8",
+  "fog": [
+   30,
+   90
+  ],
+  "map": {
+   "bounds": [
+    -12,
+    16,
+    -8.5,
+    8.5
+   ],
+   "hide": [
+    "court"
+   ]
+  },
+  "sun": {
+   "dir": [
+    -10,
+    20,
+    6
+   ],
+   "intensity": 0.8
+  },
+  "ambient": 0.62,
+  "elements": [
+   {
+    "t": "floor",
+    "rect": [
+     -30,
+     -6.8,
+     -12,
+     12
+    ],
+    "y": 0
+   },
+   {
+    "t": "box",
+    "min": [
+     -30,
+     0,
+     -12
+    ],
+    "max": [
+     -6.8,
+     2.8,
+     -11.5
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -30,
+     0,
+     11.5
+    ],
+    "max": [
+     -6.8,
+     2.8,
+     12
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -30,
+     0,
+     -12
+    ],
+    "max": [
+     -29.5,
+     2.8,
+     12
+    ]
+   },
+   {
+    "t": "fountain",
+    "c": [
+     -15,
+     0
+    ],
+    "r": 1.4,
+    "n": 8
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     -12,
+     0,
+     -9
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     -17,
+     0,
+     -9
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     -22,
+     0,
+     -9
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     -12,
+     0,
+     9
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     -17,
+     0,
+     9
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     -22,
+     0,
+     9
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -17.5,
+     0,
+     -6
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -17.5,
+     0,
+     -3
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -17.5,
+     0,
+     3
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -17.5,
+     0,
+     6
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -6.4,
+     9
+    ],
+    "to": [
+     -6.4,
+     -9
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.8,
+    "ops": [
+     {
+      "u": 9,
+      "w": 2.0,
+      "sill": 1.2,
+      "spring": 2.4,
+      "kind": "door"
+     },
+     {
+      "u": 3.2,
+      "w": 1,
+      "sill": 2.2,
+      "spring": 1,
+      "kind": "window"
+     },
+     {
+      "u": 14.8,
+      "w": 1,
+      "sill": 2.2,
+      "spring": 1,
+      "kind": "window"
+     },
+     {
+      "u": 5.6,
+      "w": 1,
+      "sill": 2.2,
+      "spring": 1,
+      "kind": "window"
+     },
+     {
+      "u": 12.4,
+      "w": 1,
+      "sill": 2.2,
+      "spring": 1,
+      "kind": "window"
+     }
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -6.85,
+     9.9,
+     -9
+    ],
+    "max": [
+     -5.95,
+     10.3,
+     9
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -7.2,
+     2.6
+    ],
+    "to": [
+     -7.2,
+     -2.6
+    ],
+    "y0": 0,
+    "h": 9.6,
+    "th": 0.8,
+    "ops": [
+     {
+      "u": 2.6,
+      "w": 3.6,
+      "sill": 0,
+      "spring": 4.8,
+      "kind": "door"
+     }
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -7.7,
+     9.6,
+     -2.75
+    ],
+    "max": [
+     -6.8,
+     9.95,
+     2.75
+    ]
+   },
+   {
+    "t": "plane",
+    "at": [
+     -7.62,
+     8.7,
+     0
+    ],
+    "size": [
+     4.4,
+     0.55
+    ],
+    "rotY": -90,
+    "mat": "band"
+   },
+   {
+    "t": "relief",
+    "at": [
+     -7.63,
+     6.9,
+     -2.05
+    ],
+    "size": [
+     0.9,
+     2.6
+    ],
+    "rotY": -90,
+    "pattern": "star"
+   },
+   {
+    "t": "relief",
+    "at": [
+     -7.63,
+     6.9,
+     2.05
+    ],
+    "size": [
+     0.9,
+     2.6
+    ],
+    "rotY": -90,
+    "pattern": "star"
+   },
+   {
+    "t": "box",
+    "min": [
+     -7.6,
+     0,
+     -1.8
+    ],
+    "max": [
+     -6.8,
+     1.2,
+     1.8
+    ]
+   },
+   {
+    "t": "stair",
+    "from": [
+     -10.6,
+     0
+    ],
+    "dir": [
+     1,
+     0
+    ],
+    "width": 3.6,
+    "steps": 8,
+    "rise": 0.15,
+    "run": 0.375,
+    "y0": 0,
+    "mat": "floor"
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -6.0,
+     15.6,
+     -8.2,
+     8.2
+    ],
+    "y": 1.2
+   },
+   {
+    "t": "wall",
+    "from": [
+     -6.0,
+     -1.25
+    ],
+    "to": [
+     -3.85,
+     -1.25
+    ],
+    "y0": 1.2,
+    "h": 3.0,
+    "th": 0.5
+   },
+   {
+    "t": "wall",
+    "from": [
+     -3.85,
+     1.25
+    ],
+    "to": [
+     -6.0,
+     1.25
+    ],
+    "y0": 1.2,
+    "h": 3.0,
+    "th": 0.5
+   },
+   {
+    "t": "vault",
+    "x": [
+     -6.0,
+     -3.85
+    ],
+    "z": [
+     -1.25,
+     1.25
+    ],
+    "y": 4.2,
+    "axis": "x",
+    "scaleY": 1.25
+   },
+   {
+    "t": "octWalls",
+    "c": [
+     0,
+     0
+    ],
+    "a": 3.3,
+    "th": 0.6,
+    "y0": 1.2,
+    "h": 6.0,
+    "faces": [
+     {
+      "w": 1.4,
+      "sill": 0,
+      "spring": 2.4,
+      "kind": "door"
+     },
+     {
+      "w": 1.3,
+      "sill": 1.6,
+      "spring": 1.6,
+      "kind": "window"
+     },
+     {
+      "w": 1.9,
+      "sill": 0.45,
+      "spring": 2.2,
+      "kind": "niche",
+      "back": -1
+     },
+     {
+      "w": 1.9,
+      "sill": 0.45,
+      "spring": 2.2,
+      "kind": "niche",
+      "back": -1
+     },
+     {
+      "w": 1.8,
+      "sill": 0,
+      "spring": 2.8,
+      "kind": "door"
+     },
+     {
+      "w": 1.0,
+      "sill": 0,
+      "spring": 2.0,
+      "kind": "door"
+     },
+     {
+      "w": 1.9,
+      "sill": 0.45,
+      "spring": 2.2,
+      "kind": "niche",
+      "back": -1
+     },
+     {
+      "w": 1.0,
+      "sill": 0,
+      "spring": 2.0,
+      "kind": "door"
+     }
+    ]
+   },
+   {
+    "t": "octRing",
+    "c": [
+     0,
+     0
+    ],
+    "a": 3.28,
+    "y0": 6.4,
+    "h": 0.5,
+    "mat": "band"
+   },
+   {
+    "t": "octRing",
+    "c": [
+     0,
+     0
+    ],
+    "a": 3.3,
+    "y0": 7.2,
+    "h": 0.9
+   },
+   {
+    "t": "muqarnas",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.0999999999999996,
+    "y": 7.5
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     0
+    ],
+    "r": 2.8,
+    "y": 8.1,
+    "sy": 1.25
+   },
+   {
+    "t": "ringCap",
+    "c": [
+     0,
+     0
+    ],
+    "r0": 2.75,
+    "r1": 3.972,
+    "y": 8.1
+   },
+   {
+    "t": "drumLights",
+    "c": [
+     0,
+     0
+    ],
+    "r": 3.25,
+    "y": 7.7,
+    "n": 4
+   },
+   {
+    "t": "disc",
+    "c": [
+     0,
+     0
+    ],
+    "r": 1.32,
+    "hole": 1.2,
+    "y": 1.2109999999999999,
+    "sides": 8,
+    "mat": "inlay"
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     0,
+     1.2,
+     0
+    ],
+    "size": [
+     2.2,
+     2.2
+    ],
+    "pattern": 0,
+    "rotY": 45
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     0,
+     4.8,
+     0
+    ],
+    "light": 1.0,
+    "distance": 13
+   },
+   {
+    "t": "shaft",
+    "at": [
+     2.263,
+     3.8,
+     2.263
+    ],
+    "to": [
+     0.6,
+     1.2,
+     0.6
+    ],
+    "w": 0.9
+   },
+   {
+    "t": "cylWall",
+    "c": [
+     -3.5,
+     -3.5
+    ],
+    "r": 1.15,
+    "y0": 1.2,
+    "h": 4.2,
+    "arc": [
+     80,
+     290
+    ]
+   },
+   {
+    "t": "column",
+    "c": [
+     -3.5,
+     -3.5
+    ],
+    "r": 0.16,
+    "y0": 1.2,
+    "h": 4.2
+   },
+   {
+    "t": "spiralStair",
+    "c": [
+     -3.5,
+     -3.5
+    ],
+    "r": 1.025,
+    "y0": 1.7999999999999998,
+    "y1": 4.88,
+    "steps": 14,
+    "a0": 200,
+    "turnDeg": 364,
+    "column": 0.175
+   },
+   {
+    "t": "dome",
+    "c": [
+     -3.5,
+     -3.5
+    ],
+    "r": 1.15,
+    "y": 5.4,
+    "sy": 0.7
+   },
+   {
+    "t": "light",
+    "at": [
+     -3.5,
+     3.4000000000000004,
+     -3.5
+    ],
+    "intensity": 0.35,
+    "distance": 4
+   },
+   {
+    "t": "group",
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 315
+    },
+    "children": [
+     {
+      "t": "wall",
+      "from": [
+       3.9,
+       -1.15
+      ],
+      "to": [
+       6.2,
+       -1.15
+      ],
+      "y0": 1.2,
+      "h": 3.0,
+      "th": 0.5
+     },
+     {
+      "t": "wall",
+      "from": [
+       5.95,
+       -1.15
+      ],
+      "to": [
+       5.95,
+       1.15
+      ],
+      "y0": 1.2,
+      "h": 3.0,
+      "th": 0.5,
+      "ops": [
+       {
+        "u": 1.15,
+        "w": 0.9,
+        "sill": 1.0,
+        "spring": 1.0,
+        "kind": "window"
+       }
+      ]
+     },
+     {
+      "t": "wall",
+      "from": [
+       6.2,
+       1.15
+      ],
+      "to": [
+       3.9,
+       1.15
+      ],
+      "y0": 1.2,
+      "h": 3.0,
+      "th": 0.5
+     },
+     {
+      "t": "dome",
+      "c": [
+       4.85,
+       0
+      ],
+      "r": 1.3,
+      "y": 4.2,
+      "sy": 0.6
+     },
+     {
+      "t": "furniture",
+      "kind": "chest",
+      "at": [
+       5.4,
+       1.2,
+       0.45
+      ]
+     },
+     {
+      "t": "furniture",
+      "kind": "jug",
+      "at": [
+       5.4,
+       1.2,
+       -0.5
+      ],
+      "s": 0.45,
+      "color": "#2f7d78"
+     }
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     3.85,
+     -0.95
+    ],
+    "to": [
+     5.25,
+     -0.95
+    ],
+    "y0": 1.2,
+    "h": 2.8,
+    "th": 0.5
+   },
+   {
+    "t": "wall",
+    "from": [
+     5.25,
+     0.95
+    ],
+    "to": [
+     3.85,
+     0.95
+    ],
+    "y0": 1.2,
+    "h": 2.8,
+    "th": 0.5
+   },
+   {
+    "t": "vault",
+    "x": [
+     3.85,
+     5.25
+    ],
+    "z": [
+     -0.95,
+     0.95
+    ],
+    "y": 4.0,
+    "axis": "x",
+    "scaleY": 1.2
+   },
+   {
+    "t": "octWalls",
+    "c": [
+     7.3,
+     0
+    ],
+    "a": 1.6,
+    "th": 0.5,
+    "y0": 1.2,
+    "h": 4.0,
+    "faces": [
+     {
+      "w": 1.2,
+      "sill": 0,
+      "spring": 2.2,
+      "kind": "door"
+     },
+     {
+      "w": 0.9,
+      "sill": 0.5,
+      "spring": 1.3,
+      "kind": "niche",
+      "back": -1
+     },
+     {
+      "w": 1.2,
+      "sill": 0,
+      "spring": 2.2,
+      "kind": "door"
+     },
+     {
+      "w": 0.9,
+      "sill": 0.5,
+      "spring": 1.3,
+      "kind": "niche",
+      "back": -1
+     },
+     {
+      "w": 1.4,
+      "sill": 0,
+      "spring": 2.3,
+      "kind": "door"
+     },
+     {
+      "w": 0.9,
+      "sill": 0.5,
+      "spring": 1.3,
+      "kind": "niche",
+      "back": -1
+     },
+     {
+      "w": 1.2,
+      "sill": 0,
+      "spring": 2.2,
+      "kind": "door"
+     },
+     {
+      "w": 0.9,
+      "sill": 0.5,
+      "spring": 1.3,
+      "kind": "niche",
+      "back": -1
+     }
+    ]
+   },
+   {
+    "t": "octRing",
+    "c": [
+     7.3,
+     0
+    ],
+    "a": 1.6,
+    "y0": 5.2,
+    "h": 0.4
+   },
+   {
+    "t": "dome",
+    "c": [
+     7.3,
+     0
+    ],
+    "r": 1.7000000000000002,
+    "y": 5.6000000000000005,
+    "sy": 1.15
+   },
+   {
+    "t": "ringCap",
+    "c": [
+     7.3,
+     0
+    ],
+    "r0": 1.6,
+    "r1": 2.082,
+    "y": 5.6000000000000005
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     7.3,
+     4.1,
+     0
+    ],
+    "light": 0.55,
+    "distance": 7
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     8.62,
+     1.7,
+     -0.55
+    ],
+    "s": 0.32,
+    "color": "#a86b2d"
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     5.9799999999999995,
+     1.7,
+     0.55
+    ],
+    "s": 0.32,
+    "color": "#2f7d78"
+   },
+   {
+    "t": "room",
+    "x": [
+     5.2,
+     9.4
+    ],
+    "z": [
+     -7.0,
+     -2.6
+    ],
+    "y0": 1.2,
+    "h": 3.2,
+    "th": 0.5,
+    "vault": "x",
+    "ops": {
+     "n": [
+      {
+       "u": 2.35,
+       "w": 1.6,
+       "sill": 1.0,
+       "spring": 1.4,
+       "kind": "window"
+      },
+      {
+       "u": 0.9,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      },
+      {
+       "u": 3.8,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      }
+     ],
+     "s": [
+      {
+       "u": 2.35,
+       "w": 1.2,
+       "sill": 0,
+       "spring": 2.2,
+       "kind": "door"
+      }
+     ],
+     "w": [
+      {
+       "u": 1.5,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      },
+      {
+       "u": 3.2,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      }
+     ],
+     "e": [
+      {
+       "u": 1.5,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      },
+      {
+       "u": 3.2,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      }
+     ]
+    }
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     7.3,
+     1.2,
+     -4.8
+    ],
+    "size": [
+     3.0,
+     3.6
+    ],
+    "pattern": 1,
+    "rotY": 90
+   },
+   {
+    "t": "furniture",
+    "kind": "cushion",
+    "at": [
+     6.2,
+     1.2,
+     -6.55
+    ],
+    "len": 1.0,
+    "rotY": 0,
+    "color": "#a33a2b"
+   },
+   {
+    "t": "furniture",
+    "kind": "cushion",
+    "at": [
+     7.3,
+     1.2,
+     -6.55
+    ],
+    "len": 1.0,
+    "rotY": 0,
+    "color": "#2f5d7c"
+   },
+   {
+    "t": "furniture",
+    "kind": "cushion",
+    "at": [
+     8.4,
+     1.2,
+     -6.55
+    ],
+    "len": 1.0,
+    "rotY": 0,
+    "color": "#a33a2b"
+   },
+   {
+    "t": "furniture",
+    "kind": "cushion",
+    "at": [
+     5.65,
+     1.2,
+     -4.9
+    ],
+    "len": 1.8,
+    "rotY": 90,
+    "color": "#2f5d7c"
+   },
+   {
+    "t": "furniture",
+    "kind": "tray",
+    "at": [
+     7.3,
+     1.2,
+     -5.2
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     5.0,
+     1.7,
+     -5.5
+    ],
+    "s": 0.26,
+    "color": "#2f7d78"
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     5.0,
+     1.7,
+     -3.8
+    ],
+    "s": 0.26,
+    "color": "#a86b2d"
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     9.6,
+     1.7,
+     -5.5
+    ],
+    "s": 0.26,
+    "color": "#d9c49a"
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     9.6,
+     1.7,
+     -3.8
+    ],
+    "s": 0.26,
+    "color": "#2f7d78"
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     7.3,
+     3.8,
+     -4.8
+    ],
+    "light": 0.7,
+    "distance": 8
+   },
+   {
+    "t": "shaft",
+    "at": [
+     7.3,
+     3.5999999999999996,
+     -7.1
+    ],
+    "to": [
+     7.3,
+     1.2,
+     -5.6
+    ],
+    "w": 1.3
+   },
+   {
+    "t": "room",
+    "x": [
+     5.2,
+     9.4
+    ],
+    "z": [
+     2.6,
+     7.0
+    ],
+    "y0": 1.2,
+    "h": 3.2,
+    "th": 0.5,
+    "vault": "x",
+    "ops": {
+     "n": [
+      {
+       "u": 2.35,
+       "w": 1.2,
+       "sill": 0,
+       "spring": 2.2,
+       "kind": "door"
+      }
+     ],
+     "s": [
+      {
+       "u": 2.35,
+       "w": 2.4,
+       "sill": 0.45,
+       "spring": 1.6,
+       "kind": "window"
+      }
+     ],
+     "w": [
+      {
+       "u": 2.35,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      }
+     ],
+     "e": [
+      {
+       "u": 1.4,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      },
+      {
+       "u": 3.3,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      }
+     ]
+    }
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     7.3,
+     1.2,
+     4.6
+    ],
+    "size": [
+     2.6,
+     3.4
+    ],
+    "pattern": 2,
+    "rotY": 90
+   },
+   {
+    "t": "furniture",
+    "kind": "cushion",
+    "at": [
+     7.3,
+     1.2,
+     6.5
+    ],
+    "len": 2.2,
+    "rotY": 180,
+    "color": "#a33a2b"
+   },
+   {
+    "t": "furniture",
+    "kind": "loom",
+    "at": [
+     5.75,
+     1.2,
+     4.6
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     7.3,
+     3.8,
+     4.6
+    ],
+    "light": 0.7,
+    "distance": 8
+   },
+   {
+    "t": "shaft",
+    "at": [
+     7.3,
+     3.4000000000000004,
+     7.1
+    ],
+    "to": [
+     7.3,
+     1.2,
+     5.4
+    ],
+    "w": 2.0
+   },
+   {
+    "t": "wall",
+    "from": [
+     9.35,
+     -0.6
+    ],
+    "to": [
+     10.4,
+     -0.6
+    ],
+    "y0": 1.2,
+    "h": 2.6,
+    "th": 0.4
+   },
+   {
+    "t": "wall",
+    "from": [
+     10.4,
+     0.6
+    ],
+    "to": [
+     9.35,
+     0.6
+    ],
+    "y0": 1.2,
+    "h": 2.6,
+    "th": 0.4
+   },
+   {
+    "t": "box",
+    "min": [
+     9.35,
+     3.8,
+     -0.8
+    ],
+    "max": [
+     10.4,
+     4.1,
+     0.8
+    ]
+   },
+   {
+    "t": "room",
+    "x": [
+     10.4,
+     15.0
+    ],
+    "z": [
+     -2.4,
+     2.4
+    ],
+    "y0": 1.2,
+    "h": 3.4,
+    "th": 0.5,
+    "vault": "x",
+    "ops": {
+     "w": [
+      {
+       "u": 2.65,
+       "w": 1.0,
+       "sill": 0,
+       "spring": 2.1,
+       "kind": "door"
+      }
+     ],
+     "e": [
+      {
+       "u": 2.65,
+       "w": 2.2,
+       "sill": 0.5,
+       "spring": 1.6,
+       "kind": "window"
+      }
+     ],
+     "n": [
+      {
+       "u": 1.3,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      },
+      {
+       "u": 2.9,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      },
+      {
+       "u": 4.5,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      }
+     ],
+     "s": [
+      {
+       "u": 1.3,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      },
+      {
+       "u": 2.9,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      },
+      {
+       "u": 4.5,
+       "w": 1.0,
+       "sill": 0.5,
+       "spring": 1.1,
+       "kind": "niche",
+       "back": -1
+      }
+     ]
+    }
+   },
+   {
+    "t": "box",
+    "min": [
+     13.4,
+     1.2,
+     -2.4
+    ],
+    "max": [
+     15.0,
+     1.5499999999999998,
+     2.4
+    ],
+    "mat": "floor"
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     14.2,
+     1.5499999999999998,
+     0
+    ],
+    "size": [
+     1.4,
+     4.4
+    ],
+    "pattern": 0,
+    "rotY": 0
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     11.8,
+     1.2,
+     0
+    ],
+    "size": [
+     2.4,
+     3.4
+    ],
+    "pattern": 1,
+    "rotY": 90
+   },
+   {
+    "t": "furniture",
+    "kind": "cushion",
+    "at": [
+     14.6,
+     1.5499999999999998,
+     0
+    ],
+    "len": 3.6,
+    "rotY": -90,
+    "color": "#a33a2b"
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     11.2,
+     1.7,
+     -2.57
+    ],
+    "s": 0.27,
+    "color": "#a86b2d"
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     12.8,
+     1.7,
+     -2.57
+    ],
+    "s": 0.27,
+    "color": "#2f7d78"
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     11.2,
+     1.7,
+     2.57
+    ],
+    "s": 0.27,
+    "color": "#2f7d78"
+   },
+   {
+    "t": "furniture",
+    "kind": "jug",
+    "at": [
+     12.8,
+     1.7,
+     2.57
+    ],
+    "s": 0.27,
+    "color": "#d9c49a"
+   },
+   {
+    "t": "furniture",
+    "kind": "lectern",
+    "at": [
+     12.4,
+     1.2,
+     0
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     12.2,
+     4.0,
+     0
+    ],
+    "light": 0.75,
+    "distance": 9
+   },
+   {
+    "t": "shaft",
+    "at": [
+     15.1,
+     3.5999999999999996,
+     0
+    ],
+    "to": [
+     13.3,
+     1.5499999999999998,
+     0
+    ],
+    "w": 1.8
+   }
+  ],
+  "zones": [
+   {
+    "id": "court",
+    "rect": [
+     -28.5,
+     -10.6,
+     -10.8,
+     10.8
+    ],
+    "floor": 0
+   },
+   {
+    "id": "portal",
+    "rect": [
+     -10.65,
+     -7.6,
+     -1.5,
+     1.5
+    ],
+    "floor": {
+     "ramp": {
+      "axis": "x",
+      "from": -10.6,
+      "to": -7.6,
+      "y0": 0,
+      "y1": 1.2
+     }
+    }
+   },
+   {
+    "id": "portal",
+    "rect": [
+     -7.65,
+     -6.75,
+     -1.5,
+     1.5
+    ]
+   },
+   {
+    "id": "vest",
+    "rect": [
+     -6.8,
+     -2.8,
+     -0.7,
+     0.7
+    ]
+   },
+   {
+    "id": "hall",
+    "oct": {
+     "c": [
+      0,
+      0
+     ],
+     "a": 3.02
+    }
+   },
+   {
+    "id": "hall",
+    "rect": [
+     2.8,
+     4.0,
+     -0.45,
+     0.45
+    ]
+   },
+   {
+    "id": "corr",
+    "rect": [
+     3.9,
+     6.2,
+     -0.45,
+     0.45
+    ]
+   },
+   {
+    "id": "vest2",
+    "oct": {
+     "c": [
+      7.3,
+      0
+     ],
+     "a": 1.32
+    }
+   },
+   {
+    "id": "vest2",
+    "rect": [
+     6.95,
+     7.6499999999999995,
+     -2.9,
+     2.9
+    ]
+   },
+   {
+    "id": "r1",
+    "rect": [
+     5.45,
+     9.15,
+     -6.75,
+     -2.85
+    ]
+   },
+   {
+    "id": "r2",
+    "rect": [
+     5.45,
+     9.15,
+     2.85,
+     6.75
+    ]
+   },
+   {
+    "id": "vest2",
+    "rect": [
+     8.6,
+     10.7,
+     -0.3,
+     0.3
+    ]
+   },
+   {
+    "id": "r3",
+    "rect": [
+     10.65,
+     13.35,
+     -2.15,
+     2.15
+    ]
+   },
+   {
+    "id": "r3",
+    "rect": [
+     13.35,
+     14.75,
+     -2.15,
+     2.15
+    ],
+    "floor": 1.5499999999999998
+   },
+   {
+    "id": "stair",
+    "rect": [
+     2.6,
+     4.6,
+     -0.25,
+     0.25
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 225
+    }
+   },
+   {
+    "id": "stair",
+    "circle": [
+     -3.5,
+     -3.5,
+     0.75
+    ]
+   },
+   {
+    "id": "ch3",
+    "rect": [
+     2.6,
+     4.3,
+     -0.25,
+     0.25
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 315
+    }
+   },
+   {
+    "id": "ch3",
+    "rect": [
+     4.15,
+     5.45,
+     -0.65,
+     0.65
+    ],
+    "frame": {
+     "pos": [
+      0,
+      0
+     ],
+     "rot": 315
+    }
+   }
+  ],
+  "obstacles": [
+   [
+    -15,
+    0,
+    1.85
+   ],
+   [
+    7.3,
+    -5.2,
+    0.55
+   ]
+  ],
+  "zoneInfo": {
+   "court": {
+    "title": {
+     "az": "Yuxarı həyət",
+     "en": "Upper courtyard"
+    },
+    "text": {
+     "az": "Qərb fasadı və hündür giriş portalı. Pilləkənlə yuxarı qalxıb içəri keçin.",
+     "en": "The west facade and the tall entrance portal. Climb the steps and go inside."
+    },
+    "conf": "ok",
+    "photos": [
+     "facade_0",
+     "garden_0",
+     "overview_0"
+    ],
+    "factIds": [
+     "palace-15c",
+     "capital-move"
+    ]
+   },
+   "portal": {
+    "title": {
+     "az": "Qərb portalı",
+     "en": "West portal"
+    },
+    "text": {
+     "az": "Hündür, tağlı portal. Pilləkən birbaşa mərkəzi zala aparır.",
+     "en": "A tall arched portal. The stair leads straight to the central hall."
+    },
+    "conf": "ok",
+    "photos": [
+     "palace_0",
+     "entry2_0"
+    ],
+    "factIds": [
+     "octagonal-hall"
+    ]
+   },
+   "vest": {
+    "title": {
+     "az": "Giriş dəhlizi",
+     "en": "Entrance passage"
+    },
+    "text": {
+     "az": "Plandakı 1 nömrəli hissə: portaldan mərkəzi zala keçid.",
+     "en": "Part 1 on the plan: the passage from the portal to the central hall."
+    },
+    "conf": "mid",
+    "photos": [
+     "entry2_0",
+     "palace_0"
+    ],
+    "factIds": [
+     "octagonal-hall"
+    ]
+   },
+   "hall": {
+    "title": {
+     "az": "Mərkəzi səkkizguşəli zal",
+     "en": "Central octagonal hall"
+    },
+    "text": {
+     "az": "Planda sahəsi 34,15 m². Günbəzlə örtülüb, ehtimal ki, qəbullar üçün istifadə olunub. Sarayın ən qədim hissəsi sayılır.",
+     "en": "34.15 m² on the plan. Domed, probably used for receptions. Considered the oldest part of the palace."
+    },
+    "conf": "ok",
+    "photos": [
+     "dome_1",
+     "expo_0",
+     "dome_0",
+     "palace_1"
+    ],
+    "factIds": [
+     "octagonal-hall",
+     "hall-area"
+    ]
+   },
+   "stair": {
+    "title": {
+     "az": "Dolama pilləkən",
+     "en": "Spiral stair"
+    },
+    "text": {
+     "az": "Plandakı 5 nömrəli hissə. Sarayda üç dar dolama pilləkən olduğu bilinir.",
+     "en": "Part 5 on the plan. The palace is known to have three narrow spiral stairs."
+    },
+    "conf": "mid",
+    "photos": [
+     "stairs_0",
+     "palace_1"
+    ],
+    "factIds": [
+     "spiral-stairs"
+    ]
+   },
+   "ch3": {
+    "title": {
+     "az": "Kiçik otaq",
+     "en": "Small chamber"
+    },
+    "text": {
+     "az": "Plandakı 3 nömrəli hissə: zalın şimal-şərq küncündəki kiçik otaq.",
+     "en": "Part 3 on the plan: a small chamber at the hall's north-east corner."
+    },
+    "conf": "mid",
+    "photos": [
+     "palace_1",
+     "dome_1"
+    ],
+    "factIds": [
+     "octagonal-hall"
+    ]
+   },
+   "corr": {
+    "title": {
+     "az": "Keçid",
+     "en": "Passage"
+    },
+    "text": {
+     "az": "Mərkəzi zaldan şərqə, kiçik vestibülə gedən dəhliz.",
+     "en": "The passage east from the central hall to the small vestibule."
+    },
+    "conf": "mid",
+    "photos": [
+     "expo_0",
+     "palace_2"
+    ],
+    "factIds": [
+     "octagonal-hall"
+    ]
+   },
+   "vest2": {
+    "title": {
+     "az": "Kiçik səkkizguşəli vestibül",
+     "en": "Small octagonal vestibule"
+    },
+    "text": {
+     "az": "Mənbələrə görə mərkəzi zalı sarayın digər otaqları ilə birləşdirir.",
+     "en": "According to sources it links the central hall to the palace's other rooms."
+    },
+    "conf": "ok",
+    "photos": [
+     "expo_0",
+     "palace_2"
+    ],
+    "factIds": [
+     "octagonal-hall"
+    ]
+   },
+   "r1": {
+    "title": {
+     "az": "Şimal otağı (təxmini)",
+     "en": "North room (approximate)"
+    },
+    "text": {
+     "az": "Şah ailəsinin yaşayış otağı kimi təsəvvür edilib: xalça, mütəkkələr, taxçalarda saxsı qablar, şəbəkəli pəncərə.",
+     "en": "Imagined as a living room of the shah's family: carpet, bolsters, ceramics in niches, a shebeke window."
+    },
+    "conf": "hyp",
+    "photos": [
+     "ceramic_0",
+     "palace_2"
+    ],
+    "factIds": [
+     "palace-rooms",
+     "shebeke"
+    ]
+   },
+   "r2": {
+    "title": {
+     "az": "Cənub otağı (təxmini)",
+     "en": "South room (approximate)"
+    },
+    "text": {
+     "az": "Cənub fasadında erkər pəncərə olduğu bilinir. Otaqda xalça toxuma dəzgahı təsəvvür edilib.",
+     "en": "The south facade is known to have a bay window. A carpet loom is imagined in the room."
+    },
+    "conf": "hyp",
+    "photos": [
+     "mosque_1",
+     "silk_0",
+     "bags_0"
+    ],
+    "factIds": [
+     "bay-windows",
+     "silk"
+    ]
+   },
+   "r3": {
+    "title": {
+     "az": "Şərq otağı (təxmini)",
+     "en": "East room (approximate)"
+    },
+    "text": {
+     "az": "Şərq fasadındakı erkər pəncərənin qarşısında hündür taxt, xalçalar və kitab rəhləsi.",
+     "en": "A raised platform, carpets and a book stand in front of the east facade's bay window."
+    },
+    "conf": "hyp",
+    "photos": [
+     "palace_2",
+     "ceramic_0",
+     "bags_0"
+    ],
+    "factIds": [
+     "bay-windows",
+     "palace-rooms"
+    ]
+   }
+  },
+  "testRoute": [
+   {
+    "key": "KeyA",
+    "ms": 1000
+   },
+   {
+    "key": "KeyW",
+    "ms": 4000,
+    "expect": "court"
+   },
+   {
+    "key": "KeyD",
+    "ms": 1000
+   },
+   {
+    "key": "KeyW",
+    "ms": 1500,
+    "expect": "portal"
+   },
+   {
+    "key": "KeyW",
+    "ms": 1500,
+    "expect": "vest",
+    "minFloor": 1.2
+   },
+   {
+    "key": "KeyW",
+    "ms": 2500,
+    "expect": "hall",
+    "minFloor": 1.2
+   }
+  ],
+  "testShots": [
+   "portal",
+   "hall",
+   "r1",
+   "r2",
+   "r3",
+   "stair",
+   "ch3"
+  ]
+ },
+ "disclaimer": {
+  "az": "Bu, ölçülmüş data deyil, kodla qurulmuş təxmini memarlıq maketidir. Mətnlərdəki faktlar tarixçi tərəfindən yoxlanılmalıdır.",
+  "en": "This is an approximate architectural model built in code, not measured data. Facts in the texts must be checked by a historian."
+ },
+ "introFacts": [
+  "palace-15c",
+  "capital-move",
+  "unesco-2000"
+ ]
+}

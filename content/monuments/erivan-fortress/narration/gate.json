@@ -1,0 +1,11 @@
+{
+ "zone": "gate",
+ "text": {
+  "az": "Bu darvazadan sərdarın həyətinə girirsən. Sarayın planı tam qorunmayıb, ona görə darvazanın yeri və forması fərziyyədir. Amma bilirik ki, saray qalanın çaya, dərəyə baxan kənarında idi.",
+  "en": "Through this gate you enter the Sardar's courtyard. The palace plan has not fully survived, so the position and shape of the gate are a hypothesis. But we know the palace stood on the fortress edge above the river gorge."
+ },
+ "factIds": [
+  "sp-palace"
+ ],
+ "generatedBy": "hand"
+}

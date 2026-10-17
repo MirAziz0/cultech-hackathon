@@ -1,0 +1,12 @@
+{
+ "zone": "intro",
+ "text": {
+  "az": "Xoş gəldin! Mən Usta Fərrux — bu qalanı tikən ustaları təmsil edən obrazam. Qarşındakı qala iyirmi doqquz yarım metr ucalır, diametri on altı yarım metrdir. Onu kimin və nə vaxt tikdiyi barədə alimlər hələ də mübahisə edir. Gəl, cənub-şərqdəki qapıdan içəri girək.",
+  "en": "Welcome! I am Master Farrukh — a character standing for the masters who built this tower. Before you it rises twenty-nine and a half metres, sixteen and a half metres across. Scholars still argue about who built it and when. Come, let us go in through the south-east door."
+ },
+ "factIds": [
+  "mt-size",
+  "mt-dating"
+ ],
+ "generatedBy": "hand"
+}

@@ -1,0 +1,13 @@
+{
+ "zone": "plaza",
+ "text": {
+  "az": "Qalanın ətrafına bax. Şərq tərəfdə uzun, bütöv daş çıxıntı var — bəziləri deyir ki, gün-gecə bərabərliyində günəşin doğduğu yerə baxır, amma bu, fərziyyədir. Daş sıralarının zolaq-zolaq düzülüşü də diqqət çəkir. Qapı cənub-şərqdədir.",
+  "en": "Look around the tower. On the east side stands a long solid stone projection — some say it points to where the sun rises at the equinox, but that is a hypothesis. Notice the banded rows of stone too. The door is on the south-east."
+ },
+ "factIds": [
+  "mt-buttress",
+  "mt-entrance",
+  "mt-masonry"
+ ],
+ "generatedBy": "hand"
+}

@@ -1,0 +1,12 @@
+{
+ "zone": "north",
+ "text": {
+  "az": "Salonun yanındakı bu kiçik otaq bizim təsəvvürümüzdür — onun necə olduğunu dəqiq bilmirik. Amma bilirik ki, salonda səkkiz böyük portret olub; onlardan dördünü sonralar Mirzə Qədim İrəvani çəkib. Qapıdan çıx — dərənin üstündəki eyvana.",
+  "en": "This small room beside the hall is our imagination — we do not know exactly what it looked like. But we know the hall had eight large portraits; four of them were later painted by Mirza Kadym Erivani. Step through the door — onto the balcony above the gorge."
+ },
+ "factIds": [
+  "sp-palace",
+  "sp-portraits"
+ ],
+ "generatedBy": "hand"
+}

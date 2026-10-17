@@ -1,0 +1,12 @@
+{
+ "zone": "r1",
+ "text": {
+  "az": "Bu şimal otağı təxmini bərpadır. Sarayda vaxtilə əlli iki otaq olub, amma hamısının necə işlədildiyini bilmirik. Burada şah ailəsinin yaşayış otağını təsəvvür etdik: xalçalar, mütəkkələr, taxçalarda saxsı qablar. Pəncərədəki daş şəbəkə işığı naxış-naxış içəri salır.",
+  "en": "This north room is an approximate reconstruction. The palace once had fifty-two rooms, but we do not know how each was used. Here we imagined a living room of the shah's family: carpets, bolsters, ceramics in the niches. The stone shebeke in the window lets the light in, pattern by pattern."
+ },
+ "factIds": [
+  "palace-rooms",
+  "shebeke"
+ ],
+ "generatedBy": "hand"
+}

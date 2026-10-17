@@ -1,0 +1,96 @@
+[
+ {
+  "keys": [
+   "sən kimsən",
+   "kimsən",
+   "who are you",
+   "adın",
+   "name",
+   "memar"
+  ],
+  "factIds": [],
+  "a": {
+   "az": "Mən Usta Rəşidəm — tarixi şəxs deyiləm, bu sarayı tikən XV əsr Şirvan ustalarını təmsil edən təsəvvür olunan obrazam. Sarayın memarının adı mənbələrdə bizə çatmayıb, ona görə mən onların əvəzindən danışıram.",
+   "en": "I am Master Rashid — not a historical person, but an imagined character who stands for the fifteenth-century Shirvan masters who built this palace. The sources have not preserved the palace architect's name, so I speak on their behalf."
+  }
+ },
+ {
+  "keys": [
+   "kim tikib",
+   "kim tikdirib",
+   "who built",
+   "built it",
+   "tikdirdi",
+   "sifarişçi"
+  ],
+  "factIds": [
+   "palace-15c",
+   "capital-move"
+  ],
+  "a": {
+   "az": "Sarayı XV əsrdə Şirvanşahlar tikdirib. Deyilənə görə, tikinti 1411-ci ildə Şirvanşah I İbrahimin dövründə başlayıb — o, zəlzələdən sonra paytaxtı Şamaxıdan Bakıya köçürmüşdü. Ustaların adları isə saray binası üçün bizə çatmayıb.",
+   "en": "The Shirvanshahs had the palace built in the fifteenth century. Construction is said to have begun in 1411 under Shirvanshah Ibrahim I, who had moved the capital from Shamakhi to Baku after an earthquake. The names of the palace's masters have not come down to us."
+  }
+ },
+ {
+  "keys": [
+   "unesco",
+   "irs",
+   "heritage",
+   "siyahı"
+  ],
+  "factIds": [
+   "unesco-2000"
+  ],
+  "a": {
+   "az": "2000-ci ildə saray İçərişəhər və Qız qalası ilə birlikdə UNESCO-nun Dünya İrsi Siyahısına daxil edildi. Yəni bu daşlar artıq bütün bəşəriyyətin mirasıdır.",
+   "en": "In 2000 the palace, together with the Old City and the Maiden Tower, was inscribed on the UNESCO World Heritage List. These stones now belong to the heritage of all humankind."
+  }
+ },
+ {
+  "keys": [
+   "neçə otaq",
+   "otaq",
+   "rooms",
+   "how many"
+  ],
+  "factIds": [
+   "palace-rooms"
+  ],
+  "a": {
+   "az": "Mənbələrə görə saray binasında əvvəlcə əlli iki otaq olub: birinci mərtəbədə iyirmi yeddi, ikincidə iyirmi beş. Bu gün ikinci mərtəbədə on altı otaq qalıb. Bunu tarixçilər hələ dəqiqləşdirməlidir.",
+   "en": "According to the sources the palace building originally had fifty-two rooms: twenty-seven downstairs and twenty-five upstairs. Sixteen rooms remain on the upper floor today. Historians still need to confirm these numbers."
+  }
+ },
+ {
+  "keys": [
+   "divanxana",
+   "divankhana",
+   "divan",
+   "rotonda",
+   "nə üçün"
+  ],
+  "factIds": [
+   "divan"
+  ],
+  "a": {
+   "az": "Divanxana arkadalı həyətin ortasında səkkizguşəli, günbəzli köşkdür. Onun təyinatı dəqiq bilinmir: məclis zalı ola bilər, amma girişdəki Quran ayələri xatirə yeri olduğuna da işarə edə bilər. Bəzəyi isə yarımçıq qalıb.",
+   "en": "The Divankhana is an octagonal domed pavilion in the middle of an arcaded courtyard. Its purpose is not known for certain: it may have been a council hall, but the Quranic verses over the entrance may point to a memorial. Its decoration was left unfinished."
+  }
+ },
+ {
+  "keys": [
+   "şəbəkə",
+   "shebeke",
+   "pəncərə",
+   "window"
+  ],
+  "factIds": [
+   "shebeke"
+  ],
+  "a": {
+   "az": "Şəbəkə həndəsi naxışla deşilmiş daş və ya taxta pəncərə hörgüsüdür. Təsvirlərə görə saray pəncərələrində daş şəbəkə işlənib: işığı süzür, içəridə naxışlı kölgələr salır. Bunu tarixçilər hələ yoxlamalıdır.",
+   "en": "Shebeke is a window lattice of stone or wood pierced with geometric patterns. The descriptions say the palace windows used stone shebeke: it filters the light and throws patterned shadows inside. Historians still need to check this."
+  }
+ }
+]

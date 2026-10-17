@@ -1,0 +1,12 @@
+{
+ "zone": "hall",
+ "text": {
+  "az": "Budur, sarayın ürəyi — səkkizguşəli zal. Divarlarını digər otaqlardan qalın hördük, çünki üstündə ağır günbəz dayanır. Nəşr olunmuş planda sahəsi otuz dörd kvadrat metrdən bir az artıqdır. Yuxarı bax: günbəzə keçidi pillə-pillə muqərnəslərlə bəzədik. Ehtimal ki, qonaqlar məhz burada qəbul olunurdu.",
+  "en": "Here it is — the heart of the palace, the octagonal hall. We built its walls thicker than the other rooms, because a heavy dome rests on them. A published plan gives its area as just over thirty-four square metres. Look up: we stepped the transition to the dome with tiers of muqarnas. Most likely, guests were received right here."
+ },
+ "factIds": [
+  "octagonal-hall",
+  "hall-area"
+ ],
+ "generatedBy": "hand"
+}

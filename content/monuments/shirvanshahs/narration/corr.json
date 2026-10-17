@@ -1,0 +1,11 @@
+{
+ "zone": "corr",
+ "text": {
+  "az": "Bu dəhliz mərkəzi zaldan şərqə uzanır. Saray otaqları bir-birinə belə dar keçidlərlə bağlanırdı. Qarşıda kiçik səkkizguşəli vestibül var — oradan sarayın digər otaqlarına yol ayrılır.",
+  "en": "This passage runs east from the central hall. The palace rooms were linked to each other by narrow passages like this one. Ahead lies a small octagonal vestibule — from there the way branches to the other rooms of the palace."
+ },
+ "factIds": [
+  "octagonal-hall"
+ ],
+ "generatedBy": "hand"
+}

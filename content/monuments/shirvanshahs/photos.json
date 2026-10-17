@@ -1,0 +1,333 @@
+{
+ "photos": [
+  {
+   "id": "overview_0",
+   "file": "overview_0.jpg",
+   "commons": "Palace of the Shirvan shahs, 1927.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Palace_of_the_Shirvan_shahs,_1927.jpg",
+   "author": "Unknown author",
+   "license": "Public domain",
+   "caption": {
+    "az": "Saray kompleksi 1927-ci ildə. Arxiv fotosu",
+    "en": "The palace complex in 1927. Archive photo"
+   },
+   "w": 1170,
+   "h": 818
+  },
+  {
+   "id": "palace_0",
+   "file": "palace_0.jpg",
+   "commons": "Şirvanşahların yaşayış binası.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%C5%9Eirvan%C5%9Fahlar%C4%B1n_ya%C5%9Fay%C4%B1%C5%9F_binas%C4%B1.jpg",
+   "author": "Rhajizada",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Saray binasının girişi bu gün",
+    "en": "Entrance of the palace building today"
+   },
+   "w": 1200,
+   "h": 900
+  },
+  {
+   "id": "palace_1",
+   "file": "palace_1.jpg",
+   "commons": "Şirvanşahlar saray kompleksində yaşayış binasının Qəbul salonu.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%C5%9Eirvan%C5%9Fahlar_saray_kompleksind%C9%99_ya%C5%9Fay%C4%B1%C5%9F_binas%C4%B1n%C4%B1n_Q%C9%99bul_salonu.jpg",
+   "author": "Sefer azeri",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Qəbul salonunun planı: səkkizguşəli mərkəzi zal",
+    "en": "Plan of the reception hall: the octagonal central hall"
+   },
+   "w": 545,
+   "h": 643
+  },
+  {
+   "id": "palace_2",
+   "file": "palace_2.jpg",
+   "commons": "Interior Room - Palace of the Shirvanshahs - Baku - Azerbaijan (17310631074).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Interior_Room_-_Palace_of_the_Shirvanshahs_-_Baku_-_Azerbaijan_(17310631074).jpg",
+   "author": "Adam Jones from Kelowna, BC, Canada",
+   "license": "CC BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "caption": {
+    "az": "Saray otaqlarında muzey ekspozisiyası",
+    "en": "Museum display in the palace rooms"
+   },
+   "w": 1200,
+   "h": 900
+  },
+  {
+   "id": "divan_0",
+   "file": "divan_0.jpg",
+   "commons": "Şirvanşahlar sarayı - divanxana.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%C5%9Eirvan%C5%9Fahlar_saray%C4%B1_-_divanxana.jpg",
+   "author": "Toghrul Rahimli",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Divanxana və onun oyma portalı",
+    "en": "The Divankhana and its carved portal"
+   },
+   "w": 833,
+   "h": 1200
+  },
+  {
+   "id": "divan_1",
+   "file": "divan_1.jpg",
+   "commons": "Portal inside the Palace of Shirvanshahs.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Portal_inside_the_Palace_of_Shirvanshahs.jpg",
+   "author": "Interfase",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "caption": {
+    "az": "Kompleksdəki portalın oyma bəzəyi və kitabəsi",
+    "en": "Carved decoration and inscription of a portal in the complex"
+   },
+   "w": 714,
+   "h": 1200
+  },
+  {
+   "id": "yahya_0",
+   "file": "yahya_0.jpg",
+   "commons": "Bakuvitomb.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bakuvitomb.jpg",
+   "author": "Grandmaster",
+   "license": "CC BY 2.5",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+   "caption": {
+    "az": "Seyid Yəhya Bakuvi türbəsi və ətrafındakı daş eksponatlar",
+    "en": "Mausoleum of Seyid Yahya Bakuvi with stone exhibits around it"
+   },
+   "w": 1200,
+   "h": 900
+  },
+  {
+   "id": "mosque_0",
+   "file": "mosque_0.jpg",
+   "commons": "Şirvanşahlar saray kompleksində minarə.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%C5%9Eirvan%C5%9Fahlar_saray_kompleksind%C9%99_minar%C9%99.jpg",
+   "author": "havin_hp",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Şah məscidinin minarəsi",
+    "en": "Minaret of the Shah Mosque"
+   },
+   "w": 1200,
+   "h": 883
+  },
+  {
+   "id": "mosque_1",
+   "file": "mosque_1.jpg",
+   "commons": "Shirvanshah's Palace Mosque's carpet.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Shirvanshah%27s_Palace_Mosque%27s_carpet.jpg",
+   "author": "Interfase",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "caption": {
+    "az": "Məscidin içində xalça",
+    "en": "Carpet inside the mosque"
+   },
+   "w": 1200,
+   "h": 673
+  },
+  {
+   "id": "turbe_0",
+   "file": "turbe_0.jpg",
+   "commons": "İçərişəhər. Şirvanşahlar türbəsi.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%C4%B0%C3%A7%C9%99ri%C5%9F%C9%99h%C9%99r._%C5%9Eirvan%C5%9Fahlar_t%C3%BCrb%C9%99si.jpg",
+   "author": "Toghrul Rahimli",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Şirvanşahlar türbəsinin portalı",
+    "en": "Portal of the Shirvanshahs' mausoleum"
+   },
+   "w": 801,
+   "h": 1200
+  },
+  {
+   "id": "turbe_1",
+   "file": "turbe_1.jpg",
+   "commons": "Family grave Khalilullah I.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Family_grave_Khalilullah_I.jpg",
+   "author": "Turalhemidli",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+   "caption": {
+    "az": "Türbənin içi: I Xəlilullahın ailə sənduqələri",
+    "en": "Inside the mausoleum: cenotaphs of Khalilullah I's family"
+   },
+   "w": 960,
+   "h": 720
+  },
+  {
+   "id": "bath_0",
+   "file": "bath_0.jpg",
+   "commons": "Palace of Shirvanshahs common.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Palace_of_Shirvanshahs_common.JPG",
+   "author": "Urek Meniashvili",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "caption": {
+    "az": "Kompleksin günbəzləri, aşağı həyət tərəfdən",
+    "en": "Domes of the complex, seen from the lower courtyard"
+   },
+   "w": 1200,
+   "h": 726
+  },
+  {
+   "id": "garden_0",
+   "file": "garden_0.jpg",
+   "commons": "Palace of the Shirvanshahs - fountain.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Palace_of_the_Shirvanshahs_-_fountain.JPG",
+   "author": "Frokor",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "caption": {
+    "az": "Bugünkü həyətdə fəvvarə (müqayisə üçün)",
+    "en": "Fountain in today's courtyard (for comparison)"
+   },
+   "w": 1200,
+   "h": 797
+  },
+  {
+   "id": "facade_0",
+   "file": "facade_0.jpg",
+   "commons": "Şirvanşahlar kompleksində saray binasının qərb fasadı.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:%C5%9Eirvan%C5%9Fahlar_kompleksind%C9%99_saray_binas%C4%B1n%C4%B1n_q%C9%99rb_fasad%C4%B1.JPG",
+   "author": "Urmen19",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Saray binası və mərkəzi zalın günbəzi, kənardan",
+    "en": "The palace building and the central hall's dome from outside"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "dome_0",
+   "file": "dome_0.jpg",
+   "commons": "Şirvanşahlar sarayının gümbəzi.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:%C5%9Eirvan%C5%9Fahlar_saray%C4%B1n%C4%B1n_g%C3%BCmb%C9%99zi.JPG",
+   "author": "Samral",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Mərkəzi zalın günbəzi, damdan görünüş",
+    "en": "Dome of the central hall, seen from the roof"
+   },
+   "w": 1200,
+   "h": 900
+  },
+  {
+   "id": "dome_1",
+   "file": "dome_1.jpg",
+   "commons": "Building of the Palace of the Shirvanshahs (dome).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Building_of_the_Palace_of_the_Shirvanshahs_(dome).jpg",
+   "author": "Interfase",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "caption": {
+    "az": "Günbəzin içi: muqərnəslər və işıq pəncərəsi",
+    "en": "Inside the dome: muqarnas and light opening"
+   },
+   "w": 900,
+   "h": 1200
+  },
+  {
+   "id": "entry2_0",
+   "file": "entry2_0.jpg",
+   "commons": "Şirvanşahlar sarayının ikinci mərtəbə girişinin baştağı.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:%C5%9Eirvan%C5%9Fahlar_saray%C4%B1n%C4%B1n_ikinci_m%C9%99rt%C9%99b%C9%99_giri%C5%9Finin_ba%C5%9Fta%C4%9F%C4%B1.JPG",
+   "author": "Urmen19",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "İkinci mərtəbə girişinin daş tağı",
+    "en": "Stone arch over the second-floor entrance"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "stairs_0",
+   "file": "stairs_0.jpg",
+   "commons": "Stairs in the complex of the Palace of the Shirvanshahs.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Stairs_in_the_complex_of_the_Palace_of_the_Shirvanshahs.jpg",
+   "author": "Interfase",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "caption": {
+    "az": "Kompleksdəki dar daş pilləkən",
+    "en": "A narrow stone stair in the complex"
+   },
+   "w": 673,
+   "h": 1200
+  },
+  {
+   "id": "expo_0",
+   "file": "expo_0.jpg",
+   "commons": "Şirvanşahlar sarayının ekspozisiyası.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%C5%9Eirvan%C5%9Fahlar_saray%C4%B1n%C4%B1n_ekspozisiyas%C4%B1.jpg",
+   "author": "Toghrul Rahimli",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Sarayın səkkizguşəli zalı bu gün: muzey ekspozisiyası",
+    "en": "The palace's octagonal hall today: museum display"
+   },
+   "w": 736,
+   "h": 1200
+  },
+  {
+   "id": "ceramic_0",
+   "file": "ceramic_0.jpg",
+   "commons": "Ceramic crockery in Shirvanshah's Palace.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Ceramic_crockery_in_Shirvanshah%27s_Palace.jpg",
+   "author": "Interfase",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "caption": {
+    "az": "Sarayda saxlanan saxsı qab",
+    "en": "Ceramic vessel kept in the palace"
+   },
+   "w": 1200,
+   "h": 673
+  },
+  {
+   "id": "silk_0",
+   "file": "silk_0.jpg",
+   "commons": "Elxanilər dövrünə aid ipək parça qalığı (XIII əsr).JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Elxanil%C9%99r_d%C3%B6vr%C3%BCn%C9%99_aid_ip%C9%99k_par%C3%A7a_qal%C4%B1%C4%9F%C4%B1_(XIII_%C9%99sr).JPG",
+   "author": "Urmen19",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Saraydan tapılmış ipək parça qalığı, XIII əsr",
+    "en": "Fragment of 13th-century silk found at the palace"
+   },
+   "w": 1200,
+   "h": 454
+  },
+  {
+   "id": "bags_0",
+   "file": "bags_0.jpg",
+   "commons": "Woven Bags on Display - Palace of the Shirvanshahs - Baku - Azerbaijan (17745209158).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Woven_Bags_on_Display_-_Palace_of_the_Shirvanshahs_-_Baku_-_Azerbaijan_(17745209158).jpg",
+   "author": "Adam Jones from Kelowna, BC, Canada",
+   "license": "CC BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "caption": {
+    "az": "Toxunma heybələr, sarayın ekspozisiyasında",
+    "en": "Woven bags on display in the palace"
+   },
+   "w": 1200,
+   "h": 900
+  }
+ ]
+}

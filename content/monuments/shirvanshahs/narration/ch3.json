@@ -1,0 +1,11 @@
+{
+ "zone": "ch3",
+ "text": {
+  "az": "Zalın şimal-şərq küncündəki bu kiçik otaq planda üç nömrə ilə göstərilib. Onun nə üçün işlədildiyini tarixçilər dəqiq bilmir — bəlkə xəzinə, bəlkə də xidmət otağı idi. Buraya sandıq və saxsı qab qoyduq, amma bu, sadəcə bizim təsəvvürümüzdür.",
+  "en": "This small chamber at the hall's north-east corner is marked number three on the plan. Historians do not know exactly what it was used for — perhaps a treasury, perhaps a service room. We placed a chest and a jar here, but that is only our imagination."
+ },
+ "factIds": [
+  "octagonal-hall"
+ ],
+ "generatedBy": "hand"
+}

@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated from /content by scripts/sync-content.ts
+/public/monuments/
+# reference archive (extracted copy lives in /reference)
+/zamanqapisi-reference.zip
+!.env.example
+/test-results/
+/screenshots/

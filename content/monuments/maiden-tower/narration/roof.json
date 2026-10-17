@@ -1,0 +1,12 @@
+{
+ "zone": "roof",
+ "text": {
+  "az": "Budur, damdayıq — iyirmi səkkiz metr yüksəklikdə. Buradan İçərişəhərin damlarına, dənizkənarı bulvara və Bakı buxtasına bax. Uzaqdakı evlər və sahil xətti maketdə sxematikdir, amma mənzərənin ruhu budur.",
+  "en": "Here we are on the roof — twenty-eight metres up. From here look over the roofs of the Old City, the seaside boulevard and Baku Bay. The distant houses and the shoreline are schematic in the model, but this is the spirit of the view."
+ },
+ "factIds": [
+  "mt-roof-view",
+  "mt-size"
+ ],
+ "generatedBy": "hand"
+}

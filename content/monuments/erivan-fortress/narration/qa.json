@@ -1,0 +1,70 @@
+[
+ {
+  "keys": [
+   "sən kimsən",
+   "kimsən",
+   "who are you",
+   "adın",
+   "memar",
+   "architect"
+  ],
+  "factIds": [],
+  "a": {
+   "az": "Mən Usta Kərimam — tarixi şəxs deyiləm, sərdar sarayında çalışmış ustaları təmsil edən obrazam. Sarayın ustalarının adları bizə çatmayıb, ona görə mən onların əvəzindən danışıram.",
+   "en": "I am Master Karim — not a historical person, but a character standing for the masters who worked on the Sardar's palace. Their names have not come down to us, so I speak on their behalf."
+  }
+ },
+ {
+  "keys": [
+   "niyə yoxdur",
+   "dağıldı",
+   "sökülüb",
+   "why gone",
+   "destroyed",
+   "what happened",
+   "nə oldu",
+   "bu gün"
+  ],
+  "factIds": [
+   "sp-decline",
+   "ef-today"
+  ],
+  "a": {
+   "az": "Saray 1864-dən sonra baxımsız qalıb, 1902-də içi dəyişdirilib və 1914–1918-ci illərdə tamamilə dağılıb. Qala isə 1930-cu illərə qədər sökülüb; bu gün ərazidə zavod yerləşir və yalnız divar qalıqları qalıb.",
+   "en": "After 1864 the palace was neglected, its interior was altered in 1902, and it was completely ruined in 1914–1918. The fortress was demolished by the 1930s; a factory now stands on the site and only wall remnants are left."
+  }
+ },
+ {
+  "keys": [
+   "kim tikib",
+   "who built",
+   "nə vaxt",
+   "when built",
+   "tikilib"
+  ],
+  "factIds": [
+   "ef-built",
+   "sp-palace"
+  ],
+  "a": {
+   "az": "Qalanı 1582–1583-cü illərdə, Osmanlı dövründə Fərhad paşa tikdirib. Sərdar sarayının tarixi mübahisəlidir: bir mənbə onu 1798-ci ilə aid edir, başqaları daha erkən tarix göstərir.",
+   "en": "Ferhad Pasha had the fortress built in 1582–1583, in the Ottoman period. The palace's date is debated: one source gives 1798, others an earlier date."
+  }
+ },
+ {
+  "keys": [
+   "güzgü",
+   "mirror",
+   "güzgülü salon",
+   "hall of mirrors"
+  ],
+  "factIds": [
+   "sp-mirrors",
+   "sp-gagarin"
+  ],
+  "a": {
+   "az": "Güzgülü salonun tavanı güzgü ilə örtülü idi, güzgülər taxçalarda və portretlərin arasında da var idi. Ortada fəvvarəli mərmər səki, çaya baxan tərəfdə rəngli şüşəli böyük pəncərə olub. Onu ən yaxşı Qaqarinin litoqrafiyasından tanıyırıq.",
+   "en": "The Hall of Mirrors had a mirror-covered ceiling, with mirrors in the recesses and between the portraits. A marble platform with a fountain stood in the middle, and a great coloured-glass window faced the river. We know it best from Gagarin's lithograph."
+  }
+ }
+]

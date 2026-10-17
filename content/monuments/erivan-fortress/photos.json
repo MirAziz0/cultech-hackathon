@@ -1,0 +1,360 @@
+{
+ "photos": [
+  {
+   "id": "siege_0",
+   "file": "siege_0.jpg",
+   "commons": "Siege of Erivan Fortress on 1 October 1827.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Siege_of_Erivan_Fortress_on_1_October_1827.jpg",
+   "author": "Franz Roubaud",
+   "license": "Public domain",
+   "caption": {
+    "az": "1827-ci il mühasirəsi. Frans Rubonun rəsmi",
+    "en": "The 1827 siege. Painting by Franz Roubaud"
+   },
+   "w": 1200,
+   "h": 803
+  },
+  {
+   "id": "zengi_0",
+   "file": "zengi_0.jpg",
+   "commons": "View of Sardar palace, Erivan castle, Zengi valley.png",
+   "page": "https://commons.wikimedia.org/wiki/File:View_of_Sardar_palace,_Erivan_castle,_Zengi_valley.png",
+   "author": "Unknown author",
+   "license": "Public domain",
+   "caption": {
+    "az": "Sərdar sarayı, qala və Zəngi dərəsi (köhnə foto)",
+    "en": "The Sardar's Palace, the fortress and the Zangi gorge (old photo)"
+   },
+   "w": 450,
+   "h": 187
+  },
+  {
+   "id": "fort_0",
+   "file": "fort_0.jpg",
+   "commons": "Erivan fort.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Erivan_fort.jpg",
+   "author": "Unknown author",
+   "license": "Public domain",
+   "caption": {
+    "az": "İrəvan şəhərinin köhnə xəritəsi: qala çayın sol sahilində",
+    "en": "Old map of Erivan: the fortress on the river's left bank"
+   },
+   "w": 1200,
+   "h": 1048
+  },
+  {
+   "id": "bridge_0",
+   "file": "bridge_0.jpg",
+   "commons": "(BL) BRIDGE AND FORTRESS OF ERIVAN.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:(BL)_BRIDGE_AND_FORTRESS_OF_ERIVAN.jpg",
+   "author": "Graeb, Carl Georg Anton (1816-1884)",
+   "license": "Public domain",
+   "caption": {
+    "az": "Körpü və İrəvan qalası. Litoqrafiya, XIX əsr",
+    "en": "The bridge and Erivan fortress. Lithograph, 19th century"
+   },
+   "w": 1200,
+   "h": 979
+  },
+  {
+   "id": "wall_0",
+   "file": "wall_0.jpg",
+   "commons": "SHOWING OLD PERSIAN WALL ABOUT Erivan, Armenia, and the bridge across the Zangi River.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:SHOWING_OLD_PERSIAN_WALL_ABOUT_Erivan,_Armenia,_and_the_bridge_across_the_Zangi_River.jpg",
+   "author": "American Military Activities U.S. National Archives",
+   "license": "Public domain",
+   "caption": {
+    "az": "Zəngi çayı üzərindəki körpü və qala divarı, XX əsr əvvəli",
+    "en": "The bridge over the Zangi and the fortress wall, early 20th century"
+   },
+   "w": 1200,
+   "h": 923
+  },
+  {
+   "id": "model_0",
+   "file": "model_0.jpg",
+   "commons": "Yerevan fortress model.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Yerevan_fortress_model.jpg",
+   "author": "Yerevantsi",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "caption": {
+    "az": "Qalanın muzey maketi: qoşa divarlar və dərənin kənarındakı saray",
+    "en": "Museum model of the fortress: double walls and the palace at the gorge"
+   },
+   "w": 1200,
+   "h": 801
+  },
+  {
+   "id": "plan_0",
+   "file": "plan_0.jpg",
+   "commons": "V. Pottonun çəkdiyi İrəvan qalasının planı.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:V._Pottonun_%C3%A7%C9%99kdiyi_%C4%B0r%C9%99van_qalas%C4%B1n%C4%B1n_plan%C4%B1.jpg",
+   "author": "V. A. Potto",
+   "license": "Public domain",
+   "caption": {
+    "az": "1827-ci il planı (V. Potto): qala, çay və mühasirə səngərləri",
+    "en": "The 1827 plan (V. Potto): fortress, river and siege trenches"
+   },
+   "w": 417,
+   "h": 376
+  },
+  {
+   "id": "gateplan_0",
+   "file": "gateplan_0.jpg",
+   "commons": "İrəvan qapısının planı.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%C4%B0r%C9%99van_qap%C4%B1s%C4%B1n%C4%B1n_plan%C4%B1.jpg",
+   "author": "Sefer azeri",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Qala qapısının planı",
+    "en": "Plan of a fortress gate"
+   },
+   "w": 743,
+   "h": 203
+  },
+  {
+   "id": "porter_0",
+   "file": "porter_0.jpg",
+   "commons": "\"View of the Fortress of Erivan and Ararat\" by Robert Ker Porter.png",
+   "page": "https://commons.wikimedia.org/wiki/File:%22View_of_the_Fortress_of_Erivan_and_Ararat%22_by_Robert_Ker_Porter.png",
+   "author": "Robert Ker Porter",
+   "license": "Public domain",
+   "caption": {
+    "az": "Robert Ker Porter: İrəvan qalası və Ağrı dağı",
+    "en": "Robert Ker Porter: Erivan fortress and Mount Ararat"
+   },
+   "w": 1200,
+   "h": 827
+  },
+  {
+   "id": "palace_0",
+   "file": "palace_0.jpg",
+   "commons": "Serdar's Palace near Erivan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Serdar%27s_Palace_near_Erivan.jpg",
+   "author": "Unknown author",
+   "license": "Public domain",
+   "caption": {
+    "az": "Sərdar sarayı dərənin üstündə, uzaqdan",
+    "en": "The Sardar's Palace above the gorge, from afar"
+   },
+   "w": 774,
+   "h": 502
+  },
+  {
+   "id": "palace_1",
+   "file": "palace_1.jpg",
+   "commons": "Sardar palace in Iravan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sardar_palace_in_Iravan.jpg",
+   "author": "Post service of Russian Empire",
+   "license": "Public domain",
+   "caption": {
+    "az": "Güzgülü salon: rəngli şüşəli böyük pəncərə",
+    "en": "The Hall of Mirrors: the great coloured-glass window"
+   },
+   "w": 960,
+   "h": 597
+  },
+  {
+   "id": "palace_2",
+   "file": "palace_2.jpg",
+   "commons": "Sardar palace in 1892.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sardar_palace_in_1892.jpg",
+   "author": "Unknown author",
+   "license": "Public domain",
+   "caption": {
+    "az": "Güzgülü salonun divarları: güzgü taxçaları və rəsmlər",
+    "en": "Walls of the Hall of Mirrors: mirror recesses and paintings"
+   },
+   "w": 359,
+   "h": 246
+  },
+  {
+   "id": "palace_3",
+   "file": "palace_3.jpg",
+   "commons": "Sardar palace in 1912.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sardar_palace_in_1912.jpg",
+   "author": "Unknown author",
+   "license": "Public domain",
+   "caption": {
+    "az": "Sərdar sarayı 1912-ci ildə, dağılmağa yaxın",
+    "en": "The Sardar's Palace in 1912, close to ruin"
+   },
+   "w": 594,
+   "h": 436
+  },
+  {
+   "id": "palace_4",
+   "file": "palace_4.jpg",
+   "commons": "Internal of Sardar palace.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Internal_of_Sardar_palace.jpg",
+   "author": "Unknown author",
+   "license": "Public domain",
+   "caption": {
+    "az": "Sarayın içi: pəncərədən dərəyə baxış",
+    "en": "Inside the palace: looking out over the gorge"
+   },
+   "w": 549,
+   "h": 410
+  },
+  {
+   "id": "palace_5",
+   "file": "palace_5.jpg",
+   "commons": "Facade of Sardar Palace.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Facade_of_Sardar_Palace.jpg",
+   "author": "Dmitri Yermakov",
+   "license": "Public domain",
+   "caption": {
+    "az": "Sarayın Zəngi tərəfdən fasadı",
+    "en": "The palace facade seen from the Zangi"
+   },
+   "w": 960,
+   "h": 685
+  },
+  {
+   "id": "palace_6",
+   "file": "palace_6.jpg",
+   "commons": "Serdar's Palace and Zanga in Erivan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Serdar%27s_Palace_and_Zanga_in_Erivan.jpg",
+   "author": "Unknown author",
+   "license": "Public domain",
+   "caption": {
+    "az": "Zəngi çayı və Sərdar sarayı (açıqca)",
+    "en": "The Zangi river and the Sardar's Palace (postcard)"
+   },
+   "w": 640,
+   "h": 429
+  },
+  {
+   "id": "mirror_0",
+   "file": "mirror_0.jpg",
+   "commons": "Grigory Gagarin. Armenie. Salle des Miroirs dans le palais du sardar D'Erivan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Grigory_Gagarin._Armenie._Salle_des_Miroirs_dans_le_palais_du_sardar_D%27Erivan.jpg",
+   "author": "Grigory Gagarin",
+   "license": "Public domain",
+   "caption": {
+    "az": "Q. Qaqarin: Sərdar sarayında Güzgülü salon",
+    "en": "G. Gagarin: the Hall of Mirrors in the Sardar's Palace"
+   },
+   "w": 760,
+   "h": 652
+  },
+  {
+   "id": "mirror_2",
+   "file": "mirror_2.jpg",
+   "commons": "Salle des claces du Palais des Sardars a Erivan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Salle_des_claces_du_Palais_des_Sardars_a_Erivan.jpg",
+   "author": "Marie-Frédéric Dubois de Montpéreux",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Güzgülü salon (Dübua de Monpere, litoqrafiya)",
+    "en": "The Hall of Mirrors (Dubois de Montpéreux, lithograph)"
+   },
+   "w": 1200,
+   "h": 842
+  },
+  {
+   "id": "mirror_3",
+   "file": "mirror_3.jpg",
+   "commons": "Tableaux eintre à l’huile & fresque qui décore la salle des glaces à Erivan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Tableaux_eintre_%C3%A0_l%E2%80%99huile_%26_fresque_qui_d%C3%A9core_la_salle_des_glaces_%C3%A0_Erivan.jpg",
+   "author": "Marie-Frédéric Dubois de Montpéreux",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Güzgülü salonu bəzəyən rəsmlər (litoqrafiya)",
+    "en": "Paintings decorating the Hall of Mirrors (lithograph)"
+   },
+   "w": 1200,
+   "h": 842
+  },
+  {
+   "id": "deco_0",
+   "file": "deco_0.jpg",
+   "commons": "Wall decoration of Erivan Sardar Palace.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Wall_decoration_of_Erivan_Sardar_Palace.png",
+   "author": "V. Moshkov",
+   "license": "Public domain",
+   "caption": {
+    "az": "Sərdar sarayının divar bəzəyi: portretlər və naxışlar",
+    "en": "Wall decoration of the Sardar's Palace: portraits and ornament"
+   },
+   "w": 551,
+   "h": 391
+  },
+  {
+   "id": "tiles_0",
+   "file": "tiles_0.jpg",
+   "commons": "Tiles from Irevan Sardar Palace.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Tiles_from_Irevan_Sardar_Palace.jpg",
+   "author": "Nicat49",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Sərdar sarayından kaşı parçaları",
+    "en": "Tile fragments from the Sardar's Palace"
+   },
+   "w": 900,
+   "h": 1200
+  },
+  {
+   "id": "harem_0",
+   "file": "harem_0.jpg",
+   "commons": "Harem de Houssein, Sardar d'Erivan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Harem_de_Houssein,_Sardar_d%27Erivan.jpg",
+   "author": "Marie-Frédéric Dubois de Montpéreux",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Sərdarın hərəmxanasının daxili həyəti (litoqrafiya)",
+    "en": "Inner courtyard of the Sardar's harem (lithograph)"
+   },
+   "w": 1200,
+   "h": 843
+  },
+  {
+   "id": "kiosk_0",
+   "file": "kiosk_0.jpg",
+   "commons": "Interior of the Kiosque of the Sirdars..png",
+   "page": "https://commons.wikimedia.org/wiki/File:Interior_of_the_Kiosque_of_the_Sirdars..png",
+   "author": "H. F. B. Lynch",
+   "license": "Public domain",
+   "caption": {
+    "az": "Sərdarların köşkünün içi",
+    "en": "Interior of the Sardars' kiosk"
+   },
+   "w": 545,
+   "h": 429
+  },
+  {
+   "id": "mosque_0",
+   "file": "mosque_0.jpg",
+   "commons": "Grigory Gagarin. Armenie. Mosquee persane a Erivan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Grigory_Gagarin._Armenie._Mosquee_persane_a_Erivan.jpg",
+   "author": "Grigory Gagarin",
+   "license": "Public domain",
+   "caption": {
+    "az": "Q. Qaqarin: İrəvanda məscidin içi",
+    "en": "G. Gagarin: inside a mosque in Erivan"
+   },
+   "w": 760,
+   "h": 646
+  },
+  {
+   "id": "garden_0",
+   "file": "garden_0.jpg",
+   "commons": "1900. Аллея Сардарского сада.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:1900._%D0%90%D0%BB%D0%BB%D0%B5%D1%8F_%D0%A1%D0%B0%D1%80%D0%B4%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D1%81%D0%B0%D0%B4%D0%B0.jpg",
+   "author": "Гегам Тарвердян",
+   "license": "Public domain",
+   "caption": {
+    "az": "Sərdar bağında xiyaban, 1900-cü il",
+    "en": "An alley in the Sardar's garden, 1900"
+   },
+   "w": 1200,
+   "h": 777
+  }
+ ]
+}

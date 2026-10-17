@@ -1,0 +1,74 @@
+[
+ {
+  "keys": [
+   "sən kimsən",
+   "kimsən",
+   "who are you",
+   "adın",
+   "memar",
+   "architect",
+   "kim tikib",
+   "who built"
+  ],
+  "factIds": [
+   "mt-inscription",
+   "mt-dating"
+  ],
+  "a": {
+   "az": "Mən Usta Fərruxam — tarixi şəxs deyiləm, qalanı tikən ustaları təmsil edən obrazam. Qalanın memarı dəqiq bilinmir: kufi kitabədə “Məsud ibn Davud” adı var, amma onun memar olub-olmadığı mübahisəlidir.",
+   "en": "I am Master Farrukh — not a historical person, but a character standing for the masters who built the tower. Its architect is not known for certain: the Kufic inscription names “Masud ibn Davud”, but whether he was the architect is disputed."
+  }
+ },
+ {
+  "keys": [
+   "niyə qız",
+   "ad",
+   "name",
+   "why maiden",
+   "qız qalası",
+   "əfsanə",
+   "legend"
+  ],
+  "factIds": [
+   "mt-legend"
+  ],
+  "a": {
+   "az": "Adın mənşəyi dəqiq bilinmir. Əfsanələrdə qız düşmən sərkərdəsini məğlub edir və ya özünü qurban verir — amma bunlar rəvayətdir. Tarixçilər adın necə yarandığını hələ də dəqiqləşdirə bilməyib.",
+   "en": "Nobody knows for sure where the name comes from. In the legends a girl defeats an enemy commander or sacrifices herself — but these are tales. Historians have not settled how the name arose."
+  }
+ },
+ {
+  "keys": [
+   "nə üçün tikilib",
+   "purpose",
+   "məqsəd",
+   "why built",
+   "nə üçün",
+   "function"
+  ],
+  "factIds": [
+   "mt-dating",
+   "mt-buttress"
+  ],
+  "a": {
+   "az": "Qalanın təyinatı mübahisəlidir: bəziləri onu atəşgah, bəziləri müdafiə qülləsi, bəziləri isə şərq çıxıntısına görə astronomik müşahidə yeri sayır. Dəqiq cavabı tarixçilər bilmir, mən də uydurmaq istəmirəm.",
+   "en": "The tower's purpose is debated: some think it was a fire temple, some a defensive tower, others an astronomical observatory because of its east projection. Historians do not know for certain, and I won't invent an answer."
+  }
+ },
+ {
+  "keys": [
+   "neçə mərtəbə",
+   "mərtəbə",
+   "floors",
+   "storeys",
+   "how many"
+  ],
+  "factIds": [
+   "mt-floors"
+  ],
+  "a": {
+   "az": "Qala səkkiz mərtəbəlidir. Hər mərtəbə ortasında açıq yeri olan dayaz daş günbəzlə örtülüb, bu açıq yerlər bir-birinin üstünə düşür.",
+   "en": "The tower has eight storeys. Each is covered by a shallow stone cupola with an opening in the middle, and the openings line up one above another."
+  }
+ }
+]

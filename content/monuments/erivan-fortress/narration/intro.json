@@ -1,0 +1,12 @@
+{
+ "zone": "intro",
+ "text": {
+  "az": "Xoş gəldin! Mən Usta Kərim — sərdar sarayında çalışmış ustaları təmsil edən obrazam. Bu qala min beş yüz səksən ikinci ildə tikilib, saray isə sonralar onun dərəyə baxan küncündə ucaldılıb. Bu gün onlardan demək olar ki, heç nə qalmayıb — gəl, köhnə plan və rəsmlərlə onu birlikdə yenidən görək.",
+  "en": "Welcome! I am Master Karim — a character standing for the masters who worked on the Sardar's palace. This fortress was built in 1582, and the palace rose later in its corner above the gorge. Today almost nothing of them remains — come, let us see them again together, through old plans and drawings."
+ },
+ "factIds": [
+  "ef-built",
+  "sp-palace"
+ ],
+ "generatedBy": "hand"
+}

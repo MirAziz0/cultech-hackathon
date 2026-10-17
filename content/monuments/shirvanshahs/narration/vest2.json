@@ -1,0 +1,12 @@
+{
+ "zone": "vest2",
+ "text": {
+  "az": "Bu kiçik səkkizguşəli vestibül bir növ yolayrıcıdır. Mənbələr deyir ki, mərkəzi zalı sarayın digər otaqları ilə məhz o birləşdirir. Vaxtilə binada əlli iki otaq olub. Buradan şimala, cənuba və şərqə qapılar açılır — gəl, hər birinə baxaq.",
+  "en": "This small octagonal vestibule is a kind of crossroads. The sources say it is what connects the central hall with the other rooms of the palace. The building once had fifty-two rooms. Doors open from here to the north, south and east — come, let us look into each."
+ },
+ "factIds": [
+  "octagonal-hall",
+  "palace-rooms"
+ ],
+ "generatedBy": "hand"
+}

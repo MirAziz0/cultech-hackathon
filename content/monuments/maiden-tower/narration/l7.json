@@ -1,0 +1,12 @@
+{
+ "zone": "l7",
+ "text": {
+  "az": "Bu, sonuncu mərtəbədir. Görürsən, otaq aşağıdakılardan genişdir — çünki yuxarıda divarları nazik hördük, yük azdır. Pilləkənlə bir az da qalx, dama çıxacaqsan: oradan bütün şəhər ovcunun içindədir.",
+  "en": "This is the last storey. You see, the room is wider than those below — because we built the walls thinner up here, where the load is lighter. Climb the stair a little more and you will come out on the roof: from there the whole town is in your hand."
+ },
+ "factIds": [
+  "mt-walls",
+  "mt-floors"
+ ],
+ "generatedBy": "hand"
+}

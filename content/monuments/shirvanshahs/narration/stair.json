@@ -1,0 +1,11 @@
+{
+ "zone": "stair",
+ "text": {
+  "az": "Bu, dar dolama pilləkəndir; planda beş nömrə ilə işarələnib. Sarayda belə üç dar dolama pilləkən var idi — mərtəbələri məhz onlar birləşdirirdi. Pillələr dik və dardır, ona görə burada tələsmək olmaz. Bu maketdə yuxarı mərtəbəni hələ bərpa etməmişik.",
+  "en": "This is a narrow spiral stair; on the plan it is marked number five. The palace had three such narrow spiral staircases — they were what connected the floors. The steps are steep and tight, so no hurrying here. In this model we have not yet rebuilt the upper floor."
+ },
+ "factIds": [
+  "spiral-stairs"
+ ],
+ "generatedBy": "hand"
+}

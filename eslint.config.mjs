@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // untouched prototype kept for reference
+    "reference/**",
+    "public/sw.js",
   ]),
 ]);
 

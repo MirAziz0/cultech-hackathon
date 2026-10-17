@@ -1,0 +1,269 @@
+<title>Şirvanşahlar Sarayı 3D</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,700;1,500&family=Manrope:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<style>
+/* Layout: museum maquette on a plinth — large viewer left, building index + confidence legend right; stacks on phones */
+:root{
+  --bg:#ECE6DA; --surface:#F7F3EB; --ink:#2A241D; --muted:#6E6455; --line:#D6CCBA;
+  --accent:#1F7A80; --accent-ink:#FFFFFF;
+  --ok:#3E7B3A; --mid:#B08A1E; --hyp:#A33A2B;
+  --stage:#DCD3C2;
+  --display:"Spectral",Georgia,"Times New Roman",serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#161411; --surface:#1F1C18; --ink:#EDE3D3; --muted:#A79A86; --line:#3A342C;
+  --accent:#4FB3B8; --accent-ink:#0E1A1B; --ok:#7DBA72; --mid:#D9B44A; --hyp:#E07A68; --stage:#24201B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161411; --surface:#1F1C18; --ink:#EDE3D3; --muted:#A79A86; --line:#3A342C;
+  --accent:#4FB3B8; --accent-ink:#0E1A1B; --ok:#7DBA72; --mid:#D9B44A; --hyp:#E07A68; --stage:#24201B; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:18px}
+header{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px}
+.eyebrow{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font:700 clamp(28px,4.4vw,44px)/1.05 var(--display);margin:6px 0 0;text-wrap:balance}
+h1 em{font-style:italic;font-weight:500;color:var(--accent)}
+.sub{color:var(--muted);max-width:62ch;margin:6px 0 0}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}}
+.stage{position:relative;background:var(--stage);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+model-viewer{width:100%;height:min(68vh,620px);min-height:380px;background:transparent;--poster-color:transparent}
+.toggle{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px;box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.toggle button{font:600 14px/1 var(--body);border:0;background:transparent;color:var(--ink);padding:10px 16px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.toggle button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.toggle button:focus-visible,.bl button:focus-visible,.hs:focus-visible,.ar:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.era{position:absolute;top:14px;left:14px;font:500 12px/1 var(--mono);letter-spacing:.08em;background:var(--surface);border:1px solid var(--line);padding:7px 10px;border-radius:4px}
+.ar{position:absolute;top:12px;right:12px;font:600 13px/1 var(--body);background:var(--ink);color:var(--bg);border:0;border-radius:4px;padding:9px 12px;cursor:pointer}
+.hs{display:block;width:12px;height:12px;border-radius:50%;border:2px solid var(--surface);background:var(--accent);padding:0;cursor:pointer;box-shadow:0 0 0 3px rgba(31,122,128,.25)}
+.hs[data-active] {transform:scale(1.4)}
+.hs span{position:absolute;left:16px;top:-6px;white-space:nowrap;font:600 12px/1 var(--body);background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:5px 7px;border-radius:3px;pointer-events:none}
+model-viewer:not([data-labels]) .hs span{display:none}
+aside{display:grid;gap:14px;min-width:0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px}
+.panel h2{font:700 19px/1.2 var(--display);margin:0 0 10px}
+.bl{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.bl button{width:100%;text-align:left;display:grid;grid-template-columns:10px 1fr;gap:10px;align-items:baseline;border:0;background:transparent;color:var(--ink);font:600 14px/1.3 var(--body);padding:8px 6px;border-radius:4px;cursor:pointer}
+.bl button:hover{background:var(--bg)}
+.bl button[aria-current="true"]{background:var(--bg)}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;transform:translateY(1px)}
+.bl small{display:block;font:500 11px/1.3 var(--mono);color:var(--muted);letter-spacing:.03em;margin-top:2px}
+.detail{min-height:120px}
+.detail h3{font:700 22px/1.15 var(--display);margin:0 0 4px;text-wrap:balance}
+.detail .date{font:500 12px/1 var(--mono);color:var(--muted);letter-spacing:.06em}
+.detail p{margin:10px 0 0}
+.badge{display:inline-flex;align-items:center;gap:6px;font:600 12px/1 var(--body);border:1px solid var(--line);border-radius:999px;padding:5px 9px;margin-top:12px}
+.legend{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.legend li{display:grid;grid-template-columns:10px 1fr;gap:10px;align-items:baseline;font-size:14px}
+.note{font-size:13px;color:var(--muted);margin:0}
+.ok{background:var(--ok)}.mid{background:var(--mid)}.hyp{background:var(--hyp)}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;font:600 13px/1 var(--body);padding:10px 13px;border-radius:4px;border:1px solid var(--line);background:transparent;color:var(--ink);text-decoration:none;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:focus-visible,.exit:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.exit{position:absolute;top:12px;left:12px;font:600 13px/1 var(--body);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:10px 12px;cursor:pointer}
+.incap{position:absolute;left:12px;right:12px;bottom:12px;max-width:520px;display:grid;gap:4px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:10px 12px;font-size:13px}
+.incap b{font:700 16px/1.2 var(--display)}
+.incap span{color:var(--muted)}
+.gal-h{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.ph{padding:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;aspect-ratio:1;max-width:100%;cursor:zoom-in;background:var(--bg)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
+.ph:hover img{transform:scale(1.06)}
+.ph:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(14,12,10,.88);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb figure{margin:0;display:grid;gap:10px;max-width:min(1000px,100%);justify-items:center}
+.lb img{max-width:100%;max-height:76vh;object-fit:contain;border-radius:3px}
+.lb figcaption{color:#efe6d6;display:grid;gap:4px;text-align:center;font-size:15px}
+.lb-meta{font:500 12px/1.3 var(--mono);color:#b9ad99}
+.lb-meta a{color:#7fd0d4}
+.lb-btn{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:22px;cursor:pointer}
+.lb-btn:focus-visible{outline:2px solid #7fd0d4;outline-offset:2px}
+.lb-close{top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px))}
+.lb-prev{left:max(10px,env(safe-area-inset-left,0px));top:50%;transform:translateY(-50%)}
+.lb-next{right:max(10px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%)}
+#walk-ui{position:absolute;inset:0;pointer-events:none}
+#walk-ui>*{pointer-events:auto}
+#mini{position:absolute;top:12px;right:12px;width:168px;height:112px;border-radius:4px;border:1px solid rgba(255,255,255,.25)}
+.hint{position:absolute;top:14px;left:50%;transform:translateX(-50%);font:500 11px/1.3 var(--mono);letter-spacing:.04em;color:#f3ead9;background:rgba(20,17,14,.6);padding:6px 9px;border-radius:3px;white-space:nowrap;pointer-events:none!important}
+.pad{position:absolute;right:12px;bottom:12px;display:grid;grid-template-columns:repeat(3,48px);grid-template-rows:repeat(2,48px);gap:6px}
+.pad button{border:0;border-radius:6px;background:rgba(20,17,14,.62);color:#f3ead9;font-size:20px;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
+.pad button:active{background:var(--accent);color:var(--accent-ink)}
+.pad button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pad [data-k="f"]{grid-column:2;grid-row:1}.pad [data-k="tl"]{grid-column:1;grid-row:2}.pad [data-k="b"]{grid-column:2;grid-row:2}.pad [data-k="tr"]{grid-column:3;grid-row:2}
+.walking .incap{right:192px}
+@media (max-width:640px){.hint{display:none}#mini{width:120px;height:80px}.incap{right:190px}}
+@media (hover:hover) and (pointer:fine){.pad{opacity:.85}}
+.zcard{position:absolute;left:12px;top:60px;width:230px;margin:0;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:5px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.28)}
+.zcard.in{animation:zcin .45s ease-out}
+@keyframes zcin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.zc-open{display:block;width:100%;padding:0;border:0;background:var(--bg);cursor:zoom-in;aspect-ratio:4/3;max-width:100%}
+.zc-open img{width:100%;height:100%;object-fit:cover;display:block}
+.zcard figcaption{display:grid;gap:4px;padding:8px 10px 9px;font-size:12.5px;line-height:1.35}
+.zc-tag{font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.zc-dots{display:flex;gap:4px;margin-top:2px}
+.zc-dots span{width:6px;height:6px;border-radius:50%;background:var(--line)}
+.zc-dots span.on{background:var(--accent)}
+.zc-close{position:absolute;top:6px;right:6px;width:28px;height:28px;border:0;border-radius:50%;background:rgba(20,17,14,.6);color:#fff;cursor:pointer;font-size:13px}
+.zc-open:focus-visible,.zc-close:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:640px){.zcard{width:150px;top:56px}.zcard figcaption{font-size:11.5px}}
+@media (prefers-reduced-motion:reduce){.zcard.in{animation:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">ZamanQapısı AI · demo maket · İçərişəhər, Bakı</div>
+      <h1>Şirvanşahlar Sarayı, <em>bu gün və XV əsrdə</em></h1>
+      <p class="sub">Kompleksin stilizə olunmuş 3D maketi. Modeli fırladın, böyüdün, binaya toxunun. Aşağıdakı düymə ilə iki dövr arasında keçin.</p>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="stage">
+      <div id="view" tabindex="-1" role="img" aria-label="Şirvanşahlar Sarayı kompleksinin 3D maketi"><canvas id="cv"></canvas><div id="labels"></div><div id="loading">Maket yüklənir…</div></div>
+      <button type="button" class="exit" id="exit-in" hidden>← Çölə çıx</button>
+      <div class="incap" id="in-cap" hidden></div>
+      <div id="walk-ui" hidden>
+        <button type="button" class="exit" id="walk-exit">← Maketə qayıt</button>
+
+        <figure class="zcard" id="zcard" hidden>
+          <button type="button" class="zc-open" id="zc-open" aria-label="Şəkli böyüt"><img id="zc-img" alt=""></button>
+          <figcaption><span class="zc-tag">Real şəkil</span><span id="zc-cap"></span><span class="zc-dots" id="zc-dots"></span></figcaption>
+          <button type="button" class="zc-close" id="zc-close" aria-label="Şəkil kartını bağla">✕</button>
+        </figure>
+        <canvas id="mini" width="168" height="112" aria-hidden="true"></canvas>
+        <div class="hint">W A S D və ya oxlarla gəz · sürüşdürərək bax · Shift qaçış</div>
+        <div class="pad" aria-label="Hərəkət">
+          <button type="button" data-k="f" aria-label="İrəli">▲</button>
+          <button type="button" data-k="tl" aria-label="Sola dön">↺</button>
+          <button type="button" data-k="b" aria-label="Geri">▼</button>
+          <button type="button" data-k="tr" aria-label="Sağa dön">↻</button>
+        </div>
+      </div>
+      <div class="era" id="era">XV ƏSR · BƏRPA</div>
+      <div class="toggle" role="group" aria-label="Dövr">
+        <button type="button" id="btn-today" aria-pressed="false">Bu gün</button>
+        <button type="button" id="btn-past" aria-pressed="true">XV əsr</button>
+      </div>
+    </div>
+
+    <aside>
+      <section class="panel detail" id="detail" aria-live="polite"></section>
+      <section class="panel">
+        <h2>Kompleksin binaları</h2>
+        <ul class="bl" id="list"></ul>
+      </section>
+      <section class="panel">
+        <h2>Bərpanın etibarlılığı</h2>
+        <ul class="legend">
+          <li><span class="dot ok"></span><span><b>Mövcuddur.</b> Bina bu gün də dayanır, forma müşahidəyə əsaslanır.</span></li>
+          <li><span class="dot mid"></span><span><b>Arxeoloji əsaslı.</b> Qalıqlar və qazıntı datası əsasında bərpa.</span></li>
+          <li><span class="dot hyp"></span><span><b>AI fərziyyəsi.</b> Bağ, hovuz, rəngli kaşı kimi detallar. Tarixçi təsdiqi lazımdır.</span></li>
+        </ul>
+      </section>
+      <p class="note">Bu, ölçülmüş data deyil, kodla qurulmuş təxmini memarlıq maketidir. Mətnlərdəki faktları komandanızın tarixçisi yoxlamalıdır.</p>
+    </aside>
+  </div>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Şəkil">
+  <figure>
+    <img id="lb-img" alt="">
+    <figcaption><span id="lb-cap"></span><span class="lb-meta"><span id="lb-n"></span> · <a id="lb-src" target="_blank" rel="noopener">Mənbə: Wikimedia Commons ↗</a></span></figcaption>
+  </figure>
+  <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Bağla">✕</button>
+  <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Əvvəlki">‹</button>
+  <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Növbəti">›</button>
+</div>
+
+<script>
+const S = 0.008; // build scale (m -> maquette)
+const P = (x, y, z) => `${(x*S).toFixed(3)}m ${(z*S).toFixed(3)}m ${(-y*S).toFixed(3)}m`;
+const B = [
+  {id:"palace", name:"Saray binası", date:"XV ƏSR", pos:P(-24,18,15), conf:"ok",
+   text:"Şirvanşahların Bakıdakı iki mərtəbəli iqamətgahı, kompleksin əsas binası. Otaqlar dar dəhlizlər və pilləkənlərlə birləşir."},
+  {id:"divan", name:"Divanxana", date:"XV ƏSR", pos:P(7,20,14.4), conf:"ok",
+   text:"Arkadalı həyətin ortasında səkkizguşəli, günbəzli rotonda. Təyinatı mübahisəlidir: divan, yəni məclis zalı və ya türbə ola biləcəyi ehtimal olunur."},
+  {id:"yahya", name:"Seyid Yəhya Bakuvi türbəsi", date:"XV ƏSR", pos:P(-4,0,16), conf:"ok",
+   text:"Saray alimi Seyid Yəhya Bakuviyə aid edilən səkkizguşəli türbə, piramidal daş örtüklə. Xalq arasında “Dərviş türbəsi” də adlanır."},
+  {id:"mosque", name:"Şah məscidi və minarə", date:"1441", pos:P(18,-6,27), conf:"ok",
+   text:"Kompleksin məscidi. Minarədəki kitabə tikinti tarixini 1441-ci il kimi göstərir. Bərpa versiyasında minarə başlığı firuzəyi kaşı ilə təsəvvür edilib."},
+  {id:"turbe", name:"Şirvanşahlar türbəsi", date:"1435", pos:P(26,-10,15.1), conf:"ok",
+   text:"I Xəlilullahın ailə üzvləri üçün tikdirdiyi günbəzli türbə. Cənub tərəfdəki hündür, oyma bəzəkli portalı ilə tanınır."},
+  {id:"murad", name:"Murad qapısı", date:"1585", pos:P(26,6,11.4), conf:"ok",
+   text:"Osmanlı dövründə, Sultan III Muradın adı ilə tikilmiş daş portal. Kompleksin ən gec tikililərindən biridir."},
+  {id:"bath", name:"Saray hamamı", date:"XV ƏSR", pos:P(22,-30,6), conf:"mid", dynamic:true,
+   today:"Bu gün yalnız yarıyeraltı divar qalıqları var. Hamam XX əsrdə arxeoloji qazıntı zamanı aşkarlanıb.",
+   past:"Qalıqların planı əsasında günbəzli otaqlarla bərpa edilib. Günbəzlərin hündürlüyü və forması təxminidir."},
+  {id:"garden", name:"Aşağı bağ və hovuz", date:"BƏRPA", pos:P(-22,-22,3), conf:"hyp", pastOnly:true,
+   text:"AI fərziyyəsi: dövrün saray ənənəsinə əsaslanan bağ və hovuz təsəvvürü. Real arxeoloji əsası yoxdur, nümunə kimi göstərilir."}
+];
+const LABEL = {ok:"Mövcuddur", mid:"Arxeoloji əsaslı", hyp:"AI fərziyyəsi"};
+const mv = document.getElementById("mv"), list = document.getElementById("list"), detail = document.getElementById("detail");
+let era = "past", current = null;
+
+B.forEach(b => {
+  const h = document.createElement("button");
+  h.className = "hs"; h.slot = `hotspot-${b.id}`; h.type = "button";
+  h.dataset.position = b.pos; h.dataset.normal = "0m 1m 0m";
+  h.setAttribute("aria-label", b.name);
+  h.innerHTML = `<span>${b.name}</span>`;
+  h.addEventListener("click", () => select(b.id, true));
+  mv.appendChild(h); b.hs = h;
+  const li = document.createElement("li");
+  li.innerHTML = `<button type="button"><span class="dot ${b.conf}"></span><span>${b.name}<small>${b.date}</small></span></button>`;
+  li.firstChild.addEventListener("click", () => select(b.id, true));
+  list.appendChild(li); b.li = li;
+});
+
+function render(){
+  B.forEach(b => {
+    const hidden = b.pastOnly && era === "today";
+    b.hs.hidden = hidden; b.li.hidden = hidden;
+  });
+  const b = B.find(x => x.id === current);
+  if (!b || (b.pastOnly && era === "today")) {
+    detail.innerHTML = `<div class="date">${era==="past"?"XV ƏSR · BƏRPA":"BU GÜN"}</div><h3>${era==="past"?"Kompleks tam halında":"Kompleks bu gün"}</h3>
+      <p>${era==="past"
+        ? "Bərpa versiyası hamamı, tam qala divarlarını və saray bağını göstərir. Rənglər hər hissənin nə qədər etibarlı olduğunu bildirir."
+        : "Əsas binalar bu gün də dayanır. Hamam isə yalnız qalıqlar şəklindədir, divarların bəzi hissələri dağılıb."}</p>
+      <p class="note" style="margin-top:10px">Binaya və ya siyahıdakı ada toxunun.</p>`;
+  } else {
+    const t = b.dynamic ? (era === "past" ? b.past : b.today) : b.text;
+    detail.innerHTML = `<div class="date">${b.date}</div><h3>${b.name}</h3><p>${t}</p>
+      <span class="badge"><span class="dot ${b.conf}"></span>${LABEL[b.conf]}</span>`;
+  }
+  B.forEach(x => {
+    x.li.firstChild.setAttribute("aria-current", x.id === current ? "true" : "false");
+    if (x.id === current) x.hs.dataset.active = ""; else delete x.hs.dataset.active;
+  });
+  document.getElementById("era").textContent = era === "past" ? "XV ƏSR · BƏRPA" : "BU GÜN · MÖVCUD VƏZİYYƏT";
+}
+
+function select(id, fly){
+  current = id; render();
+  const b = B.find(x => x.id === id);
+  if (fly && b) { mv.cameraTarget = b.pos; mv.cameraOrbit = "auto 55deg 45%"; }
+}
+
+function setEra(e){
+  era = e;
+  mv.src = e === "past" ? "models/shirvanshahs-restored.glb" : "models/shirvanshahs-today.glb";
+  document.getElementById("btn-past").setAttribute("aria-pressed", e === "past");
+  document.getElementById("btn-today").setAttribute("aria-pressed", e === "today");
+  render();
+}
+document.getElementById("btn-past").addEventListener("click", () => setEra("past"));
+document.getElementById("btn-today").addEventListener("click", () => setEra("today"));
+mv.addEventListener("dblclick", () => { current = null; mv.cameraTarget = "auto auto auto"; mv.cameraOrbit = "-38deg 58deg 105%"; render(); });
+render();
+</script>

@@ -1,0 +1,74 @@
+import "server-only";
+import fs from "node:fs";
+import path from "node:path";
+import type { Era, Fact, FactsFile, Manifest, MonumentBundle, Narration, Photo, PhotosFile, QA } from "./types";
+
+/* Reads /content/monuments/* at build time. Adding a folder adds a monument. */
+const ROOT = path.join(process.cwd(), "content", "monuments");
+
+function readJson<T>(file: string, fallback: T): T {
+  if (!fs.existsSync(file)) return fallback;
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf8")) as T;
+  } catch (e) {
+    throw new Error(`Invalid JSON in ${path.relative(process.cwd(), file)}: ${(e as Error).message}`);
+  }
+}
+
+export function listSlugs(): string[] {
+  if (!fs.existsSync(ROOT)) return [];
+  return fs
+    .readdirSync(ROOT, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && !d.name.startsWith("_") && fs.existsSync(path.join(ROOT, d.name, "manifest.json")))
+    .map((d) => d.name);
+}
+
+function check(m: Manifest, slug: string) {
+  const need: (keyof Manifest)[] = ["name", "tagline", "period", "location", "eras", "architect", "exterior", "buildings", "disclaimer"];
+  for (const k of need) if (m[k] === undefined) throw new Error(`content/monuments/${slug}/manifest.json: missing "${k}"`);
+  if (m.slug !== slug) throw new Error(`content/monuments/${slug}/manifest.json: slug "${m.slug}" must match folder name`);
+}
+
+export function getManifest(slug: string): Manifest {
+  const m = readJson<Manifest | null>(path.join(ROOT, slug, "manifest.json"), null);
+  if (!m) throw new Error(`No manifest for ${slug}`);
+  check(m, slug);
+  return m;
+}
+
+export function getFacts(slug: string): Fact[] {
+  return readJson<FactsFile>(path.join(ROOT, slug, "facts.json"), { monument: slug, facts: [] }).facts;
+}
+
+export function getBundle(slug: string): MonumentBundle {
+  const dir = path.join(ROOT, slug);
+  const manifest = getManifest(slug);
+  const facts = getFacts(slug);
+  const photos: Photo[] = readJson<PhotosFile>(path.join(dir, "photos.json"), { photos: [] }).photos.filter((p) =>
+    fs.existsSync(path.join(dir, "photos", p.file)),
+  );
+  const narration: Record<string, Narration> = {};
+  const ndir = path.join(dir, "narration");
+  if (fs.existsSync(ndir))
+    for (const f of fs.readdirSync(ndir))
+      if (f.endsWith(".json") && f !== "qa.json") {
+        const n = readJson<Narration | null>(path.join(ndir, f), null);
+        if (n) narration[n.zone] = n;
+      }
+  const qa = readJson<QA[]>(path.join(ndir, "qa.json"), []);
+  const glb: Partial<Record<Era, string>> = {};
+  for (const era of ["past", "today"] as Era[])
+    if (fs.existsSync(path.join(process.cwd(), "public", "monuments", slug, "models", `${era}.glb`)))
+      glb[era] = `/monuments/${slug}/models/${era}.glb`;
+  return { manifest, facts, photos, narration, qa, base: `/monuments/${slug}`, glb };
+}
+
+export function listMonuments(): (Manifest & { coverUrl?: string; coverPhoto?: Photo })[] {
+  return listSlugs()
+    .map((slug) => {
+      const b = getBundle(slug);
+      const coverPhoto = b.photos.find((p) => p.id === b.manifest.cover) ?? b.photos[0];
+      return { ...b.manifest, coverPhoto, coverUrl: coverPhoto ? `${b.base}/photos/${coverPhoto.file}` : undefined };
+    })
+    .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+}

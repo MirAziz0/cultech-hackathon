@@ -1,0 +1,11 @@
+{
+ "zone": "stair",
+ "text": {
+  "az": "Mərtəbələri divar boyu qalxan pilləkən birləşdirir. Biz onu burada qalın divarın içindən keçən dolama yol kimi göstərmişik — bu, təxmini təsvirdir. Pillələr dardır, ehtiyatla qalx.",
+  "en": "A stair running along the wall links the storeys. Here we show it as a winding way through the thick wall — that part is an approximation. The steps are narrow, so climb with care."
+ },
+ "factIds": [
+  "mt-stair"
+ ],
+ "generatedBy": "hand"
+}

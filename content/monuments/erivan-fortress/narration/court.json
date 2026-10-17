@@ -1,0 +1,12 @@
+{
+ "zone": "court",
+ "text": {
+  "az": "Həyətin ortasında hovuz var idi — bax, su sərinlik gətirir. Bu hovuz min doqquz yüz ikinci il təmirində dağıdılıb. Mənbələr hərəm hamamında otuz iki metrlik böyük hovuzdan da danışır. Qərbdəki iki sütunlu açıq salon Güzgülü salondur — gəl, ora keçək.",
+  "en": "In the middle of the courtyard there was a pool — feel how the water brings coolness. This pool was destroyed in the 1902 renovation. The sources also speak of a great pool, thirty-two metres long, in the harem bath. The open hall with two columns to the west is the Hall of Mirrors — come, let us go there."
+ },
+ "factIds": [
+  "sp-decline",
+  "sp-harem"
+ ],
+ "generatedBy": "hand"
+}

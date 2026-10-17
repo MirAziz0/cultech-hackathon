@@ -1,0 +1,11 @@
+{
+ "zone": "portal",
+ "text": {
+  "az": "Bu portalı elə ucaltdıq ki, qonaq hələ içəri girmədən sarayın əzəmətini hiss etsin. Mənbələrə görə, sivri tağlı portal həyətdən birbaşa səkkizguşəli zala aparır — yəni qonaq dolanbac yollarla yox, düz şahın hüzuruna gəlirdi. Yazı qurşağını və daş naxışları isə maketdə təxmini göstərmişik.",
+  "en": "We raised this portal so that a guest would feel the palace's grandeur before even stepping inside. According to the sources, the lancet portal leads from the courtyard straight to the octagonal hall — a guest came directly before the shah, not through winding corridors. The inscription band and carved panels are shown approximately in this model."
+ },
+ "factIds": [
+  "octagonal-hall"
+ ],
+ "generatedBy": "hand"
+}

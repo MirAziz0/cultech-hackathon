@@ -1,0 +1,11 @@
+{
+ "zone": "l4",
+ "text": {
+  "az": "Təxminən bu hündürlükdə, cənub divarının bayır üzündə kufi xətli kitabə var: “Qubbeyi Məsud ibn Davud”. Bəziləri bu adı memarın adı sayır, bəziləri isə yox. Mən də sənə dürüst deyirəm: bu sual hələ açıqdır.",
+  "en": "At about this height, on the outer face of the south wall, there is a Kufic inscription: “Qubbeye Masud ibn Davud”. Some read it as the architect's name, others do not. I will be honest with you: the question is still open."
+ },
+ "factIds": [
+  "mt-inscription"
+ ],
+ "generatedBy": "hand"
+}

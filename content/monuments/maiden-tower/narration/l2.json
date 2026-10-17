@@ -1,0 +1,12 @@
+{
+ "zone": "l2",
+ "text": {
+  "az": "Buradan ortadakı açıq yerdən aşağı, quyuya qədər baxa bilərsən. Divardakı pəncərələrə bax: bayırda dardır, içəriyə doğru genişlənir. Belə pəncərə düşmən oxundan qoruyur, amma içəriyə kifayət qədər işıq salır.",
+  "en": "From here you can look down through the central opening all the way to the well. Look at the windows in the wall: narrow outside, widening toward the inside. A window like this guards against arrows yet lets in enough light."
+ },
+ "factIds": [
+  "mt-floors",
+  "mt-windows"
+ ],
+ "generatedBy": "hand"
+}

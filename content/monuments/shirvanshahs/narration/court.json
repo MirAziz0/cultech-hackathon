@@ -1,0 +1,12 @@
+{
+ "zone": "court",
+ "text": {
+  "az": "Bu, yuxarı həyətdir. Qarşındakı qərb fasadına bax: ortada hündür, sivri tağlı portal durur — sarayın ən vacib qapısı budur. Arxasında mərkəzi zalın günbəzi gizlənib. Fəvvarəni dolan, sonra pilləkənlə yuxarı qalx — portal səni birbaşa qəbul zalına aparacaq.",
+  "en": "This is the upper courtyard. Look at the west facade before you: in the middle stands a tall pointed-arch portal — the most important door of the palace. Behind it hides the dome of the central hall. Walk around the fountain, then climb the steps — the portal will lead you straight into the reception hall."
+ },
+ "factIds": [
+  "palace-15c",
+  "octagonal-hall"
+ ],
+ "generatedBy": "hand"
+}

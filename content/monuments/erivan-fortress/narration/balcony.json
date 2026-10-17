@@ -1,0 +1,12 @@
+{
+ "zone": "balcony",
+ "text": {
+  "az": "Aşağı bax: Zəngi, yəni Hrazdan çayı dərin dərədə axır. Sarayın divarları sıldırım yamacın kənarı ilə bir xətt üzərində idi. Bu dərə qalanın qərb tərəfini qoruyurdu — o tərəfdə daş divara ehtiyac yox idi, torpaq sədd kifayət edirdi.",
+  "en": "Look down: the Zangi, that is the Hrazdan river, flows in a deep gorge. The palace walls stood flush with the edge of the steep bank. This gorge guarded the fortress's west side — there a stone wall was not needed; an earth rampart was enough."
+ },
+ "factIds": [
+  "sp-palace",
+  "ef-size"
+ ],
+ "generatedBy": "hand"
+}

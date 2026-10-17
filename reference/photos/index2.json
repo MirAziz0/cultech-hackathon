@@ -1,0 +1,90 @@
+{
+ "facade": [
+  {
+   "file": "photos/facade_0.jpg",
+   "name": "Şirvanşahlar kompleksində saray binasının qərb fasadı.JPG",
+   "size": [
+    900,
+    600
+   ]
+  }
+ ],
+ "dome": [
+  {
+   "file": "photos/dome_0.jpg",
+   "name": "Şirvanşahlar sarayının gümbəzi.JPG",
+   "size": [
+    900,
+    675
+   ]
+  },
+  {
+   "file": "photos/dome_1.jpg",
+   "name": "Building of the Palace of the Shirvanshahs (dome).jpg",
+   "size": [
+    675,
+    900
+   ]
+  }
+ ],
+ "entry2": [
+  {
+   "file": "photos/entry2_0.jpg",
+   "name": "Şirvanşahlar sarayının ikinci mərtəbə girişinin baştağı.JPG",
+   "size": [
+    900,
+    600
+   ]
+  }
+ ],
+ "stairs": [
+  {
+   "file": "photos/stairs_0.jpg",
+   "name": "Stairs in the complex of the Palace of the Shirvanshahs.jpg",
+   "size": [
+    505,
+    900
+   ]
+  }
+ ],
+ "expo": [
+  {
+   "file": "photos/expo_0.jpg",
+   "name": "Şirvanşahlar sarayının ekspozisiyası.jpg",
+   "size": [
+    552,
+    900
+   ]
+  }
+ ],
+ "ceramic": [
+  {
+   "file": "photos/ceramic_0.jpg",
+   "name": "Ceramic crockery in Shirvanshah's Palace.jpg",
+   "size": [
+    900,
+    505
+   ]
+  }
+ ],
+ "silk": [
+  {
+   "file": "photos/silk_0.jpg",
+   "name": "Elxanilər dövrünə aid ipək parça qalığı (XIII əsr).JPG",
+   "size": [
+    900,
+    340
+   ]
+  }
+ ],
+ "bags": [
+  {
+   "file": "photos/bags_0.jpg",
+   "name": "Woven Bags on Display - Palace of the Shirvanshahs - Baku - Azerbaijan (17745209158).jpg",
+   "size": [
+    900,
+    675
+   ]
+  }
+ ]
+}

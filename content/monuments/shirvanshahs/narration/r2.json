@@ -1,0 +1,12 @@
+{
+ "zone": "r2",
+ "text": {
+  "az": "Cənub otağı da təsəvvürdür. Deyilənə görə, sarayın cənub fasadında erkər pəncərə olub — bax, işıq oradan dolur. Buraya xalça toxuma dəzgahı qoyduq; bu da təxminidir. Amma bir şey dəqiqdir: saray ərazisindəki qazıntılarda on üçüncü əsrə aid ipək parça qalığı tapılıb.",
+  "en": "The south room is imagined too. It is said that the palace's south facade had a bay window — look, the light pours in from there. We placed a carpet loom here; that is also approximate. But one thing is certain: excavations at the palace found a fragment of thirteenth-century silk."
+ },
+ "factIds": [
+  "bay-windows",
+  "silk"
+ ],
+ "generatedBy": "hand"
+}

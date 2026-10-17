@@ -1,0 +1,254 @@
+/* Exterior maquette from manifest.exterior.parts — TypeScript port of reference/scripts/build_model.py.
+   Manifest coordinates follow the Python generator (x east, y north, z up, metres); they are converted
+   to three.js Y-up here: (x, y, z) -> (x, z, -y). Angles ("facing") are degrees from +x toward +y.
+   DOM-free on purpose: scripts/export-glb.ts runs this in Node to write GLBs for AR. */
+import * as THREE from "three";
+import { mergeGeometries, mergeVertices } from "three/examples/jsm/utils/BufferGeometryUtils.js";
+import type { Era, ExteriorPart, ExteriorSpec, Vec3 } from "../types";
+
+const D2R = Math.PI / 180;
+const tp = (x: number, y: number, z: number) => new THREE.Vector3(x, z, -y);
+
+function rng(seed: number) {
+  let s = seed;
+  const next = () => (s = (s * 16807) % 2147483647) / 2147483647;
+  return { random: next, uniform: (a: number, b: number) => a + (b - a) * next() };
+}
+
+/** pointed arch outline, from build_model.arch_poly */
+function archShape(w: number, hs: number, cRatio = 0.18, n = 10) {
+  const c = w * cRatio, r = w / 2 + c, top = hs + Math.sqrt(r * r - c * c);
+  const left: [number, number][] = [];
+  const a0 = Math.PI, a1 = Math.atan2(top - hs, 0 - c);
+  for (let i = 0; i <= n; i++) {
+    const a = a0 + ((a1 - a0) * i) / n;
+    left.push([c + r * Math.cos(a), hs + r * Math.sin(a)]);
+  }
+  const right = left.map(([px, py]) => [-px, py] as [number, number]).reverse();
+  const s = new THREE.Shape();
+  s.moveTo(-w / 2, 0);
+  for (const [px, py] of [...left, ...right.slice(1)]) s.lineTo(px, py);
+  s.lineTo(w / 2, 0);
+  s.closePath();
+  return s;
+}
+
+class ExtBuilder {
+  buckets = new Map<string, THREE.BufferGeometry[]>();
+  constructor(private resolve: (m: string) => string) {}
+  add(g: THREE.BufferGeometry, mat: string) {
+    const key = this.resolve(mat);
+    const ng = g.index ? g.toNonIndexed() : g;
+    for (const name of Object.keys(ng.attributes)) if (name !== "position" && name !== "normal") ng.deleteAttribute(name);
+    if (!ng.attributes.normal) ng.computeVertexNormals();
+    ng.clearGroups();
+    (this.buckets.get(key) ?? this.buckets.set(key, []).get(key)!).push(ng);
+  }
+  /** box bottom-centred at (x,y,z) in build coords, rotated by `facing` about z */
+  box(sx: number, sy: number, sz: number, x: number, y: number, z: number, mat: string, facing = 0) {
+    const g = new THREE.BoxGeometry(sx, sz, sy);
+    g.rotateY(facing * D2R);
+    const p = tp(x, y, z + sz / 2);
+    g.translate(p.x, p.y, p.z);
+    this.add(g, mat);
+  }
+  cyl(r: number, h: number, x: number, y: number, z: number, mat: string, sides = 16, r2?: number) {
+    const g = new THREE.CylinderGeometry(r2 ?? r, r, h, sides);
+    const p = tp(x, y, z + h / 2);
+    g.translate(p.x, p.y, p.z);
+    this.add(g, mat);
+  }
+  lathe(pts: [number, number][], x: number, y: number, z: number, mat: string, sides: number) {
+    const g = new THREE.LatheGeometry(pts.map(([a, b]) => new THREE.Vector2(a, b)), sides);
+    const p = tp(x, y, z);
+    g.translate(p.x, p.y, p.z);
+    this.add(g, mat);
+  }
+  dome(r: number, h: number, x: number, y: number, z: number, mat: string, sides = 28, pointed = 0.18) {
+    const pts: [number, number][] = [];
+    const n = 14;
+    for (let i = 0; i <= n; i++) {
+      const t = (i / n) * (Math.PI / 2);
+      pts.push([Math.max(0.0001, r * Math.cos(t)), h * Math.pow(Math.sin(t), 1 - pointed)]);
+    }
+    pts[pts.length - 1] = [0, h];
+    this.lathe(pts, x, y, z, mat, sides);
+  }
+  /** dark pointed-arch plate standing on a facade, protruding `depth` outward */
+  niche(w: number, hs: number, x: number, y: number, z: number, facing: number, mat: string, depth = 0.25) {
+    const g = new THREE.ExtrudeGeometry(archShape(w, hs), { depth, bevelEnabled: false, curveSegments: 6 });
+    g.rotateY((facing + 90) * D2R);
+    const p = tp(x, y, z);
+    g.translate(p.x, p.y, p.z);
+    this.add(g, mat);
+  }
+  portal(w: number, h: number, x: number, y: number, z: number, facing: number, depth: number, stone: string, nicheMat: string) {
+    const ca = Math.cos(facing * D2R), sa = Math.sin(facing * D2R);
+    const g = new THREE.BoxGeometry(depth, h, w);
+    g.rotateY(facing * D2R);
+    let p = tp(x + (ca * depth) / 2, y + (sa * depth) / 2, z + h / 2);
+    g.translate(p.x, p.y, p.z);
+    this.add(g, stone);
+    this.niche(w * 0.62, h * 0.55, x + ca * (depth + 0.02), y + sa * (depth + 0.02), z, facing, nicheMat, 0.3);
+    const c = new THREE.BoxGeometry(depth + 0.3, 0.35, w + 0.3);
+    c.rotateY(facing * D2R);
+    p = tp(x + (ca * depth) / 2, y + (sa * depth) / 2, z + h + 0.17);
+    c.translate(p.x, p.y, p.z);
+    this.add(c, stone);
+  }
+  tree(x: number, y: number, z: number, s: number, kind: "round" | "cypress" = "round") {
+    if (kind === "cypress") {
+      this.cyl(0.18 * s, 0.6 * s, x, y, z, "trunk", 6);
+      this.lathe([[0.0001, 0], [1.0 * s, 0.8 * s], [0.0001, 6.5 * s]], x, y, z + 0.5 * s, "tree", 8);
+      return;
+    }
+    this.cyl(0.25 * s, 1.6 * s, x, y, z, "trunk", 6);
+    const t = new THREE.IcosahedronGeometry(1.5 * s, 1);
+    const p = tp(x, y, z + 2.6 * s);
+    t.translate(p.x, p.y, p.z);
+    this.add(t, "tree");
+  }
+}
+
+function part(b: ExtBuilder, p: ExteriorPart, era: Era, r: ReturnType<typeof rng>) {
+  const mat = p.matByEra?.[era] ?? p.mat;
+  switch (p.t) {
+    case "box": b.box(p.size[0], p.size[1], p.size[2], ...p.at, mat ?? "stone"); break;
+    case "cyl": b.cyl(p.r, p.h, ...p.at, mat ?? "stone", p.sides ?? 16, p.r2); break;
+    case "dome": b.dome(p.r, p.h, ...p.at, mat ?? "dome", p.sides ?? 28, p.pointed ?? 0.18); break;
+    case "tent": b.lathe([[p.r, 0], [0.0001, p.h]], ...p.at, mat ?? "dome", p.sides ?? 8); break;
+    case "niche": b.niche(p.w, p.spring, ...p.at, p.facing, mat ?? "niche", p.depth ?? 0.25); break;
+    case "portal": b.portal(p.w, p.h, ...p.at, p.facing, p.depth ?? 1, mat ?? "stone", p.nicheMat ?? "niche"); break;
+    case "windowRow":
+      for (let i = 0; i < p.n; i++) {
+        const t = p.from + ((p.to - p.from) * (i + 0.5)) / p.n;
+        const [x, y] = p.along === "x" ? [t, p.at[1]] : [p.at[0], t];
+        b.niche(p.w ?? 1.1, p.spring ?? 1.4, x, y, p.z, p.facing, mat ?? "window", 0.15);
+      }
+      break;
+    case "tree": b.tree(...p.at, p.s ?? 1, p.kind); break;
+    case "steps": {
+      const len = Math.hypot(...p.dir), dx = p.dir[0] / len, dy = p.dir[1] / len, facing = Math.atan2(dy, dx) / D2R;
+      for (let k = 0; k < p.n; k++) {
+        const h = p.z0 + ((p.z1 - p.z0) * (p.n - k)) / p.n;
+        b.box(p.run, p.width, h, p.from[0] + dx * p.run * k, p.from[1] + dy * p.run * k, 0, mat ?? "path", facing);
+      }
+      break;
+    }
+    case "wallLoop": {
+      const pts = p.closed === false ? p.pts : [...p.pts, p.pts[0]];
+      for (let i = 0; i < pts.length - 1; i++) {
+        const [x0, y0] = pts[i], [x1, y1] = pts[i + 1];
+        const L = Math.hypot(x1 - x0, y1 - y0), n = Math.max(1, Math.floor(L / 4)), facing = Math.atan2(y1 - y0, x1 - x0) / D2R;
+        for (let k = 0; k < n; k++) {
+          const t = (k + 0.5) / n, xm = x0 + (x1 - x0) * t, ym = y0 + (y1 - y0) * t;
+          let h = p.h;
+          if (p.ruined && r.random() < p.ruined) h = r.uniform(p.h * 0.2, p.h * 0.62);
+          b.box((L / n) * 0.98, p.th, h, xm, ym, 0, mat ?? "stone", facing);
+          if (p.merlons && h === p.h && k % 2 === 0) b.box((L / n) * 0.4, p.th, 0.8, xm, ym, h, mat ?? "stone", facing);
+        }
+      }
+      if (p.towers) for (const [x, y] of p.pts) b.cyl(p.towers.r, p.towers.h, x, y, 0, mat ?? "stone", 16);
+      break;
+    }
+    case "rooms": {
+      const [bx, by, bz] = p.at, h = p.h ?? 3.6;
+      for (const [dx, dy, s] of p.rooms) {
+        if (p.mode === "domed") {
+          b.box(s, s, h, bx + dx, by + dy, bz, mat ?? "stone");
+          b.cyl(s * 0.36, 0.5, bx + dx, by + dy, bz + h, mat ?? "stone", 12);
+          b.dome(s * 0.36, s * 0.35, bx + dx, by + dy, bz + h + 0.5, p.domeMat ?? "dome", 16, 0.15);
+        } else {
+          for (let side = 0; side < 4; side++)
+            for (let i = 0; i < 4; i++) {
+              const hh = r.random() > 0.2 ? r.uniform(0.3, 2.2) : 0;
+              if (!hh) continue;
+              const seg = s / 4, t = -s / 2 + seg * (i + 0.5);
+              if (side === 0) b.box(seg * 0.95, 0.6, hh, bx + dx + t, by + dy - s / 2, bz, mat ?? "stone_old");
+              if (side === 1) b.box(seg * 0.95, 0.6, hh, bx + dx + t, by + dy + s / 2, bz, mat ?? "stone_old");
+              if (side === 2) b.box(0.6, seg * 0.95, hh, bx + dx - s / 2, by + dy + t, bz, mat ?? "stone_old");
+              if (side === 3) b.box(0.6, seg * 0.95, hh, bx + dx + s / 2, by + dy + t, bz, mat ?? "stone_old");
+            }
+        }
+      }
+      break;
+    }
+    case "scatter":
+      for (let i = 0; i < p.n; i++) {
+        const s = r.uniform(p.size[0], p.size[1]);
+        b.box(s, s * 0.8, s * 0.5, p.at[0] + r.uniform(-p.area[0], p.area[0]), p.at[1] + r.uniform(-p.area[1], p.area[1]), p.at[2], mat ?? "stone_old");
+      }
+      break;
+    case "tube": {
+      const sh = new THREE.Shape();
+      sh.absarc(0, 0, p.r, 0, Math.PI * 2, false);
+      const hole = new THREE.Path();
+      hole.absarc(0, 0, p.r - p.th, 0, Math.PI * 2, true);
+      sh.holes.push(hole);
+      const g = new THREE.ExtrudeGeometry(sh, { depth: p.h, bevelEnabled: false, curveSegments: p.sides ?? 32 });
+      g.rotateX(-Math.PI / 2);
+      const c = tp(p.at[0], p.at[1], p.at[2]);
+      g.translate(c.x, c.y, c.z);
+      b.add(g, mat ?? "stone");
+      break;
+    }
+    case "prism": {
+      const sh = new THREE.Shape(p.pts.map(([x, y]) => new THREE.Vector2(x, y)));
+      const g = new THREE.ExtrudeGeometry(sh, { depth: p.h, bevelEnabled: false });
+      // shape XY == build XY; extrude along +z(build) then convert: rotate so build-z → three-y
+      g.rotateX(-Math.PI / 2);
+      g.translate(0, p.z, 0);
+      b.add(g, mat ?? "stone");
+      break;
+    }
+    case "water": b.box(p.size[0], p.size[1], 0.25, ...p.at, mat ?? "water"); break;
+  }
+}
+
+const DEFAULT_PALETTE: Record<string, [number, number, number]> = {
+  base: [92, 66, 48], ground: [196, 178, 140], terrace: [184, 164, 126], stone: [214, 192, 150], stone_rs: [230, 211, 168],
+  stone_old: [176, 156, 120], dome: [205, 184, 140], niche: [92, 72, 52], window: [70, 56, 42], water: [58, 143, 160],
+  tree: [94, 122, 58], trunk: [110, 84, 58], tile: [40, 128, 140], path: [222, 206, 172],
+};
+
+/** build one era of the maquette; returns a Group already scaled & converted to Y-up */
+export function buildExterior(spec: ExteriorSpec & { eraMat?: Partial<Record<Era, Record<string, string>>> }, era: Era): THREE.Group {
+  const palette = { ...DEFAULT_PALETTE, ...spec.palette };
+  const alias = spec.eraMat?.[era] ?? {};
+  const b = new ExtBuilder((m) => alias[m] ?? m);
+  const r = rng(spec.seed ?? 7);
+  for (const p of spec.parts) if (!p.eras || p.eras.includes(era)) part(b, p, era, r);
+
+  const group = new THREE.Group();
+  group.name = `exterior-${era}`;
+  for (const [key, geos] of b.buckets) {
+    const flat = mergeGeometries(geos, false);
+    geos.forEach((g) => g.dispose());
+    if (!flat) continue;
+    // weld identical vertices back into an indexed mesh (≈4× smaller GLBs)
+    const merged = mergeVertices(flat);
+    flat.dispose();
+    merged.scale(spec.scale, spec.scale, spec.scale);
+    merged.computeBoundingSphere();
+    const c = palette[key] ?? [200, 200, 200];
+    const mat = new THREE.MeshStandardMaterial({
+      name: key,
+      // the Python generator wrote palette/255 into glTF linear baseColorFactor; keep that for parity
+      color: new THREE.Color().setRGB(c[0] / 255, c[1] / 255, c[2] / 255, THREE.LinearSRGBColorSpace),
+      roughness: key === "water" ? 0.35 : 0.92,
+      metalness: 0,
+      flatShading: key === "tree",
+    });
+    const mesh = new THREE.Mesh(merged, mat);
+    mesh.name = key;
+    mesh.castShadow = key !== "base" && key !== "ground";
+    mesh.receiveShadow = true;
+    group.add(mesh);
+  }
+  return group;
+}
+
+/** label anchor (build coords → maquette world) */
+export function anchor(spec: ExteriorSpec, pos: Vec3) {
+  return tp(pos[0], pos[1], pos[2]).multiplyScalar(spec.scale);
+}

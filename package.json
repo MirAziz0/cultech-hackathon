@@ -1,26 +1,58 @@
 {
-  "name": "zq",
+  "name": "zamanqapisi-ai",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "predev": "npm run content",
     "build": "next build",
+    "prebuild": "npm run content",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "content": "tsx scripts/sync-content.ts && tsx scripts/export-glb.ts",
+    "photos": "tsx scripts/fetch-photos.ts",
+    "narration": "tsx scripts/generate-narration.ts",
+    "map": "tsx scripts/make-map.ts",
+    "icons": "tsx scripts/make-icons.ts",
+    "test:walk": "tsx scripts/test-walk.ts",
+    "todo": "tsx scripts/content-todo.ts",
+    "shot": "tsx scripts/shot.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.135.0",
+    "@google/model-viewer": "^4.4.0",
+    "microsoft-cognitiveservices-speech-sdk": "^1.52.0",
+    "n8ao": "^2.0.1",
     "next": "16.4.2",
+    "postprocessing": "^6.39.5",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
+    "three": "^0.183.2",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
+    "@types/d3-geo": "^3.1.1",
     "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.183.1",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-server": "^3.0.4",
+    "@types/topojson-specification": "^1.0.5",
+    "d3-geo": "^3.1.1",
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
+    "playwright": "^1.64.1",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "topojson-client": "^3.1.0",
+    "topojson-server": "^3.0.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "world-atlas": "^2.0.2"
   }
 }

@@ -1,0 +1,11 @@
+{
+ "zone": "vest",
+ "text": {
+  "az": "Bu dar keçid portalı mərkəzi zalla birləşdirir; planda bura bir nömrə ilə göstərilib. Maketdə tavanı tağ şəklində hörülmüş kimi göstərmişik — belə tağ yükü yan divarlara yayır. Bir neçə addım da at: qarşında sarayın ürəyi, səkkizguşəli zal açılacaq.",
+  "en": "This narrow passage joins the portal to the central hall; on the plan it is marked number one. In the model we show its ceiling as a barrel vault — a vault like this spreads the weight onto the side walls. Take a few more steps: the heart of the palace, the octagonal hall, will open before you."
+ },
+ "factIds": [
+  "octagonal-hall"
+ ],
+ "generatedBy": "hand"
+}
