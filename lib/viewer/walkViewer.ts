@@ -44,6 +44,9 @@ export class WalkViewer {
   private actors: THREE.Object3D[] = [];
   mini?: { ctx: CanvasRenderingContext2D; w: number; h: number; colors: { bg: string; floor: string; me: string; other: string } };
 
+  /** async additions (textured models, tree pack, AO pass) still on their way; see warmUp() */
+  private pending: Promise<unknown>[] = [];
+
   /** worlds built so far, one per era (built on first visit, so switching back is instant) */
   private worlds = new Map<string, WalkWorld>();
   era: Era | undefined;
@@ -64,8 +67,22 @@ export class WalkViewer {
     this.ro = new ResizeObserver(() => this.resize());
     this.ro.observe(host);
     this.resize();
-    if (quality === "high") this.setupAO().catch((e) => console.warn("[walk] AO disabled:", e));
+    if (quality === "high") this.pending.push(this.setupAO().catch((e) => console.warn("[walk] AO disabled:", e)));
     this.world.pool.update(0, this.camera.position, true);
+  }
+
+  /** compile every shader before the visitor starts: waits for the async models, makes the given
+      hidden objects (the guide) visible for the compile, and uses parallel compilation so the page
+      keeps responding. Without it the first frames after "Start" froze while the GPU compiled. */
+  async warmUp(show: THREE.Object3D[] = []) {
+    await Promise.allSettled(this.pending);
+    const was = show.map((o) => o.visible);
+    show.forEach((o) => (o.visible = true));
+    try {
+      await this.renderer.compileAsync(this.world.scene, this.camera);
+    } finally {
+      show.forEach((o, i) => (o.visible = was[i]));
+    }
   }
 
   /** swap to another era's world; the walker keeps its position */
@@ -89,14 +106,14 @@ export class WalkViewer {
   private addModels(w: WalkWorld, era?: Era) {
     for (const e of this.spec.elements) {
       if (e.t !== "model" || (e.eras && era && !e.eras.includes(era))) continue;
-      loadModel(e.src).then((obj) => {
+      this.pending.push(loadModel(e.src).then((obj) => {
         const o = obj.clone();
         o.position.set(...e.at);
         o.rotation.y = ((e.rotY ?? 0) * Math.PI) / 180;
         if (Array.isArray(e.scale)) o.scale.set(...e.scale); else o.scale.setScalar(e.scale ?? 1);
         if (e.cut?.length) cutModel(o, e.cut);
         w.scene.add(o);
-      }).catch((err) => console.warn(`[walk] model ${e.src} not loaded:`, err));
+      }).catch((err) => console.warn(`[walk] model ${e.src} not loaded:`, err)));
     }
   }
 
@@ -104,7 +121,7 @@ export class WalkViewer {
   private addTrees(w: WalkWorld) {
     const src = this.spec.trees;
     if (!src || !w.treeSpots.length) return;
-    loadModel(src).then((obj) => {
+    this.pending.push(loadModel(src).then((obj) => {
       const variants: THREE.Mesh[] = [];
       obj.traverse((o) => { if ((o as THREE.Mesh).isMesh) variants.push(o as THREE.Mesh); });
       if (!variants.length) return;
@@ -121,7 +138,7 @@ export class WalkViewer {
         inst.computeBoundingSphere();
         w.scene.add(inst);
       });
-    }).catch((err) => console.warn(`[walk] trees ${src} not loaded:`, err));
+    }).catch((err) => console.warn(`[walk] trees ${src} not loaded:`, err)));
   }
 
   addActor(o: THREE.Object3D) {

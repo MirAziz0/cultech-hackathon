@@ -56,9 +56,14 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
   const walkEras = spec.eras ?? [];
   const [era, setEraState] = useState<Era | undefined>(() => spec.defaultEra ?? walkEras[0]);
   const eraRef = useRef(era);
+  /** shaders compiled and models loaded: "Start" responds instantly */
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     let v: WalkViewer | null = null, g: Guide | null = null, dead = false, iv: ReturnType<typeof setInterval> | undefined;
+    // resolves when the guide's final body is in place (or failed / not used)
+    let bodySettled = () => {};
+    const bodyDone = new Promise<void>((r) => { bodySettled = r; });
     Promise.all([import("@/lib/viewer/walkViewer"), import("@/lib/guide/guide"), import("@/lib/guide/avatar/procedural"), import("@/lib/guide/nav"), import("@/lib/guide/blockers"), import("@/lib/guide/tour"), import("@/lib/guide/autoStops")]).then(([{ WalkViewer }, { Guide }, { buildProceduralAvatar }, { NavGrid }, { collectBlockers }, { Tour }, { autoStops }]) => {
       if (dead || !canvasRef.current || !hostRef.current) return;
       try {
@@ -102,7 +107,7 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
           // Plan A: swap in the VRM avatar if content/characters/<id>/avatar.vrm exists (else keep Plan B)
           const av = bundle.avatar;
           if (av) (av.kind === "vrm" ? import("@/lib/guide/avatar/vrm").then(({ loadVrmAvatar }) => loadVrmAvatar(av.id)) : import("@/lib/guide/avatar/mesh").then(({ loadMeshAvatar }) => loadMeshAvatar(av.id))).then((a) => {
-            if (!a || dead || guide.current !== gg) { a?.dispose(); bodyState.current = "failed"; if (showWanted.current) gg.avatar.root.visible = true; return; }
+            if (!a || dead || guide.current !== gg) { a?.dispose(); bodyState.current = "failed"; bodySettled(); if (showWanted.current) gg.avatar.root.visible = true; return; }
             bodyState.current = "ready";
             const old = gg.avatar;
             a.root.visible = showWanted.current;
@@ -111,10 +116,18 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
             gg.avatar = a;
             vv.addActor(a.root);
             if (showWanted.current) a.gesture("wave"); // arrived after the start: greet in the real body
-          }).catch(() => { bodyState.current = "failed"; if (showWanted.current) gg.avatar.root.visible = true; });
-          else bodyState.current = "ready";
-        } catch (e) { console.warn("[guide] disabled:", e); }
+            bodySettled();
+          }).catch(() => { bodyState.current = "failed"; bodySettled(); if (showWanted.current) gg.avatar.root.visible = true; });
+          else { bodyState.current = "ready"; bodySettled(); }
+        } catch (e) { console.warn("[guide] disabled:", e); bodySettled(); }
         v.start();
+        // compile every shader (world, trees, models, the guide's body) behind the start screen,
+        // so pressing "Start" doesn't freeze while the GPU compiles (it took seconds on rich scenes)
+        const vw = v;
+        Promise.race([bodyDone, new Promise((r) => setTimeout(r, 12000))])
+          .then(() => vw.warmUp(guide.current ? [guide.current.avatar.root] : []))
+          .catch((e) => console.warn("[walk] warm-up:", e))
+          .finally(() => { if (!dead) setReady(true); });
         viewer.current = v;
         (window as unknown as { __walk?: WalkViewer; __guide?: Guide | null }).__walk = v; // for automated tests
         (window as unknown as { __guide?: Guide | null }).__guide = g;
@@ -347,8 +360,10 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
             <h1 className="font-display text-[26px] leading-tight font-bold">{c(spec.title)}</h1>
             <p className="text-[14px] text-[#e5dccb]">{t("walkHint")}</p>
             <p className="text-[13px] text-[#cfc3ad]">{c({ az: "Memar sizinlə gəzəcək və hər maraqlı yerə çatanda onu hekayə kimi danışacaq. ▶ düyməsi ilə onu bələdçi turuna da çıxara bilərsiniz.", en: "The architect walks with you and tells each place as a story when you reach it. Press ▶ for a guided tour." })}</p>
-            <button type="button" className="btn primary justify-center text-[15px]!" onClick={start} autoFocus>
-              ▶ {c({ az: "Gəzintiyə başla", en: "Start the walk" })}
+            <button type="button" className="btn primary justify-center text-[15px]! disabled:cursor-wait disabled:opacity-70" onClick={start} disabled={!ready} autoFocus aria-busy={!ready}>
+              {ready ? <>▶ {c({ az: "Gəzintiyə başla", en: "Start the walk" })}</> : (
+                <><span aria-hidden="true" className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" /> {c({ az: "Hazırlanır…", en: "Getting ready…" })}</>
+              )}
             </button>
             {error && <p className="text-[13px] text-hyp">{error}</p>}
           </div>
