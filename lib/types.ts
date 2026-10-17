@@ -195,6 +195,8 @@ export interface TourStop {
   title: L;
   /** where the guide stands: [x, floor height, z] */
   stand: Vec3;
+  /** generated stop (lib/guide/autoStops.ts): no fixed spot, so it is told beside the visitor */
+  auto?: boolean;
   /** the feature he points at */
   poi?: Vec3;
   /** opening gesture instead of pointing (e.g. "think" for a legend) */

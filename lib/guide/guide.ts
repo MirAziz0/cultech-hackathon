@@ -55,6 +55,19 @@ export class Guide {
   }
 
   get visitorPos(): P3 { return { x: this.visitor.x, y: this.visitor.floor, z: this.visitor.z }; }
+  /** walk zone the visitor stands in (null between zones) */
+  visitorZone(): string | null { return this.map.at(this.visitor.x, this.visitor.z, this.visitor.floor)?.zone.id ?? null; }
+  /** the open spot of a zone nearest to the visitor (wide enough to stand and talk) */
+  nearestSpotIn(zone: string, minClear = 0.6): P3 | null { // clear is in metres (max 0.9)
+    const v = this.visitorPos;
+    let best: P3 | null = null, bd = Infinity;
+    for (let n = 0; n < this.nav.count; n++) {
+      if (this.nav.zoneId(n) !== zone || this.nav.clear[n] < minClear) continue;
+      const p = this.nav.pos(n), d = Math.hypot(p.x - v.x, p.z - v.z) + Math.abs(p.y - v.y) * 4;
+      if (d < bd) { bd = d; best = p; }
+    }
+    return best;
+  }
   distToVisitor() { return d3(this.pos, this.visitorPos); }
 
   /** appear next to the visitor, facing them */

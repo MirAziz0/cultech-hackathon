@@ -48,7 +48,20 @@ export class Tour {
     this.single = single;
     this.told.add(this.stops[i].id);
     const s = this.stops[i];
-    const stand: P3 = { x: s.stand[0], y: s.stand[1], z: s.stand[2] };
+    let stand: P3 = { x: s.stand[0], y: s.stand[1], z: s.stand[2] };
+    if (s.auto) {
+      // generated stops have no chosen spot: in the visitor's own zone tell it beside them,
+      // elsewhere walk to that zone's open spot nearest to the visitor (not its far-off widest point)
+      if (this.guide.visitorZone() === s.zone) {
+        this.guide.avatar.pointAt(null);
+        this.guide.look(null);
+        this.guide.marker = null;
+        this.guide.follow();
+        this.set("approach");
+        return;
+      }
+      stand = this.guide.nearestSpotIn(s.zone) ?? stand;
+    }
     this.guide.avatar.pointAt(null);
     this.guide.look(null);
     this.guide.marker = stand;

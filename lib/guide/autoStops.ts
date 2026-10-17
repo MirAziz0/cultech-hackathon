@@ -14,7 +14,7 @@ export function autoStops(spec: WalkSpec, nav: NavGrid): TourStop[] {
     }
     if (best < 0) continue;
     const p = nav.pos(best);
-    out.push({ id, zone: id, title: info.title, stand: [p.x, p.y, p.z] });
+    out.push({ id, zone: id, title: info.title, stand: [p.x, p.y, p.z], auto: true });
   }
   return out;
 }
