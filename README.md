@@ -36,6 +36,7 @@ Copy `.env.example` to `.env.local`. **All variables are optional.** With none s
 | `ANTHROPIC_API_KEY` | live Q&A in `/api/architect`; `npm run narration -- --text` | answers come from `facts.json` and `qa.json` (keyword match) |
 | `ANTHROPIC_MODEL` | model id, default `claude-opus-5-5` | default |
 | `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION` | Azerbaijani TTS (`az-AZ-BabekNeural` / `az-AZ-BanuNeural`) with viseme lip sync in `/api/tts`; pre-generated narration audio | browser `speechSynthesis` if an az voice exists (else a Turkish voice), else animated subtitles |
+| `GEMINI_API_KEY` (+ optional `GEMINI_TTS_MODEL`, `GEMINI_VOICE_MALE`, `GEMINI_VOICE_FEMALE`) | Gemini TTS (`gemini-3.8-flash-tts`, voice Algieba) for `/api/tts` and pre-generated narration when Azure is not set; lip sync follows the audio's loudness | the keyless Edge voices (Babek / Ryan) |
 
 How the architect speaks, in priority order:
 

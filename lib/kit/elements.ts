@@ -439,7 +439,8 @@ export function furniture(B: Builder, f: Furniture) {
       const ped = sy * 0.55, glassH = sy - ped - 0.05;
       const base = new THREE.BoxGeometry(sx, ped, sz); base.translate(0, ped / 2, 0); B.add(base, "c:#e6dac2", m);
       const top = new THREE.BoxGeometry(sx + 0.06, 0.05, sz + 0.06); top.translate(0, ped + 0.025, 0); B.add(top, "wood", m.clone());
-      const glass = new THREE.BoxGeometry(sx - 0.04, glassH, sz - 0.04); glass.translate(0, ped + 0.05 + glassH / 2, 0); B.add(glass, "glass", m.clone());
+      // 1 cm clear of the shelf and the lid: shared faces would flicker
+      const glass = new THREE.BoxGeometry(sx - 0.04, glassH - 0.02, sz - 0.04); glass.translate(0, ped + 0.05 + glassH / 2, 0); B.add(glass, "glass", m.clone());
       const lid = new THREE.BoxGeometry(sx + 0.04, 0.04, sz + 0.04); lid.translate(0, sy + 0.02, 0); B.add(lid, "wood", m.clone());
       // a few clay pots on the shelf
       const r = Math.abs(Math.sin((f.seed ?? 1) * 12.9898)) * 1000;

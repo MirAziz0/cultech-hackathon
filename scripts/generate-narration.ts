@@ -8,6 +8,7 @@
    Without keys it only validates that every zone has a narration and reports what is missing.
    usage: npx tsx scripts/generate-narration.ts [slug ...] [--text] [--audio] [--force] [--zone=id] */
 import fs from "node:fs";
+import { loadEnvConfig } from "@next/env";
 import path from "node:path";
 import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
@@ -19,6 +20,7 @@ import { estimateDuration } from "../lib/speech/visemes";
 import { COMMON_RULES, STORY_RULES, factLines, personaRules } from "../lib/persona";
 import { zoneInfoFor } from "../lib/eras";
 
+loadEnvConfig(process.cwd()); // keys from .env.local (GEMINI_API_KEY, AZURE_SPEECH_KEY …), as in the app
 const ROOT = path.join(process.cwd(), "content", "monuments");
 const args = process.argv.slice(2);
 const flag = (f: string) => args.includes(f);
