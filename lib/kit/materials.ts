@@ -2,7 +2,7 @@
 import * as THREE from "three";
 import {
   bandTex, carpetTex, floorTex, mirrorTex, paintingTex, reliefNormal, reliefTex, shebekeTex, stainedTex,
-  stoneNormal, stoneTex, tileTex, glowTex, minaretBrickTex, marbleTex, plasterTex, settsTex, metalRoofTex,
+  stoneNormal, stoneTex, tileTex, glowTex, minaretBrickTex, marbleTex, plasterTex, settsTex, metalRoofTex, plaqueTex, graniteTex,
 } from "./textures";
 
 export interface MatInfo { mat: THREE.Material; worldUV?: number }
@@ -120,6 +120,8 @@ const factories: Record<string, () => MatInfo> = {
   brickFloorPH: () => P("brick_floor", 2),
   cliffPH: () => P("rock_face", 9, { color: 0xe6cfae, normalScale: new THREE.Vector2(1.2, 1.2) }),
   groundPH: () => P("dry_ground_01", 5),
+  granitePH: () => ({ mat: S({ map: graniteTex(), roughness: 0.72 }), worldUV: 0.8 }), // pink granite (procedural)
+  bronzePlaque: () => ({ mat: S({ map: plaqueTex(), metalness: 0.7, roughness: 0.38, envMapIntensity: 1.4 }) }),
   grassBankPH: () => P("leafy_grass", 4, { color: 0xb8d898 }),
   // vault and dome undersides: a little self-light so crowns read as lit plaster, not shadow
   vaultLime: () => ({ mat: S({ map: plasterTex(false), side: THREE.DoubleSide, emissive: 0x5c574e, emissiveIntensity: 0.55 }), worldUV: 4 }),

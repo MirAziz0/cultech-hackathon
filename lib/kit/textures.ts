@@ -494,3 +494,47 @@ export function metalRoofTex() {
     }
   });
 }
+
+/** cast-bronze plaque: patinated field, raised border, an emblem with an eight-pointed star, lines of raised lettering */
+export function plaqueTex() {
+  return ctex("plaque", 512, 352, (g, w, h) => {
+    const bg = g.createLinearGradient(0, 0, w, h);
+    bg.addColorStop(0, "#9c7a3c"); bg.addColorStop(0.5, "#c19a52"); bg.addColorStop(1, "#8a6a34");
+    g.fillStyle = bg; g.fillRect(0, 0, w, h);
+    const r = rnd(41);
+    for (let i = 0; i < 900; i++) { g.fillStyle = `rgba(60,40,15,${r() * 0.12})`; g.fillRect(r() * w, r() * h, 2, 2); } // patina speckle
+    g.strokeStyle = "#e3c88a"; g.lineWidth = 6; g.strokeRect(14, 14, w - 28, h - 28);
+    g.strokeStyle = "#6b5025"; g.lineWidth = 2; g.strokeRect(24, 24, w - 48, h - 48);
+    // emblem
+    const cx = w / 2, cy = 82;
+    g.strokeStyle = "#ecd59c"; g.lineWidth = 4; g.beginPath(); g.arc(cx, cy, 40, 0, Math.PI * 2); g.stroke();
+    g.beginPath();
+    for (let k = 0; k < 16; k++) { const a = (k / 16) * Math.PI * 2 - Math.PI / 2, rr = k % 2 ? 14 : 30; g.lineTo(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr); }
+    g.closePath(); g.fillStyle = "#ecd59c"; g.fill();
+    // lettering: raised lines (light top edge, dark shadow)
+    const lines = [[0.62, 0.42], [0.8, 0.5], [0.86, 0.56], [0.84, 0.62], [0.78, 0.68], [0.5, 0.76]];
+    for (const [len, y] of lines) {
+      const lw = (w - 96) * len, x0 = (w - lw) / 2, yy = h * y + 20;
+      g.fillStyle = "#5e4520"; g.fillRect(x0, yy + 2, lw, 7);
+      g.fillStyle = "#e6cd92"; g.fillRect(x0, yy, lw, 6);
+    }
+  });
+}
+
+/** pink granite: speckles of feldspar (pink), biotite (black) and quartz (grey-white) on a warm grey ground */
+export function graniteTex() {
+  return ctex("granite", 512, 512, (g, w, h) => {
+    g.fillStyle = "#bfa79d"; g.fillRect(0, 0, w, h);
+    const r = rnd(9);
+    const grains: [string, number, number][] = [["#d9b3a6", 2600, 3.2], ["#a7877d", 2200, 2.6], ["#efe6e1", 1500, 2.2], ["#3b3433", 1300, 1.7], ["#8f6c63", 900, 2.8]];
+    for (const [col, n, s] of grains) {
+      g.fillStyle = col;
+      for (let i = 0; i < n; i++) {
+        const x = r() * w, y = r() * h, a = s * (0.5 + r());
+        g.beginPath(); g.ellipse(x, y, a, a * (0.5 + r() * 0.6), r() * Math.PI, 0, Math.PI * 2); g.fill();
+        // wrap around the edges so the texture tiles without seams
+        if (x < a * 2 || y < a * 2) { g.beginPath(); g.ellipse(x + (x < a * 2 ? w : 0), y + (y < a * 2 ? h : 0), a, a * 0.8, 0, 0, Math.PI * 2); g.fill(); }
+      }
+    }
+  });
+}

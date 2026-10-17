@@ -300,6 +300,32 @@ export function furniture(B: Builder, f: Furniture) {
       }
       break;
     }
+    case "plaqueStone": {
+      const h = f.h ?? 1.8, k = f.seed ?? 7, rot = new THREE.Matrix4().makeRotationY((f.rotY ?? 0) * D2R);
+      // boulder: a subdivided sphere pushed in and out by smooth waves, a flat underside and a flattened front
+      const g = new THREE.IcosahedronGeometry(1, 3), p = g.attributes.position, v = new THREE.Vector3();
+      for (let i = 0; i < p.count; i++) {
+        v.fromBufferAttribute(p, i);
+        const n = 1 + 0.12 * Math.sin(v.x * 3.1 + k) * Math.cos(v.y * 2.3 - k) + 0.07 * Math.sin(v.z * 5.7 + v.y * 4.1 + k * 2);
+        v.multiplyScalar(n);
+        v.set(v.x * 0.5 * h * 0.62, Math.max(v.y, -0.55) * 0.5 * h + 0.275 * h, Math.max(v.z, -0.62) * 0.5 * h * 0.36);
+        v.x *= 1 - 0.18 * Math.max(0, (v.y / h) - 0.5); // a little narrower towards the top
+        p.setXYZ(i, v.x, v.y, v.z);
+      }
+      g.computeVertexNormals();
+      g.applyMatrix4(rot); g.translate(x, y, z);
+      B.add(g, "granitePH");
+      // bronze plaque on the flat front, leaning back slightly, with a thin dark frame behind it
+      const front = -0.62 * 0.5 * h * 0.36 - 0.012;
+      const pw = h * 0.44, ph = pw * 0.69, pyc = h * 0.52;
+      const plate = new THREE.PlaneGeometry(pw, ph); plate.rotateY(Math.PI); plate.translate(0, pyc, front - 0.006);
+      plate.applyMatrix4(rot); plate.translate(x, y, z);
+      B.add(plate, "bronzePlaque");
+      const back = new THREE.BoxGeometry(pw + 0.04, ph + 0.04, 0.02); back.translate(0, pyc, front + 0.006);
+      back.applyMatrix4(rot); back.translate(x, y, z);
+      B.add(back, "c:#4a3a22");
+      break;
+    }
     case "bush": {
       const g = new THREE.SphereGeometry(f.r ?? 0.45, 10, 8);
       g.translate(x, y + (f.r ?? 0.45) * 0.78, z);

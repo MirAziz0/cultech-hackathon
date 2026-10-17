@@ -320,6 +320,8 @@ export type Furniture =
   | { kind: "loom"; at: Vec3; rotY?: number }
   | { kind: "cypress"; at: Vec3; h?: number }
   | { kind: "bush"; at: Vec3; r?: number }
+  /** granite boulder with a bronze plaque on its flattened front (front faces -z before rotY) */
+  | { kind: "plaqueStone"; at: Vec3; rotY?: number; h?: number; seed?: number }
   /** broad-leaved tree: trunk and a few leafy crowns */
   | { kind: "tree"; at: Vec3; h?: number; seed?: number }
   | { kind: "cenotaph"; at: Vec3; size: Vec3; rotY?: number }
