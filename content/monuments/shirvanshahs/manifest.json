@@ -4230,7 +4230,112 @@
    "floor": "pavingStonePH",
    "floorGrey": "pavingStonePH"
   },
-  "trees": "trees"
+  "trees": "trees",
+  "history": [
+   {
+    "year": "XV əsrin əvvəli",
+    "conf": "mid",
+    "title": {
+     "az": "Saray tikilir",
+     "en": "The palace is built"
+    },
+    "text": {
+     "az": "Şirvanşahlar I İbrahim və I Xəlilullah dövründə sarayı Bakıda tikdirirlər; başlanğıc tarixi mənbələrdə fərqli göstərilir.",
+     "en": "The Shirvanshahs Ibrahim I and Khalilullah I build the palace in Baku; sources disagree on when work began."
+    }
+   },
+   {
+    "year": "1435",
+    "conf": "ok",
+    "zones": [
+     "r3"
+    ],
+    "title": {
+     "az": "Ailə türbəsi",
+     "en": "The family tomb"
+    },
+    "text": {
+     "az": "I Xəlilullah anası və oğlu üçün türbə tikdirir.",
+     "en": "Khalilullah I builds a tomb for his mother and his son."
+    }
+   },
+   {
+    "year": "1441",
+    "conf": "ok",
+    "title": {
+     "az": "Şah məscidi",
+     "en": "The Shah Mosque"
+    },
+    "text": {
+     "az": "Məscidin minarəsindəki kitabədə bu il yazılıb.",
+     "en": "The inscription on the mosque's minaret gives this year."
+    }
+   },
+   {
+    "year": "1501",
+    "conf": "mid",
+    "title": {
+     "az": "Səfəvi yürüşü",
+     "en": "The Safavid conquest"
+    },
+    "text": {
+     "az": "Şah I İsmayıl Bakını alır; Şirvanşahların türbələri zədələnir.",
+     "en": "Shah Ismail I takes Baku; the Shirvanshahs' tombs are damaged."
+    }
+   },
+   {
+    "year": "1723",
+    "conf": "mid",
+    "zones": [
+     "court",
+     "portal"
+    ],
+    "title": {
+     "az": "Bakı topa tutulur",
+     "en": "Baku bombarded"
+    },
+    "text": {
+     "az": "I Pyotrun Xəzər yürüşündə rus donanması Bakını topa tutur; sarayın yuxarı hissələri zədələnir.",
+     "en": "During Peter I's Caspian campaign the Russian fleet shells Baku; the upper parts of the palace are damaged."
+    }
+   },
+   {
+    "year": "1806",
+    "conf": "ok",
+    "title": {
+     "az": "Rusiya imperiyası",
+     "en": "Russian Empire"
+    },
+    "text": {
+     "az": "Bakı Rusiya imperiyasının tərkibinə keçir.",
+     "en": "Baku passes to the Russian Empire."
+    }
+   },
+   {
+    "year": "1964",
+    "conf": "ok",
+    "title": {
+     "az": "Muzey-qoruq",
+     "en": "Museum reserve"
+    },
+    "text": {
+     "az": "Saray kompleksi muzey-qoruq elan edilir.",
+     "en": "The palace complex becomes a museum reserve."
+    }
+   },
+   {
+    "year": "2000",
+    "conf": "ok",
+    "title": {
+     "az": "UNESCO",
+     "en": "UNESCO"
+    },
+    "text": {
+     "az": "İçərişəhər Şirvanşahlar sarayı və Qız qalası ilə birlikdə Ümumdünya İrsi siyahısına daxil edilir.",
+     "en": "The Old City, with the Palace of the Shirvanshahs and the Maiden Tower, is inscribed on the World Heritage List."
+    }
+   }
+  ]
  },
  "disclaimer": {
   "az": "Bu, ölçülmüş data deyil, kodla qurulmuş təxmini memarlıq maketidir. Mətnlərdəki faktlar tarixçi tərəfindən yoxlanılmalıdır.",

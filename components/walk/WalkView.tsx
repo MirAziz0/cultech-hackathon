@@ -14,11 +14,14 @@ import { zoneInfoFor } from "@/lib/eras";
 import type { Era } from "@/lib/types";
 import { unlockAudio } from "@/lib/speech/speaker";
 import { GuideHud, type GuideBody, type GuideHudHandle } from "@/components/guide/GuideHud";
-import { Lightbox, Credit, type PhotoWithUrl } from "@/components/photos/Lightbox";
-import { ConfBadge } from "@/components/ui/ConfidenceLegend";
+import { Lightbox, type PhotoWithUrl } from "@/components/photos/Lightbox";
+import { ZoneCard } from "@/components/walk/ZoneCard";
 import { LangToggle } from "@/components/ui/LangToggle";
 
 const KEYMAP: Record<string, keyof Keys> = { KeyW: "f", ArrowUp: "f", KeyS: "b", ArrowDown: "b", KeyA: "l", KeyD: "r", ArrowLeft: "tl", ArrowRight: "tr", ShiftLeft: "run", ShiftRight: "run" };
+
+/** phones get the zone card minimised: it would cover most of the 3D view */
+const isPhone = () => typeof window !== "undefined" && window.matchMedia("(max-width: 639px)").matches;
 
 export function WalkView({ bundle }: { bundle: MonumentBundle }) {
   const m = bundle.manifest;
@@ -73,7 +76,7 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
           const info = zoneInfoFor(spec, id, eraRef.current);
           const list = photosOf(bundle, info?.photos ?? []);
           setCard(list.length || info ? { list, i: 0 } : null);
-          setCardOpen(true);
+          setCardOpen(!isPhone());
         };
         // the guide: built now (nav grid + body), shown when the walk starts
         try {
@@ -178,7 +181,7 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
       const info = zoneInfoFor(spec, id, e);
       const list = photosOf(bundle, info?.photos ?? []);
       setCard(list.length || info ? { list, i: 0 } : null);
-      setCardOpen(true);
+      setCardOpen(!isPhone());
     }
   }, [spec, bundle]);
 
@@ -269,7 +272,6 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
 
 
   const info = zone ? zoneInfoFor(spec, zone, era) : null;
-  const photo = card?.list[card.i];
   const padBtn = "grid h-12 w-12 select-none place-items-center rounded-md border-0 bg-[rgba(20,17,14,.62)] text-[20px] text-[#f3ead9] touch-none active:bg-accent active:text-accent-ink";
 
   return (
@@ -317,36 +319,13 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
       {debug && <div className="glass absolute bottom-[140px] right-3 rounded px-2 py-1 font-mono text-[11px]">{debug}</div>}
 
       {/* zone card */}
-      {info && cardOpen && (
-        <figure key={zone} className={`anim-in transition-shadow ${highlight ? "ring-4 ring-[#f2c46b] shadow-[0_0_40px_rgba(242,196,107,.7)]" : ""} absolute top-[calc(max(12px,env(safe-area-inset-top))+52px)] left-[max(12px,env(safe-area-inset-left))] sm:top-[calc(max(12px,env(safe-area-inset-top))+136px)] sm:right-[max(12px,env(safe-area-inset-right))] sm:left-auto m-0 w-[250px] max-h-[calc(100dvh-300px)] overflow-y-auto overflow-hidden rounded-md border border-line bg-surface text-ink shadow-[0_10px_30px_rgba(0,0,0,.28)] max-sm:w-[170px]`}>
-          {photo && (
-            <button type="button" aria-label={t("enlarge")} onClick={() => { viewer.current?.walker.clearKeys(); setLb({ list: card!.list, i: card!.i }); }}
-              className="block aspect-[4/3] w-full cursor-zoom-in border-0 bg-bg p-0 max-sm:aspect-[16/10]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={photo.url} alt={c(photo.caption)} className="block h-full w-full object-cover" />
-            </button>
-          )}
-          <figcaption className="grid gap-1 px-2.5 pt-2 pb-2.5 text-[12.5px] leading-snug max-sm:text-[11.5px]">
-            <span className="flex items-center justify-between gap-1">
-              <span className="font-mono text-[10px] tracking-[.1em] text-accent uppercase max-sm:hidden">{photo ? t("realPhoto") : ""}</span>
-              {info.conf && <span className="scale-90 origin-right"><ConfBadge conf={info.conf} labels={m.confLabels} /></span>}
-            </span>
-            <b className="font-display text-[15px] leading-tight">{c(info.title)}</b>
-            <span className="text-muted max-sm:hidden">{c(info.text)}</span>
-            {photo && <span className="text-[11px] max-sm:hidden">{c(photo.caption)}</span>}
-            {photo && <Credit p={photo} className="text-[10px] text-muted [&_a]:text-muted" />}
-            {info.links?.map((l) => (
-              <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="text-[11px] underline decoration-dotted max-sm:hidden">{c(l.title)} ↗</a>
-            ))}
-            {card && card.list.length > 1 && (
-              <span className="flex gap-1">{card.list.map((_, j) => <span key={j} className={`h-1.5 w-1.5 rounded-full ${j === card.i ? "bg-accent" : "bg-line"}`} />)}</span>
-            )}
-            <button type="button" className="btn primary mt-1 min-h-[34px]! justify-center px-2! py-1.5! text-[12px]!" onClick={tellHere}>
-              ▶ {t("tellMe")}
-            </button>
-          </figcaption>
-          <button type="button" aria-label={t("close")} onClick={() => setCardOpen(false)} className="absolute top-1.5 right-1.5 grid h-7 w-7 place-items-center rounded-full border-0 bg-[rgba(20,17,14,.6)] text-[13px] text-white">✕</button>
-        </figure>
+      {info && zone && (
+        <ZoneCard zone={zone} info={info} photos={card?.list ?? []} index={card?.i ?? 0}
+          onIndex={(i) => setCard((cd) => (cd ? { ...cd, i } : cd))}
+          events={spec.history ?? []} confLabels={m.confLabels} open={cardOpen} highlight={highlight}
+          onOpen={() => setCardOpen(true)} onClose={() => setCardOpen(false)}
+          onEnlarge={() => { viewer.current?.walker.clearKeys(); if (card) setLb({ list: card.list, i: card.i }); }}
+          onTell={tellHere} />
       )}
 
       {/* touch / mouse pad */}

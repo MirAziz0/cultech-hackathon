@@ -10716,7 +10716,141 @@
    "c:#7f8a52DS": "grassBankPHDS",
    "c:#a9a06aDS": "groundPHDS"
   },
-  "trees": "trees"
+  "trees": "trees",
+  "history": [
+   {
+    "year": "1582–1583",
+    "conf": "mid",
+    "zones": [
+     "street",
+     "gate"
+    ],
+    "title": {
+     "az": "Qala tikilir",
+     "en": "The fortress is built"
+    },
+    "text": {
+     "az": "Osmanlı sərkərdəsi Fərhad Paşa Zəngi çayının yüksək sahilində qala tikdirir.",
+     "en": "The Ottoman commander Ferhat Pasha has a fortress built on the high bank of the Hrazdan."
+    }
+   },
+   {
+    "year": "1679",
+    "conf": "ok",
+    "zones": [
+     "street",
+     "gate"
+    ],
+    "title": {
+     "az": "Zəlzələ",
+     "en": "Earthquake"
+    },
+    "text": {
+     "az": "Güclü zəlzələ qalanı ağır zədələyir; qala sonra yenidən bərpa olunur.",
+     "en": "A strong earthquake badly damages the fortress; it is rebuilt afterwards."
+    }
+   },
+   {
+    "year": "1804",
+    "conf": "ok",
+    "zones": [
+     "gate",
+     "court"
+    ],
+    "title": {
+     "az": "Birinci rus mühasirəsi",
+     "en": "First Russian siege"
+    },
+    "text": {
+     "az": "General Sisianovun qoşunları qalanı mühasirəyə alır, amma ala bilmir.",
+     "en": "General Tsitsianov's troops besiege the fortress but fail to take it."
+    }
+   },
+   {
+    "year": "1808",
+    "conf": "ok",
+    "zones": [
+     "gate",
+     "court"
+    ],
+    "title": {
+     "az": "İkinci rus mühasirəsi",
+     "en": "Second Russian siege"
+    },
+    "text": {
+     "az": "Qraf Qudoviçin mühasirəsi və hücumu da uğursuz olur.",
+     "en": "Count Gudovich's siege and assault fail as well."
+    }
+   },
+   {
+    "year": "1827",
+    "conf": "ok",
+    "zones": [
+     "gate",
+     "court",
+     "hall"
+    ],
+    "title": {
+     "az": "Qala alınır",
+     "en": "The fortress falls"
+    },
+    "text": {
+     "az": "Rus-İran müharibəsində general Paskeviçin qoşunları oktyabrda qalanı ələ keçirir. Mənbələrdə tarix köhnə və yeni təqvimlə fərqli göstərilir (1/13 oktyabr).",
+     "en": "In the Russo-Persian war General Paskevich's army takes the fortress in October. Sources give the date in the old or new calendar (1/13 October)."
+    }
+   },
+   {
+    "year": "1827–1828",
+    "conf": "mid",
+    "zones": [
+     "hall"
+    ],
+    "title": {
+     "az": "Sarayda tamaşa",
+     "en": "A play in the palace"
+    },
+    "text": {
+     "az": "Sərdar sarayının salonunda Qriboyedovun «Ağıldan bəla» komediyası oynanılır; ili mənbələrdə fərqli göstərilir.",
+     "en": "Griboyedov's comedy “Woe from Wit” is performed in a hall of the Sardar's Palace; sources give different years."
+    }
+   },
+   {
+    "year": "1853",
+    "conf": "mid",
+    "title": {
+     "az": "Yeni zəlzələ",
+     "en": "Another earthquake"
+    },
+    "text": {
+     "az": "Daha bir zəlzələ qalanın tikililərini zədələyir; qala tədricən əhəmiyyətini itirir.",
+     "en": "Another earthquake damages the buildings; the fortress slowly loses its purpose."
+    }
+   },
+   {
+    "year": "1865",
+    "conf": "mid",
+    "title": {
+     "az": "Ərazi satılır",
+     "en": "The site is sold"
+    },
+    "text": {
+     "az": "Qalanın ərazisi tacirə satılır; 1880-ci illərdə bir hissəsində konyak zavodu tikilir.",
+     "en": "The site is sold to a merchant; in the 1880s a brandy factory is built on part of it."
+    }
+   },
+   {
+    "year": "1930-cu illər",
+    "conf": "mid",
+    "title": {
+     "az": "Qala sökülür",
+     "en": "The fortress is demolished"
+    },
+    "text": {
+     "az": "Qala demək olar ki, tamamilə sökülür; bir neçə divar parçası və Abbas Mirzə məscidinin skeleti qalır.",
+     "en": "The fortress is almost entirely demolished; a few wall fragments and the frame of the Abbas Mirza Mosque remain."
+    }
+   }
+  ]
  },
  "disclaimer": {
   "az": "Qala və saray dağıdılıb: bərpa 1827-ci il planı, muzey maketi, Qaqarinin litoqrafiyası və köhnə fotolar əsasında təxminidir. Ölçülərin və detalların çoxu fərziyyədir; faktlar tarixçi tərəfindən yoxlanılmalıdır.",

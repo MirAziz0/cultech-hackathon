@@ -5468,7 +5468,87 @@
    "floorGrey": "pavingStonePH",
    "c:#b9a57f": "groundPH"
   },
-  "trees": "trees"
+  "trees": "trees",
+  "history": [
+   {
+    "year": "XII əsr",
+    "conf": "mid",
+    "zones": [
+     "plaza"
+    ],
+    "title": {
+     "az": "Kufi kitabə",
+     "en": "The Kufic inscription"
+    },
+    "text": {
+     "az": "Qalanın divarındakı kitabədə Məsud ibn Davudun adı var; kitabənin qaladan sonra qoyulub-qoyulmadığı mübahisəlidir.",
+     "en": "The inscription on the wall names Masud ibn Davud; whether it was added after the tower was built is debated."
+    }
+   },
+   {
+    "year": "1806",
+    "conf": "ok",
+    "title": {
+     "az": "Rusiya imperiyası",
+     "en": "Russian Empire"
+    },
+    "text": {
+     "az": "Bakı Rusiya imperiyasının tərkibinə keçir.",
+     "en": "Baku passes to the Russian Empire."
+    }
+   },
+   {
+    "year": "1858–1907",
+    "conf": "ok",
+    "zones": [
+     "roof"
+    ],
+    "title": {
+     "az": "Mayak",
+     "en": "A lighthouse"
+    },
+    "text": {
+     "az": "Qala dənizçilər üçün mayak kimi istifadə olunur.",
+     "en": "The tower serves as a lighthouse for ships."
+    }
+   },
+   {
+    "year": "1964",
+    "conf": "ok",
+    "title": {
+     "az": "Muzey",
+     "en": "Museum"
+    },
+    "text": {
+     "az": "Qala muzey kimi ziyarətçilərə açılır.",
+     "en": "The tower opens to visitors as a museum."
+    }
+   },
+   {
+    "year": "2000",
+    "conf": "ok",
+    "title": {
+     "az": "UNESCO",
+     "en": "UNESCO"
+    },
+    "text": {
+     "az": "Qala İçərişəhərlə birlikdə Ümumdünya İrsi siyahısına daxil edilir.",
+     "en": "The tower is inscribed on the World Heritage List together with the Old City."
+    }
+   },
+   {
+    "year": "2003–2009",
+    "conf": "mid",
+    "title": {
+     "az": "Təhlükədə olan irs",
+     "en": "Heritage in danger"
+    },
+    "text": {
+     "az": "İçərişəhər «Təhlükədə olan Ümumdünya İrsi» siyahısında olur; tarixlər mənbələrdə bir az fərqlidir.",
+     "en": "The Old City is on the List of World Heritage in Danger; sources differ slightly on the years."
+    }
+   }
+  ]
  },
  "disclaimer": {
   "az": "Bu, ölçülmüş data deyil: əsas ölçülər mənbələrdən götürülüb, daxili pilləkənin yeri, çıxıntının ölçüləri və mərtəbə detalları təxminidir. Faktlar tarixçi tərəfindən yoxlanılmalıdır.",

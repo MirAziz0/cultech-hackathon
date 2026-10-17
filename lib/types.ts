@@ -168,6 +168,8 @@ export interface WalkSpec {
   /** sky, fog and light per era */
   /** sky dome with clouds (zenith colour; the horizon uses `sky`) */
   clouds?: string;
+  /** events of the place (sieges, earthquakes, rebuildings) for the zone card's History tab (scripts/monuments/history.ts) */
+  history?: HistoryEvent[];
   /** material aliases for every era (era aliases win), e.g. { stone: "limestonePH" } */
   alias?: Record<string, string>;
   /** content/models/<id> tree variants (scripts/import-trees.ts) used for every { kind: "tree" } furniture */
@@ -201,6 +203,15 @@ export interface TourStop {
   photo?: string;
   /** only in these eras (walk.eras) */
   eras?: Era[];
+}
+
+export interface HistoryEvent {
+  year: string;
+  title: L;
+  text: L;
+  /** walk zones the event belongs to (listed first there); none = the whole place */
+  zones?: string[];
+  conf?: Confidence;
 }
 
 export interface ZoneInfo {

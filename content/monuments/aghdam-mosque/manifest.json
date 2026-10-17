@@ -12997,7 +12997,69 @@
    "ruin",
    "today"
   ],
-  "trees": "trees"
+  "trees": "trees",
+  "history": [
+   {
+    "year": "1868–1870",
+    "conf": "ok",
+    "title": {
+     "az": "Məscid tikilir",
+     "en": "The mosque is built"
+    },
+    "text": {
+     "az": "Məscidi Kərbəlayi Səfixan Qarabaği layihələndirir.",
+     "en": "The mosque is designed by Karbalayi Safikhan Karabakhi."
+    }
+   },
+   {
+    "year": "1993",
+    "conf": "ok",
+    "title": {
+     "az": "Ağdam işğal olunur",
+     "en": "Aghdam is occupied"
+    },
+    "text": {
+     "az": "Şəhər dağıdılır; məscid xarabalıqların arasında ayaqda qalır.",
+     "en": "The town is destroyed; the mosque stays standing among the ruins."
+    }
+   },
+   {
+    "year": "2020",
+    "conf": "ok",
+    "title": {
+     "az": "Ağdam qayıdır",
+     "en": "Aghdam returns"
+    },
+    "text": {
+     "az": "Noyabrda Ağdam Azərbaycana qaytarılır; məsciddə yenidən cümə namazı qılınır.",
+     "en": "In November Aghdam returns to Azerbaijan; Friday prayer is held in the mosque again."
+    }
+   },
+   {
+    "year": "2022",
+    "conf": "ok",
+    "title": {
+     "az": "Bərpa başlayır",
+     "en": "Restoration begins"
+    },
+    "text": {
+     "az": "Mütəxəssislər orijinal materialları öyrənib məscidi bərpa etməyə başlayırlar.",
+     "en": "Experts study the original materials and begin restoring the mosque."
+    }
+   },
+   {
+    "year": "2024",
+    "conf": "ok",
+    "title": {
+     "az": "Qapılar açılır",
+     "en": "The doors open"
+    },
+    "text": {
+     "az": "Aprel ayında bərpa olunmuş məscid yenidən açılır.",
+     "en": "In April the restored mosque reopens."
+    }
+   }
+  ]
  },
  "introFacts": [
   "ag-built",
