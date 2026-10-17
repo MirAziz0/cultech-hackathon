@@ -36,3 +36,4 @@ These came up while collecting facts. Each needs a historian's decision; the app
 ### Materials (October 2026)
 
 - **Photo textures are stand-ins.** Shirvanshahs, Maiden Tower and Erivan now use CC0 Poly Haven photo textures (see CREDITS.md), tinted to match photos of each site. They show the right kind of material (Absheron limestone, rough coursed stone, fired brick), not the actual stones of the monument.
+- **Closing walls and houses (hypothesis).** Shirvanshahs: the walls joining the facade to the courtyard walls and the palace block behind it. Maiden Tower: the ring of flat-roofed Old City houses around the square. Erivan: the gate flanks and palace corner walls. These were added only so the world does not show through gaps; they are not surveyed (elements tagged `closure`, see scripts/monuments/materials-upgrade.ts).
