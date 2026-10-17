@@ -6,11 +6,13 @@ import type { Era, MonumentBundle } from "@/lib/types";
 /** AR via <model-viewer> (WebXR / Android Scene Viewer / iOS Quick Look with auto USDZ).
    three.js stays the main renderer; model-viewer is loaded only when the user asks for AR. */
 export function ArButton({ bundle, era }: { bundle: MonumentBundle; era: Era }) {
-  const { t, c } = useT();
+  const { t, c, lang } = useT();
   const [open, setOpen] = useState(false);
   const [ready, setReady] = useState(false);
-  const src = bundle.glb[era] ?? bundle.glb.past ?? bundle.glb.today;
-  const iosSrc = bundle.usdz?.[era] ?? bundle.usdz?.past ?? bundle.usdz?.today;
+  const models = bundle.ar[era] ?? bundle.ar.past ?? bundle.ar.today;
+  const model = models?.[lang] ?? models?.az;
+  const src = model?.glb;
+  const iosSrc = model?.usdz;
   const dlg = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!open) return;

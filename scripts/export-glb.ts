@@ -1,4 +1,5 @@
-/* Exports each monument's exterior maquette (both eras) to public/monuments/<slug>/models/<era>.glb
+/* Exports each monument's exterior maquette (both eras, with name tags per language) to
+   public/monuments/<slug>/models/<era>.<lang>.{glb,usdz}
    using the same kit as the browser viewer. These GLBs feed <model-viewer> for AR
    (Scene Viewer on Android, Quick Look via auto-generated USDZ on iOS).
    usage: npx tsx scripts/export-glb.ts [slug ...] */
@@ -8,7 +9,8 @@ import * as THREE from "three";
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter.js";
 import { USDZExporter } from "three/examples/jsm/exporters/USDZExporter.js";
 import { buildExterior } from "../lib/kit/exterior";
-import type { Era, Manifest } from "../lib/types";
+import type { Era, Lang, Manifest } from "../lib/types";
+import { buildArLabels } from "./ar-labels";
 
 // GLTFExporter uses FileReader to pack the binary; Node has Blob but no FileReader.
 class NodeFileReader {
@@ -30,35 +32,43 @@ class NodeFileReader {
 
 const ROOT = path.join(process.cwd(), "content", "monuments");
 
+/** exterior + baked name tags for one era/language */
+function arScene(m: Manifest, era: Era, lang: Lang) {
+  const scene = new THREE.Scene();
+  const model = buildExterior(m.exterior, era);
+  scene.add(model, buildArLabels(m, era, lang, model));
+  return scene;
+}
+
 async function exportOne(slug: string) {
   const m: Manifest = JSON.parse(fs.readFileSync(path.join(ROOT, slug, "manifest.json"), "utf8"));
   const outDir = path.join(process.cwd(), "public", "monuments", slug, "models");
+  fs.rmSync(outDir, { recursive: true, force: true });
   fs.mkdirSync(outDir, { recursive: true });
-  for (const era of ["past", "today"] as Era[]) {
-    const scene = new THREE.Scene();
-    scene.add(buildExterior(m.exterior, era));
-    const glb = (await new GLTFExporter().parseAsync(scene, { binary: true })) as ArrayBuffer;
-    const file = path.join(outDir, `${era}.glb`);
-    fs.writeFileSync(file, Buffer.from(glb));
-    // iOS Quick Look needs USDZ. model-viewer can convert in the browser, but that is slow and
-    // flaky on iPhone, so ship a ready file. Only meshes are exported; textures are skipped in Node.
-    try {
-      const usdzScene = new THREE.Scene();
-      usdzScene.add(buildExterior(m.exterior, era));
-      usdzScene.traverse((o) => {
-        const mat = (o as THREE.Mesh).material as THREE.Material & { map?: THREE.Texture | null };
-        if (mat && "map" in mat && mat.map) mat.map = null;
-      });
-      const usdz = await new USDZExporter().parseAsync(usdzScene, { quickLookCompatible: true });
-      fs.writeFileSync(path.join(outDir, `${era}.usdz`), Buffer.from(usdz));
-      console.log(`[export-glb] ${slug}/${era}.usdz ${(usdz.byteLength / 1024).toFixed(0)} KB`);
-    } catch (e) {
-      console.warn(`[export-glb] ${slug}/${era}.usdz skipped:`, (e as Error).message);
+  for (const era of ["past", "today"] as Era[])
+    for (const lang of ["az", "en"] as Lang[]) {
+      const name = `${era}.${lang}`;
+      const scene = arScene(m, era, lang);
+      const glb = (await new GLTFExporter().parseAsync(scene, { binary: true })) as ArrayBuffer;
+      fs.writeFileSync(path.join(outDir, `${name}.glb`), Buffer.from(glb));
+      let tris = 0;
+      scene.traverse((o) => { const g = (o as THREE.Mesh).geometry; if (g) tris += g.attributes.position.count / 3; });
+      console.log(`[export-glb] ${slug}/${name}.glb ${(glb.byteLength / 1024).toFixed(0)} KB, ${tris | 0} tris`);
+      // iOS Quick Look needs USDZ. model-viewer can convert in the browser, but that is slow and
+      // flaky on iPhone, so ship a ready file. Textures are dropped (no canvas in Node).
+      try {
+        const usdzScene = arScene(m, era, lang);
+        usdzScene.traverse((o) => {
+          const mat = (o as THREE.Mesh).material as THREE.Material & { map?: THREE.Texture | null };
+          if (mat && "map" in mat && mat.map) mat.map = null;
+        });
+        const usdz = await new USDZExporter().parseAsync(usdzScene, { quickLookCompatible: true });
+        fs.writeFileSync(path.join(outDir, `${name}.usdz`), Buffer.from(usdz));
+        console.log(`[export-glb] ${slug}/${name}.usdz ${(usdz.byteLength / 1024).toFixed(0)} KB`);
+      } catch (e) {
+        console.warn(`[export-glb] ${slug}/${name}.usdz skipped:`, (e as Error).message);
+      }
     }
-    let tris = 0;
-    scene.traverse((o) => { const g = (o as THREE.Mesh).geometry; if (g) tris += g.attributes.position.count / 3; });
-    console.log(`[export-glb] ${slug}/${era}.glb ${(glb.byteLength / 1024).toFixed(0)} KB, ${tris | 0} tris`);
-  }
 }
 
 async function main() {

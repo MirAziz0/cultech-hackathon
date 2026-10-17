@@ -22,7 +22,7 @@ npx playwright install chromium   # only for the browser tests
 npm run dev                       # http://localhost:3000
 ```
 
-`npm run dev` and `npm run build` first run `npm run content`. That step copies photos and narration audio from `content/` to `public/monuments/`, and exports each exterior to `public/monuments/<slug>/models/{past,today}.glb` for AR.
+`npm run dev` and `npm run build` first run `npm run content`. That step copies photos and narration audio from `content/` to `public/monuments/`, and exports each exterior to `public/monuments/<slug>/models/<era>.<lang>.{glb,usdz}` for AR, with building names baked in as 3D signs.
 
 Node 20+ is required (developed on Node 24).
 
@@ -146,7 +146,7 @@ Note: `public/monuments/` is generated and git-ignored, so the build recreates i
   - Desktops get N8AO + SMAA and drop to the low tier automatically below 40 fps.
   - Force a tier with `?q=low|high`; add `?debug` for fps, draw calls and triangle counts.
   - 60 fps on a GTX 1050 at 1280×800.
-- **AR:** "AR-da bax" opens `<model-viewer>` with the exported GLB (WebXR, Scene Viewer, or Quick Look via auto-generated USDZ). three.js stays the main renderer.
+- **AR:** "AR-da bax" opens `<model-viewer>` with the exported GLB (WebXR, Scene Viewer) or the pre-built USDZ (iOS Quick Look). Building names are baked into the models as 3D signs ([scripts/ar-labels.ts](scripts/ar-labels.ts)), one model per language. three.js stays the main renderer.
 - **Offline / PWA:** installable. A service worker caches photos, models and narration audio after first use.
 - **Language:** AZ/EN toggle; Azerbaijani by default. Voice input uses the Web Speech API (`az-AZ`) where the browser supports it; the text box always works.
 

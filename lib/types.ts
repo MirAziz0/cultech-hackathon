@@ -301,8 +301,6 @@ export interface MonumentBundle {
   qa: QA[];
   /** public URL prefix: /monuments/<slug> */
   base: string;
-  /** exported AR models available */
-  glb: Partial<Record<Era, string>>;
-  /** USDZ copies of the GLBs for iOS Quick Look */
-  usdz: Partial<Record<Era, string>>;
+  /** exported AR models (with baked name tags) per era and language; usdz is for iOS Quick Look */
+  ar: Partial<Record<Era, Partial<Record<Lang, { glb: string; usdz?: string }>>>>;
 }

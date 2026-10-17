@@ -1,7 +1,7 @@
 import "server-only";
 import fs from "node:fs";
 import path from "node:path";
-import type { Era, Fact, FactsFile, Manifest, MonumentBundle, Narration, Photo, PhotosFile, QA } from "./types";
+import type { Era, Fact, FactsFile, Lang, Manifest, MonumentBundle, Narration, Photo, PhotosFile, QA } from "./types";
 
 /* Reads /content/monuments/* at build time. Adding a folder adds a monument. */
 const ROOT = path.join(process.cwd(), "content", "monuments");
@@ -56,14 +56,16 @@ export function getBundle(slug: string): MonumentBundle {
         if (n) narration[n.zone] = n;
       }
   const qa = readJson<QA[]>(path.join(ndir, "qa.json"), []);
-  const glb: Partial<Record<Era, string>> = {};
-  const usdz: Partial<Record<Era, string>> = {};
+  const ar: MonumentBundle["ar"] = {};
   const models = path.join(process.cwd(), "public", "monuments", slug, "models");
-  for (const era of ["past", "today"] as Era[]) {
-    if (fs.existsSync(path.join(models, `${era}.glb`))) glb[era] = `/monuments/${slug}/models/${era}.glb`;
-    if (fs.existsSync(path.join(models, `${era}.usdz`))) usdz[era] = `/monuments/${slug}/models/${era}.usdz`;
-  }
-  return { manifest, facts, photos, narration, qa, base: `/monuments/${slug}`, glb, usdz };
+  for (const era of ["past", "today"] as Era[])
+    for (const lang of ["az", "en"] as Lang[]) {
+      const name = `${era}.${lang}`;
+      if (!fs.existsSync(path.join(models, `${name}.glb`))) continue;
+      const usdz = fs.existsSync(path.join(models, `${name}.usdz`)) ? `/monuments/${slug}/models/${name}.usdz` : undefined;
+      (ar[era] ??= {})[lang] = { glb: `/monuments/${slug}/models/${name}.glb`, usdz };
+    }
+  return { manifest, facts, photos, narration, qa, base: `/monuments/${slug}`, ar };
 }
 
 export function listMonuments(): (Manifest & { coverUrl?: string; coverPhoto?: Photo })[] {
