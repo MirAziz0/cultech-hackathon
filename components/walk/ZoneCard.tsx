@@ -3,20 +3,17 @@
    here (History tab: sieges, earthquakes, rebuildings from walk.history). Minimises to a pill. */
 import { useState } from "react";
 import { useT } from "@/lib/i18n";
-import type { Confidence, HistoryEvent, L, ZoneInfo } from "@/lib/types";
+import type { HistoryEvent, ZoneInfo } from "@/lib/types";
 import { Credit, type PhotoWithUrl } from "@/components/photos/Lightbox";
-import { ConfBadge } from "@/components/ui/ConfidenceLegend";
 
-type Labels = Partial<Record<Confidence, { short: L; long: L }>>;
 
-export function ZoneCard({ zone, info, photos, index, onIndex, events, confLabels, open, highlight, onOpen, onClose, onEnlarge, onTell }: {
+export function ZoneCard({ zone, info, photos, index, onIndex, events, open, highlight, onOpen, onClose, onEnlarge, onTell }: {
   zone: string;
   info: ZoneInfo;
   photos: PhotoWithUrl[];
   index: number;
   onIndex: (i: number) => void;
   events: HistoryEvent[];
-  confLabels?: Labels;
   open: boolean;
   highlight: boolean;
   onOpen: () => void;
@@ -49,7 +46,6 @@ export function ZoneCard({ zone, info, photos, index, onIndex, events, confLabel
       <div className="flex items-start gap-2 border-b border-line px-4 pt-3 pb-2.5">
         <div className="grid min-w-0 flex-1 gap-1">
           <b className="font-display text-[20px] leading-tight max-sm:text-[17px]">{c(info.title)}</b>
-          {info.conf && <span className="justify-self-start"><ConfBadge conf={info.conf} labels={confLabels} /></span>}
         </div>
         <button type="button" aria-label={c({ az: "Kartı kiçilt", en: "Minimise card" })} onClick={onClose}
           className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line bg-bg text-[15px] hover:bg-line">—</button>

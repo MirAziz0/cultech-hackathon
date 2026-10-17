@@ -319,7 +319,7 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
       {info && zone && (
         <ZoneCard zone={zone} info={info} photos={card?.list ?? []} index={card?.i ?? 0}
           onIndex={(i) => setCard((cd) => (cd ? { ...cd, i } : cd))}
-          events={spec.history ?? []} confLabels={m.confLabels} open={cardOpen} highlight={highlight}
+          events={spec.history ?? []} open={cardOpen} highlight={highlight}
           onOpen={() => setCardOpen(true)} onClose={() => setCardOpen(false)}
           onEnlarge={() => { viewer.current?.walker.clearKeys(); if (card) setLb({ list: card.list, i: card.i }); }}
           onTell={tellHere} />
