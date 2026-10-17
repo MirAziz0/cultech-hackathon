@@ -57,10 +57,13 @@ export function getBundle(slug: string): MonumentBundle {
       }
   const qa = readJson<QA[]>(path.join(ndir, "qa.json"), []);
   const glb: Partial<Record<Era, string>> = {};
-  for (const era of ["past", "today"] as Era[])
-    if (fs.existsSync(path.join(process.cwd(), "public", "monuments", slug, "models", `${era}.glb`)))
-      glb[era] = `/monuments/${slug}/models/${era}.glb`;
-  return { manifest, facts, photos, narration, qa, base: `/monuments/${slug}`, glb };
+  const usdz: Partial<Record<Era, string>> = {};
+  const models = path.join(process.cwd(), "public", "monuments", slug, "models");
+  for (const era of ["past", "today"] as Era[]) {
+    if (fs.existsSync(path.join(models, `${era}.glb`))) glb[era] = `/monuments/${slug}/models/${era}.glb`;
+    if (fs.existsSync(path.join(models, `${era}.usdz`))) usdz[era] = `/monuments/${slug}/models/${era}.usdz`;
+  }
+  return { manifest, facts, photos, narration, qa, base: `/monuments/${slug}`, glb, usdz };
 }
 
 export function listMonuments(): (Manifest & { coverUrl?: string; coverPhoto?: Photo })[] {

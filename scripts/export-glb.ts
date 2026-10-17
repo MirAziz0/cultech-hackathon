@@ -6,6 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import * as THREE from "three";
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter.js";
+import { USDZExporter } from "three/examples/jsm/exporters/USDZExporter.js";
 import { buildExterior } from "../lib/kit/exterior";
 import type { Era, Manifest } from "../lib/types";
 
@@ -39,6 +40,21 @@ async function exportOne(slug: string) {
     const glb = (await new GLTFExporter().parseAsync(scene, { binary: true })) as ArrayBuffer;
     const file = path.join(outDir, `${era}.glb`);
     fs.writeFileSync(file, Buffer.from(glb));
+    // iOS Quick Look needs USDZ. model-viewer can convert in the browser, but that is slow and
+    // flaky on iPhone, so ship a ready file. Only meshes are exported; textures are skipped in Node.
+    try {
+      const usdzScene = new THREE.Scene();
+      usdzScene.add(buildExterior(m.exterior, era));
+      usdzScene.traverse((o) => {
+        const mat = (o as THREE.Mesh).material as THREE.Material & { map?: THREE.Texture | null };
+        if (mat && "map" in mat && mat.map) mat.map = null;
+      });
+      const usdz = await new USDZExporter().parseAsync(usdzScene, { quickLookCompatible: true });
+      fs.writeFileSync(path.join(outDir, `${era}.usdz`), Buffer.from(usdz));
+      console.log(`[export-glb] ${slug}/${era}.usdz ${(usdz.byteLength / 1024).toFixed(0)} KB`);
+    } catch (e) {
+      console.warn(`[export-glb] ${slug}/${era}.usdz skipped:`, (e as Error).message);
+    }
     let tris = 0;
     scene.traverse((o) => { const g = (o as THREE.Mesh).geometry; if (g) tris += g.attributes.position.count / 3; });
     console.log(`[export-glb] ${slug}/${era}.glb ${(glb.byteLength / 1024).toFixed(0)} KB, ${tris | 0} tris`);

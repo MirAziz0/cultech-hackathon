@@ -303,4 +303,6 @@ export interface MonumentBundle {
   base: string;
   /** exported AR models available */
   glb: Partial<Record<Era, string>>;
+  /** USDZ copies of the GLBs for iOS Quick Look */
+  usdz: Partial<Record<Era, string>>;
 }

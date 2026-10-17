@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
         source: "/sw.js",
         headers: [{ key: "Cache-Control", value: "no-cache" }],
       },
+      {
+        // iOS Quick Look only opens USDZ served with this MIME type
+        source: "/monuments/:slug/models/:file(.*\\.usdz)",
+        headers: [{ key: "Content-Type", value: "model/vnd.usdz+zip" }],
+      },
     ];
   },
 };
