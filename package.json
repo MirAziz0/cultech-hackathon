@@ -24,6 +24,8 @@
     "@google/model-viewer": "^4.4.0",
     "@pixiv/three-vrm": "^3.5.5",
     "@pixiv/three-vrm-animation": "^3.5.5",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.59.0",
     "microsoft-cognitiveservices-speech-sdk": "^1.52.0",
     "msedge-tts": "^2.1.0",
     "n8ao": "^2.0.1",
@@ -32,6 +34,7 @@
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "server-only": "^0.0.1",
+    "tailwind-merge": "^3.7.0",
     "three": "^0.183.2",
     "zod": "^4.6.7"
   },

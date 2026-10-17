@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useT } from "@/lib/i18n";
 import type { MonumentBundle, TourStop } from "@/lib/types";
@@ -16,6 +15,7 @@ import { unlockAudio } from "@/lib/speech/speaker";
 import { GuideHud, type GuideBody, type GuideHudHandle } from "@/components/guide/GuideHud";
 import { Lightbox, type PhotoWithUrl } from "@/components/photos/Lightbox";
 import { ZoneCard } from "@/components/walk/ZoneCard";
+import { InteractiveHoverLink } from "@/components/ui/interactive-hover-button";
 import { LangToggle } from "@/components/ui/LangToggle";
 
 const KEYMAP: Record<string, keyof Keys> = { KeyW: "f", ArrowUp: "f", KeyS: "b", ArrowDown: "b", KeyA: "l", KeyD: "r", ArrowLeft: "tl", ArrowRight: "tr", ShiftLeft: "run", ShiftRight: "run" };
@@ -282,7 +282,7 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
       {/* top bar */}
       <div className="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between gap-2 p-[max(12px,env(safe-area-inset-top))_max(12px,env(safe-area-inset-right))_0_max(12px,env(safe-area-inset-left))]">
         <div className="pointer-events-auto flex flex-wrap items-center gap-2">
-          <Link href={`/m/${m.slug}`} className="btn glass border-white/20 text-[#f3ead9]! no-underline">{t("backModel")}</Link>
+          <InteractiveHoverLink href={`/m/${m.slug}`} back text={t("backModel").replace(/^[←s]+/, "")} />
           <LangToggle dark />
         </div>
         <canvas ref={miniRef} aria-hidden="true" className="pointer-events-none h-[112px] w-[168px] rounded border border-white/25 max-sm:h-[80px] max-sm:w-[120px]" />
