@@ -49,7 +49,7 @@ function sync() {
       }
     }
   }
-  const chars = copyDir(path.join(ROOT, "content", "characters"), path.join(ROOT, "public", "characters"));
-  console.log(`[sync-content] ${copied} copied, ${kept} up to date${chars ? `, ${chars} character files` : ""}`);
+  const chars = ["characters", "models", "textures"].reduce((n, d) => n + copyDir(path.join(ROOT, "content", d), path.join(ROOT, "public", d)), 0);
+  console.log(`[sync-content] ${copied} copied, ${kept} up to date${chars ? `, ${chars} model/texture files` : ""}`);
 }
 sync();

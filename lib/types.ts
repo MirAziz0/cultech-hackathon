@@ -166,7 +166,9 @@ export interface WalkSpec {
   /** eras the walk can show (elements filter by `eras`); defaults to a single static world */
   eras?: Era[];
   /** sky, fog and light per era */
-  eraLook?: Partial<Record<Era, { sky?: string; fog?: Vec2; sun?: { dir: Vec3; intensity?: number }; ambient?: number; /** material aliases, e.g. { wallIn: "limeWorn" } */ alias?: Record<string, string> }>>;
+  /** sky dome with clouds (zenith colour; the horizon uses `sky`) */
+  clouds?: string;
+  eraLook?: Partial<Record<Era, { clouds?: string; exposure?: number; sky?: string; fog?: Vec2; sun?: { dir: Vec3; intensity?: number }; ambient?: number; /** material aliases, e.g. { wallIn: "limeWorn" } */ alias?: Record<string, string> }>>;
   defaultEra?: Era;
   elements: El[];
   zones: Zone[];
@@ -278,6 +280,9 @@ export type El = ElBase & (
   | { t: "light"; at: Vec3; intensity?: number; distance?: number; color?: string }
   | { t: "shaft"; at: Vec3; to: Vec3; w: number }
   | ({ t: "furniture" } & Furniture)
+  /** textured 3D model from content/models/<src>/ (scripts/import-character.ts --model), loaded after the
+      world is built; `replaces` hides kit elements (by type or material) in the eras where the model is shown */
+  | { t: "model"; src: string; at: Vec3; rotY?: number; /** uniform or per-axis (fit a footprint) */ scale?: number | Vec3; /** world boxes [x0,x1,y0,y1,z0,z1] cut out of the model (open doorways) */ cut?: [number, number, number, number, number, number][]; replaces?: { types?: string[]; mats?: string[] } }
   /* Karabakh mosque kit (lib/kit/karabakh.ts) */
   | { t: "minaret"; c: Vec2; y0: number; r: number; h: number; base?: { r: number; h: number }; belts?: number; taper?: number; lantern?: { h: number; r?: number }; brick?: string; belt?: string; stone?: string; wood?: string; cap?: string; broken?: boolean }
   | { t: "kColumn"; c: Vec2; y0: number; h: number; r: number }
@@ -300,6 +305,8 @@ export type Furniture =
   | { kind: "loom"; at: Vec3; rotY?: number }
   | { kind: "cypress"; at: Vec3; h?: number }
   | { kind: "bush"; at: Vec3; r?: number }
+  /** broad-leaved tree: trunk and a few leafy crowns */
+  | { kind: "tree"; at: Vec3; h?: number; seed?: number }
   | { kind: "cenotaph"; at: Vec3; size: Vec3; rotY?: number }
   | { kind: "mihrab"; at: Vec3; rotY?: number; w?: number }
   | { kind: "minbar"; at: Vec3; rotY?: number; steps?: number }

@@ -3,7 +3,9 @@
    - simplifies it to the triangle budget (default 18k)
    - texture → 1024 px JPG
    writes content/characters/<id>/{model.glb, texture.jpg, character.json}
-   usage: npx tsx scripts/import-character.ts <file.zip | file.obj> <id> [--tris=18000] [--yaw=0] */
+   usage: npx tsx scripts/import-character.ts <file.zip | file.obj> <id> [--tris=18000] [--yaw=0]
+   Buildings / props (walk element { "t": "model", "src": "<id>" }): add --model --width=<metres along x>
+   → content/models/<id>/{model.glb, texture.jpg, model.json}, e.g. --model --width=20.2 --tris=120000 --tex=2048 */
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -28,15 +30,38 @@ const [src, id] = args.filter((a) => !a.startsWith("--"));
 const opt = (k: string, d: number) => Number(args.find((a) => a.startsWith(`--${k}=`))?.split("=")[1] ?? d);
 if (!src || !id) { console.error("usage: tsx scripts/import-character.ts <file.zip|file.obj> <id> [--tris=18000] [--yaw=0]"); process.exit(1); }
 
+/** drop vertices no triangle uses any more (simplify only rewrites the index) */
+function compact(g: THREE.BufferGeometry): THREE.BufferGeometry {
+  const idx = g.index!.array, remap = new Int32Array(g.attributes.position.count).fill(-1);
+  let n = 0;
+  const newIdx = new Uint32Array(idx.length);
+  for (let i = 0; i < idx.length; i++) { const v = idx[i]; if (remap[v] < 0) remap[v] = n++; newIdx[i] = remap[v]; }
+  const out = new THREE.BufferGeometry();
+  for (const [name, attr] of Object.entries(g.attributes)) {
+    const a = attr as THREE.BufferAttribute, k = a.itemSize, arr = new Float32Array(n * k);
+    for (let v = 0; v < remap.length; v++) if (remap[v] >= 0) for (let j = 0; j < k; j++) arr[remap[v] * k + j] = a.array[v * k + j];
+    out.setAttribute(name, new THREE.BufferAttribute(arr, k));
+  }
+  out.setIndex(new THREE.BufferAttribute(newIdx, 1));
+  return out;
+}
+
 async function main() {
   // unpack a zip into a fresh temp folder (Windows 10+ tar reads zip)
   let dir = path.dirname(path.resolve(src)), obj = path.resolve(src);
   if (!/\.obj$/i.test(src)) {
     dir = fs.mkdtempSync(path.join(os.tmpdir(), "char-"));
     execFileSync(process.platform === "win32" ? path.join(process.env.SystemRoot ?? "C:\\Windows", "System32", "tar.exe") : "tar", ["-xf", path.resolve(src), "-C", dir]);
-    obj = path.join(dir, fs.readdirSync(dir).find((f) => /\.obj$/i.test(f))!);
+    obj = "";
   }
-  const tex = fs.readdirSync(dir).find((f) => /\.(png|jpe?g)$/i.test(f));
+  const find = (d: string, re: RegExp): string | undefined => {
+    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+      const f = path.join(d, e.name);
+      if (e.isDirectory()) { const r = find(f, re); if (r) return r; } else if (re.test(e.name)) return f;
+    }
+  };
+  if (!/\.obj$/i.test(obj)) obj = find(dir, /\.obj$/i)!;
+  const tex = find(dir, /\.(png|jpe?g)$/i);
   const group = new OBJLoader().parse(fs.readFileSync(obj, "utf8"));
   const geos: THREE.BufferGeometry[] = [];
   group.traverse((o) => { if ((o as THREE.Mesh).isMesh) geos.push((o as THREE.Mesh).geometry); });
@@ -45,7 +70,8 @@ async function main() {
   g.deleteAttribute("normal"); // per-face normals would stop vertices from merging; recomputed below
   // normalise: height 1.75 m, feet on the floor, centred on x/z
   g.computeBoundingBox();
-  const bb = g.boundingBox!, s = 1.75 / (bb.max.y - bb.min.y);
+  const asModel = args.includes("--model");
+  const bb = g.boundingBox!, s = asModel && opt("width", 0) ? opt("width", 0) / (bb.max.x - bb.min.x) : 1.75 / (bb.max.y - bb.min.y);
   g.translate(-(bb.min.x + bb.max.x) / 2, -bb.min.y, -(bb.min.z + bb.max.z) / 2);
   g.scale(s, s, s);
   if (opt("yaw", 0)) g.rotateY((opt("yaw", 0) * Math.PI) / 180);
@@ -59,16 +85,18 @@ async function main() {
     const idx = new Uint32Array(g.index!.array), P = g.attributes.position.array as Float32Array;
     const [out] = MeshoptSimplifier.simplify(idx, P, 3, target * 3, 0.05, []);
     g.setIndex(new THREE.BufferAttribute(out, 1));
+    g = compact(g);
   }
   g.computeVertexNormals();
-  const out = path.join(process.cwd(), "content", "characters", id);
+  const out = path.join(process.cwd(), "content", asModel ? "models" : "characters", id);
+  const texSize = opt("tex", 1024);
   fs.mkdirSync(out, { recursive: true });
   const mesh = new THREE.Mesh(g, new THREE.MeshStandardMaterial());
   const glb = await new GLTFExporter().parseAsync(mesh, { binary: true }) as ArrayBuffer;
   fs.writeFileSync(path.join(out, "model.glb"), Buffer.from(glb));
-  if (tex) await sharp(path.join(dir, tex)).resize(1024, 1024).jpeg({ quality: 85 }).toFile(path.join(out, "texture.jpg"));
-  fs.writeFileSync(path.join(out, "character.json"), JSON.stringify({ kind: "mesh", model: "model.glb", texture: tex ? "texture.jpg" : null, yaw: 0 }, null, 1) + "\n");
+  if (tex) await sharp(fs.readFileSync(tex)).resize(texSize, texSize).jpeg({ quality: 85 }).toFile(path.join(out, "texture.jpg"));
+  fs.writeFileSync(path.join(out, asModel ? "model.json" : "character.json"), JSON.stringify({ kind: asModel ? "model" : "mesh", model: "model.glb", texture: tex ? "texture.jpg" : null, yaw: 0 }, null, 1) + "\n");
   const final = (g.index?.count ?? g.attributes.position.count) / 3;
-  console.log(`✓ content/characters/${id}: ${Math.round(final)} triangles, ${(glb.byteLength / 1024).toFixed(0)} KB model${tex ? ", texture.jpg 1024 px" : ""}`);
+  console.log(`✓ ${path.relative(process.cwd(), out)}: ${Math.round(final)} triangles, ${(glb.byteLength / 1024).toFixed(0)} KB model${tex ? `, texture.jpg ${texSize} px` : ""}`);
 }
 main().catch((e) => { console.error(e); process.exit(1); });

@@ -8,6 +8,7 @@ import type { Era, WalkSpec } from "../types";
 import { buildWalkWorld, type WalkWorld } from "../kit/walkScene";
 import { Walker, drawMap, type MapMark } from "../walk/controller";
 import { ZoneMap } from "../walk/zones";
+import { loadModel } from "../kit/models";
 
 export type Quality = "high" | "low";
 
@@ -54,6 +55,8 @@ export class WalkViewer {
     r.toneMappingExposure = 1.0;
     this.era = spec.eras?.length ? (era && spec.eras.includes(era) ? era : spec.defaultEra ?? spec.eras[0]) : undefined;
     this.world = buildWalkWorld(spec, r, { era: this.era });
+    this.addModels(this.world, this.era);
+    r.toneMappingExposure = (this.era && spec.eraLook?.[this.era]?.exposure) || 1;
     this.worlds.set(this.era ?? "", this.world);
     this.map = new ZoneMap(spec.zones, spec.defaultFloor ?? 0, spec.obstacles ?? []);
     this.walker = new Walker(this.map, spec);
@@ -69,7 +72,8 @@ export class WalkViewer {
     if (!this.spec.eras?.includes(era) || era === this.era) return;
     this.era = era;
     let w = this.worlds.get(era);
-    if (!w) { w = buildWalkWorld(this.spec, this.renderer, { era }); this.worlds.set(era, w); }
+    if (!w) { w = buildWalkWorld(this.spec, this.renderer, { era }); this.worlds.set(era, w); this.addModels(w, era); }
+    this.renderer.toneMappingExposure = this.spec.eraLook?.[era]?.exposure || 1;
     this.world = w;
     for (const a of this.actors) w.scene.add(a);
     this.world.pool.update(0, this.camera.position, true);
@@ -77,6 +81,21 @@ export class WalkViewer {
       this.composer.dispose();
       this.composer = null;
       this.setupAO().catch((e) => console.warn("[walk] AO disabled:", e));
+    }
+  }
+
+  /** textured models (walk elements { t: "model" }) arrive after the kit world is built */
+  private addModels(w: WalkWorld, era?: Era) {
+    for (const e of this.spec.elements) {
+      if (e.t !== "model" || (e.eras && era && !e.eras.includes(era))) continue;
+      loadModel(e.src).then((obj) => {
+        const o = obj.clone();
+        o.position.set(...e.at);
+        o.rotation.y = ((e.rotY ?? 0) * Math.PI) / 180;
+        if (Array.isArray(e.scale)) o.scale.set(...e.scale); else o.scale.setScalar(e.scale ?? 1);
+        if (e.cut?.length) cutModel(o, e.cut);
+        w.scene.add(o);
+      }).catch((err) => console.warn(`[walk] model ${e.src} not loaded:`, err));
     }
   }
 
@@ -142,6 +161,7 @@ export class WalkViewer {
       const z = this.walker.update(dt, this.camera);
       if (z) this.onZone?.(z);
       this.beforeRender?.(dt);
+      this.world.sky?.position.copy(this.camera.position);
       this.world.pool.update(dt, this.camera.position);
       if (this.quality === "high") this.world.update(this.clock.elapsedTime);
       if (this.composer) this.composer.render(dt);
@@ -160,4 +180,23 @@ export class WalkViewer {
     for (const w of this.worlds.values()) { w.dispose(); w.materials.dispose(); }
     this.renderer.dispose();
   }
+}
+
+/** remove the model's triangles whose centre lies in any of the world boxes (e.g. a closed door surface) */
+function cutModel(o: THREE.Object3D, boxes: [number, number, number, number, number, number][]) {
+  o.updateMatrixWorld(true);
+  const v = new THREE.Vector3(), c = new THREE.Vector3();
+  o.traverse((n) => {
+    const m = n as THREE.Mesh;
+    if (!m.isMesh || !m.geometry.index) return;
+    const g = m.geometry.clone(), pos = g.attributes.position, idx = g.index!.array, keep: number[] = [];
+    for (let i = 0; i < idx.length; i += 3) {
+      c.set(0, 0, 0);
+      for (let k = 0; k < 3; k++) c.add(v.fromBufferAttribute(pos, idx[i + k]).applyMatrix4(m.matrixWorld));
+      c.divideScalar(3);
+      if (!boxes.some(([x0, x1, y0, y1, z0, z1]) => c.x > x0 && c.x < x1 && c.y > y0 && c.y < y1 && c.z > z0 && c.z < z1)) keep.push(idx[i], idx[i + 1], idx[i + 2]);
+    }
+    g.setIndex(keep);
+    m.geometry = g;
+  });
 }

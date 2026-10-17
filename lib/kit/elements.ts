@@ -286,6 +286,20 @@ export function furniture(B: Builder, f: Furniture) {
       B.add(g, "cypress");
       break;
     }
+    case "tree": {
+      const h = f.h ?? 6, k = f.seed ?? Math.abs(Math.round(x * 7 + z * 13));
+      const trunk = new THREE.CylinderGeometry(0.12 * h / 6, 0.18 * h / 6, h * 0.45, 7);
+      trunk.translate(x, y + h * 0.225, z);
+      B.add(trunk, "c:#6a4a31");
+      const greens = ["#4f9a3c", "#5aa845", "#3f8a34", "#67b04e"];
+      for (let i = 0; i < 3; i++) {
+        const a = (k + i * 2.1) % 6.28, r = (0.9 + ((k * (i + 1)) % 5) * 0.08) * h / 6;
+        const g = new THREE.IcosahedronGeometry(r * 1.25, 1);
+        g.translate(x + Math.cos(a) * 0.45 * h / 6, y + h * (0.62 + i * 0.1), z + Math.sin(a) * 0.45 * h / 6);
+        B.add(g, "c:" + greens[(k + i) % greens.length]);
+      }
+      break;
+    }
     case "bush": {
       const g = new THREE.SphereGeometry(f.r ?? 0.45, 10, 8);
       g.translate(x, y + (f.r ?? 0.45) * 0.78, z);
@@ -633,6 +647,7 @@ export function buildEl(B: Builder, e: El) {
       B.extra(pts);
       break;
     }
+    case "model": break; // loaded asynchronously by the walk viewer (lib/kit/models.ts)
     case "furniture":
       furniture(B, e as Furniture);
       break;

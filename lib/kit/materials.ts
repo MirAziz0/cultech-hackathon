@@ -9,6 +9,25 @@ export interface MatInfo { mat: THREE.Material; worldUV?: number }
 
 const S = (o: THREE.MeshStandardMaterialParameters) => new THREE.MeshStandardMaterial({ roughness: 0.9, metalness: 0, ...o });
 
+/* photo textures from content/textures (served at /textures, CC0 Poly Haven); load lazily, appear when ready */
+const texCache = new Map<string, THREE.Texture>();
+function photoTex(name: string, color = true): THREE.Texture {
+  const key = `${name}:${color}`;
+  let t = texCache.get(key);
+  if (!t) {
+    t = typeof document === "undefined" ? new THREE.Texture() : new THREE.TextureLoader().load(`/textures/${name}.jpg`);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.anisotropy = 8;
+    if (color) t.colorSpace = THREE.SRGBColorSpace;
+    texCache.set(key, t);
+  }
+  return t;
+}
+const P = (name: string, worldUV: number, o: THREE.MeshStandardMaterialParameters = {}): MatInfo => ({
+  mat: S({ map: photoTex(`${name}_diff`), normalMap: photoTex(`${name}_nor`, false), normalScale: new THREE.Vector2(0.8, 0.8), ...o }),
+  worldUV,
+});
+
 const factories: Record<string, () => MatInfo> = {
   stone: () => ({ mat: S({ map: stoneTex("light"), normalMap: stoneNormal("light"), normalScale: new THREE.Vector2(0.6, 0.6) }), worldUV: 2 }),
   stoneDS: () => ({ mat: S({ map: stoneTex("light"), normalMap: stoneNormal("light"), normalScale: new THREE.Vector2(0.6, 0.6), side: THREE.DoubleSide }), worldUV: 2 }),
@@ -58,6 +77,14 @@ const factories: Record<string, () => MatInfo> = {
   marble: () => ({ mat: S({ map: marbleTex(false), roughness: 0.6 }), worldUV: 3 }),
   marbleWorn: () => ({ mat: S({ map: marbleTex(true), roughness: 0.8 }), worldUV: 3 }),
   lime: () => ({ mat: S({ map: plasterTex(false), side: THREE.DoubleSide }), worldUV: 4 }),
+  plasterPH: () => P("painted_plaster_wall", 3, { side: THREE.DoubleSide, color: 0xfffcf6 }),
+  marblePH: () => P("marble_01", 1.6, { roughness: 0.45 }),
+  marbleTilesPH: () => P("marble_tiles", 3, { roughness: 0.5 }),
+  pavingPH: () => P("patterned_paving_02", 3),
+  grassPH: () => P("leafy_grass", 3.5, { color: 0xc8f0a8 }),
+  asphaltPH: () => P("asphalt_02", 6),
+  fencePH: () => P("painted_plaster_wall", 3, { side: THREE.DoubleSide, color: 0xf1e2c4 }),
+  hedgePH: () => P("leafy_grass", 1.2, { color: 0x7fc062 }),
   // vault and dome undersides: a little self-light so crowns read as lit plaster, not shadow
   vaultLime: () => ({ mat: S({ map: plasterTex(false), side: THREE.DoubleSide, emissive: 0x5c574e, emissiveIntensity: 0.55 }), worldUV: 4 }),
   vaultLimeWorn: () => ({ mat: S({ map: plasterTex(true), side: THREE.DoubleSide, emissive: 0x4e4840, emissiveIntensity: 0.5 }), worldUV: 4 }),

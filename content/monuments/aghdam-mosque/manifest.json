@@ -4589,10 +4589,10 @@
   "defaultEra": "today",
   "eraLook": {
    "xix": {
-    "sky": "#bcd3e3",
+    "sky": "#c8def0",
     "fog": [
-     55,
-     150
+     65,
+     140
     ],
     "sun": {
      "dir": [
@@ -4604,7 +4604,7 @@
     },
     "ambient": 0.6,
     "alias": {
-     "wallIn": "lime",
+     "wallIn": "plasterPH",
      "wallOut": "lime",
      "iwan": "iwanBlue",
      "hallFloor": "floor",
@@ -4616,14 +4616,17 @@
      "galFloor": "stone",
      "vault": "vaultLime",
      "pillar": "lime",
-     "roofSlab": "c:#cdbf9f"
-    }
+     "roofSlab": "c:#cdbf9f",
+     "fence": "fencePH",
+     "road": "asphaltPH"
+    },
+    "clouds": "#3f84d0"
    },
    "ruin": {
-    "sky": "#c4cfd6",
+    "sky": "#d3dbe0",
     "fog": [
-     45,
-     130
+     55,
+     135
     ],
     "sun": {
      "dir": [
@@ -4648,14 +4651,17 @@
      "vault": "vaultLimeWorn",
      "pillar": "c:#b9b2a2",
      "roofSlab": "c:#8f8a6a",
-     "daylight": "none"
-    }
+     "daylight": "none",
+     "fence": "fencePH",
+     "road": "asphaltPH"
+    },
+    "clouds": "#7d9bb5"
    },
    "today": {
-    "sky": "#a8cbe6",
+    "sky": "#bcd9f0",
     "fog": [
      70,
-     200
+     140
     ],
     "sun": {
      "dir": [
@@ -4667,20 +4673,25 @@
     },
     "ambient": 0.62,
     "alias": {
-     "wallIn": "lime",
+     "wallIn": "plasterPH",
      "wallOut": "stone",
      "iwan": "iwanBlue",
-     "hallFloor": "floorGrey",
-     "court": "c:#86a35b",
+     "hallFloor": "marbleTilesPH",
+     "court": "grassPH",
      "domeOut": "lime",
      "mBrick": "minaretBlue",
      "minaretBase": "stone",
      "rail": "woodDark",
-     "galFloor": "stone",
+     "galFloor": "marbleTilesPH",
      "vault": "vaultLime",
-     "pillar": "lime",
-     "roofSlab": "c:#cfc6b0"
-    }
+     "pillar": "marblePH",
+     "roofSlab": "c:#cfc6b0",
+     "floorGrey": "pavingPH",
+     "fence": "fencePH",
+     "road": "asphaltPH"
+    },
+    "clouds": "#2f78cf",
+    "exposure": 1.1
    }
   },
   "map": {
@@ -10947,7 +10958,7 @@
      0.9,
      -18
     ],
-    "mat": "c:#476e3a",
+    "mat": "hedgePH",
     "eras": [
      "today"
     ]
@@ -11114,7 +11125,7 @@
      0.9,
      -18
     ],
-    "mat": "c:#476e3a",
+    "mat": "hedgePH",
     "eras": [
      "today"
     ]
@@ -11282,6 +11293,1244 @@
      -20.4
     ],
     "mat": "c:#8f6f62",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "model",
+    "src": "aghdam-mosque",
+    "at": [
+     0,
+     -0.7,
+     -1.5
+    ],
+    "rotY": 180,
+    "scale": [
+     0.985,
+     1,
+     1.214
+    ],
+    "cut": [
+     [
+      -0.95,
+      0.95,
+      -0.8,
+      2.6,
+      -10.8,
+      -7.9
+     ]
+    ],
+    "eras": [
+     "today"
+    ],
+    "replaces": {
+     "types": [
+      "minaret"
+     ],
+     "mats": [
+      "metalRoof",
+      "domeOut",
+      "wallOut",
+      "iwan",
+      "roofSlab"
+     ]
+    }
+   },
+   {
+    "t": "wall",
+    "from": [
+     -30,
+     -50
+    ],
+    "to": [
+     -4.5,
+     -50
+    ],
+    "y0": 0,
+    "h": 2.6,
+    "th": 0.5,
+    "mat": "fence",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     4.5,
+     -50
+    ],
+    "to": [
+     30,
+     -50
+    ],
+    "y0": 0,
+    "h": 2.6,
+    "th": 0.5,
+    "mat": "fence",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     30,
+     -50
+    ],
+    "to": [
+     30,
+     24
+    ],
+    "y0": 0,
+    "h": 2.6,
+    "th": 0.5,
+    "mat": "fence",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     30,
+     24
+    ],
+    "to": [
+     -30,
+     24
+    ],
+    "y0": 0,
+    "h": 2.6,
+    "th": 0.5,
+    "mat": "fence",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -30,
+     24
+    ],
+    "to": [
+     -30,
+     -50
+    ],
+    "y0": 0,
+    "h": 2.6,
+    "th": 0.5,
+    "mat": "fence",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -3,
+     3,
+     -51,
+     -46
+    ],
+    "y": 0.008,
+    "mat": "floorGrey",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -90,
+     90,
+     -62,
+     -53
+    ],
+    "y": 0.006,
+    "mat": "road",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -90,
+     90,
+     -53,
+     -51
+    ],
+    "y": 0.012,
+    "mat": "floorGrey",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -27,
+     0,
+     -47
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -27,
+     0,
+     21
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -21,
+     0,
+     -47
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -21,
+     0,
+     21
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -15,
+     0,
+     -47
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -15,
+     0,
+     21
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -9,
+     0,
+     -47
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -9,
+     0,
+     21
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     9,
+     0,
+     -47
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     9,
+     0,
+     21
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     15,
+     0,
+     -47
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     15,
+     0,
+     21
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     21,
+     0,
+     -47
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     21,
+     0,
+     21
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     27,
+     0,
+     -47
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     27,
+     0,
+     21
+    ],
+    "h": 6,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -27,
+     0,
+     -41
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     27,
+     0,
+     -41
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -27,
+     0,
+     -35
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     27,
+     0,
+     -35
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -27,
+     0,
+     -29
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     27,
+     0,
+     -29
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -27,
+     0,
+     -23
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     27,
+     0,
+     -23
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -27,
+     0,
+     -17
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     27,
+     0,
+     -17
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -27,
+     0,
+     -11
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     27,
+     0,
+     -11
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -27,
+     0,
+     -5
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     27,
+     0,
+     -5
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -27,
+     0,
+     1
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     27,
+     0,
+     1
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -27,
+     0,
+     7
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     27,
+     0,
+     7
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -27,
+     0,
+     13
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     27,
+     0,
+     13
+    ],
+    "h": 6.5,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     90.08309395063658,
+     0,
+     -0.45828821108396767
+    ],
+    "h": 10.403882669007352,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     64.18576666886915,
+     0,
+     1.0698716034222908
+    ],
+    "h": 8.348212941246206,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     68.29897071411253,
+     0,
+     26.953308696747577
+    ],
+    "h": 10.532701492091967,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     62.50257508240423,
+     0,
+     26.91431197414572
+    ],
+    "h": 9.030239966712072,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     47.55014781028935,
+     0,
+     28.25238572684229
+    ],
+    "h": 9.192861973397836,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     54.05376636707422,
+     0,
+     61.05797593840566
+    ],
+    "h": 8.21292125676429,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     45.69019344253197,
+     0,
+     49.182884071524605
+    ],
+    "h": 8.831826225776144,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     24.604280509141862,
+     0,
+     54.00691343313355
+    ],
+    "h": 9.978975206138088,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     17.41161104889968,
+     0,
+     70.59610528996086
+    ],
+    "h": 10.705160049584304,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     25.8230789538839,
+     0,
+     72.10226834777906
+    ],
+    "h": 7.934653003203986,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     13.660053427052636,
+     0,
+     76.52871765648415
+    ],
+    "h": 10.878618219810825,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -19.715589313114265,
+     0,
+     72.38075892433169
+    ],
+    "h": 8.515166652163103,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -12.463191901405596,
+     0,
+     58.011608610529734
+    ],
+    "h": 9.739624034026463,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -18.857889623027003,
+     0,
+     55.27874715734282
+    ],
+    "h": 9.80559402276091,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -34.95980460184019,
+     0,
+     57.053466300081595
+    ],
+    "h": 8.841354261078571,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -59.69322953664447,
+     0,
+     50.928915940790674
+    ],
+    "h": 9.158004439509476,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -48.48857764056955,
+     0,
+     40.83391081132602
+    ],
+    "h": 8.30437500463071,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -63.92371534998838,
+     0,
+     32.85254005143976
+    ],
+    "h": 7.483397675903234,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -66.56963550020997,
+     0,
+     37.407187918525125
+    ],
+    "h": 9.092412258541403,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -71.52439398758943,
+     0,
+     9.785250850763834
+    ],
+    "h": 7.068303195791461,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -78.29750187458043,
+     0,
+     -4.202780514911549
+    ],
+    "h": 8.637146184983266,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -63.89123483536997,
+     0,
+     -12.393836478385376
+    ],
+    "h": 7.574767546995901,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -76.03639812140077,
+     0,
+     -3.2347983821666766
+    ],
+    "h": 9.090928650503479,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -84.73391372402104,
+     0,
+     -27.356559448305784
+    ],
+    "h": 10.377262087248853,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -67.41174870834911,
+     0,
+     -30.924569375783843
+    ],
+    "h": 7.414484417258987,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -62.65519946667278,
+     0,
+     -42.58507451561731
+    ],
+    "h": 8.922658360527203,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -72.03296987232036,
+     0,
+     -59.03915314201337
+    ],
+    "h": 8.063527217630076,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -65.28103891044303,
+     0,
+     -73.6949717386328
+    ],
+    "h": 8.324930988869133,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -65.01898720012338,
+     0,
+     -66.83651058039021
+    ],
+    "h": 8.808459232472098,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -47.54667325370498,
+     0,
+     -91.75152173901601
+    ],
+    "h": 8.588372400770137,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -23.628605069677825,
+     0,
+     -81.63886391891134
+    ],
+    "h": 7.060848502470575,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -24.927741029031427,
+     0,
+     -100.67503320682833
+    ],
+    "h": 9.975820026814853,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -12.346629474317114,
+     0,
+     -97.00031914957142
+    ],
+    "h": 10.745984451727002,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     0.17887244831165128,
+     0,
+     -95.63765895255459
+    ],
+    "h": 7.051686506742466,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     -1.3488698279335993,
+     0,
+     -96.454235832665
+    ],
+    "h": 8.938776710042161,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     11.029635575783058,
+     0,
+     -88.63421260159627
+    ],
+    "h": 9.080611300692247,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     22.797044640859127,
+     0,
+     -96.19762810437068
+    ],
+    "h": 9.95289938475606,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     29.85360694347632,
+     0,
+     -75.60300619089182
+    ],
+    "h": 9.236075895948371,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     50.34559555018305,
+     0,
+     -85.39724277841265
+    ],
+    "h": 10.794164396726604,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     40.95451364325981,
+     0,
+     -66.45734931463446
+    ],
+    "h": 10.32242311319449,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     54.92780643473674,
+     0,
+     -44.6066524389877
+    ],
+    "h": 10.161928573233041,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     61.517855316690266,
+     0,
+     -46.04559068967925
+    ],
+    "h": 9.177381738171626,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     63.901401790858486,
+     0,
+     -32.92455608211216
+    ],
+    "h": 7.393053915534659,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     79.29777120083007,
+     0,
+     -33.71209748659071
+    ],
+    "h": 7.735250665217289,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     81.30188016462728,
+     0,
+     -27.067968217456247
+    ],
+    "h": 8.588132685789901,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "tree",
+    "at": [
+     90.03019802873216,
+     0,
+     0.08805640349731014
+    ],
+    "h": 9.530667654485752,
     "eras": [
      "today"
     ]

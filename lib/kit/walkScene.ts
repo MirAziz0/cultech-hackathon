@@ -39,6 +39,8 @@ export class LightPool {
 
 export interface WalkWorld {
   scene: THREE.Scene;
+  /** sky dome that follows the camera (null = flat sky colour) */
+  sky: THREE.Mesh | null;
   pool: LightPool;
   /** animate extras (dust motes); cheap, skipped on the low tier */
   update(time: number): void;
@@ -65,9 +67,15 @@ export function buildWalkWorld(spec: WalkSpec, renderer: THREE.WebGLRenderer, op
 
   const B = new Builder();
   B.alias = { ...(look.alias ?? {}), ...(opts.alias ?? {}) };
-  for (const e of forEra(spec.elements, opts.era)) buildEl(B, e);
+  // a textured model shown in this era can replace kit parts (e.g. the scene's own minarets)
+  const models = forEra(spec.elements, opts.era).filter((e) => e.t === "model") as Extract<El, { t: "model" }>[];
+  const hideT = new Set(models.flatMap((m) => m.replaces?.types ?? [])), hideM = new Set(models.flatMap((m) => m.replaces?.mats ?? []));
+  for (const e of forEra(spec.elements, opts.era)) if (!hideT.has(e.t) && !(e.mat && hideM.has(e.mat))) buildEl(B, e);
   const group = B.finish();
   scene.add(group);
+  const clouds = look.clouds ?? spec.clouds;
+  const skyDome = clouds ? makeSky(clouds, look.sky ?? spec.sky ?? "#bcd6e8") : null;
+  if (skyDome) scene.add(skyDome);
 
   // image-based ambient: a neutral room environment gives metals/mirrors something to reflect
   const pmrem = new THREE.PMREMGenerator(renderer);
@@ -94,6 +102,7 @@ export function buildWalkWorld(spec: WalkSpec, renderer: THREE.WebGLRenderer, op
   return {
     scene,
     pool,
+    sky: skyDome,
     update(time: number) { for (const f of animated) f(time); },
     materials: B.mats,
     stats: { meshes: group.children.length, tris, lamps: B.lights.length },
@@ -102,4 +111,33 @@ export function buildWalkWorld(spec: WalkSpec, renderer: THREE.WebGLRenderer, op
       env.dispose();
     },
   };
+}
+
+/** sky dome: zenith → horizon gradient with soft clouds (canvas texture), drawn behind everything */
+function makeSky(zenith: string, horizon: string): THREE.Mesh {
+  const W = 1024, H = 512, c = document.createElement("canvas");
+  c.width = W; c.height = H;
+  const x = c.getContext("2d")!;
+  const g = x.createLinearGradient(0, 0, 0, H / 2);
+  g.addColorStop(0, zenith); g.addColorStop(1, horizon);
+  x.fillStyle = g; x.fillRect(0, 0, W, H / 2);
+  x.fillStyle = horizon; x.fillRect(0, H / 2, W, H / 2);
+  let seed = 7;
+  const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  for (let i = 0; i < 38; i++) {
+    const cx = rnd() * W, cy = H * (0.12 + rnd() * 0.3), r = 18 + rnd() * 46;
+    for (let k = 0; k < 6; k++) {
+      const px = cx + (rnd() - 0.5) * r * 2.4, py = cy + (rnd() - 0.5) * r * 0.5, pr = r * (0.5 + rnd() * 0.6);
+      const rg = x.createRadialGradient(px, py, 0, px, py, pr);
+      rg.addColorStop(0, "rgba(255,255,255,.38)"); rg.addColorStop(1, "rgba(255,255,255,0)");
+      x.fillStyle = rg; x.beginPath(); x.ellipse(px, py, pr * 1.6, pr * 0.7, 0, 0, Math.PI * 2); x.fill();
+    }
+  }
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.wrapS = THREE.RepeatWrapping;
+  const m = new THREE.Mesh(new THREE.SphereGeometry(140, 32, 16), new THREE.MeshBasicMaterial({ map: tex, side: THREE.BackSide, fog: false, depthWrite: false, toneMapped: false }));
+  m.renderOrder = -10;
+  m.frustumCulled = false;
+  return m;
 }

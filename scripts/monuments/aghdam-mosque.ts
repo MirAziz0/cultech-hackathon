@@ -313,13 +313,28 @@ function walk(): { elements: El[]; zones: Zone[]; obstacles: [number, number, nu
   E.push({ t: "floor", rect: [-3, 3, -46, -17], y: 0.008, mat: "floorGrey", eras: [TODAY] });
   E.push({ t: "floor", rect: [-13, 13, -17.5, -14.1], y: 0.008, mat: "floorGrey", eras: [TODAY] });
   for (const s of [-1, 1]) {
-    E.push({ t: "box", min: [s * 4.2 - 0.45, 0, -40], max: [s * 4.2 + 0.45, 0.9, -18], mat: "c:#476e3a", eras: [TODAY] });
+    E.push({ t: "box", min: [s * 4.2 - 0.45, 0, -40], max: [s * 4.2 + 0.45, 0.9, -18], mat: "hedgePH", eras: [TODAY] });
     for (let i = 0; i < 5; i++) {
       E.push({ t: "box", min: [s * 12 - 0.12, 0, -36 + i * 5 - 0.12], max: [s * 12 + 0.12, 1.8, -36 + i * 5 + 0.12], mat: "c:#6b4a2e", eras: [TODAY] });
       E.push({ t: "furniture", kind: "bush", at: [s * 12, 1.5, -36 + i * 5], r: 1.3, eras: [TODAY] });
     }
   }
   E.push({ t: "box", min: [5.0, 0, -21.5], max: [6.4, 1.6, -20.4], mat: "c:#8f6f62", eras: [TODAY] });
+  // today: the textured model of the restored mosque (content/models/aghdam-mosque) replaces the kit's outside
+  // fitted to the kit's footprint (x ±9.9, z −13.9…10.9); the kit's outer surfaces are hidden in this era
+  E.push({ t: "model", src: "aghdam-mosque", at: [0, -0.7, -1.5], rotY: 180, scale: [0.985, 1, 1.214], cut: [[-0.95, 0.95, -0.8, 2.6, -10.8, -7.9]], eras: [TODAY], replaces: { types: ["minaret"], mats: ["metalRoof", "domeOut", "wallOut", "iwan", "roofSlab"] } });
+  // closed surroundings: perimeter wall with a gate to the road, trees along it, a tree line beyond
+  for (const [a, b] of [[[-30, -50], [-4.5, -50]], [[4.5, -50], [30, -50]], [[30, -50], [30, 24]], [[30, 24], [-30, 24]], [[-30, 24], [-30, -50]]] as [Vec2, Vec2][])
+    E.push({ t: "wall", from: a, to: b, y0: 0, h: 2.6, th: 0.5, mat: "fence", eras: [TODAY] });
+  E.push({ t: "floor", rect: [-3, 3, -51, -46], y: 0.008, mat: "floorGrey", eras: [TODAY] });
+  E.push({ t: "floor", rect: [-90, 90, -62, -53], y: 0.006, mat: "road", eras: [TODAY] });
+  E.push({ t: "floor", rect: [-90, 90, -53, -51], y: 0.012, mat: "floorGrey", eras: [TODAY] });
+  for (let x = -27; x <= 27; x += 6) for (const z of [-47, 21]) if (Math.abs(x) > 6) E.push({ t: "furniture", kind: "tree", at: [x, 0, z], h: 6 + ((x * 7) % 3), eras: [TODAY] });
+  for (let z = -41; z <= 15; z += 6) for (const x of [-27, 27]) E.push({ t: "furniture", kind: "tree", at: [x, 0, z], h: 6.5, eras: [TODAY] });
+  for (let i = 0; i < 46; i++) {
+    const a = (i / 46) * Math.PI * 2 + 0.3 * r(), d = 62 + r() * 30;
+    E.push({ t: "furniture", kind: "tree", at: [Math.cos(a) * d, 0, Math.sin(a) * d - 13], h: 7 + r() * 4, eras: [TODAY] });
+  }
 
   // ---- zones (walk coords) ----
   const zones: Zone[] = [

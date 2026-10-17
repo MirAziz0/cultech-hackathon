@@ -48,3 +48,5 @@ next-env.d.ts
 /test-results/
 /screenshots/
 /public/characters
+/public/models
+/public/textures
