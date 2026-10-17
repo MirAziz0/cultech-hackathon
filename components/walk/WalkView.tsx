@@ -37,6 +37,9 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
   const [offer, setOffer] = useState<TourStop | null>(null);
   const [highlight, setHighlight] = useState(false);
   const hud = useRef<GuideHudHandle>(null);
+  /** the model body (content/characters) loads in the background; the placeholder body is never shown meanwhile */
+  const bodyState = useRef<"loading" | "ready" | "failed">("loading");
+  const showWanted = useRef(false);
   const [started, setStarted] = useState(false);
   const [zone, setZone] = useState<string | null>(null);
   const [card, setCard] = useState<{ list: PhotoWithUrl[]; i: number } | null>(null);
@@ -96,14 +99,17 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
           // Plan A: swap in the VRM avatar if content/characters/<id>/avatar.vrm exists (else keep Plan B)
           const av = bundle.avatar;
           if (av) (av.kind === "vrm" ? import("@/lib/guide/avatar/vrm").then(({ loadVrmAvatar }) => loadVrmAvatar(av.id)) : import("@/lib/guide/avatar/mesh").then(({ loadMeshAvatar }) => loadMeshAvatar(av.id))).then((a) => {
-            if (!a || dead || guide.current !== gg) { a?.dispose(); return; }
+            if (!a || dead || guide.current !== gg) { a?.dispose(); bodyState.current = "failed"; if (showWanted.current) gg.avatar.root.visible = true; return; }
+            bodyState.current = "ready";
             const old = gg.avatar;
-            a.root.visible = old.root.visible;
+            a.root.visible = showWanted.current;
             vv.removeActor(old.root);
             old.dispose();
             gg.avatar = a;
             vv.addActor(a.root);
-          }).catch(() => {});
+            if (showWanted.current) a.gesture("wave"); // arrived after the start: greet in the real body
+          }).catch(() => { bodyState.current = "failed"; if (showWanted.current) gg.avatar.root.visible = true; });
+          else bodyState.current = "ready";
         } catch (e) { console.warn("[guide] disabled:", e); }
         v.start();
         viewer.current = v;
@@ -183,7 +189,10 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
     const g = guide.current, v = viewer.current;
     if (g && v) {
       g.spawn(v.walker.floorPos());
-      g.avatar.root.visible = true;
+      // show the guide only in its final body: wait for the model if it is still loading (max 10 s)
+      showWanted.current = true;
+      if (bodyState.current !== "loading") g.avatar.root.visible = true;
+      else setTimeout(() => { if (bodyState.current === "loading" && guide.current) guide.current.avatar.root.visible = true; }, 10000);
       g.avatar.gesture("wave");
       g.avatar.setExpression("happy");
       setTimeout(() => g.avatar.setExpression("neutral"), 4000);
