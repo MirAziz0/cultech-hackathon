@@ -14,7 +14,7 @@ const AZURE_TO_MOUTH: Mouth[] = [
 ];
 export const azureToMouth = (id: number): Mouth => AZURE_TO_MOUTH[id] ?? "E";
 
-const LETTER: Record<string, number> = {
+export const LETTER: Record<string, number> = {
   a: 2, ə: 1, e: 4, i: 6, ı: 6, o: 8, ö: 8, u: 7, ü: 7,
   m: 21, b: 21, p: 21, f: 18, v: 18, l: 14, r: 13, d: 19, t: 19, n: 19,
   s: 15, z: 15, ş: 16, c: 16, ç: 16, j: 16, k: 20, g: 20, q: 20, ğ: 20, x: 12, h: 12, y: 6, w: 7,

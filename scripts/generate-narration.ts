@@ -3,7 +3,7 @@
    markers, fact ids and numbers that aren't in the cited facts; --audio adds MP3 + visemes + marker times.
    For every monument with a walk: "intro" + every zone in walk.zoneInfo.
      --text   (re)write the narration scripts with Claude from facts.json   [needs ANTHROPIC_API_KEY]
-     --audio  synthesize MP3 + Azure viseme timelines for az and en          [needs AZURE_SPEECH_KEY/REGION]
+     --audio  synthesize MP3 + viseme timelines for az and en (Azure with a key, else the keyless Edge voices)
      --force  overwrite existing text/audio
    Without keys it only validates that every zone has a narration and reports what is missing.
    usage: npx tsx scripts/generate-narration.ts [slug ...] [--text] [--audio] [--force] [--zone=id] */
@@ -13,7 +13,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { z } from "zod/v4";
 import type { FactsFile, Lang, Manifest, Narration, Story, TourStop } from "../lib/types";
-import { azureConfigured, synthesize, synthesizeStory } from "../lib/speech/azure";
+import { synthesize, synthesizeStory, ttsProvider } from "../lib/speech/tts";
 import { MARKERS, parseStory } from "../lib/guide/story";
 import { estimateDuration } from "../lib/speech/visemes";
 import { COMMON_RULES, STORY_RULES, factLines, personaRules } from "../lib/persona";
@@ -62,10 +62,10 @@ async function run(slug: string) {
   // with walk eras every zone has one narration per era: <zone>.<era>.json
   const eras: (string | undefined)[] = m.walk.eras?.length ? m.walk.eras : [undefined];
   const zones = ["intro", ...Object.keys(m.walk.zoneInfo)].filter((z) => !zoneOnly || z === zoneOnly).flatMap((z) => eras.map((e) => ({ zone: z, era: e })));
-  const wantText = flag("--text"), wantAudio = flag("--audio") || (azureConfigured() && !flag("--text"));
+  const wantText = flag("--text"), wantAudio = flag("--audio");
   const client = wantText && (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN) ? new Anthropic() : null;
   if (wantText && !client) console.warn("  ! --text needs ANTHROPIC_API_KEY; keeping existing scripts");
-  if (wantAudio && !azureConfigured()) console.warn("  ! --audio needs AZURE_SPEECH_KEY and AZURE_SPEECH_REGION; skipping audio");
+  if (wantAudio) console.log(`  ♪ voices from ${ttsProvider()}`);
   console.log(`▶ ${slug}: ${zones.length} narrations`);
   for (const { zone, era } of zones) {
     const key = era ? `${zone}.${era}` : zone;
@@ -78,7 +78,7 @@ async function run(slug: string) {
     if (!n) { console.warn(`  ✗ ${key}: missing narration (write ${path.relative(process.cwd(), file)} or run with --text)`); continue; }
     const words = n.text.az.split(/\s+/).length, secs = estimateDuration(n.text.az, "az");
     const lengthNote = secs < 12 || secs > 28 ? ` ⚠ ~${secs.toFixed(0)}s (target 15–25s)` : ` ~${secs.toFixed(0)}s`;
-    if (wantAudio && azureConfigured()) {
+    if (wantAudio) {
       n.audio ??= {};
       n.visemes ??= {};
       for (const lang of ["az", "en"] as Lang[]) {
@@ -158,7 +158,7 @@ async function runStops(slug: string, m: Manifest, facts: FactsFile, client: Ant
     if (client && i >= 0 && (!st || flag("--force"))) { st = await writeStory(client, m, facts, stops[i], stops[i + 1]); console.log(`  ✎ stop ${id}: story by Claude`); }
     if (!st) { console.warn(`  ✗ stop ${id}: missing story (write ${path.relative(process.cwd(), file)}; until then the zone narration is used)`); continue; }
     const issues = lintStory(st, facts);
-    if (wantAudio && azureConfigured()) {
+    if (wantAudio) {
       st.audio ??= {}; st.visemes ??= {}; st.marks ??= {};
       for (const lang of ["az", "en"] as Lang[]) {
         const text = st.text[lang];

@@ -25,6 +25,7 @@
     "@pixiv/three-vrm": "^3.5.5",
     "@pixiv/three-vrm-animation": "^3.5.5",
     "microsoft-cognitiveservices-speech-sdk": "^1.52.0",
+    "msedge-tts": "^2.1.0",
     "n8ao": "^2.0.1",
     "next": "16.4.2",
     "postprocessing": "^6.39.5",

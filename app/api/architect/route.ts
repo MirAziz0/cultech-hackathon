@@ -95,5 +95,5 @@ export async function POST(req: Request) {
 }
 
 export async function GET() {
-  return Response.json({ llm: hasKey(), tts: !!(process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION) });
+  return Response.json({ llm: hasKey(), tts: true }); // neural speech always available: Azure with a key, the keyless Edge service without
 }

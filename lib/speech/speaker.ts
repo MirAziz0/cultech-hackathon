@@ -38,17 +38,33 @@ export function unlockAudio() {
   } catch {}
 }
 
-function pickVoice(lang: Lang): SpeechSynthesisVoice | null {
-  if (!("speechSynthesis" in window)) return null;
-  const voices = speechSynthesis.getVoices();
-  const want = lang === "az" ? ["az-AZ", "az"] : ["en-GB", "en-US", "en"];
-  for (const w of want) {
-    const v = voices.find((x) => x.lang.replace("_", "-").toLowerCase().startsWith(w.toLowerCase()));
-    if (v) return v;
+/** Chrome fills the voice list asynchronously: wait for it (briefly) instead of treating "no voices yet" as "no voice" */
+async function voicesReady(): Promise<SpeechSynthesisVoice[]> {
+  if (!("speechSynthesis" in window)) return [];
+  const now = speechSynthesis.getVoices();
+  if (now.length) return now;
+  await new Promise<void>((done) => {
+    const t = setTimeout(done, 2000);
+    speechSynthesis.addEventListener("voiceschanged", () => { clearTimeout(t); done(); }, { once: true });
+  });
+  return speechSynthesis.getVoices();
+}
+
+const MALE = /babek|ahmet|tolga|male|david|guy|george|ryan|daniel|mark|james|thomas|christopher|eric/i;
+const FEMALE = /banu|emel|seda|female|zira|aria|jenny|hazel|susan|libby|sonia|samantha|karen/i;
+
+function pickVoice(voices: SpeechSynthesisVoice[], lang: Lang, gender: "male" | "female"): SpeechSynthesisVoice | null {
+  if (!voices.length) return null;
+  const by = (prefix: string) => voices.filter((x) => x.lang.replace("_", "-").toLowerCase().startsWith(prefix));
+  // Azerbaijani (Edge has "Microsoft Babek/Banu Online"); Turkish reads Azerbaijani text tolerably
+  const groups = lang === "az" ? [by("az"), by("tr")] : [by("en-gb"), by("en-us"), by("en")];
+  const want = gender === "male" ? MALE : FEMALE, avoid = gender === "male" ? FEMALE : MALE;
+  for (const g of groups) {
+    if (!g.length) continue;
+    return g.find((v) => want.test(v.name)) ?? g.find((v) => !avoid.test(v.name)) ?? g[0];
   }
-  // Turkish voices read Azerbaijani text tolerably; better than silence
-  if (lang === "az") return voices.find((x) => x.lang.toLowerCase().startsWith("tr")) ?? null;
-  return null;
+  // last resort: any voice (an accent beats silence); prefer the system default
+  return voices.find((v) => v.default) ?? voices[0];
 }
 
 export class Speaker {
@@ -99,7 +115,8 @@ export class Speaker {
       if (!alive()) return;
     }
     // 3: browser speech synthesis
-    const voice = !this.muted ? pickVoice(u.lang) : null;
+    const voice = !this.muted ? pickVoice(await voicesReady(), u.lang, u.voice) : null;
+    if (!alive()) return;
     if (voice) { this.browserSpeak(u, voice, alive); this.ev.onStart?.("browser"); return; }
     // 4: silent subtitles with estimated mouth
     this.ev.onStart?.("silent");
