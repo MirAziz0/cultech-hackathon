@@ -43,6 +43,33 @@ These came up while collecting facts. Each needs a historian's decision; the app
 - **Photo textures are stand-ins.** Shirvanshahs, Maiden Tower and Erivan now use CC0 Poly Haven photo textures (see CREDITS.md), tinted to match photos of each site. They show the right kind of material (Absheron limestone, rough coursed stone, fired brick), not the actual stones of the monument.
 - **Closing walls and houses (hypothesis).** Shirvanshahs: the walls joining the facade to the courtyard walls and the palace block behind it. Maiden Tower: the ring of flat-roofed Old City houses around the square. Erivan: the gate flanks and palace corner walls. These were added only so the world does not show through gaps; they are not surveyed (elements tagged `closure`, see scripts/monuments/materials-upgrade.ts).
 
+<!-- guide-stories:begin -->
+### Guide stories (October 2026) — [CHECK] notes from the authors
+
+The stories in content/scripts/ marked these details for a historian; the guide speaks them as written.
+
+- erivan-fortress.en.md @street: 1582–83 — "It's the year 1582. An Ottoman commander, Ferhat Pasha, orders a fortress to be built here, on the high bank o…"
+- erivan-fortress.en.md @street: verify — "In 1679, a powerful earthquake shook the region and the fortress was badly damaged. It was rebuilt again, at t…"
+- erivan-fortress.en.md @gate: perimeter ~1,200 m — "The walls run for about one thousand two hundred metres. And they're double: an outer line and an inner line,…"
+- erivan-fortress.en.md @court: ~800 houses — "Now picture it: narrow streets, about eight hundred houses pressed close together, flat roofs where people dri…"
+- erivan-fortress.en.md @court: ~2,000 — "Now picture it: narrow streets, about eight hundred houses pressed close together, flat roofs where people dri…"
+- erivan-fortress.en.md @court: verify — "One of them belonged to the Rajab Pasha Mosque, built in 1725.…"
+- erivan-fortress.en.md @court: verify — "In 1865, the land was bought by a merchant, and in the 1880s a brandy factory was built on part of the site.…"
+- erivan-fortress.en.md @court: verify — "From drawings by artists who passed through. From descriptions written by travellers. From old plans, old phot…"
+- maiden-tower.en.md @intro: about 29.5 m — "This is the Maiden Tower. Almost thirty metres of stone rising from the edge of the Old City.…"
+- maiden-tower.en.md @stop:arrival: verify — "Every child in Baku knows it. It's on postcards, on banknotes, on souvenirs.…"
+- maiden-tower.en.md @stop:inscription: verify — "High on the tower's wall there's an old inscription in Kufic script. It mentions a name, Masud ibn Davud. Some…"
+- maiden-tower.en.md @stop:entrance: about 5 m at the base — "Feel how thick the walls are as you walk through the doorway? Several metres of solid stone. It's cool in here…"
+- maiden-tower.en.md @stop:legend: verify — "But historians tell us something else. The name may simply mean "untouched", a tower that was never captured b…"
+- maiden-tower.en.md @stop:legend: verify — "Some scholars believe the tower was a defensive tower. Others think it was something completely different: per…"
+- maiden-tower.en.md @stop:roof: how close — "Today the sea is a little further away, and the boulevard runs along the shore. But long ago, the water came m…"
+- maiden-tower.en.md @stop:roof: verify — "Some think it made the tower stronger. Some think it pointed in a special direction, toward sunrise on a certa…"
+- shirvanshahs.en.md @court: verify — "Long ago, the rulers of Shirvan lived in Shamakhi. But Shamakhi was a city of earthquakes. So the shahs looked…"
+- shirvanshahs.en.md @corr: verify — "Here is the tomb of the Shirvanshahs. Shah Khalilullah I built it in 1435 for his family: his mother and his y…"
+- shirvanshahs.en.md @r3: verify — "Today you'll see only low walls and the shapes of rooms in the ground. It was hidden underground for centuries…"
+- shirvanshahs.en.md @stair: verify — "They come from a fortress that once stood near Baku and later disappeared under the waters of the Caspian. For…"
+<!-- guide-stories:end -->
+
 ## Ağdam Cümə məscidi / Aghdam Juma Mosque (`aghdam-mosque`)
 
 ### Facts marked for verification (3 of 34)
