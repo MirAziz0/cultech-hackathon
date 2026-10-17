@@ -7,7 +7,7 @@
      @@ stop:well        narration/stops/well.json       (tour stop story)
    In the text: [CHECK…] notes are removed from speech and collected for the historian (content/review-notes.md);
    **bold** lines become "[serious] …" (spoken slower and lower); "[Era: X]" / "[Dövr: X]" become "X." .
-   Audio of every changed text is deleted, so `npm run narration -- --audio` regenerates it.
+   Audio of every changed text is deleted (unchanged texts keep theirs), so `npm run narration -- --audio` regenerates it.
      npx tsx scripts/apply-scripts.ts [slug ...] */
 import fs from "node:fs";
 import path from "node:path";
@@ -54,6 +54,7 @@ const write = (f: string, j: Json) => fs.writeFileSync(f, JSON.stringify(j, null
 /** set one language's text and drop that language's audio so it is regenerated */
 function setText(file: string, lang: Lang, text: string, base: Json) {
   const j = read(file) ?? base;
+  if (j.text?.[lang] === text) return; // unchanged: keep its audio
   j.text = { ...(j.text ?? {}), [lang]: text };
   j.generatedBy = "hand";
   if (j.audio?.[lang]) { const mp3 = path.join(path.dirname(file), j.audio[lang]!); if (fs.existsSync(mp3)) fs.rmSync(mp3); delete j.audio[lang]; }

@@ -11,9 +11,9 @@ And in the middle of the town, a new mosque is being built.
 
 Welcome to Aghdam, and to its Juma Mosque!
 
-It was built around 1868 to 1870. And the man who designed it was a master named Karbalayi Safikhan Karabakhi.
+It was built around 1868 to 1870. And I am the one who designed it: my name is Karbalayi Safikhan Karabakhi.
 
-Remember that name. He was one of the most famous builders of Karabakh. He also built the Govhar Agha mosques in Shusha. So when you look at this mosque, you're looking at the work of a master who shaped the look of a whole region.
+I also built the Govhar Agha mosques in Shusha. So when you look at this mosque, you're looking at the work of a whole life.
 
 @@ courtyard@xix
 Now look at it from the outside.
@@ -33,10 +33,10 @@ Imagine a Friday prayer here, a long time ago.
 
 The hall is full. Men below, women in the gallery above. Light comes in through the windows. Someone's child is whispering, an old man is slowly counting his prayer beads.
 
-The master Safikhan planned every column, every dome, every window so that this hall would hold all those people... and feel calm.
+I planned every column, every dome, every window so that this hall would hold all those people... and feel calm.
 
 @@ courtyard@ruin
-Now I have to tell you the hard part of this story.
+Now I have to tell you the hard part of this story. I did not see it with my own eyes; I know it from what later generations wrote.
 
 After 1993, Aghdam was lost and destroyed. The town around the mosque was ruined: the houses, the streets, the gardens. Almost nothing was left standing.
 
@@ -55,7 +55,7 @@ A building made for prayer and peace, standing alone for almost thirty years amo
 
 And yet, the walls held. The columns held. The minarets held.
 
-Maybe the master Safikhan built it so well that it simply refused to fall.
+Maybe I built it so well that it simply refused to fall.
 
 @@ courtyard@today
 In 2020, Aghdam came back to Azerbaijan. And in 2022, restoration of the mosque began.
@@ -87,7 +87,7 @@ So here's my question for you.
 
 If you could take one thing from this story and tell it to a friend, what would it be?
 
-The master who built it?
+The master who built it, that is, me?
 
 The years it stood alone?
 

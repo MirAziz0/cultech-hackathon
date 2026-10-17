@@ -12,9 +12,9 @@ Küçələr, bağlı-bağçalı evlər, dükanlar, səhərlər təzə çörək �
 
 Xoş gəlmisən Ağdama, onun Cümə məscidinə!
 
-Bu məscid təxminən 1868-1870-ci illərdə tikilib. Onu layihələndirən usta isə Kərbəlayi Səfixan Qarabaği olub.
+Bu məscid təxminən 1868-1870-ci illərdə tikilib. Onu mən layihələndirmişəm: mənim adım Kərbəlayi Səfixan Qarabağidir.
 
-Bu adı yadda saxla. O, Qarabağın ən məşhur ustalarından biri idi. Şuşadakı Gövhər ağa məscidlərini də o tikib. Yəni bu məscidə baxanda bütöv bir bölgənin simasını yaradan ustanın əl işinə baxırsan.
+Şuşadakı Gövhər ağa məscidlərini də mən tikmişəm. Yəni bu məscidə baxanda bir ustanın bütün ömrünün əməyinə baxırsan.
 
 @@ courtyard@xix
 İndi ona çöldən bax.
@@ -34,10 +34,10 @@ Təsəvvür et, çox illər əvvəl burada cümə namazı qılınır.
 
 Zal doludur. Kişilər aşağıda, qadınlar yuxarıdakı eyvanda. İşıq pəncərələrdən içəri düşür. Kiminsə uşağı pıçıldayır, bir qoca yavaş-yavaş təsbeh çevirir.
 
-Usta Səfixan hər sütunu, hər günbəzi, hər pəncərəni elə düşünüb ki, bu zal bütün bu insanları sığdırsın və onlara rahatlıq versin.
+Mən hər sütunu, hər günbəzi, hər pəncərəni elə düşünmüşəm ki, bu zal bütün bu insanları sığdırsın və onlara rahatlıq versin.
 
 @@ courtyard@ruin
-İndi isə sənə bu hekayənin ən ağır hissəsini danışmalıyam.
+İndi isə sənə bu hekayənin ən ağır hissəsini danışmalıyam. Bunları öz gözümlə görməmişəm, sonrakı nəsillərin yazdıqlarından bilirəm.
 
 1993-cü ildən sonra Ağdam itirildi və dağıdıldı. Məscidin ətrafındakı şəhər viran qoyuldu: evlər, küçələr, bağlar. Ayaqda demək olar ki, heç nə qalmadı.
 
@@ -56,7 +56,7 @@ Bir anlıq bunu düşün.
 
 Amma divarlar dözdü. Sütunlar dözdü. Minarələr dözdü.
 
-Bəlkə usta Səfixan onu elə möhkəm tikmişdi ki, sadəcə yıxılmaq istəmədi.
+Bəlkə mən onu elə möhkəm tikmişdim ki, sadəcə yıxılmaq istəmədi.
 
 @@ courtyard@today
 2020-ci ildə Ağdam Azərbaycana qayıtdı. 2022-ci ildə isə məscidin bərpasına başlanıldı.
@@ -88,7 +88,7 @@ Bilirsən, bəzən bina sadəcə binadır. Amma bəzən bina bir xatirəyə çev
 
 Bu hekayədən yalnız bir şeyi götürüb dostuna danışa bilsəydin, nə olardı?
 
-Onu tikən usta?
+Onu tikən usta, yəni mən?
 
 Tək-tənha dayandığı illər?
 
