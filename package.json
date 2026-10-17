@@ -15,12 +15,15 @@
     "map": "tsx scripts/make-map.ts",
     "icons": "tsx scripts/make-icons.ts",
     "test:walk": "tsx scripts/test-walk.ts",
+    "test:guide": "tsx scripts/test-guide.ts",
     "todo": "tsx scripts/content-todo.ts",
     "shot": "tsx scripts/shot.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.135.0",
     "@google/model-viewer": "^4.4.0",
+    "@pixiv/three-vrm": "^3.5.5",
+    "@pixiv/three-vrm-animation": "^3.5.5",
     "microsoft-cognitiveservices-speech-sdk": "^1.52.0",
     "n8ao": "^2.0.1",
     "next": "16.4.2",

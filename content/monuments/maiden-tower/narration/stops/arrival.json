@@ -1,0 +1,12 @@
+{
+ "stop": "arrival",
+ "text": {
+  "az": "[smile] Xoş gəldin, yolçu! Mən Usta Fərruxam — bu daşları yonan ustaları təmsil edən bir obrazam. Təsəvvür et: səhər tezdir, dənizdən duzlu külək əsir, kimsə yuxarıdan kəndir sallayıb səbət-səbət daş qaldırır. [look_up] İndi başını qaldır. Bu qala iyirmi doqquz yarım metr ucalır, eni on altı yarım metrdir. [point] Boz əhəngdaşı sıralarına bax — zolaq-zolaq, sanki qala öz yaşını daşlara yazıb. [pause] Amma bir sirr deyim: onun nə vaxt tikildiyini heç kim dəqiq bilmir. Çoxları XII əsr deyir, bəziləri daha qədim zamanlar. Gəl, şərq tərəfə keçək — orada daşdan bir barmaq günəşə doğru uzanıb…"
+ },
+ "factIds": [
+  "mt-size",
+  "mt-masonry",
+  "mt-dating"
+ ],
+ "generatedBy": "hand"
+}

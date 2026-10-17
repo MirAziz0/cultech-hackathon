@@ -55,6 +55,8 @@ export interface ArchitectSpec {
   };
   /** first-person greeting shown when walk mode opens */
   greeting: L;
+  /** folder in content/characters/<id>/ with avatar.vrm (+ anims); default: the monument slug */
+  avatar?: string;
 }
 
 export interface Building {
@@ -170,9 +172,29 @@ export interface WalkSpec {
   zones: Zone[];
   obstacles?: [number, number, number][];
   zoneInfo: Record<string, ZoneInfo>;
+  /** guided tour: story stops in walking order (narration/stops/<id>.json) */
+  tour?: { stops: TourStop[] };
   /** used by scripts/test-walk.ts: key presses with expected zone / min floor, and zones to screenshot */
   testRoute?: { key: string; ms: number; expect?: string; minFloor?: number }[];
   testShots?: string[];
+}
+
+/** One stop of the guided tour. Coordinates are walk coordinates (x east, y up, z south). */
+export interface TourStop {
+  id: string;
+  /** walk zone the stop belongs to (free mode offers the story when the visitor enters it) */
+  zone: string;
+  title: L;
+  /** where the guide stands: [x, floor height, z] */
+  stand: Vec3;
+  /** the feature he points at */
+  poi?: Vec3;
+  /** opening gesture instead of pointing (e.g. "think" for a legend) */
+  gesture?: "point" | "lookUp" | "think" | "welcome";
+  /** photo id highlighted on the card when the story says [photo] */
+  photo?: string;
+  /** only in these eras (walk.eras) */
+  eras?: Era[];
 }
 
 export interface ZoneInfo {
@@ -336,6 +358,20 @@ export interface Narration {
   generatedBy: "hand" | "claude";
 }
 
+/** A tour stop told as a story: narration/stops/<stop>.json. Text carries markers like [point]. */
+export interface Story {
+  stop: string;
+  /** era variant ("stop@era" in the bundle) */
+  era?: Era;
+  text: L;
+  factIds: string[];
+  audio?: Partial<Record<Lang, string>>;
+  visemes?: Partial<Record<Lang, Viseme[]>>;
+  /** marker times (ms) from Azure bookmarks, in marker order */
+  marks?: Partial<Record<Lang, { t: number; name: string }[]>>;
+  generatedBy: "hand" | "claude";
+}
+
 /** canned answers used in mock mode */
 export interface QA { keys: string[]; a: L; factIds: string[] }
 
@@ -345,6 +381,10 @@ export interface MonumentBundle {
   facts: Fact[];
   photos: Photo[];
   narration: Record<string, Narration>;
+  /** character id when content/characters/<id>/avatar.vrm exists (Plan A), else undefined (Plan B) */
+  avatar?: string;
+  /** tour stories by stop id ("stop@era" for era variants) */
+  stories: Record<string, Story>;
   qa: QA[];
   /** public URL prefix: /monuments/<slug> */
   base: string;

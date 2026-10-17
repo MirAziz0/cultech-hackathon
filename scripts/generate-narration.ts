@@ -1,4 +1,6 @@
-/* Pre-generates the architect's zone narrations so the demo works offline.
+/* Pre-generates the architect's zone narrations and tour stories so the demo works offline.
+   Tour stories: narration/stops/<stop>.json for every manifest.walk.tour stop — checked for length,
+   markers, fact ids and numbers that aren't in the cited facts; --audio adds MP3 + visemes + marker times.
    For every monument with a walk: "intro" + every zone in walk.zoneInfo.
      --text   (re)write the narration scripts with Claude from facts.json   [needs ANTHROPIC_API_KEY]
      --audio  synthesize MP3 + Azure viseme timelines for az and en          [needs AZURE_SPEECH_KEY/REGION]
@@ -10,10 +12,11 @@ import path from "node:path";
 import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { z } from "zod/v4";
-import type { FactsFile, Lang, Manifest, Narration } from "../lib/types";
-import { azureConfigured, synthesize } from "../lib/speech/azure";
+import type { FactsFile, Lang, Manifest, Narration, Story, TourStop } from "../lib/types";
+import { azureConfigured, synthesize, synthesizeStory } from "../lib/speech/azure";
+import { MARKERS, parseStory } from "../lib/guide/story";
 import { estimateDuration } from "../lib/speech/visemes";
-import { COMMON_RULES, factLines, personaRules } from "../lib/persona";
+import { COMMON_RULES, STORY_RULES, factLines, personaRules } from "../lib/persona";
 import { zoneInfoFor } from "../lib/eras";
 
 const ROOT = path.join(process.cwd(), "content", "monuments");
@@ -93,7 +96,87 @@ async function run(slug: string) {
     fs.writeFileSync(file, JSON.stringify(n, null, 1) + "\n");
     console.log(`  ✓ ${key}: ${words} words${lengthNote}${n.audio?.az ? " · audio" : ""}`);
   }
+  await runStops(slug, m, facts, client, wantAudio);
 }
+
+/* ---------------- tour stories (narration/stops/<stop>.json) ---------------- */
+const StoryOut = z.object({
+  az: z.string().describe("Azerbaijani story, 70-110 words, with markers like [point] [look_up] [smile] [pause]"),
+  en: z.string().describe("English version of the same story, same markers"),
+  factIds: z.array(z.string()),
+});
+
+async function writeStory(client: Anthropic, m: Manifest, facts: FactsFile, stop: TourStop, next?: TourStop): Promise<Story> {
+  const res = await client.beta.messages.parse({
+    model: process.env.ANTHROPIC_MODEL || "claude-opus-5-5",
+    max_tokens: 6000,
+    output_config: { effort: "high", format: betaZodOutputFormat(StoryOut) },
+    betas: ["server-side-fallback-2026-07-01"],
+    fallbacks: "default",
+    system: `You write one stop of a guided walking tour, spoken aloud by TTS.\n${personaRules(m)}\n${COMMON_RULES}\n${STORY_RULES}
+Structure: 1) hook — a scene, sound or moment; 2) a human detail; 3) the real fact(s) woven in; 4) a small teaser that pulls the visitor to the next stop.
+- 70–110 words in Azerbaijani (30–45 seconds). For events after the builder's lifetime, narrate from sources ("Mənbələr yazır ki…").
+- Insert stage markers where the guide should act: [point] (points at the feature), [look_up], [smile], [serious], [surprised], [think], [nod], [photo] (the real photo card lights up), [pause]. Use 2–4 markers.`,
+    messages: [{
+      role: "user",
+      content: `STOP: ${stop.title.az} (${stop.title.en ?? ""}) in zone "${stop.zone}"${stop.poi ? " — the guide points at the feature" : ""}.${next ? `\nNEXT STOP (tease it): ${next.title.az}` : "\nThis is the last stop."}\n\nFACTS:\n${factLines(facts.facts, m)}`,
+    }],
+  });
+  if (!res.parsed_output) throw new Error(`no story for ${stop.id} (stop_reason ${res.stop_reason})`);
+  const known = new Set(facts.facts.map((f) => f.id));
+  return { stop: stop.id, text: { az: res.parsed_output.az, en: res.parsed_output.en }, factIds: res.parsed_output.factIds.filter((id) => known.has(id)), generatedBy: "claude" };
+}
+
+/** checks a story against the rules that can be checked mechanically */
+function lintStory(st: Story, facts: FactsFile): string[] {
+  const out: string[] = [];
+  const known = new Map(facts.facts.map((f) => [f.id, f]));
+  for (const id of st.factIds) if (!known.has(id)) out.push(`unknown fact id "${id}"`);
+  for (const lang of ["az", "en"] as Lang[]) {
+    const src = st.text[lang];
+    if (!src) { out.push(`no ${lang} text`); continue; }
+    for (const mk of src.match(/\[([a-z_]+)\]/g) ?? []) if (!MARKERS.includes(mk.slice(1, -1) as never)) out.push(`${lang}: unknown marker ${mk}`);
+    const words = parseStory(src).plain.split(/\s+/).length;
+    if (lang === "az" && (words < 60 || words > 120)) out.push(`az: ${words} words (target 70–110)`);
+    // every number written in digits must appear in one of the cited facts
+    const cited = st.factIds.map((id) => `${known.get(id)?.text.az ?? ""} ${known.get(id)?.text.en ?? ""}`).join(" ");
+    for (const num of parseStory(src).plain.match(/\d+(?:[.,]\d+)?/g) ?? []) if (!cited.includes(num)) out.push(`${lang}: number ${num} is not in the cited facts`);
+  }
+  return out;
+}
+
+async function runStops(slug: string, m: Manifest, facts: FactsFile, client: Anthropic | null, wantAudio: boolean) {
+  const stops = m.walk?.tour?.stops ?? [];
+  if (!stops.length) { console.log(`  · ${slug}: no walk.tour.stops (the walk uses automatic stops + zone narrations)`); return; }
+  const sdir = path.join(ROOT, slug, "narration", "stops");
+  fs.mkdirSync(sdir, { recursive: true });
+  const ids = fs.existsSync(path.join(sdir, "intro.json")) ? ["intro", ...stops.map((s) => s.id)] : stops.map((s) => s.id);
+  for (const id of ids.filter((x) => !zoneOnly || x === zoneOnly)) {
+    const file = path.join(sdir, `${id}.json`);
+    let st: Story | null = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : null;
+    const i = stops.findIndex((s) => s.id === id);
+    if (client && i >= 0 && (!st || flag("--force"))) { st = await writeStory(client, m, facts, stops[i], stops[i + 1]); console.log(`  ✎ stop ${id}: story by Claude`); }
+    if (!st) { console.warn(`  ✗ stop ${id}: missing story (write ${path.relative(process.cwd(), file)}; until then the zone narration is used)`); continue; }
+    const issues = lintStory(st, facts);
+    if (wantAudio && azureConfigured()) {
+      st.audio ??= {}; st.visemes ??= {}; st.marks ??= {};
+      for (const lang of ["az", "en"] as Lang[]) {
+        const text = st.text[lang];
+        if (!text) continue;
+        const audioFile = `${id}.${lang}.mp3`;
+        if (fs.existsSync(path.join(sdir, audioFile)) && st.visemes[lang] && !flag("--force")) continue;
+        const { audio, visemes, marks } = await synthesizeStory(text, lang, m.architect.voice);
+        fs.writeFileSync(path.join(sdir, audioFile), audio);
+        st.audio[lang] = audioFile; st.visemes[lang] = visemes; st.marks[lang] = marks;
+        console.log(`  ♪ stop ${id}.${lang}: ${(audio.length / 1024).toFixed(0)} KB, ${visemes.length} visemes, ${marks.length} marks`);
+      }
+    }
+    fs.writeFileSync(file, JSON.stringify(st, null, 1) + "\n");
+    const secs = estimateDuration(parseStory(st.text.az).plain, "az");
+    console.log(`  ${issues.length ? "⚠" : "✓"} stop ${id}: ~${secs.toFixed(0)}s${st.audio?.az ? " · audio" : ""}${issues.length ? `\n      ${issues.join("\n      ")}` : ""}`);
+  }
+}
+
 
 async function main() {
   const all = fs.readdirSync(ROOT).filter((d) => fs.existsSync(path.join(ROOT, d, "manifest.json")));

@@ -66,6 +66,8 @@ export class Walker {
     }
     return null;
   }
+  /** feet position + heading, for the guide */
+  floorPos() { return { x: this.x, z: this.z, floor: this.floor, yaw: this.yaw }; }
   look(dx: number, dy: number) {
     this.yaw -= dx * 0.0042;
     this.pitch = Math.max(-1.2, Math.min(1.2, this.pitch - dy * 0.0042));
@@ -76,10 +78,14 @@ export class Walker {
   }
 }
 
+/** extra minimap marker: a dot (guide) or a diamond (next stop); faded when on another level */
+export interface MapMark { x: number; z: number; y: number; color: string; kind: "dot" | "diamond" }
+
 /** minimap: draws zones near the player's level and the player arrow (reference drawMap) */
 export function drawMap(
   ctx: CanvasRenderingContext2D, w: number, h: number, spec: WalkSpec, map: ZoneMap, me: Walker,
   colors: { bg: string; floor: string; me: string; other: string },
+  marks: MapMark[] = [],
 ) {
   const [x0, x1, z0, z1] = spec.map.bounds;
   const sc = Math.min(w / (x1 - x0), h / (z1 - z0));
@@ -103,6 +109,19 @@ export function drawMap(
     ctx.closePath();
     ctx.fill("evenodd");
   }
+  for (const mk of marks) {
+    ctx.globalAlpha = Math.abs(mk.y - me.floor) < 1.6 ? 1 : 0.35;
+    ctx.fillStyle = mk.color;
+    ctx.strokeStyle = "rgba(20,17,14,.9)";
+    ctx.lineWidth = 1.5;
+    const mx = X(mk.x), mz = Z(mk.z);
+    ctx.beginPath();
+    if (mk.kind === "dot") ctx.arc(mx, mz, 4.5, 0, Math.PI * 2);
+    else { ctx.moveTo(mx, mz - 6); ctx.lineTo(mx + 5, mz); ctx.lineTo(mx, mz + 6); ctx.lineTo(mx - 5, mz); ctx.closePath(); }
+    ctx.fill();
+    ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
   const px = X(me.x), pz = Z(me.z);
   ctx.fillStyle = colors.me;
   ctx.beginPath();

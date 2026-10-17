@@ -6,7 +6,7 @@ import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { z } from "zod/v4";
 import { getBundle, listSlugs } from "@/lib/content";
 import { guessLang, mockAnswer } from "@/lib/mock";
-import { COMMON_RULES, factLines, personaRules } from "@/lib/persona";
+import { COMMON_RULES, STORY_RULES, factLines, personaRules } from "@/lib/persona";
 import type { Lang } from "@/lib/types";
 import { zoneInfoFor } from "@/lib/eras";
 
@@ -20,7 +20,7 @@ const Body = z.object({
 });
 
 const Reply = z.object({
-  text: z.string().describe("The architect's spoken answer, first person, at most 90 words"),
+  text: z.string().describe("The architect's spoken answer: a short story-flavoured reply, first person, at most 80 words"),
   factIds: z.array(z.string()).describe("ids of the facts the answer relies on; empty if none"),
   lang: z.enum(["az", "en", "other"]).describe("language of the answer"),
 });
@@ -33,7 +33,8 @@ function systemPrompt(slug: string) {
   const m = b.manifest;
   return `${personaRules(m)}
 ${COMMON_RULES}
-- At most 90 words. Plain spoken sentences, no lists, no markdown — it will be read aloud.
+${STORY_RULES}
+- At most 80 words: a short story-flavoured answer, not a lecture. Plain spoken sentences, no lists, no markdown — it will be read aloud.
 - Answer in Azerbaijani by default; if the visitor writes in another language, answer in that language.
 - Return the ids of the facts you used in factIds.
 

@@ -171,3 +171,80 @@ Note: `public/monuments/` is generated and git-ignored, so the build recreates i
 - Claims that need a historian's review are listed in `CONTENT_TODO.md`.
 - Photos come from Wikimedia Commons and show author, license and file page wherever they appear.
 - Map outlines: Natural Earth (public domain).
+
+## The 3D guide (architect)
+
+In walk mode the architect is a 3D character who walks with the visitor, leads the guided tour, points at features and tells each stop as a story. Code lives in `lib/guide/`, the on-screen layer in `components/guide/GuideHud.tsx`.
+
+| Part | File |
+|---|---|
+| Plan B body: procedural low-poly builder (~1.8k triangles), walk cycle, gestures, arm IK, head look-at, blink, jaw/mouth | `lib/guide/avatar/procedural.ts` |
+| Plan A body: VRM avatar with `.vrma` / Mixamo FBX clips | `lib/guide/avatar/vrm.ts` |
+| Paths on the visitor's own walkable zones (A*, stairs, levels), furniture/columns avoided | `lib/guide/nav.ts`, `lib/guide/blockers.ts` |
+| Follow mode, leading, facing | `lib/guide/guide.ts` |
+| Tour: walk → wait → point → story → next | `lib/guide/tour.ts` |
+| Story markers and subtitle chunks | `lib/guide/story.ts` |
+| Azure viseme → VRM mouth shapes aa/ih/ou/ee/oh | `lib/guide/lipsync.ts` |
+
+The demo never depends on an asset: without `avatar.vrm` the procedural builder is used, and the colours and headwear come from `manifest.architect.look`.
+
+### Making or replacing the avatar (VRoid Studio, free)
+
+1. In VRoid Studio, create a new male model. Make an original design (no real person's likeness): a medieval Baku master builder with a long robe, a belt/sash, a beard and a turban. Hair presets can stand in for the turban, or model it as an accessory.
+2. Export as VRM 1.0. In the export settings, reduce polygons and set the texture atlas to 2048 or smaller, staying at or under 20k triangles. The console warns if you go over.
+3. Save it as `content/characters/<id>/avatar.vrm`. `<id>` defaults to the monument slug, or set `manifest.architect.avatar` to share one avatar between monuments.
+4. Animations go in `content/characters/<id>/anims/`, listed in `content/characters/<id>/anims.json`:
+   ```json
+   { "idle": "anims/idle.fbx", "walk": "anims/walk.fbx", "talk1": "anims/talk1.fbx", "talk2": "anims/talk2.fbx",
+     "talk3": "anims/talk3.fbx", "point": "anims/point.fbx", "lookUp": "anims/lookup.fbx", "wave": "anims/wave.fbx",
+     "welcome": "anims/welcome.fbx", "think": "anims/think.fbx", "nod": "anims/nod.fbx" }
+   ```
+   `.vrma` files work too. Mixamo clips are retargeted automatically. Download them from mixamo.com as **FBX Binary, Without Skin, 30 fps, In Place**. Suggested clips: *Breathing Idle* (idle), *Walking* (walk, In Place), *Talking* / *Explaining* / *Having A Meeting* (talk1–3), *Pointing* (point), *Looking Up* (lookUp), *Waving* (wave), *Salute* or *Greeting* (welcome), *Thinking* (think), *Head Nod Yes* (nod).
+   Any clip can be missing: pointing (arm IK), looking at the visitor and lip sync are always procedural.
+5. Run `npm run dev` or `npm run build`. `npm run content` copies `content/characters/` to `public/characters/`.
+
+### Adding tour stops
+
+Add stops to `manifest.walk.tour.stops` in walking order. Coordinates are walk coordinates: x east, y up, z south.
+
+```json
+{ "id": "well", "zone": "l0", "title": { "az": "Qalanın içində su", "en": "Water inside the tower" },
+  "stand": [-1.5, 0, -1.25], "poi": [0, 0.2, 0], "photo": "level3_0" }
+```
+
+- `stand` is where the guide stands, as [x, floor height, z].
+- `poi` is what he points at.
+- `gesture` is an optional opening gesture (`"think"` for a legend stop).
+- `photo` is the photo card that lights up at `[photo]`.
+- `eras` limits a stop to some walk eras.
+
+Monuments without a stop list get one automatic stop per described zone.
+
+### Writing stories
+
+Write one file per stop at `narration/stops/<stop-id>.json`. An optional `intro.json` holds the greeting.
+
+```json
+{ "stop": "well", "text": { "az": "…", "en": "…" }, "factIds": ["mt-well"], "generatedBy": "hand" }
+```
+
+- **Length:** 70–110 words (30–45 s).
+- **Structure:** a hook, a human detail, the real fact, then a teaser for the next stop.
+- **Facts:** facts come only from `facts.json`. Imagined scenes start with "Təsəvvür et…" and legends with "Rəvayətə görə…".
+- **Markers:** these trigger gestures when the voice reaches them: `[point] [look_up] [smile] [serious] [surprised] [think] [wave] [nod] [photo] [pause]`.
+- **Fallback:** until a story exists, the stop uses the zone narration.
+
+### Regenerating narration
+
+```bash
+npm run narration                          # check every story: length, markers, fact ids, numbers not in the cited facts
+npm run narration -- maiden-tower --text   # missing stories written by Claude (ANTHROPIC_API_KEY), same rules
+npm run narration -- --audio               # MP3 + viseme timeline + marker times (AZURE_SPEECH_KEY/REGION)
+npm run narration -- --audio --force --zone=well
+```
+
+With cached audio, gestures fire on the exact Azure bookmark time. Without it, they fire by text position, with browser speech or silent subtitles. Commit `narration/stops/*.mp3` so the tour works offline.
+
+### Tests
+
+`npm run test:guide` runs a Playwright check against a running server (`BASE=http://localhost:3000`). It covers the greeting distance, following on the stairs and after a level jump, the triangle budget, the tour stops and the subtitles. Screenshots go to `screenshots/guide-*` and `screenshots/tour-*`.

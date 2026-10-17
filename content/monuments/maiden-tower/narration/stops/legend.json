@@ -1,0 +1,11 @@
+{
+ "stop": "legend",
+ "text": {
+  "az": "[pause] Bura qədər qalxanda nəfəsin daralır, hə? Təsəvvür et, bu pillələrlə hər gün daş daşıyan şagirdlər necə yorulardı. Gəl, bir az dincəl, sənə bir rəvayət danışım. [smile] Rəvayətə görə, bir qız düşmən sərkərdəsini təkbətək döyüşdə məğlub edib; başqa bir rəvayətdə isə özünü qurban verib. Bu nağıllar elə sevilib ki, 1940-cı ildə Əfrasiyab Bədəlbəyli onlardan balet yazıb. [serious] İndi isə tarixdən danışaq: bunlar rəvayətdir, fakt deyil. Bəzi alimlər qalanı islamdan əvvəlki atəşgah sayır, ümumi rəy isə bugünkü qalanın böyük hissəsini XII əsrə aid edir. [look_up] Yuxarıda isə külək gözləyir — dama çıxaq."
+ },
+ "factIds": [
+  "mt-legend",
+  "mt-dating"
+ ],
+ "generatedBy": "hand"
+}

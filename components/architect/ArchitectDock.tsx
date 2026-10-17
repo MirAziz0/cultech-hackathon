@@ -3,6 +3,7 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useSta
 import { useT } from "@/lib/i18n";
 import type { Fact, Lang, MonumentBundle } from "@/lib/types";
 import { Speaker, type Utterance } from "@/lib/speech/speaker";
+import type { Mouth } from "@/lib/speech/visemes";
 import { mockAnswer } from "@/lib/mock";
 import { narrationAudioUrl } from "@/lib/bundle";
 import { zoneInfoFor } from "@/lib/eras";
@@ -29,7 +30,9 @@ export const ArchitectDock = forwardRef<ArchitectHandle, {
   /** greet when mounted (after a user gesture) */
   greet?: boolean;
   onHeight?: (h: number) => void;
-}>(function ArchitectDock({ bundle, zone, era, mode, onClose, greet = true, onHeight }, ref) {
+  /** mirrors speech to the 3D guide */
+  onSpeech?: { talk(on: boolean): void; mouth(m: Mouth, open: number): void };
+}>(function ArchitectDock({ bundle, zone, era, mode, onClose, greet = true, onHeight, onSpeech }, ref) {
   const m = bundle.manifest;
   const { t, c, lang } = useT();
   const rig = useRef<ArchitectRig>(null);
@@ -61,12 +64,14 @@ export const ArchitectDock = forwardRef<ArchitectHandle, {
     speaker.current = s;
     return () => s.stop();
   }, []);
+  const speechRef = useRef(onSpeech);
+  useEffect(() => { speechRef.current = onSpeech; }, [onSpeech]);
   useEffect(() => {
     speaker.current?.setEvents({
-      onMouth: (mm, open) => rig.current?.setMouth(mm, open),
+      onMouth: (mm, open) => { rig.current?.setMouth(mm, open); speechRef.current?.mouth(mm, open); },
       onProgress: setProgress,
-      onStart: (md) => { setSpeaking(true); setMode2(md); rig.current?.setTalking(true); },
-      onEnd: () => { setSpeaking(false); rig.current?.setTalking(false); },
+      onStart: (md) => { setSpeaking(true); setMode2(md); rig.current?.setTalking(true); speechRef.current?.talk(true); },
+      onEnd: () => { setSpeaking(false); rig.current?.setTalking(false); speechRef.current?.talk(false); },
     });
   }, []);
   useEffect(() => {

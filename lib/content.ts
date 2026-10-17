@@ -1,7 +1,7 @@
 import "server-only";
 import fs from "node:fs";
 import path from "node:path";
-import type { Era, Fact, FactsFile, Lang, Manifest, MonumentBundle, Narration, Photo, PhotosFile, QA } from "./types";
+import type { Era, Fact, FactsFile, Lang, Manifest, MonumentBundle, Narration, Photo, PhotosFile, QA, Story } from "./types";
 
 /* Reads /content/monuments/* at build time. Adding a folder adds a monument. */
 const ROOT = path.join(process.cwd(), "content", "monuments");
@@ -56,6 +56,14 @@ export function getBundle(slug: string): MonumentBundle {
         if (n) narration[n.era ? `${n.zone}@${n.era}` : n.zone] = n;
       }
   const qa = readJson<QA[]>(path.join(ndir, "qa.json"), []);
+  const stories: Record<string, Story> = {};
+  const sdir = path.join(ndir, "stops");
+  if (fs.existsSync(sdir))
+    for (const f of fs.readdirSync(sdir))
+      if (f.endsWith(".json")) {
+        const st = readJson<Story | null>(path.join(sdir, f), null);
+        if (st) stories[st.era ? `${st.stop}@${st.era}` : st.stop] = st;
+      }
   const ar: MonumentBundle["ar"] = {};
   const models = path.join(process.cwd(), "public", "monuments", slug, "models");
   for (const era of Object.keys(manifest.eras) as Era[])
@@ -65,7 +73,9 @@ export function getBundle(slug: string): MonumentBundle {
       const usdz = fs.existsSync(path.join(models, `${name}.usdz`)) ? `/monuments/${slug}/models/${name}.usdz` : undefined;
       (ar[era] ??= {})[lang] = { glb: `/monuments/${slug}/models/${name}.glb`, usdz };
     }
-  return { manifest, facts, photos, narration, qa, base: `/monuments/${slug}`, ar };
+  const avatarId = manifest.architect.avatar ?? slug;
+  const avatar = fs.existsSync(path.join(process.cwd(), "content", "characters", avatarId, "avatar.vrm")) ? avatarId : undefined;
+  return { manifest, facts, photos, narration, stories, qa, base: `/monuments/${slug}`, ar, avatar };
 }
 
 export function listMonuments(): (Manifest & { coverUrl?: string; coverPhoto?: Photo })[] {

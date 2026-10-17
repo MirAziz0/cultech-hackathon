@@ -17,8 +17,10 @@ export interface Utterance {
 
 export interface SpeakerEvents {
   onMouth?: (m: Mouth, open: number) => void;
-  /** 0..1 progress for subtitle highlighting */
-  onProgress?: (p: number) => void;
+  /** 0..1 progress for subtitle highlighting, plus elapsed ms */
+  onProgress?: (p: number, ms: number) => void;
+  /** raw Azure-style viseme id (real or estimated timeline) for 3D lip sync */
+  onViseme?: (id: number, open: number) => void;
   onStart?: (mode: "audio" | "tts" | "browser" | "silent") => void;
   onEnd?: () => void;
 }
@@ -137,7 +139,8 @@ export class Speaker {
       // small jitter keeps long vowels alive
       const open = m === "rest" ? 0 : 0.75 + 0.25 * Math.sin(t / 55);
       this.ev.onMouth?.(m, open);
-      this.ev.onProgress?.(Math.min(1, t / dur));
+      this.ev.onViseme?.(vis[i]?.id ?? 0, open);
+      this.ev.onProgress?.(Math.min(1, t / dur), t);
       if (!external && t >= dur) { this.finish(); return; }
       this.raf = requestAnimationFrame(tick);
     };
@@ -172,7 +175,7 @@ export class Speaker {
       smooth += (level - smooth) * 0.45;
       const m: Mouth = smooth < 0.08 ? "rest" : smooth < 0.3 ? "E" : smooth < 0.6 ? "O" : "A";
       this.ev.onMouth?.(m, smooth);
-      this.ev.onProgress?.(Math.min(1, (a.currentTime * 1000) / dur));
+      this.ev.onProgress?.(Math.min(1, (a.currentTime * 1000) / dur), a.currentTime * 1000);
       this.raf = requestAnimationFrame(tick);
     };
     tick();
@@ -200,7 +203,7 @@ export class Speaker {
     cancelAnimationFrame(this.raf);
     this.speaking = false;
     this.ev.onMouth?.("rest", 0);
-    this.ev.onProgress?.(1);
+    this.ev.onProgress?.(1, Infinity);
     this.ev.onEnd?.();
   }
 }

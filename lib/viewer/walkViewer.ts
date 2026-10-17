@@ -6,7 +6,7 @@ import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
 import { SMAAPass } from "three/examples/jsm/postprocessing/SMAAPass.js";
 import type { Era, WalkSpec } from "../types";
 import { buildWalkWorld, type WalkWorld } from "../kit/walkScene";
-import { Walker, drawMap } from "../walk/controller";
+import { Walker, drawMap, type MapMark } from "../walk/controller";
 import { ZoneMap } from "../walk/zones";
 
 export type Quality = "high" | "low";
@@ -35,6 +35,12 @@ export class WalkViewer {
   paused = false;
   onZone?: (id: string) => void;
   onFrame?: (dt: number) => void;
+  /** runs after the walker moved and before rendering (the guide lives here) */
+  beforeRender?: (dt: number) => void;
+  /** extra dots on the minimap (guide, next stop) */
+  mapMarks?: () => MapMark[];
+  /** objects that live in every era's scene (the guide) */
+  private actors: THREE.Object3D[] = [];
   mini?: { ctx: CanvasRenderingContext2D; w: number; h: number; colors: { bg: string; floor: string; me: string; other: string } };
 
   /** worlds built so far, one per era (built on first visit, so switching back is instant) */
@@ -65,12 +71,23 @@ export class WalkViewer {
     let w = this.worlds.get(era);
     if (!w) { w = buildWalkWorld(this.spec, this.renderer, { era }); this.worlds.set(era, w); }
     this.world = w;
+    for (const a of this.actors) w.scene.add(a);
     this.world.pool.update(0, this.camera.position, true);
     if (this.composer) {
       this.composer.dispose();
       this.composer = null;
       this.setupAO().catch((e) => console.warn("[walk] AO disabled:", e));
     }
+  }
+
+  addActor(o: THREE.Object3D) {
+    this.actors.push(o);
+    this.world.scene.add(o);
+  }
+
+  removeActor(o: THREE.Object3D) {
+    this.actors = this.actors.filter((a) => a !== o);
+    o.removeFromParent();
   }
 
   private async setupAO() {
@@ -124,11 +141,12 @@ export class WalkViewer {
       if (this.paused) return;
       const z = this.walker.update(dt, this.camera);
       if (z) this.onZone?.(z);
+      this.beforeRender?.(dt);
       this.world.pool.update(dt, this.camera.position);
       if (this.quality === "high") this.world.update(this.clock.elapsedTime);
       if (this.composer) this.composer.render(dt);
       else this.renderer.render(this.world.scene, this.camera);
-      if (this.mini) drawMap(this.mini.ctx, this.mini.w, this.mini.h, this.spec, this.map, this.walker, this.mini.colors);
+      if (this.mini) drawMap(this.mini.ctx, this.mini.w, this.mini.h, this.spec, this.map, this.walker, this.mini.colors, this.mapMarks?.());
       this.onFrame?.(dt);
       this.adapt(dt);
     };

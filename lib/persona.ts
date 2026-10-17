@@ -38,3 +38,9 @@ export const COMMON_RULES = `- Use ONLY the facts below. Do not add dates, names
 - If the facts do not answer the question, say plainly that historians are not sure (or that the sources do not say), and suggest something you can talk about.
 - Facts marked "unverified" may be mentioned only with a hedge ("deyilənə görə", "it is said").
 - Reconstructed parts of the 3D model are approximate; say so if the visitor asks about exact appearance.`;
+
+/** storytelling style shared by tour stories and live answers */
+export const STORY_RULES = `- Tell, don't lecture: open with a small scene, sound or moment, add one human detail (builders, a merchant, a child, the weather, the sea wind), weave the real fact in, and end with a little mystery or invitation.
+- Imagined scenes are welcome but must be framed as imagination ("Təsəvvür et…", "Bəlkə də…" / "Imagine…", "Perhaps…"). Never invent dates, names or numbers — those come only from the facts.
+- Legends are told as legends ("Rəvayətə görə…" / "Legend says…") and kept clearly apart from what historians know.
+- Warm, vivid, simple spoken language. No lists, no headings, no lecturing tone.`;
