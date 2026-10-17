@@ -47,8 +47,36 @@ function closures(slug: string): Box[] {
       out.push(box([-5.28, 0.15, p0], [-4.77, 4.55, p1], "plaster"));    // palace corner → courtyard rooms
       out.push(box([-8.23, 0.15, c0], [-4.52, 4.55, c1], "plaster"));
     }
+    erivanTown(out);
   }
   return out;
+}
+
+/* Erivan: the town inside the fortress walls (about 800 flat-roofed houses are recorded) around the
+   modelled street, so the street no longer ends in an empty plain. Layout is a hypothesis. */
+function erivanTown(out: Box[]) {
+  let s = 1827;
+  const r = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+  const MATS = ["brick", "c:#a88a68", "brick", "c:#9c7e5e", "c:#b39773"]; // fired brick and mud-plastered walls
+  const house = (x0: number, z0: number, x1: number, z1: number, h: number) => out.push(box([x0, 0, z0], [x1, h, z1], MATS[Math.floor(r() * MATS.length)]));
+  // the street continues to a small square before the mosque; a row of houses on its north side; a block closes the view
+  out.push(ground("floor", [44, 48, -8, 8], 0, "floorGrey"));
+  out.push(ground("floor", [48, 70, 4, 8.5], 0, "floorGrey"));
+  house(44.02, 8.52, 53.9, 13.98, 4.6);
+  house(54.1, 8.52, 63.9, 13.98, 5.3);
+  house(70.02, -13.98, 81.98, 13.98, 6.4);
+  // the rest of the town: houses on a loose grid with narrow lanes, kept off the palace, courtyard, street, mosque and gorge
+  const keepOut = [[-16, 22, -15, 15], [20, 46, -14.6, 14.6], [44, 82.5, -15, 15], [-400, -15, -400, 400]];
+  const clear = (x0: number, x1: number, z0: number, z1: number) => !keepOut.some(([a, b, c, d]) => x0 < b + 0.6 && x1 > a - 0.6 && z0 < d + 0.6 && z1 > c - 0.6);
+  for (let gx = -14; gx < 138; gx += 9.5)
+    for (let gz = -78; gz < 78; gz += 9.5) {
+      const w = 6.2 + r() * 2.4, d = 6.2 + r() * 2.4, x0 = gx + r() * (9.5 - w - 0.8), z0 = gz + r() * (9.5 - d - 0.8);
+      if (clear(x0, x0 + w, z0, z0 + d)) house(x0, z0, x0 + w, z0 + d, 3.6 + r() * 3.4);
+    }
+  // the fortress wall beyond the houses (the cliff side stays open)
+  out.push(box([-15, 0, -84], [142, 9, -82], "brick"));
+  out.push(box([-15, 0, 82], [142, 9, 84], "brick"));
+  out.push(box([140, 0, -82], [142, 9, 82], "brick"));
 }
 
 const UPGRADES: Record<string, { clouds: string; alias: Record<string, string> }> = {
