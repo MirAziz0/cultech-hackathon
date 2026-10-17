@@ -105,7 +105,8 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
           ];
           guide.current = g;
           // Plan A: swap in the VRM avatar if content/characters/<id>/avatar.vrm exists (else keep Plan B)
-          if (bundle.avatar) import("@/lib/guide/avatar/vrm").then(({ loadVrmAvatar }) => loadVrmAvatar(bundle.avatar!)).then((a) => {
+          const av = bundle.avatar;
+          if (av) (av.kind === "vrm" ? import("@/lib/guide/avatar/vrm").then(({ loadVrmAvatar }) => loadVrmAvatar(av.id)) : import("@/lib/guide/avatar/mesh").then(({ loadMeshAvatar }) => loadMeshAvatar(av.id))).then((a) => {
             if (!a || dead || guide.current !== gg) { a?.dispose(); return; }
             const old = gg.avatar;
             a.root.visible = old.root.visible;

@@ -74,7 +74,8 @@ export function getBundle(slug: string): MonumentBundle {
       (ar[era] ??= {})[lang] = { glb: `/monuments/${slug}/models/${name}.glb`, usdz };
     }
   const avatarId = manifest.architect.avatar ?? slug;
-  const avatar = fs.existsSync(path.join(process.cwd(), "content", "characters", avatarId, "avatar.vrm")) ? avatarId : undefined;
+  const cdir = path.join(process.cwd(), "content", "characters", avatarId);
+  const avatar: MonumentBundle["avatar"] = fs.existsSync(path.join(cdir, "avatar.vrm")) ? { id: avatarId, kind: "vrm" } : fs.existsSync(path.join(cdir, "model.glb")) ? { id: avatarId, kind: "mesh" } : undefined;
   return { manifest, facts, photos, narration, stories, qa, base: `/monuments/${slug}`, ar, avatar };
 }
 

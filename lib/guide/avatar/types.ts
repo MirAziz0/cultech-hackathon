@@ -17,7 +17,7 @@ export const MOUTH_REST: MouthShape = { aa: 0, ih: 0, ou: 0, ee: 0, oh: 0 };
 
 export interface GuideAvatar {
   readonly root: THREE.Object3D;
-  readonly kind: "procedural" | "vrm";
+  readonly kind: "procedural" | "vrm" | "mesh";
   /** triangle count (budget: ≤ 20k) */
   readonly tris: number;
   /** eye height above the feet */

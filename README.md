@@ -188,6 +188,18 @@ In walk mode the architect is a 3D character who walks with the visitor, leads t
 
 The demo never depends on an asset: without `avatar.vrm` the procedural builder is used, and the colours and headwear come from `manifest.architect.look`.
 
+### Using a ready-made 3D model (OBJ + texture)
+
+The guide on all four walks currently uses `content/characters/usta/`, imported from the `cultech model` archive (OBJ + texture). Every manifest has `"avatar": "usta"` under `architect`. To replace it:
+
+```bash
+npx tsx scripts/import-character.ts "<model.zip or .obj>" usta   # simplifies to ~18k triangles, texture → 1024 px JPG
+```
+
+The script writes `model.glb`, `texture.jpg` and `character.json`. If the model faces the wrong way, set `"yaw"` in `character.json` (degrees). A static model has no skeleton, so `lib/guide/avatar/mesh.ts` adds one automatically: walking with a robe swing, turning, torso twist toward what he shows, head look-at and nods.
+
+Hand gestures, real arm pointing and lip sync need a rigged model. Upload the OBJ to Mixamo's auto-rigger, or rebuild the character in VRoid, then save it as `avatar.vrm` in the same folder. A VRM always takes priority over `model.glb`.
+
 ### Making or replacing the avatar (VRoid Studio, free)
 
 1. In VRoid Studio, create a new male model. Make an original design (no real person's likeness): a medieval Baku master builder with a long robe, a belt/sash, a beard and a turban. Hair presets can stand in for the turban, or model it as an accessory.

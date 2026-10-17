@@ -381,8 +381,8 @@ export interface MonumentBundle {
   facts: Fact[];
   photos: Photo[];
   narration: Record<string, Narration>;
-  /** character id when content/characters/<id>/avatar.vrm exists (Plan A), else undefined (Plan B) */
-  avatar?: string;
+  /** guide body found in content/characters/<id>/: avatar.vrm (rigged) or model.glb (static model); none → procedural */
+  avatar?: { id: string; kind: "vrm" | "mesh" };
   /** tour stories by stop id ("stop@era" for era variants) */
   stories: Record<string, Story>;
   qa: QA[];
