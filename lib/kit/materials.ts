@@ -32,7 +32,7 @@ function photoTex(name: string, color = true): THREE.Texture {
   if (!t) {
     if (typeof document === "undefined") t = new THREE.Texture();
     else {
-      const tex = (t = new THREE.Texture(pixel(color ? AVG[name.replace(/_(diff|nor)$/, "")] ?? "#9a8f80" : "#8080ff")));
+      const tex = (t = new THREE.Texture<HTMLCanvasElement | HTMLImageElement>(pixel(color ? AVG[name.replace(/_(diff|nor)$/, "")] ?? "#9a8f80" : "#8080ff")));
       tex.needsUpdate = true;
       new THREE.ImageLoader().load(`/textures/${name}.jpg`, (img) => {
         tex.dispose(); // the GPU copy has the placeholder's size; drop it so the full image is uploaded
