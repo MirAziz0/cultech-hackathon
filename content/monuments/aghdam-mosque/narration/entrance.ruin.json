@@ -1,0 +1,13 @@
+{
+ "zone": "entrance",
+ "era": "ruin",
+ "text": {
+  "az": "Mənbələri oxuyuram: 2021-ci ildə Mədəni İrs Xidmətinin rəhbəri məscidin bir neçə dəfə yandırıldığına dair məlumatlar olduğunu bildirib. O ilin fotolarında eyvanın göy boyası tökülmüş, divarın dibində his izləri görünür. Qapı üstündəki yazı lövhəsi isə yerində qalıb.",
+  "en": "I am reading the sources: in 2021 the head of the cultural heritage service said there were reports that the mosque had been set on fire several times. Photos from that year show the iwan's blue paint flaking off and soot marks at the foot of the wall. The inscription panel above the door is still in place."
+ },
+ "factIds": [
+  "ag-fire",
+  "ag-facade"
+ ],
+ "generatedBy": "hand"
+}

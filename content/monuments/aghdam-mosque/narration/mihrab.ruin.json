@@ -1,0 +1,13 @@
+{
+ "zone": "mihrab",
+ "era": "ruin",
+ "text": {
+  "az": "Bu barədə mənbələr fərqli danışır. Bir mənbə məscidin naxış və yazılarının məhv edildiyini yazır, başqa bir mənbə isə mehrab və yazıların salamat qaldığını bildirir. Fotolarda mehrabın naxışlı çərçivəsi görünür, bəzəyi isə zədələnib.",
+  "en": "On this the sources differ. One source says the mosque's decoration and inscriptions were destroyed; another reports the mihrab and inscriptions intact. Photos show the mihrab's patterned frame still in place, its decoration damaged."
+ },
+ "factIds": [
+  "ag-inscriptions-destroyed",
+  "ag-mihrab"
+ ],
+ "generatedBy": "hand"
+}

@@ -1,0 +1,14 @@
+{
+ "zone": "hall",
+ "era": "ruin",
+ "text": {
+  "az": "Bunları görməmişəm, mənbələrdən deyirəm. Mənbələr yazır ki, bu illərdə məscid talan edilib, heyvan saxlamaq üçün istifadə olunub. Bir mənbə tavanın bir neçə yerdə uçurulduğunu yazır. 2011-ci ildə fotoqraf Stepan Lohr zalı baxımsız və zədələnmiş halda çəkib. Deşiklərin yeri modeldə təxminidir.",
+  "en": "I did not see this; I am telling you from the sources. The sources say that in these years the mosque was vandalised and used to keep animals. One source says the ceiling was broken through in several places. In 2011 the photographer Stepan Lohr found the hall neglected and damaged. The holes' positions in the model are estimates."
+ },
+ "factIds": [
+  "ag-animals",
+  "ag-ceiling-broken",
+  "ag-rferl-2011"
+ ],
+ "generatedBy": "hand"
+}

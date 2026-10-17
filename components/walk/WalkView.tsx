@@ -6,6 +6,8 @@ import type { MonumentBundle } from "@/lib/types";
 import type { WalkViewer } from "@/lib/viewer/walkViewer";
 import type { Keys } from "@/lib/walk/controller";
 import { photos as photosOf } from "@/lib/bundle";
+import { zoneInfoFor } from "@/lib/eras";
+import type { Era } from "@/lib/types";
 import { unlockAudio } from "@/lib/speech/speaker";
 import { ArchitectDock, type ArchitectHandle } from "@/components/architect/ArchitectDock";
 import { Lightbox, Credit, type PhotoWithUrl } from "@/components/photos/Lightbox";
@@ -42,13 +44,19 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
     return () => mq.removeEventListener("change", f);
   }, []);
   const narrTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // eras inside the walk (Aghdam: 19th c. / 1993–2020 / today); the exterior page passes ?era=
+  const walkEras = spec.eras ?? [];
+  const [era, setEraState] = useState<Era | undefined>(() => spec.defaultEra ?? walkEras[0]);
+  const eraRef = useRef(era);
 
   useEffect(() => {
     let v: WalkViewer | null = null, dead = false, iv: ReturnType<typeof setInterval> | undefined;
     import("@/lib/viewer/walkViewer").then(({ WalkViewer }) => {
       if (dead || !canvasRef.current || !hostRef.current) return;
       try {
-        v = new WalkViewer(canvasRef.current, hostRef.current, spec);
+        const q = new URLSearchParams(location.search).get("era");
+        v = new WalkViewer(canvasRef.current, hostRef.current, spec, undefined, q && spec.eras?.includes(q) ? q : eraRef.current);
+        if (v.era && v.era !== eraRef.current) { eraRef.current = v.era; setEraState(v.era); }
         const mini = miniRef.current!;
         const dpr = Math.min(2, window.devicePixelRatio || 1);
         mini.width = mini.clientWidth * dpr; mini.height = mini.clientHeight * dpr;
@@ -57,7 +65,7 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
         v.onZone = (id) => {
           setZone(id);
           setFloorY(v!.walker.floor);
-          const info = spec.zoneInfo[id];
+          const info = zoneInfoFor(spec, id, eraRef.current);
           const list = photosOf(bundle, info?.photos ?? []);
           setCard(list.length || info ? { list, i: 0 } : null);
           setCardOpen(true);
@@ -117,6 +125,23 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
     onPointerCancel: () => { if (viewer.current) viewer.current.walker.keys[k] = false; },
   });
 
+  const setEra = useCallback((e: Era) => {
+    if (e === eraRef.current) return;
+    eraRef.current = e;
+    setEraState(e);
+    viewer.current?.setEra(e);
+    // refresh the card and tell the story of this place in the new era
+    const id = viewer.current?.walker.zone?.id;
+    if (id) {
+      const info = zoneInfoFor(spec, id, e);
+      const list = photosOf(bundle, info?.photos ?? []);
+      setCard(list.length || info ? { list, i: 0 } : null);
+      setCardOpen(true);
+      if (narrTimer.current) clearTimeout(narrTimer.current);
+      if (startedRef.current) narrTimer.current = setTimeout(() => dock.current?.narrateZone(id), 600);
+    }
+  }, [spec, bundle]);
+
   const start = useCallback(() => {
     unlockAudio();
     startedRef.current = true;
@@ -124,7 +149,7 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
     canvasRef.current?.focus({ preventScroll: true });
   }, []);
 
-  const info = zone ? spec.zoneInfo[zone] : null;
+  const info = zone ? zoneInfoFor(spec, zone, era) : null;
   const photo = card?.list[card.i];
   const padBtn = "grid h-12 w-12 select-none place-items-center rounded-md border-0 bg-[rgba(20,17,14,.62)] text-[20px] text-[#f3ead9] touch-none active:bg-accent active:text-accent-ink";
 
@@ -144,8 +169,19 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
       <div className="glass pointer-events-none absolute top-[max(14px,env(safe-area-inset-top))] left-1/2 -translate-x-1/2 rounded-[3px] px-2.5 py-1.5 font-mono text-[11px] whitespace-nowrap max-lg:hidden">
         {t("walkHint")}
       </div>
+      {walkEras.length > 1 && (
+        <div role="group" aria-label={t("era")}
+          className="glass absolute top-[calc(max(12px,env(safe-area-inset-top))+52px)] left-1/2 z-10 flex -translate-x-1/2 gap-1 rounded-full p-1 max-sm:top-[calc(max(12px,env(safe-area-inset-top))+90px)] max-sm:right-[max(12px,env(safe-area-inset-right))] max-sm:left-auto max-sm:translate-x-0">
+          {walkEras.map((e) => (
+            <button key={e} type="button" aria-pressed={era === e} onClick={() => setEra(e)}
+              className={`h-8 rounded-full px-3 text-[12.5px] font-semibold whitespace-nowrap max-sm:px-2 max-sm:text-[11.5px] ${era === e ? "bg-accent text-accent-ink" : "text-white"}`}>
+              {c(m.eras[e]?.label)}
+            </button>
+          ))}
+        </div>
+      )}
       {spec.map.levels && started && (
-        <nav aria-label={t("levels")} className="glass absolute top-[calc(max(12px,env(safe-area-inset-top))+52px)] left-1/2 flex max-w-[calc(100vw-24px)] -translate-x-1/2 items-center gap-1 overflow-x-auto rounded-full px-2 py-1 max-sm:top-auto max-sm:bottom-[calc(max(12px,env(safe-area-inset-bottom))+var(--dock-h,0px)+12px)] max-sm:left-[max(12px,env(safe-area-inset-left))] max-sm:max-w-[calc(100vw-196px)] max-sm:translate-x-0">
+        <nav aria-label={t("levels")} className={`glass absolute ${walkEras.length > 1 ? "top-[calc(max(12px,env(safe-area-inset-top))+96px)]" : "top-[calc(max(12px,env(safe-area-inset-top))+52px)]"} left-1/2 flex max-w-[calc(100vw-24px)] -translate-x-1/2 items-center gap-1 overflow-x-auto rounded-full px-2 py-1 max-sm:top-auto max-sm:bottom-[calc(max(12px,env(safe-area-inset-bottom))+var(--dock-h,0px)+12px)] max-sm:left-[max(12px,env(safe-area-inset-left))] max-sm:max-w-[calc(100vw-196px)] max-sm:translate-x-0`}>
           <span className="px-1 font-mono text-[10px] tracking-wide text-[#cfc3ad] uppercase">{t("levels")}</span>
           {spec.map.levels.map((lv) => {
             const here = Math.abs(floorY - lv.y) < 1;
@@ -174,12 +210,15 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
           <figcaption className="grid gap-1 px-2.5 pt-2 pb-2.5 text-[12.5px] leading-snug max-sm:text-[11.5px]">
             <span className="flex items-center justify-between gap-1">
               <span className="font-mono text-[10px] tracking-[.1em] text-accent uppercase max-sm:hidden">{photo ? t("realPhoto") : ""}</span>
-              {info.conf && <span className="scale-90 origin-right"><ConfBadge conf={info.conf} /></span>}
+              {info.conf && <span className="scale-90 origin-right"><ConfBadge conf={info.conf} labels={m.confLabels} /></span>}
             </span>
             <b className="font-display text-[15px] leading-tight">{c(info.title)}</b>
             <span className="text-muted max-sm:hidden">{c(info.text)}</span>
             {photo && <span className="text-[11px] max-sm:hidden">{c(photo.caption)}</span>}
             {photo && <Credit p={photo} className="text-[10px] text-muted [&_a]:text-muted" />}
+            {info.links?.map((l) => (
+              <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="text-[11px] underline decoration-dotted max-sm:hidden">{c(l.title)} ↗</a>
+            ))}
             {card && card.list.length > 1 && (
               <span className="flex gap-1">{card.list.map((_, j) => <span key={j} className={`h-1.5 w-1.5 rounded-full ${j === card.i ? "bg-accent" : "bg-line"}`} />)}</span>
             )}
@@ -200,7 +239,7 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
         <button type="button" aria-label={t("turnR")} className={`${padBtn} col-start-3 row-start-2`} {...pad("tr")}>↻</button>
       </div>
 
-      {started && <ArchitectDock ref={dock} bundle={bundle} zone={zone} mode="dock" onHeight={setDockH} />}
+      {started && <ArchitectDock ref={dock} bundle={bundle} zone={zone} era={era} mode="dock" onHeight={setDockH} />}
 
       {!started && (
         <div className="absolute inset-0 z-40 grid place-items-center bg-[rgba(14,12,10,.55)] p-4">

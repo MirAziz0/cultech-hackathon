@@ -1,0 +1,13 @@
+{
+ "zone": "gallery",
+ "era": "ruin",
+ "text": {
+  "az": "Mənbələr qalereyanın bu illərdəki vəziyyətini ayrıca təsvir etmir. Modeldə məhəccər qırılmış göstərilib, çünki zalın ümumi vəziyyəti — tökülmüş suvaq və qırıntılar — fotolarda belə görünür. Bu detal təxminidir.",
+  "en": "The sources do not describe the gallery's condition in these years separately. The model shows the balustrade broken because the hall's overall state — fallen plaster and debris — looks that way in photos. This detail is approximate."
+ },
+ "factIds": [
+  "ag-gallery",
+  "ag-rferl-2011"
+ ],
+ "generatedBy": "hand"
+}

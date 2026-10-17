@@ -1,0 +1,13 @@
+{
+ "zone": "entrance",
+ "era": "today",
+ "text": {
+  "az": "Ayağının altına bax. Mənbələr yazır ki, bərpa zamanı dağıntılar təmizlənib, kəşfiyyat qazıntıları aparılıb və girişdə tarixi daş döşəmə tapılıb. Giriş qapısı, daxili daş işləri və fasad da bərpa olunub. Bu döşəmənin hansı dövrə aid olduğunu mənbələr dəqiq demir.",
+  "en": "Look beneath your feet. The sources say that during the restoration the debris was cleared, exploratory excavations were made and a historic stone pavement was found at the entrance. The entrance door, the interior stonework and the facade were also restored. The sources do not say exactly when this pavement was laid."
+ },
+ "factIds": [
+  "ag-pavement",
+  "ag-restoration-works"
+ ],
+ "generatedBy": "hand"
+}

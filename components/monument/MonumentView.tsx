@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CONF_KEY, useT } from "@/lib/i18n";
 import type { Era, MonumentBundle } from "@/lib/types";
 import { factsFor, photos as photosOf } from "@/lib/bundle";
+import { buildingText, buildingVisible, defaultEra, eraList } from "@/lib/eras";
 import type { ExteriorViewer, LabelPos } from "@/lib/viewer/exteriorViewer";
 import { SiteHeader } from "@/components/ui/SiteHeader";
 import { ConfBadge, ConfidenceLegend } from "@/components/ui/ConfidenceLegend";
@@ -16,7 +17,8 @@ import { ArchitectDock } from "@/components/architect/ArchitectDock";
 export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
   const m = bundle.manifest;
   const { t, c, lang } = useT();
-  const [era, setEra] = useState<Era>(m.defaultEra ?? "past");
+  const eras = useMemo(() => eraList(m), [m]);
+  const [era, setEra] = useState<Era>(() => defaultEra(m));
   const [current, setCurrent] = useState<string | null>(null);
   const [inside, setInside] = useState<string | null>(null);
   const [labels, setLabels] = useState<LabelPos[]>([]);
@@ -29,7 +31,7 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
   const viewer = useRef<ExteriorViewer | null>(null);
 
   const visibleBuildings = useMemo(
-    () => m.buildings.filter((b) => !(b.pastOnly && era === "today") && !(b.todayOnly && era === "past")),
+    () => m.buildings.filter((b) => buildingVisible(b, era)),
     [m.buildings, era],
   );
 
@@ -40,8 +42,8 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
     import("@/lib/viewer/exteriorViewer").then(({ ExteriorViewer }) => {
       if (disposed || !canvasRef.current || !viewRef.current) return;
       try {
-        v = new ExteriorViewer(canvasRef.current, viewRef.current, m.exterior);
-        v.load();
+        v = new ExteriorViewer(canvasRef.current, viewRef.current, m.exterior, Object.keys(m.eras));
+        v.load(era);
         v.setAnchors(m.buildings.map((b) => ({ id: b.id, pos: b.pos })));
         v.onLabels = setLabels;
         v.start();
@@ -56,7 +58,7 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
       v?.dispose();
       viewer.current = null;
     };
-  }, [m]);
+  }, [m]); // eslint-disable-line react-hooks/exhaustive-deps -- era changes go through setEra
 
   useEffect(() => viewer.current?.setEra(era), [era, loading]);
 
@@ -152,9 +154,9 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
                 <div className="absolute top-3.5 left-3.5 rounded border border-line bg-surface px-2.5 py-[7px] font-mono text-[12px] leading-none tracking-[.08em]">{c(m.eras[era].badge)}</div>
                 <div className="absolute top-3 right-3"><ArButton bundle={bundle} era={era} /></div>
                 <div role="group" aria-label={t("era")} className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-1 rounded-full border border-line bg-surface p-1 shadow-[0_6px_20px_rgba(0,0,0,.12)]">
-                  {(["today", "past"] as Era[]).map((e) => (
+                  {eras.map((e) => (
                     <button key={e} type="button" aria-pressed={era === e} onClick={() => setEra(e)}
-                      className={`rounded-full px-4 py-2.5 text-[14px] leading-none font-semibold whitespace-nowrap ${era === e ? "bg-accent text-accent-ink" : ""}`}>
+                      className={`rounded-full py-2.5 text-[14px] leading-none font-semibold whitespace-nowrap ${eras.length > 2 ? "px-3 max-sm:px-2.5 max-sm:text-[13px]" : "px-4"} ${era === e ? "bg-accent text-accent-ink" : ""}`}>
                       {c(m.eras[e].label)}
                     </button>
                   ))}
@@ -170,10 +172,10 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
                 <>
                   <div className="font-mono text-[12px] tracking-[.06em] text-muted">{c(b.date)}</div>
                   <h3 className="mt-0.5 font-display text-[22px] leading-[1.15] font-bold text-balance">{c(b.name)}</h3>
-                  <p className="mt-2.5">{c(b.text ?? (era === "past" ? b.past : b.today))}</p>
-                  <div className="mt-3"><ConfBadge conf={b.conf} /></div>
+                  <p className="mt-2.5">{c(buildingText(b, era))}</p>
+                  <div className="mt-3"><ConfBadge conf={b.conf} labels={m.confLabels} /></div>
                   <div className="mt-3.5 flex flex-wrap gap-2">
-                    {b.walk && m.walk && <Link className="btn primary" href={`/m/${m.slug}/walk`}>{t("walkInside")}</Link>}
+                    {b.walk && m.walk && <Link className="btn primary" href={`/m/${m.slug}/walk${m.walk.eras?.includes(era) ? `?era=${era}` : ""}`}>{m.walk.cta ? c(m.walk.cta) : t("walkInside")}</Link>}
                     {b.interior && m.interiors?.[b.interior] && <button type="button" className="btn primary" onClick={() => enterInterior(b.interior!)}>{t("lookInside")}</button>}
                     <button type="button" className="btn" onClick={() => setTalk(true)}>{t("talkArchitect")}</button>
                   </div>
@@ -185,7 +187,7 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
                   <h3 className="mt-0.5 font-display text-[22px] leading-[1.15] font-bold">{c(m.name)}</h3>
                   <p className="mt-2.5">{c(m.eras[era].summary)}</p>
                   <div className="mt-3.5 flex flex-wrap gap-2">
-                    {walkBuilding && m.walk && <Link className="btn primary" href={`/m/${m.slug}/walk`}>{t("walkInside")}</Link>}
+                    {walkBuilding && m.walk && <Link className="btn primary" href={`/m/${m.slug}/walk${m.walk.eras?.includes(era) ? `?era=${era}` : ""}`}>{m.walk.cta ? c(m.walk.cta) : t("walkInside")}</Link>}
                     <button type="button" className="btn" onClick={() => setTalk(true)}>{t("talkArchitect")}</button>
                   </div>
                   <Gallery photos={overviewPhotos} onOpen={openLb} />
@@ -201,21 +203,21 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
                   <li key={x.id}>
                     <button type="button" aria-current={x.id === current} onClick={() => select(x.id)}
                       className={`grid w-full grid-cols-[10px_1fr] items-baseline gap-2.5 rounded px-1.5 py-2 text-left text-[14px] leading-tight font-semibold hover:bg-bg ${x.id === current ? "bg-bg" : ""}`}>
-                      <span className={`dot ${x.conf} translate-y-px`} title={t(CONF_KEY[x.conf])} />
+                      <span className={`dot ${x.conf} translate-y-px`} title={m.confLabels?.[x.conf] ? c(m.confLabels[x.conf]!.short) : t(CONF_KEY[x.conf])} />
                       <span>{c(x.name)}<small className="mt-0.5 block font-mono text-[11px] font-medium tracking-[.03em] text-muted">{c(x.date)}</small></span>
                     </button>
                   </li>
                 ))}
               </ul>
             </section>
-            <ConfidenceLegend />
+            <ConfidenceLegend labels={m.confLabels} />
             <FactsPanel facts={factsFor(bundle, b?.factIds) .length ? factsFor(bundle, b?.factIds) : bundle.facts} />
             <p className="text-[13px] text-muted">{c(m.disclaimer)}</p>
           </aside>
         </div>
       </main>
       {lb && <Lightbox list={lb.list} index={lb.i} onIndex={(i) => setLb({ ...lb, i })} onClose={() => setLb(null)} />}
-      {talk && <ArchitectDock bundle={bundle} zone={null} onClose={() => setTalk(false)} mode="panel" />}
+      {talk && <ArchitectDock bundle={bundle} zone={null} era={era} onClose={() => setTalk(false)} mode="panel" />}
     </div>
   );
 }

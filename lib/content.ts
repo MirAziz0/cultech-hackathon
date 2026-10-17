@@ -53,12 +53,12 @@ export function getBundle(slug: string): MonumentBundle {
     for (const f of fs.readdirSync(ndir))
       if (f.endsWith(".json") && f !== "qa.json") {
         const n = readJson<Narration | null>(path.join(ndir, f), null);
-        if (n) narration[n.zone] = n;
+        if (n) narration[n.era ? `${n.zone}@${n.era}` : n.zone] = n;
       }
   const qa = readJson<QA[]>(path.join(ndir, "qa.json"), []);
   const ar: MonumentBundle["ar"] = {};
   const models = path.join(process.cwd(), "public", "monuments", slug, "models");
-  for (const era of ["past", "today"] as Era[])
+  for (const era of Object.keys(manifest.eras) as Era[])
     for (const lang of ["az", "en"] as Lang[]) {
       const name = `${era}.${lang}`;
       if (!fs.existsSync(path.join(models, `${name}.glb`))) continue;

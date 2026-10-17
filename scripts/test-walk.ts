@@ -6,6 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { chromium, devices, type Page } from "playwright";
+import { eraList } from "../lib/eras";
 
 const BASE = process.env.BASE ?? "http://localhost:3000";
 const OUT = path.join(process.cwd(), "screenshots");
@@ -53,11 +54,13 @@ async function main() {
       const labels = await page.locator('button[aria-label]').filter({ has: page.locator("span") }).count();
       labels > 0 ? ok(`exterior labels: ${labels}`) : fail("no building labels");
       // era toggle
-      await page.getByRole("button", { name: /Bu gün|Today/ }).first().click();
-      await page.waitForTimeout(600);
-      await page.screenshot({ path: path.join(OUT, `${slug}-exterior-today.png`) });
-      await page.getByRole("button", { name: manifest.eras.past.label.az, exact: true }).click();
-      await page.waitForTimeout(400);
+      // era toggle: every era of the monument (the switch animates a time sweep, so wait for it)
+      for (const e of eraList(manifest)) {
+        await page.getByRole("group", { name: /Dövr|Era/ }).getByRole("button", { name: manifest.eras[e].label.az, exact: true }).click();
+        await page.waitForTimeout(1900);
+        await page.screenshot({ path: path.join(OUT, `${slug}-exterior-${e}.png`) });
+      }
+      ok(`era toggle: ${eraList(manifest).join(", ")}`);
       // select first building with an interior and look inside
       const withInterior = manifest.buildings.find((b: { interior?: string }) => b.interior);
       if (withInterior) {
@@ -125,6 +128,14 @@ async function main() {
       for (const r of report) r.ok ? ok(`zone ${r.id} @ floor ${r.y?.toFixed(2)}`) : fail(`zone ${r.id} not reachable`);
       // screenshots from each zone
       const shots: string[] = manifest.walk.testShots ?? [];
+      const walkEras: (string | null)[] = manifest.walk.eras?.length ? manifest.walk.eras : [null];
+      for (const era of walkEras) {
+      if (era) {
+        await page.getByRole("group", { name: /Dövr|Era/ }).getByRole("button", { name: manifest.eras[era].label.az, exact: true }).click();
+        await page.waitForTimeout(1200);
+        const calls = await page.evaluate(() => (window as unknown as { __walk: W }).__walk.renderer.info.render.calls);
+        calls <= 80 ? ok(`era ${era}: draw calls ${calls} ≤ 80`) : fail(`era ${era}: too many draw calls: ${calls}`);
+      }
       for (const id of shots) {
         const moved = await page.evaluate((id) => {
           const w = (window as unknown as { __walk: W }).__walk;
@@ -137,7 +148,8 @@ async function main() {
         }, id);
         if (!moved) { fail(`testShot zone ${id} missing`); continue; }
         await page.waitForTimeout(900);
-        await page.screenshot({ path: path.join(OUT, `${slug}-walk-${id}.png`) });
+        await page.screenshot({ path: path.join(OUT, `${slug}-walk-${era ? era + "-" : ""}${id}.png`) });
+      }
       }
       const fps = await page.evaluate(() => (window as unknown as { __walk: W }).__walk.fps);
       console.log(`  · fps: ${fps.toFixed(0)}`);

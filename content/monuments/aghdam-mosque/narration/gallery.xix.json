@@ -1,0 +1,13 @@
+{
+ "zone": "gallery",
+ "era": "xix",
+ "text": {
+  "az": "Bu qalereya qadınlar üçündür. Onu zalın üç divarı boyunca ikinci mərtəbədə qurdum, aşağıdakı zal açıq qalsın deyə. Şuşada da, Yuxarı Gövhər ağa məscidində, qadınlar üçün belə eyvanlar var. Məhəccərin forması isə burada təxminidir.",
+  "en": "This gallery is for women. I built it on the upper storey along three walls of the hall, so that the hall below stays open. In Shusha too, at the Yukhari Govhar Agha Mosque, there are such balconies for women. The shape of the balustrade here is approximate."
+ },
+ "factIds": [
+  "ag-gallery",
+  "ag-yukhari"
+ ],
+ "generatedBy": "hand"
+}

@@ -1,0 +1,11917 @@
+{
+ "slug": "aghdam-mosque",
+ "order": 4,
+ "name": {
+  "az": "Ağdam Cümə məscidi",
+  "en": "Aghdam Juma Mosque"
+ },
+ "tagline": {
+  "az": "İki minarə, doqquz günbəz, üç dövr",
+  "en": "Two minarets, nine domes, three eras"
+ },
+ "period": {
+  "az": "1868–1870",
+  "en": "1868–1870"
+ },
+ "location": {
+  "lat": 39.9833,
+  "lon": 46.9333,
+  "place": {
+   "az": "Ağdam",
+   "en": "Aghdam"
+  }
+ },
+ "cover": "today_front",
+ "eras": {
+  "xix": {
+   "label": {
+    "az": "XIX əsr",
+    "en": "19th c."
+   },
+   "badge": {
+    "az": "XIX ƏSR · TİKİLDİYİ DÖVR",
+    "en": "19TH CENTURY · AS BUILT"
+   },
+   "summary": {
+    "az": "Məscid 1868–1870-ci illərdə Kərbəlayi Səfixan Qarabağinin layihəsi ilə tikilib. Bu dövrdən foto yoxdur: məscidin forması sonrakı fotolardan götürülüb, ətrafdakı həyət, küçələr və evlər isə bədii fərziyyədir.",
+    "en": "The mosque was built in 1868–1870 to the design of Karbalayi Safikhan Karabakhi. No photos survive from this period: the mosque's form is taken from later photos, while the courtyard, streets and houses around it are an artistic hypothesis."
+   }
+  },
+  "ruin": {
+   "label": {
+    "az": "1993–2020",
+    "en": "1993–2020"
+   },
+   "badge": {
+    "az": "1993–2020 · İŞĞAL DÖVRÜ",
+    "en": "1993–2020 · OCCUPATION"
+   },
+   "summary": {
+    "az": "1993-cü ildən sonra Ağdam şəhəri dağıdıldı; məscid ayaqda qalan az sayda binadan biri idi. Mənbələrə görə məscid talan edilib, heyvan saxlamaq üçün istifadə olunub; sovet dövrünə aid dam örtüyü götürülüb, günbəzlər açıq qalıb. Peyk təsvirlərinə görə binanın özü 1977–2019-cu illərdə əsasən dəyişməyib.",
+    "en": "After 1993 the town of Aghdam was destroyed; the mosque was one of the few buildings left standing. Sources say it was vandalised and used to keep animals; the Soviet-era roof covering was removed and the domes were left exposed. Satellite imagery shows the structure itself largely unchanged between 1977 and 2019."
+   }
+  },
+  "today": {
+   "label": {
+    "az": "Bu gün",
+    "en": "Today"
+   },
+   "badge": {
+    "az": "BU GÜN · BƏRPADAN SONRA",
+    "en": "TODAY · AFTER RESTORATION"
+   },
+   "summary": {
+    "az": "Bərpa 2022-ci ilin martında Heydər Əliyev Fondu tərəfindən başladı, Avstriyanın Brugger & KO Restauratoren şirkəti iştirak etdi. Məscid 25 aprel 2024-cü ildə yenidən açıldı.",
+    "en": "Restoration began in March 2022 under the Heydar Aliyev Foundation, with Austria's Brugger & KO Restauratoren taking part. The mosque reopened on 25 April 2024."
+   }
+  }
+ },
+ "eraOrder": [
+  "xix",
+  "ruin",
+  "today"
+ ],
+ "defaultEra": "today",
+ "confLabels": {
+  "ok": {
+   "short": {
+    "az": "Foto və ölçü ilə sənədləşib",
+    "en": "Documented by photos"
+   },
+   "long": {
+    "az": "Forma real fotolarda görünür.",
+    "en": "The form is visible in real photographs."
+   }
+  },
+  "mid": {
+   "short": {
+    "az": "Yazılı təsvirə əsaslanır",
+    "en": "From written descriptions"
+   },
+   "long": {
+    "az": "Mənbələrdə təsvir olunub, amma ölçü və ya foto ilə təsdiqlənməyib.",
+    "en": "Described in sources, but not confirmed by measurements or photos."
+   }
+  },
+  "hyp": {
+   "short": {
+    "az": "Bədii fərziyyə",
+    "en": "Artistic hypothesis"
+   },
+   "long": {
+    "az": "Ölçülər, XIX əsrin dam örtüyü, həyət və şəhər kimi mənbəsi olmayan hissələr. Tarixçi yoxlaması lazımdır.",
+    "en": "Parts with no source, such as dimensions, the 19th-century roof, the courtyard and the town. Needs a historian's review."
+   }
+  }
+ },
+ "architect": {
+  "name": {
+   "az": "Kərbəlayi Səfixan Qarabaği",
+   "en": "Karbalayi Safikhan Karabakhi"
+  },
+  "role": {
+   "az": "Məscidin memarı · təmsili obraz, real portreti məlum deyil",
+   "en": "Architect of the mosque · representative portrayal, no authentic portrait is known"
+  },
+  "voice": "male",
+  "look": {
+   "robe": "#3d4a3a",
+   "sash": "#b8893e",
+   "headwear": "papaq",
+   "beard": true,
+   "chokha": true
+  },
+  "historical": {
+   "knowsUntil": 1885,
+   "note": {
+    "az": "Təmsili obraz: memarın həqiqi portreti məlum deyil. XIX əsrdən sonrakı hadisələri o, şahid kimi yox, mənbələrə istinad edərək danışır.",
+    "en": "Representative portrayal: no authentic portrait of the architect is known. He speaks about events after the 19th century by quoting sources, never as a witness."
+   }
+  },
+  "greeting": {
+   "az": "Salam, xoş gəldin! Mən Kərbəlayi Səfixanam, bu məscidi 1868–1870-ci illərdə mən tikmişəm. Gəl, minarələrdən, sütunlardan və günbəzlərdən danışım. Sonrakı illərdə burada nə baş verdiyini isə mənbələrdən oxuyacağam — onları öz gözümlə görməmişəm.",
+   "en": "Greetings, welcome! I am Karbalayi Safikhan; I built this mosque in 1868–1870. Let me tell you about the minarets, the columns and the domes. What happened here in later years I will read to you from the sources — I did not see it with my own eyes."
+  }
+ },
+ "exterior": {
+  "scale": 0.0085,
+  "seed": 5,
+  "palette": {
+   "base": [
+    88,
+    70,
+    52
+   ],
+   "ground": [
+    200,
+    182,
+    144
+   ],
+   "groundWild": [
+    128,
+    134,
+    84
+   ],
+   "groundNew": [
+    176,
+    170,
+    132
+   ],
+   "path": [
+    214,
+    198,
+    164
+   ],
+   "track": [
+    168,
+    160,
+    128
+   ],
+   "paving": [
+    196,
+    186,
+    160
+   ],
+   "pathNew": [
+    222,
+    218,
+    206
+   ],
+   "wallLime": [
+    232,
+    222,
+    198
+   ],
+   "wallMarble": [
+    176,
+    176,
+    170
+   ],
+   "wallStone": [
+    226,
+    214,
+    188
+   ],
+   "cornice": [
+    214,
+    202,
+    176
+   ],
+   "iwan": [
+    96,
+    140,
+    182
+   ],
+   "iwanWorn": [
+    120,
+    146,
+    160
+   ],
+   "opening": [
+    52,
+    44,
+    36
+   ],
+   "window": [
+    70,
+    58,
+    44
+   ],
+   "glazed": [
+    92,
+    108,
+    118
+   ],
+   "domeLime": [
+    226,
+    216,
+    194
+   ],
+   "domeBrick": [
+    150,
+    112,
+    86
+   ],
+   "hole": [
+    28,
+    24,
+    20
+   ],
+   "roofFlat": [
+    200,
+    190,
+    166
+   ],
+   "roofRuin": [
+    136,
+    128,
+    100
+   ],
+   "roof": [
+    168,
+    176,
+    182
+   ],
+   "weed": [
+    104,
+    122,
+    64
+   ],
+   "minaretBase": [
+    214,
+    200,
+    170
+   ],
+   "brickRed": [
+    156,
+    86,
+    60
+   ],
+   "brickLight": [
+    224,
+    210,
+    184
+   ],
+   "brickRedOld": [
+    140,
+    84,
+    62
+   ],
+   "brickLightOld": [
+    200,
+    190,
+    170
+   ],
+   "brickBlue": [
+    52,
+    70,
+    118
+   ],
+   "brickWhite": [
+    232,
+    232,
+    226
+   ],
+   "belt": [
+    226,
+    212,
+    184
+   ],
+   "lantern": [
+    96,
+    72,
+    50
+   ],
+   "cap": [
+    176,
+    182,
+    186
+   ],
+   "house": [
+    214,
+    198,
+    164
+   ],
+   "houseRoof": [
+    150,
+    104,
+    78
+   ],
+   "ruinStone": [
+    168,
+    154,
+    126
+   ],
+   "treeWild": [
+    92,
+    112,
+    56
+   ],
+   "lawn": [
+    118,
+    150,
+    78
+   ],
+   "hedge": [
+    70,
+    108,
+    56
+   ],
+   "memorial": [
+    150,
+    112,
+    98
+   ]
+  },
+  "eraMat": {
+   "xix": {
+    "mBrickA": "brickRed",
+    "mBrickB": "brickLight"
+   },
+   "ruin": {
+    "mBrickA": "brickRedOld",
+    "mBrickB": "brickLightOld"
+   },
+   "today": {
+    "mBrickA": "brickBlue",
+    "mBrickB": "brickWhite"
+   }
+  },
+  "home": {
+   "target": [
+    0,
+    0.07,
+    0
+   ],
+   "az": 150,
+   "pol": 60,
+   "dist": 0.95
+  },
+  "overviewPhotos": [
+   "today_front",
+   "ruin_front_2018",
+   "ruin_side_2021",
+   "xix_1992"
+  ],
+  "parts": [
+   {
+    "t": "box",
+    "size": [
+     104,
+     104,
+     1.6
+    ],
+    "at": [
+     0,
+     0,
+     -1.6
+    ],
+    "mat": "base"
+   },
+   {
+    "t": "box",
+    "size": [
+     104,
+     104,
+     0.1
+    ],
+    "at": [
+     0,
+     0,
+     -0.1
+    ],
+    "matByEra": {
+     "xix": "ground",
+     "ruin": "groundWild",
+     "today": "groundNew"
+    }
+   },
+   {
+    "t": "box",
+    "size": [
+     104,
+     5,
+     0.06
+    ],
+    "at": [
+     0,
+     2,
+     0
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "path",
+     "ruin": "track"
+    }
+   },
+   {
+    "t": "box",
+    "size": [
+     5,
+     104,
+     0.06
+    ],
+    "at": [
+     0,
+     2,
+     0
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "path",
+     "ruin": "track"
+    }
+   },
+   {
+    "t": "box",
+    "size": [
+     19.8,
+     19.8,
+     10
+    ],
+    "at": [
+     0,
+     -1,
+     0
+    ],
+    "matByEra": {
+     "xix": "wallLime",
+     "ruin": "wallMarble",
+     "today": "wallStone"
+    }
+   },
+   {
+    "t": "box",
+    "size": [
+     19.8,
+     5,
+     10
+    ],
+    "at": [
+     0,
+     11.4,
+     0
+    ],
+    "matByEra": {
+     "xix": "wallLime",
+     "ruin": "wallMarble",
+     "today": "wallStone"
+    }
+   },
+   {
+    "t": "box",
+    "size": [
+     20.2,
+     25.2,
+     0.45
+    ],
+    "at": [
+     0,
+     1.5,
+     9.55
+    ],
+    "eras": [
+     "xix",
+     "today"
+    ],
+    "matByEra": {
+     "xix": "wallLime",
+     "today": "cornice"
+    }
+   },
+   {
+    "t": "box",
+    "size": [
+     20,
+     25,
+     0.3
+    ],
+    "at": [
+     0,
+     1.5,
+     9.7
+    ],
+    "eras": [
+     "ruin"
+    ],
+    "mat": "wallMarble"
+   },
+   {
+    "t": "niche",
+    "w": 6,
+    "spring": 5.6,
+    "at": [
+     0,
+     13.92,
+     0.2
+    ],
+    "facing": 90,
+    "depth": 0.12,
+    "matByEra": {
+     "xix": "iwan",
+     "ruin": "iwanWorn",
+     "today": "iwan"
+    }
+   },
+   {
+    "t": "windowRow",
+    "from": -9.2,
+    "to": -3.6,
+    "along": "x",
+    "at": [
+     0,
+     13.92
+    ],
+    "z": 0.5,
+    "facing": 90,
+    "n": 2,
+    "w": 1.9,
+    "spring": 2.4,
+    "matByEra": {
+     "xix": "opening",
+     "ruin": "opening",
+     "today": "glazed"
+    }
+   },
+   {
+    "t": "windowRow",
+    "from": 3.6,
+    "to": 9.2,
+    "along": "x",
+    "at": [
+     0,
+     13.92
+    ],
+    "z": 0.5,
+    "facing": 90,
+    "n": 2,
+    "w": 1.9,
+    "spring": 2.4,
+    "matByEra": {
+     "xix": "opening",
+     "ruin": "opening",
+     "today": "glazed"
+    }
+   },
+   {
+    "t": "windowRow",
+    "from": -9.2,
+    "to": -3.6,
+    "along": "x",
+    "at": [
+     0,
+     13.92
+    ],
+    "z": 5.2,
+    "facing": 90,
+    "n": 2,
+    "w": 1.9,
+    "spring": 2.4,
+    "matByEra": {
+     "xix": "opening",
+     "ruin": "opening",
+     "today": "glazed"
+    }
+   },
+   {
+    "t": "windowRow",
+    "from": 3.6,
+    "to": 9.2,
+    "along": "x",
+    "at": [
+     0,
+     13.92
+    ],
+    "z": 5.2,
+    "facing": 90,
+    "n": 2,
+    "w": 1.9,
+    "spring": 2.4,
+    "matByEra": {
+     "xix": "opening",
+     "ruin": "opening",
+     "today": "glazed"
+    }
+   },
+   {
+    "t": "windowRow",
+    "from": -10.3,
+    "to": 13.3,
+    "along": "y",
+    "at": [
+     9.92,
+     0
+    ],
+    "z": 1.1,
+    "facing": 0,
+    "n": 4,
+    "w": 1.4,
+    "spring": 2,
+    "matByEra": {
+     "xix": "window",
+     "ruin": "opening",
+     "today": "glazed"
+    }
+   },
+   {
+    "t": "windowRow",
+    "from": -10.3,
+    "to": 13.3,
+    "along": "y",
+    "at": [
+     9.92,
+     0
+    ],
+    "z": 5.6,
+    "facing": 0,
+    "n": 4,
+    "w": 1.4,
+    "spring": 2,
+    "matByEra": {
+     "xix": "window",
+     "ruin": "opening",
+     "today": "glazed"
+    }
+   },
+   {
+    "t": "windowRow",
+    "from": -10.3,
+    "to": 13.3,
+    "along": "y",
+    "at": [
+     -9.92,
+     0
+    ],
+    "z": 1.1,
+    "facing": 180,
+    "n": 4,
+    "w": 1.4,
+    "spring": 2,
+    "matByEra": {
+     "xix": "window",
+     "ruin": "opening",
+     "today": "glazed"
+    }
+   },
+   {
+    "t": "windowRow",
+    "from": -10.3,
+    "to": 13.3,
+    "along": "y",
+    "at": [
+     -9.92,
+     0
+    ],
+    "z": 5.6,
+    "facing": 180,
+    "n": 4,
+    "w": 1.4,
+    "spring": 2,
+    "matByEra": {
+     "xix": "window",
+     "ruin": "opening",
+     "today": "glazed"
+    }
+   },
+   {
+    "t": "windowRow",
+    "from": -9,
+    "to": 9,
+    "along": "x",
+    "at": [
+     0,
+     -10.92
+    ],
+    "z": 1.1,
+    "facing": -90,
+    "n": 3,
+    "w": 1.4,
+    "spring": 2,
+    "matByEra": {
+     "xix": "window",
+     "ruin": "opening",
+     "today": "glazed"
+    }
+   },
+   {
+    "t": "windowRow",
+    "from": -9,
+    "to": 9,
+    "along": "x",
+    "at": [
+     0,
+     -10.92
+    ],
+    "z": 5.6,
+    "facing": -90,
+    "n": 3,
+    "w": 1.4,
+    "spring": 2,
+    "matByEra": {
+     "xix": "window",
+     "ruin": "opening",
+     "today": "glazed"
+    }
+   },
+   {
+    "t": "cyl",
+    "r": 2.75,
+    "h": 0.5,
+    "at": [
+     -6,
+     -7,
+     10
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 20
+   },
+   {
+    "t": "dome",
+    "r": 2.75,
+    "h": 1.9,
+    "at": [
+     -6,
+     -7,
+     10.5
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 24,
+    "pointed": 0.1
+   },
+   {
+    "t": "cyl",
+    "r": 2.75,
+    "h": 0.5,
+    "at": [
+     -6,
+     -1,
+     10
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 20
+   },
+   {
+    "t": "dome",
+    "r": 2.75,
+    "h": 1.9,
+    "at": [
+     -6,
+     -1,
+     10.5
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 24,
+    "pointed": 0.1
+   },
+   {
+    "t": "cyl",
+    "r": 2.75,
+    "h": 0.5,
+    "at": [
+     -6,
+     5,
+     10
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 20
+   },
+   {
+    "t": "dome",
+    "r": 2.75,
+    "h": 1.9,
+    "at": [
+     -6,
+     5,
+     10.5
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 24,
+    "pointed": 0.1
+   },
+   {
+    "t": "cyl",
+    "r": 2.75,
+    "h": 0.5,
+    "at": [
+     0,
+     -7,
+     10
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 20
+   },
+   {
+    "t": "dome",
+    "r": 2.75,
+    "h": 1.9,
+    "at": [
+     0,
+     -7,
+     10.5
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 24,
+    "pointed": 0.1
+   },
+   {
+    "t": "cyl",
+    "r": 2.75,
+    "h": 0.5,
+    "at": [
+     0,
+     -1,
+     10
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 20
+   },
+   {
+    "t": "dome",
+    "r": 2.75,
+    "h": 1.9,
+    "at": [
+     0,
+     -1,
+     10.5
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 24,
+    "pointed": 0.1
+   },
+   {
+    "t": "cyl",
+    "r": 0.75,
+    "h": 0.3,
+    "at": [
+     0,
+     -1,
+     12.15
+    ],
+    "eras": [
+     "ruin"
+    ],
+    "mat": "hole",
+    "sides": 10
+   },
+   {
+    "t": "cyl",
+    "r": 2.75,
+    "h": 0.5,
+    "at": [
+     0,
+     5,
+     10
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 20
+   },
+   {
+    "t": "dome",
+    "r": 2.75,
+    "h": 1.9,
+    "at": [
+     0,
+     5,
+     10.5
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 24,
+    "pointed": 0.1
+   },
+   {
+    "t": "cyl",
+    "r": 2.75,
+    "h": 0.5,
+    "at": [
+     6,
+     -7,
+     10
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 20
+   },
+   {
+    "t": "dome",
+    "r": 2.75,
+    "h": 1.9,
+    "at": [
+     6,
+     -7,
+     10.5
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 24,
+    "pointed": 0.1
+   },
+   {
+    "t": "cyl",
+    "r": 2.75,
+    "h": 0.5,
+    "at": [
+     6,
+     -1,
+     10
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 20
+   },
+   {
+    "t": "dome",
+    "r": 2.75,
+    "h": 1.9,
+    "at": [
+     6,
+     -1,
+     10.5
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 24,
+    "pointed": 0.1
+   },
+   {
+    "t": "cyl",
+    "r": 2.75,
+    "h": 0.5,
+    "at": [
+     6,
+     5,
+     10
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 20
+   },
+   {
+    "t": "dome",
+    "r": 2.75,
+    "h": 1.9,
+    "at": [
+     6,
+     5,
+     10.5
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "domeLime",
+     "ruin": "domeBrick"
+    },
+    "sides": 24,
+    "pointed": 0.1
+   },
+   {
+    "t": "cyl",
+    "r": 0.75,
+    "h": 0.3,
+    "at": [
+     6,
+     5,
+     12.15
+    ],
+    "eras": [
+     "ruin"
+    ],
+    "mat": "hole",
+    "sides": 10
+   },
+   {
+    "t": "box",
+    "size": [
+     19.8,
+     24.8,
+     0.25
+    ],
+    "at": [
+     0,
+     1.5,
+     9.95
+    ],
+    "eras": [
+     "xix",
+     "ruin"
+    ],
+    "matByEra": {
+     "xix": "roofFlat",
+     "ruin": "roofRuin"
+    }
+   },
+   {
+    "t": "bush",
+    "at": [
+     -8.999013877473311,
+     11.277583891049764,
+     10.1
+    ],
+    "s": 0.3367711766095698,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -5.21008337764539,
+     6.875525223359242,
+     10.1
+    ],
+    "s": 0.4098142912889897,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -3.072378356974748,
+     7.39721941579935,
+     10.1
+    ],
+    "s": 0.47652245225688555,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     0.7713048885442804,
+     5.843834475867373,
+     10.1
+    ],
+    "s": 0.4407743813427046,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     5.701633610158057,
+     -4.333890205078708,
+     10.1
+    ],
+    "s": 0.36226943359350294,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     3.742224360230482,
+     6.1550508364360095,
+     10.1
+    ],
+    "s": 0.2661661910434096,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     3.310371995116758,
+     0.8616002404883503,
+     10.1
+    ],
+    "s": 0.5267205463613944,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     5.533361757422501,
+     -7.0747605000505045,
+     10.1
+    ],
+    "s": 0.4039166389284268,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     7.617028204080196,
+     5.935533191373354,
+     10.1
+    ],
+    "s": 0.4431262705908745,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     1.3937892496556916,
+     11.075896453008005,
+     10.1
+    ],
+    "s": 0.5225002483336723,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -2.2995753583030663,
+     -2.186115610639619,
+     10.1
+    ],
+    "s": 0.5011512866947573,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -3.019471272835262,
+     -6.390816581757189,
+     10.1
+    ],
+    "s": 0.3392918748731221,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -1.28754044616946,
+     -3.1179117618212073,
+     10.1
+    ],
+    "s": 0.5311785096214984,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     1.0326725114289075,
+     6.873260581667191,
+     10.1
+    ],
+    "s": 0.5133556010496596,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -7.944789502278338,
+     -3.6097105675887837,
+     10.1
+    ],
+    "s": 0.4181890069824592,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     0.15842125153095554,
+     -0.2068103856904493,
+     10.1
+    ],
+    "s": 0.30788497000834203,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     7.361455812287264,
+     -8.637763690174447,
+     10.1
+    ],
+    "s": 0.35963903353998394,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -2.805797609410154,
+     5.381683822293619,
+     10.1
+    ],
+    "s": 0.5273043646371478,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     0.2673873925895376,
+     -6.0923407331073385,
+     10.1
+    ],
+    "s": 0.37168650432568345,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -3.8953078942817205,
+     -1.5174956353462754,
+     10.1
+    ],
+    "s": 0.3771850878499379,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -3.013710365637071,
+     2.328186053795827,
+     10.1
+    ],
+    "s": 0.43421312364945797,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -4.801849413570878,
+     10.949380034883218,
+     10.1
+    ],
+    "s": 0.38735103846404284,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     6.5342079100824,
+     4.70799607569724,
+     10.1
+    ],
+    "s": 0.4403049249156867,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     0.29238347676227905,
+     1.7138422613096598,
+     10.1
+    ],
+    "s": 0.45669851084551705,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     7.912306836299741,
+     -0.7753918408767291,
+     10.1
+    ],
+    "s": 0.4624695267586361,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -4.479826056156226,
+     3.5977725662746334,
+     10.1
+    ],
+    "s": 0.3551763657970244,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "weed"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     0,
+     1.5,
+     10
+    ],
+    "size": [
+     21,
+     26
+    ],
+    "h": 4.4,
+    "eras": [
+     "today"
+    ],
+    "mat": "roof"
+   },
+   {
+    "t": "box",
+    "size": [
+     2.2,
+     1.6,
+     1.4
+    ],
+    "at": [
+     0,
+     10.7,
+     11.6
+    ],
+    "eras": [
+     "today"
+    ],
+    "mat": "roof"
+   },
+   {
+    "t": "minaret",
+    "at": [
+     -8.6,
+     12.6,
+     10
+    ],
+    "r": 1.2,
+    "h": 14,
+    "base": {
+     "r": 1.45,
+     "h": 2.6
+    },
+    "belts": 3,
+    "lantern": 2.1,
+    "mat": "minaretBase",
+    "brickMats": [
+     "mBrickA",
+     "mBrickB"
+    ]
+   },
+   {
+    "t": "minaret",
+    "at": [
+     8.6,
+     12.6,
+     10
+    ],
+    "r": 1.2,
+    "h": 14,
+    "base": {
+     "r": 1.45,
+     "h": 2.6
+    },
+    "belts": 3,
+    "lantern": 2.1,
+    "mat": "minaretBase",
+    "brickMats": [
+     "mBrickA",
+     "mBrickB"
+    ]
+   },
+   {
+    "t": "wallLoop",
+    "pts": [
+     [
+      -25,
+      -18
+     ],
+     [
+      25,
+      -18
+     ],
+     [
+      25,
+      40
+     ],
+     [
+      3,
+      40
+     ]
+    ],
+    "h": 2.4,
+    "th": 0.6,
+    "closed": false,
+    "eras": [
+     "xix"
+    ],
+    "mat": "wallLime"
+   },
+   {
+    "t": "wallLoop",
+    "pts": [
+     [
+      -3,
+      40
+     ],
+     [
+      -25,
+      40
+     ],
+     [
+      -25,
+      -18
+     ]
+    ],
+    "h": 2.4,
+    "th": 0.6,
+    "closed": false,
+    "eras": [
+     "xix"
+    ],
+    "mat": "wallLime"
+   },
+   {
+    "t": "box",
+    "size": [
+     6,
+     26,
+     0.08
+    ],
+    "at": [
+     0,
+     27,
+     0.02
+    ],
+    "eras": [
+     "xix",
+     "today"
+    ],
+    "matByEra": {
+     "xix": "paving",
+     "today": "pathNew"
+    }
+   },
+   {
+    "t": "tree",
+    "at": [
+     -18,
+     28,
+     0
+    ],
+    "s": 1.6,
+    "kind": "round",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     18,
+     28,
+     0
+    ],
+    "s": 1.6,
+    "kind": "round",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -18,
+     6,
+     0
+    ],
+    "s": 1.1,
+    "kind": "cypress",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     18,
+     6,
+     0
+    ],
+    "s": 1.1,
+    "kind": "cypress",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -18,
+     -10,
+     0
+    ],
+    "s": 1.6,
+    "kind": "round",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     18,
+     -10,
+     0
+    ],
+    "s": 1.6,
+    "kind": "round",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     -10,
+     34,
+     0
+    ],
+    "s": 1.1,
+    "kind": "cypress",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "tree",
+    "at": [
+     10,
+     34,
+     0
+    ],
+    "s": 1.1,
+    "kind": "cypress",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "size": [
+     8.77705830837463,
+     6.0189888523979995,
+     4.516513802537934
+    ],
+    "at": [
+     -42.86197073401975,
+     -12.142126669940598,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     -42.86197073401975,
+     -12.142126669940598,
+     4.516513802537934
+    ],
+    "size": [
+     9.377058308374629,
+     6.618988852397999
+    ],
+    "h": 1.6,
+    "eras": [
+     "xix"
+    ],
+    "mat": "houseRoof"
+   },
+   {
+    "t": "box",
+    "size": [
+     8.121148368865786,
+     7.140635527270211,
+     4.129045464344809
+    ],
+    "at": [
+     -42.90099721048074,
+     10.939883450251019,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.625106569670656,
+     6.166116454715895,
+     5.135403528034409
+    ],
+    "at": [
+     -42.90859913845016,
+     23.17428006821977,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     -42.90859913845016,
+     23.17428006821977,
+     5.135403528034409
+    ],
+    "size": [
+     7.225106569670656,
+     6.7661164547158945
+    ],
+    "h": 1.6,
+    "eras": [
+     "xix"
+    ],
+    "mat": "houseRoof"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.002881216352285,
+     6.424603232845945,
+     5.445227553437104
+    ],
+    "at": [
+     -33.7134235059905,
+     -32.50886518229212,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     7.4059149047387365,
+     7.211803943948729,
+     5.831108757029804
+    ],
+    "at": [
+     -33.72649146720138,
+     -22.142089253590484,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     -33.72649146720138,
+     -22.142089253590484,
+     5.831108757029804
+    ],
+    "size": [
+     8.005914904738736,
+     7.811803943948728
+    ],
+    "h": 1.6,
+    "eras": [
+     "xix"
+    ],
+    "mat": "houseRoof"
+   },
+   {
+    "t": "box",
+    "size": [
+     8.68096023969397,
+     7.898748536547063,
+     4.613322997192537
+    ],
+    "at": [
+     -34.38990708109453,
+     -10.168311955718469,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     -34.38990708109453,
+     -10.168311955718469,
+     4.613322997192537
+    ],
+    "size": [
+     9.28096023969397,
+     8.498748536547064
+    ],
+    "h": 1.6,
+    "eras": [
+     "xix"
+    ],
+    "mat": "houseRoof"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.320944032315604,
+     6.106351128363214,
+     5.554731520430526
+    ],
+    "at": [
+     -34.01207366376746,
+     11.077933060274429,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     8.675929452141714,
+     7.346302145787655,
+     4.640131402500035
+    ],
+    "at": [
+     -33.29779838807779,
+     20.902491576691386,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.473818476998162,
+     7.467142908120129,
+     4.616685420003107
+    ],
+    "at": [
+     -34.35760425164253,
+     33.745342644045756,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     8.251661250950612,
+     7.6706447269165166,
+     4.820740228714766
+    ],
+    "at": [
+     -21.795605735525307,
+     -32.7455969738055,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     8.300638164067937,
+     8.825623489835124,
+     3.8031949271462837
+    ],
+    "at": [
+     -11.899483509082106,
+     -44.61933714296638,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     7.538129853800931,
+     6.34845283224641,
+     3.9574012523318647
+    ],
+    "at": [
+     -10.44852091788711,
+     -34.29106692866937,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.968650625538384,
+     8.111063423618239,
+     5.714368601382882
+    ],
+    "at": [
+     12.093836258442066,
+     -43.89400436421577,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     8.75799917930644,
+     6.692206603331588,
+     5.933105755193674
+    ],
+    "at": [
+     11.941764059682267,
+     -32.77144892014165,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     11.941764059682267,
+     -32.77144892014165,
+     5.933105755193674
+    ],
+    "size": [
+     9.35799917930644,
+     7.2922066033315875
+    ],
+    "h": 1.6,
+    "eras": [
+     "xix"
+    ],
+    "mat": "houseRoof"
+   },
+   {
+    "t": "box",
+    "size": [
+     8.091502699112288,
+     6.885863980225224,
+     5.772732516272335
+    ],
+    "at": [
+     20.514516468632277,
+     -44.5217116973464,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     20.514516468632277,
+     -44.5217116973464,
+     5.772732516272335
+    ],
+    "size": [
+     8.691502699112288,
+     7.485863980225224
+    ],
+    "h": 1.6,
+    "eras": [
+     "xix"
+    ],
+    "mat": "houseRoof"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.541022233916923,
+     8.960685441717825,
+     5.392175161182962
+    ],
+    "at": [
+     20.68053034282314,
+     -33.32652817146225,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     20.68053034282314,
+     -33.32652817146225,
+     5.392175161182962
+    ],
+    "size": [
+     7.141022233916923,
+     9.560685441717824
+    ],
+    "h": 1.6,
+    "eras": [
+     "xix"
+    ],
+    "mat": "houseRoof"
+   },
+   {
+    "t": "box",
+    "size": [
+     8.747154213370361,
+     7.420864115665138,
+     3.9705535871770947
+    ],
+    "at": [
+     33.106510058327814,
+     -33.88544968440451,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.049037071433402,
+     8.166059581174544,
+     5.970704640434452
+    ],
+    "at": [
+     33.50711632985953,
+     -21.89584405086741,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     8.733854457612082,
+     8.89186908625619,
+     4.1149861662252745
+    ],
+    "at": [
+     32.01522151497902,
+     -11.171997747696935,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     32.01522151497902,
+     -11.171997747696935,
+     4.1149861662252745
+    ],
+    "size": [
+     9.333854457612082,
+     9.49186908625619
+    ],
+    "h": 1.6,
+    "eras": [
+     "xix"
+    ],
+    "mat": "houseRoof"
+   },
+   {
+    "t": "box",
+    "size": [
+     8.353987008032384,
+     8.459644000259994,
+     5.389369895769921
+    ],
+    "at": [
+     34.476646992367066,
+     10.00600071321521,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.318380997198811,
+     8.029419920420935,
+     4.768482011728214
+    ],
+    "at": [
+     33.0758906307518,
+     22.493831045457082,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.673481481929068,
+     6.203266781849445,
+     5.443842034900488
+    ],
+    "at": [
+     33.51868492086357,
+     32.53746495397643,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     33.51868492086357,
+     32.53746495397643,
+     5.443842034900488
+    ],
+    "size": [
+     7.273481481929068,
+     6.8032667818494446
+    ],
+    "h": 1.6,
+    "eras": [
+     "xix"
+    ],
+    "mat": "houseRoof"
+   },
+   {
+    "t": "box",
+    "size": [
+     8.36444050695954,
+     7.151600468974374,
+     5.159265641849146
+    ],
+    "at": [
+     44.34122777909098,
+     -22.98471681796234,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     44.34122777909098,
+     -22.98471681796234,
+     5.159265641849146
+    ],
+    "size": [
+     8.964440506959539,
+     7.751600468974374
+    ],
+    "h": 1.6,
+    "eras": [
+     "xix"
+    ],
+    "mat": "houseRoof"
+   },
+   {
+    "t": "box",
+    "size": [
+     6.345769752909322,
+     6.352237146977446,
+     4.4397833999431615
+    ],
+    "at": [
+     43.548102941386446,
+     -10.033864117941755,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "box",
+    "size": [
+     7.864698356885788,
+     7.985284179442228,
+     4.136963108431996
+    ],
+    "at": [
+     42.834618070784316,
+     11.425915671943647,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     42.834618070784316,
+     11.425915671943647,
+     4.136963108431996
+    ],
+    "size": [
+     8.464698356885789,
+     8.585284179442228
+    ],
+    "h": 1.6,
+    "eras": [
+     "xix"
+    ],
+    "mat": "houseRoof"
+   },
+   {
+    "t": "box",
+    "size": [
+     7.287576426885825,
+     7.297006670058242,
+     4.23288293510344
+    ],
+    "at": [
+     45.19767771507505,
+     21.369357266402503,
+     0
+    ],
+    "eras": [
+     "xix"
+    ],
+    "mat": "house"
+   },
+   {
+    "t": "hipRoof",
+    "at": [
+     45.19767771507505,
+     21.369357266402503,
+     4.23288293510344
+    ],
+    "size": [
+     7.887576426885825,
+     7.897006670058242
+    ],
+    "h": 1.6,
+    "eras": [
+     "xix"
+    ],
+    "mat": "houseRoof"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     -42.86197073401975,
+     -12.142126669940598,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.0189888523979995
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     -43.7305161157765,
+     -9.784357855694536,
+     0
+    ],
+    "s": 1.6020461033573588,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     -42.90099721048074,
+     10.939883450251019,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      7.140635527270211
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     -40.34750034373603,
+     7.561722828569693,
+     0
+    ],
+    "s": 1.2254431401963548,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     -42.90859913845016,
+     23.17428006821977,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.166116454715895
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     -46.28552722548392,
+     27.143921291755476,
+     0
+    ],
+    "s": 1.0760043964609525,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     -33.7134235059905,
+     -32.50886518229212,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.002881216352285
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     -33.72649146720138,
+     -22.142089253590484,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      7.211803943948729
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     -34.06963757731469,
+     -21.398761928034368,
+     0
+    ],
+    "s": 1.010236062160803,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     -34.38990708109453,
+     -10.168311955718469,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      7.898748536547063
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     -34.01207366376746,
+     11.077933060274429,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.106351128363214
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     -33.29779838807779,
+     20.902491576691386,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      7.346302145787655
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     -34.35760425164253,
+     33.745342644045756,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.473818476998162
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     -21.795605735525307,
+     -32.7455969738055,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      7.6706447269165166
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     -11.899483509082106,
+     -44.61933714296638,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      8.300638164067937
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     -10.44852091788711,
+     -34.29106692866937,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.34845283224641
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     -14.364628114208871,
+     -36.304715508504174,
+     0
+    ],
+    "s": 0.9608318716570884,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     12.093836258442066,
+     -43.89400436421577,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.968650625538384
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     13.028556970659903,
+     -46.04299411901412,
+     0
+    ],
+    "s": 1.4929191104103436,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     11.941764059682267,
+     -32.77144892014165,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.692206603331588
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     13.441966617452897,
+     -34.867060469168734,
+     0
+    ],
+    "s": 1.6056695501812128,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     20.514516468632277,
+     -44.5217116973464,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.885863980225224
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     19.506076783875972,
+     -41.36749339656322,
+     0
+    ],
+    "s": 0.994698126285662,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     20.68053034282314,
+     -33.32652817146225,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.541022233916923
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     16.704288534449546,
+     -30.022601506450492,
+     0
+    ],
+    "s": 1.4095458852637308,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     33.106510058327814,
+     -33.88544968440451,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      7.420864115665138
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     33.50711632985953,
+     -21.89584405086741,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.049037071433402
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     36.70753907468521,
+     -24.390771765676686,
+     0
+    ],
+    "s": 1.674989720049775,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     32.01522151497902,
+     -11.171997747696935,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      8.733854457612082
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     33.45022658256359,
+     -13.041826853780925,
+     0
+    ],
+    "s": 1.0782214046354506,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     34.476646992367066,
+     10.00600071321521,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      8.353987008032384
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     34.991933406559724,
+     6.424764049204422,
+     0
+    ],
+    "s": 1.515538797069126,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     33.0758906307518,
+     22.493831045457082,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.318380997198811
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     33.51868492086357,
+     32.53746495397643,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.203266781849445
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     44.34122777909098,
+     -22.98471681796234,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      7.151600468974374
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     40.603075964424335,
+     -26.102265920304816,
+     0
+    ],
+    "s": 1.6352236929979287,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     43.548102941386446,
+     -10.033864117941755,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      6.345769752909322
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "tree",
+    "at": [
+     45.05099722256465,
+     -6.889680355968736,
+     0
+    ],
+    "s": 0.9296487480540055,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     42.834618070784316,
+     11.425915671943647,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      7.864698356885788
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "rooms",
+    "at": [
+     45.19767771507505,
+     21.369357266402503,
+     0
+    ],
+    "rooms": [
+     [
+      0,
+      0,
+      7.287576426885825
+     ]
+    ],
+    "mode": "ruin",
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "scatter",
+    "at": [
+     0,
+     10,
+     0
+    ],
+    "area": [
+     48,
+     48
+    ],
+    "n": 160,
+    "size": [
+     0.4,
+     1.6
+    ],
+    "eras": [
+     "ruin"
+    ],
+    "mat": "ruinStone"
+   },
+   {
+    "t": "bush",
+    "at": [
+     47.30288641122304,
+     43.611913425667176,
+     0
+    ],
+    "s": 1.4413733302808245,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -7.7182228526651055,
+     -24.171484742393474,
+     0
+    ],
+    "s": 1.4004325838761555,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     36.69270166228186,
+     -9.763162028865498,
+     0
+    ],
+    "s": 0.8582224889929511,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -9.131126877447183,
+     37.15057074518435,
+     0
+    ],
+    "s": 1.2146538098410953,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -14.261934607411705,
+     11.665053231485679,
+     0
+    ],
+    "s": 1.4083815389351835,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -15.837828338070695,
+     21.6191220458686,
+     0
+    ],
+    "s": 1.0650275771343278,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -28.93187811082782,
+     -18.075408683193572,
+     0
+    ],
+    "s": 1.6840300804395372,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     47.438133582211165,
+     12.711116222995852,
+     0
+    ],
+    "s": 1.5594103737545248,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     40.158693146034466,
+     -28.844294598719245,
+     0
+    ],
+    "s": 1.3097369506069167,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -35.00257305195675,
+     -0.2452842370817816,
+     0
+    ],
+    "s": 1.213110521907504,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     26.054548312935307,
+     42.79349550362373,
+     0
+    ],
+    "s": 1.1302793994221276,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -30.033505073764132,
+     -5.119774753749267,
+     0
+    ],
+    "s": 0.7827113032260496,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     15.610762491640994,
+     2.085197010117213,
+     0
+    ],
+    "s": 1.2176746244158942,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     0.646914147141814,
+     24.6860710124886,
+     0
+    ],
+    "s": 0.998698516515409,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     24.084399227092224,
+     -45.50219026091611,
+     0
+    ],
+    "s": 0.9287199298053608,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     4.0023481044929206,
+     -28.535407787438206,
+     0
+    ],
+    "s": 1.3952234185278525,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -20.07314638983139,
+     -25.371373896194328,
+     0
+    ],
+    "s": 1.3255293680008173,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -6.79959362316858,
+     -40.770024594278084,
+     0
+    ],
+    "s": 1.4501698788023414,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     30.995173610278954,
+     39.88286795834213,
+     0
+    ],
+    "s": 1.6010203483519239,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     17.36681461397876,
+     44.05321714098249,
+     0
+    ],
+    "s": 0.6277347639797882,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     25.15009817907126,
+     9.700095650600318,
+     0
+    ],
+    "s": 1.3964412458690076,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     38.2271406903058,
+     -44.446418030395364,
+     0
+    ],
+    "s": 0.7495560360371862,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -40.29402091740352,
+     -37.6095588009849,
+     0
+    ],
+    "s": 0.6933307815777747,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -47.08835104065405,
+     10.08405972741733,
+     0
+    ],
+    "s": 1.6403231518065198,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -29.566916755198925,
+     -35.16990462838202,
+     0
+    ],
+    "s": 0.8224396027263439,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     16.79153643585347,
+     -24.64712261066172,
+     0
+    ],
+    "s": 1.1019928215546502,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     47.41979947659178,
+     -7.430196922007111,
+     0
+    ],
+    "s": 1.3411288021789534,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     26.33700843636738,
+     -9.899209973355386,
+     0
+    ],
+    "s": 1.0580809958083932,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -42.12684640014863,
+     -25.907447298014283,
+     0
+    ],
+    "s": 1.4884019635563726,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     45.539039297746044,
+     -33.36652278218722,
+     0
+    ],
+    "s": 1.6180912474720235,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     0.8374919820751536,
+     -36.27225726296764,
+     0
+    ],
+    "s": 0.8311395774274783,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     9.8511555166222,
+     -31.629232130772074,
+     0
+    ],
+    "s": 0.6858868325529093,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -21.81864290210355,
+     14.068744345600134,
+     0
+    ],
+    "s": 1.2117170640787656,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -1.8592606419042053,
+     47.40639151605144,
+     0
+    ],
+    "s": 0.682754492751674,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -8.311882700916323,
+     -17.81255430067543,
+     0
+    ],
+    "s": 0.6045818271136758,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -47.409312039338666,
+     -8.307445164913055,
+     0
+    ],
+    "s": 0.7004794233015177,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -25.51266077603803,
+     40.71033712882099,
+     0
+    ],
+    "s": 1.4552055885806707,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     25.337653119739915,
+     -6.064016531251379,
+     0
+    ],
+    "s": 1.5404330748321642,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     44.39465054701765,
+     28.89174372558098,
+     0
+    ],
+    "s": 1.3280257856603832,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     6.9276736634446685,
+     -14.588738485513597,
+     0
+    ],
+    "s": 1.0477031392733116,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     6.47285590622241,
+     21.28921588011515,
+     0
+    ],
+    "s": 1.3316294458842042,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     12.750281526125164,
+     21.981609585686403,
+     0
+    ],
+    "s": 1.5729535134848922,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     33.1375540872745,
+     46.871544822525024,
+     0
+    ],
+    "s": 1.0818668270399174,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -1.242583864015801,
+     43.892997486467,
+     0
+    ],
+    "s": 1.6726003182924356,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -13.653858243326589,
+     -40.395495590006696,
+     0
+    ],
+    "s": 0.9770435482622327,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     36.73445614647794,
+     20.004453854637433,
+     0
+    ],
+    "s": 1.4118909206296741,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     43.69771836497714,
+     27.552560170904066,
+     0
+    ],
+    "s": 0.8277778294066795,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -25.136392314516193,
+     28.654369926384827,
+     0
+    ],
+    "s": 0.714530083590434,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     39.89366438607391,
+     28.81733674407813,
+     0
+    ],
+    "s": 1.2987137863872171,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     20.30031795999981,
+     3.443953716868517,
+     0
+    ],
+    "s": 1.08732428489594,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     35.71690874719849,
+     6.08531416490921,
+     0
+    ],
+    "s": 1.5610696520009402,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -22.024042489949633,
+     17.917871416508163,
+     0
+    ],
+    "s": 1.077410281019942,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -10.071874720077904,
+     -29.998420349321524,
+     0
+    ],
+    "s": 1.2479594567548296,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -25.781264428878796,
+     38.28874383414572,
+     0
+    ],
+    "s": 1.5042644014136233,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -15.552474871069414,
+     17.554841936358645,
+     0
+    ],
+    "s": 1.5651173626841595,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -36.871450240198264,
+     -18.46418701227018,
+     0
+    ],
+    "s": 1.61301847138117,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -47.873585164488105,
+     -35.34585955149767,
+     0
+    ],
+    "s": 1.0370038518388773,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -45.92833256625027,
+     18.514559031703765,
+     0
+    ],
+    "s": 1.5876355253102425,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -31.39427875699209,
+     -27.643068766055194,
+     0
+    ],
+    "s": 1.6420580604309487,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     19.184436039619353,
+     -31.183482117570694,
+     0
+    ],
+    "s": 0.7285172394609625,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     12.15217050730817,
+     -46.47028367150122,
+     0
+    ],
+    "s": 1.4930892331959162,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     8.792057346921442,
+     24.107829708656215,
+     0
+    ],
+    "s": 0.740867757536875,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -16.1977376938787,
+     20.622578980691067,
+     0
+    ],
+    "s": 1.650556472107096,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     26.63577312726331,
+     19.438949914387873,
+     0
+    ],
+    "s": 1.4070242940480935,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     9.365242150316597,
+     -38.37517962901629,
+     0
+    ],
+    "s": 0.6499122149543428,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     10.873897103068373,
+     -26.411388729890522,
+     0
+    ],
+    "s": 1.2392560250308626,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     -23.911619458306404,
+     -26.588235755724945,
+     0
+    ],
+    "s": 1.282018946708189,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "bush",
+    "at": [
+     12.43089377713897,
+     30.031712374664714,
+     0
+    ],
+    "s": 0.8634257196744093,
+    "eras": [
+     "ruin"
+    ],
+    "mat": "treeWild"
+   },
+   {
+    "t": "box",
+    "size": [
+     60,
+     64,
+     0.08
+    ],
+    "at": [
+     0,
+     10,
+     0.02
+    ],
+    "eras": [
+     "today"
+    ],
+    "mat": "lawn"
+   },
+   {
+    "t": "box",
+    "size": [
+     26,
+     3.5,
+     0.1
+    ],
+    "at": [
+     0,
+     15.6,
+     0.04
+    ],
+    "eras": [
+     "today"
+    ],
+    "mat": "pathNew"
+   },
+   {
+    "t": "box",
+    "size": [
+     0.9,
+     22,
+     0.9
+    ],
+    "at": [
+     -4.2,
+     28.5,
+     0
+    ],
+    "eras": [
+     "today"
+    ],
+    "mat": "hedge"
+   },
+   {
+    "t": "tree",
+    "at": [
+     -12,
+     20,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ],
+    "mat": "tree"
+   },
+   {
+    "t": "tree",
+    "at": [
+     -12,
+     25,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ],
+    "mat": "tree"
+   },
+   {
+    "t": "tree",
+    "at": [
+     -12,
+     30,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ],
+    "mat": "tree"
+   },
+   {
+    "t": "tree",
+    "at": [
+     -12,
+     35,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ],
+    "mat": "tree"
+   },
+   {
+    "t": "tree",
+    "at": [
+     -12,
+     40,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ],
+    "mat": "tree"
+   },
+   {
+    "t": "box",
+    "size": [
+     3,
+     30,
+     0.08
+    ],
+    "at": [
+     -13,
+     -1,
+     0.04
+    ],
+    "eras": [
+     "today"
+    ],
+    "mat": "pathNew"
+   },
+   {
+    "t": "box",
+    "size": [
+     0.9,
+     22,
+     0.9
+    ],
+    "at": [
+     4.2,
+     28.5,
+     0
+    ],
+    "eras": [
+     "today"
+    ],
+    "mat": "hedge"
+   },
+   {
+    "t": "tree",
+    "at": [
+     12,
+     20,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ],
+    "mat": "tree"
+   },
+   {
+    "t": "tree",
+    "at": [
+     12,
+     25,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ],
+    "mat": "tree"
+   },
+   {
+    "t": "tree",
+    "at": [
+     12,
+     30,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ],
+    "mat": "tree"
+   },
+   {
+    "t": "tree",
+    "at": [
+     12,
+     35,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ],
+    "mat": "tree"
+   },
+   {
+    "t": "tree",
+    "at": [
+     12,
+     40,
+     0
+    ],
+    "s": 0.9,
+    "eras": [
+     "today"
+    ],
+    "mat": "tree"
+   },
+   {
+    "t": "box",
+    "size": [
+     3,
+     30,
+     0.08
+    ],
+    "at": [
+     13,
+     -1,
+     0.04
+    ],
+    "eras": [
+     "today"
+    ],
+    "mat": "pathNew"
+   },
+   {
+    "t": "box",
+    "size": [
+     1.6,
+     1,
+     1.5
+    ],
+    "at": [
+     5.6,
+     21,
+     0
+    ],
+    "eras": [
+     "today"
+    ],
+    "mat": "memorial"
+   }
+  ]
+ },
+ "buildings": [
+  {
+   "id": "mosque",
+   "name": {
+    "az": "Cümə məscidi",
+    "en": "Juma Mosque"
+   },
+   "date": {
+    "az": "1868–1870",
+    "en": "1868–1870"
+   },
+   "pos": [
+    -8,
+    -6,
+    11
+   ],
+   "conf": "ok",
+   "walk": true,
+   "byEra": {
+    "xix": {
+     "az": "Kərbəlayi Səfixan Qarabaginin layihəsi ilə tikilmiş iki mərtəbəli daş məscid: daş sütunlu namaz zalı, iki kərpic minarə, günbəzli örtük. Ölçülər fotolardan təxmin edilib.",
+     "en": "A two-storey stone mosque designed by Karbalayi Safikhan Karabakhi: a prayer hall with stone pillars, two brick minarets and a domed roof. The dimensions are estimated from photos."
+    },
+    "ruin": {
+     "az": "Ağdam şəhəri dağıdılandan sonra ayaqda qalan az sayda binadan biri. Mənbələrə görə talan edilib, heyvan saxlamaq üçün istifadə olunub, bir neçə dəfə yandırılıb. Peyk təsvirlərinə görə binanın forması 1977–2019-cu illərdə əsasən dəyişməyib.",
+     "en": "One of the few buildings left standing after the town of Aghdam was destroyed. Sources say it was vandalised, used to keep animals and set on fire several times. Satellite imagery shows its form largely unchanged between 1977 and 2019."
+    },
+    "today": {
+     "az": "2022–2024-cü illərdə Heydər Əliyev Fondu tərəfindən bərpa olunub, 25 aprel 2024-cü ildə yenidən açılıb.",
+     "en": "Restored by the Heydar Aliyev Foundation in 2022–2024 and reopened on 25 April 2024."
+    }
+   },
+   "photos": [
+    "today_front",
+    "restoration_2022",
+    "ruin_front_2018",
+    "ruin_side_2021",
+    "xix_1992",
+    "stamp_2002"
+   ],
+   "factIds": [
+    "ag-built",
+    "ag-architect",
+    "ag-two-storey",
+    "ag-karabakh-type",
+    "ag-dimensions",
+    "ag-restoration",
+    "ag-reopened"
+   ]
+  },
+  {
+   "id": "minarets",
+   "name": {
+    "az": "İki minarə",
+    "en": "Two minarets"
+   },
+   "date": {
+    "az": "1868–1870",
+    "en": "1868–1870"
+   },
+   "pos": [
+    8.6,
+    12.6,
+    29
+   ],
+   "conf": "ok",
+   "text": {
+    "az": "Fasadın künclərində bişmiş kərpicdən iki minarə. Gövdə üfüqi qurşaqlarla bölünüb, kərpicdən romb naxışlar hörülüb; yuxarıda taxta şərəfə və qalay örtük var. İçəridə kərpic pilləkən qalxır.",
+    "en": "Two minarets of fired brick on the corners of the facade. The shafts are divided by horizontal belts and patterned with brick lozenges; at the top are timber balconies with tin caps. Brick stairs climb inside."
+   },
+   "byEra": {
+    "today": {
+     "az": "Bərpa zamanı minarələrin sınmış daşları bərpa olunub; naxışlar göy-ağ rəngdədir. Hündürlük modeldə təxminidir.",
+     "en": "The restoration repaired broken stones of the minarets; the patterns are now blue and white. The height in the model is an estimate."
+    }
+   },
+   "photos": [
+    "ruin_minarets_2021",
+    "today_front"
+   ],
+   "factIds": [
+    "ag-minarets",
+    "ag-minaret-repair"
+   ]
+  },
+  {
+   "id": "iwan",
+   "name": {
+    "az": "Giriş eyvanı",
+    "en": "Entrance iwan"
+   },
+   "date": {
+    "az": "1868–1870",
+    "en": "1868–1870"
+   },
+   "pos": [
+    0,
+    14.2,
+    8
+   ],
+   "conf": "ok",
+   "text": {
+    "az": "Şimal fasadının ortasında uca şiş tağlı eyvan; içi göy rəngə boyanıb, qapı üstündə Quran yazıları var.",
+    "en": "A tall pointed-arch iwan in the middle of the north facade, painted blue inside, with Quranic inscriptions above the door."
+   },
+   "photos": [
+    "ruin_portal_2021",
+    "today_door"
+   ],
+   "factIds": [
+    "ag-facade"
+   ]
+  },
+  {
+   "id": "domes",
+   "name": {
+    "az": "Doqquz günbəz",
+    "en": "Nine domes"
+   },
+   "date": {
+    "az": "1868–1870",
+    "en": "1868–1870"
+   },
+   "pos": [
+    3,
+    -4,
+    12.5
+   ],
+   "conf": "mid",
+   "eras": [
+    "xix",
+    "ruin"
+   ],
+   "byEra": {
+    "xix": {
+     "az": "Namaz zalı doqquz kərpic günbəzlə örtülüb. XIX əsrdə günbəzlərin üstünün necə örtüldüyü məlum deyil: modeldə əhənglə suvanmış açıq günbəzlər göstərilir (fərziyyə).",
+     "en": "The prayer hall is covered by nine brick domes. How they were roofed in the 19th century is unknown: the model shows exposed lime-plastered domes (hypothesis)."
+    },
+    "ruin": {
+     "az": "Sovet dövrünə aid dam örtüyü götürüləndən sonra kərpic günbəzlər açıq qaldı və üstünü ot basdı (2018-ci il fotoları).",
+     "en": "Once the Soviet-era roof covering was removed, the brick domes were left exposed and grew over with grass (photos from 2018)."
+    }
+   },
+   "photos": [
+    "ruin_domes_2018"
+   ],
+   "factIds": [
+    "ag-domes",
+    "ag-satellite"
+   ]
+  },
+  {
+   "id": "roof",
+   "name": {
+    "az": "Yeni dam örtüyü",
+    "en": "New roof"
+   },
+   "date": {
+    "az": "2022–2024",
+    "en": "2022–2024"
+   },
+   "pos": [
+    5,
+    -4,
+    13.5
+   ],
+   "conf": "ok",
+   "eras": [
+    "today"
+   ],
+   "text": {
+    "az": "Bərpadan sonra bina dörd tərəfə maili metal damla örtülüb. Altındakı günbəz və tağlar əhəng suyu və əhəng pastası ilə möhkəmləndirilib.",
+    "en": "After the restoration the building has a four-sided sheet-metal roof. The domes and vaults beneath were reinforced with lime water and lime paste."
+   },
+   "photos": [
+    "today_front",
+    "today_side"
+   ],
+   "factIds": [
+    "ag-lime"
+   ]
+  },
+  {
+   "id": "pavement",
+   "name": {
+    "az": "Tarixi daş döşəmə",
+    "en": "Historic stone pavement"
+   },
+   "date": {
+    "az": "2022-də tapılıb",
+    "en": "found in 2022"
+   },
+   "pos": [
+    0,
+    15.5,
+    0.5
+   ],
+   "conf": "ok",
+   "eras": [
+    "today"
+   ],
+   "text": {
+    "az": "Bərpa zamanı dağıntılar təmizlənib, kəşfiyyat qazıntıları aparılıb və girişdə tarixi daş döşəmə tapılıb.",
+    "en": "During the restoration the debris was cleared, exploratory excavations were made and a historic stone pavement was found at the entrance."
+   },
+   "factIds": [
+    "ag-pavement"
+   ]
+  },
+  {
+   "id": "memorial",
+   "name": {
+    "az": "Bərpa lövhəsi",
+    "en": "Restoration plaque"
+   },
+   "date": {
+    "az": "2024",
+    "en": "2024"
+   },
+   "pos": [
+    5.6,
+    21,
+    2
+   ],
+   "conf": "ok",
+   "eras": [
+    "today"
+   ],
+   "text": {
+    "az": "Yolun kənarında daş üzərində lövhə: məscidin 2022–2024-cü illərdə Heydər Əliyev Fondu tərəfindən bərpa edildiyi yazılıb.",
+    "en": "A plaque on a stone by the path records that the mosque was restored by the Heydar Aliyev Foundation in 2022–2024."
+   },
+   "photos": [
+    "today_press"
+   ],
+   "factIds": [
+    "ag-restoration"
+   ]
+  },
+  {
+   "id": "town",
+   "name": {
+    "az": "XIX əsr Ağdamı",
+    "en": "19th-century Aghdam"
+   },
+   "date": {
+    "az": "fərziyyə",
+    "en": "hypothesis"
+   },
+   "pos": [
+    -30,
+    24,
+    6
+   ],
+   "conf": "hyp",
+   "eras": [
+    "xix"
+   ],
+   "text": {
+    "az": "Məscidin ətrafındakı həyət divarı, küçələr və alçaq evlər bədii fərziyyədir: XIX əsr Ağdamının planı və görünüşü üçün mənbə tapılmayıb.",
+    "en": "The courtyard wall, streets and low houses around the mosque are an artistic hypothesis: no source was found for the plan or look of 19th-century Aghdam."
+   }
+  },
+  {
+   "id": "ruins",
+   "name": {
+    "az": "Dağıdılmış şəhər",
+    "en": "The destroyed town"
+   },
+   "date": {
+    "az": "1993–2020",
+    "en": "1993–2020"
+   },
+   "pos": [
+    -30,
+    24,
+    4
+   ],
+   "conf": "ok",
+   "eras": [
+    "ruin"
+   ],
+   "text": {
+    "az": "1993-cü ildən sonra Ağdam şəhəri dağıdıldı və tərk edildi. 2010-cu ildə minarədən çəkilmiş fotolarda divar qalıqları və kol basmış küçələr görünür. Evlərin yeri modeldə şərtidir.",
+    "en": "After 1993 the town of Aghdam was destroyed and abandoned. Photos taken from a minaret in 2010 show wall stubs and overgrown streets. The house positions in the model are schematic."
+   },
+   "photos": [
+    "ruin_alone_2018",
+    "ruin_view_2010",
+    "ruin_pano_2010"
+   ],
+   "factIds": [
+    "ag-town-destroyed"
+   ]
+  },
+  {
+   "id": "square",
+   "name": {
+    "az": "Məscid meydanı",
+    "en": "Mosque square"
+   },
+   "date": {
+    "az": "2024",
+    "en": "2024"
+   },
+   "pos": [
+    0,
+    30,
+    2
+   ],
+   "conf": "mid",
+   "eras": [
+    "today"
+   ],
+   "text": {
+    "az": "Məscidin önündə salınmış meydan: piyada yolu, çəpər kolları, gənc ağaclar. Planı fotolardan təxmini götürülüb.",
+    "en": "The square laid out in front of the mosque: a footpath, hedges, young trees. Its plan is approximated from photos."
+   },
+   "photos": [
+    "today_front"
+   ]
+  }
+ ],
+ "disclaimer": {
+  "az": "Ölçülmüş plan dərc olunmayıb: binanın ölçüləri fotolardan təxmin edilib. XIX əsrin dam örtüyü, həyət və şəhər bədii fərziyyədir. Bütün yoxlanılmamış detallar CONTENT_TODO.md faylındadır.",
+  "en": "No measured plan has been published: the building's dimensions are estimated from photos. The 19th-century roof, the courtyard and the town are an artistic hypothesis. Every unverified detail is listed in CONTENT_TODO.md."
+ },
+ "walk": {
+  "title": {
+   "az": "Ağdam Cümə məscidinin içində",
+   "en": "Inside the Aghdam Juma Mosque"
+  },
+  "cta": {
+   "az": "Məscidin içində gəz",
+   "en": "Walk inside the mosque"
+  },
+  "eye": 1.62,
+  "defaultFloor": 0,
+  "start": {
+   "x": 0,
+   "z": -26,
+   "yaw": 180,
+   "pitch": 0.14
+  },
+  "sky": "#b9d3e6",
+  "fog": [
+   60,
+   170
+  ],
+  "defaultEra": "today",
+  "eraLook": {
+   "xix": {
+    "sky": "#bcd3e3",
+    "fog": [
+     55,
+     150
+    ],
+    "sun": {
+     "dir": [
+      -14,
+      22,
+      -10
+     ],
+     "intensity": 0.85
+    },
+    "ambient": 0.6,
+    "alias": {
+     "wallIn": "lime",
+     "wallOut": "lime",
+     "iwan": "iwanBlue",
+     "hallFloor": "floor",
+     "court": "c:#c2ad86",
+     "domeOut": "lime",
+     "mBrick": "minaretBrick",
+     "minaretBase": "stone",
+     "rail": "wood",
+     "galFloor": "stone",
+     "vault": "vaultLime",
+     "pillar": "lime",
+     "roofSlab": "c:#cdbf9f"
+    }
+   },
+   "ruin": {
+    "sky": "#c4cfd6",
+    "fog": [
+     45,
+     130
+    ],
+    "sun": {
+     "dir": [
+      -10,
+      18,
+      -14
+     ],
+     "intensity": 0.75
+    },
+    "ambient": 0.55,
+    "alias": {
+     "wallIn": "limeWorn",
+     "wallOut": "marbleWorn",
+     "iwan": "c:#8aa5bb",
+     "hallFloor": "dust",
+     "court": "c:#8c9160",
+     "domeOut": "brick",
+     "mBrick": "minaretBrick",
+     "minaretBase": "stoneGrey",
+     "rail": "woodDark",
+     "galFloor": "stoneGrey",
+     "vault": "vaultLimeWorn",
+     "pillar": "c:#b9b2a2",
+     "roofSlab": "c:#8f8a6a",
+     "daylight": "none"
+    }
+   },
+   "today": {
+    "sky": "#a8cbe6",
+    "fog": [
+     70,
+     200
+    ],
+    "sun": {
+     "dir": [
+      -14,
+      24,
+      -8
+     ],
+     "intensity": 0.95
+    },
+    "ambient": 0.62,
+    "alias": {
+     "wallIn": "lime",
+     "wallOut": "stone",
+     "iwan": "iwanBlue",
+     "hallFloor": "floorGrey",
+     "court": "c:#86a35b",
+     "domeOut": "lime",
+     "mBrick": "minaretBlue",
+     "minaretBase": "stone",
+     "rail": "woodDark",
+     "galFloor": "stone",
+     "vault": "vaultLime",
+     "pillar": "lime",
+     "roofSlab": "c:#cfc6b0"
+    }
+   }
+  },
+  "map": {
+   "bounds": [
+    -26,
+    26,
+    -41,
+    18
+   ],
+   "levels": [
+    {
+     "name": {
+      "az": "Zal",
+      "en": "Hall"
+     },
+     "y": 0,
+     "at": [
+      0,
+      -4
+     ],
+     "yaw": 180
+    },
+    {
+     "name": {
+      "az": "Qalereya",
+      "en": "Gallery"
+     },
+     "y": 4.6,
+     "at": [
+      0,
+      -6.9
+     ],
+     "yaw": 180,
+     "pitch": -0.32
+    }
+   ]
+  },
+  "sun": {
+   "dir": [
+    -14,
+    24,
+    -8
+   ],
+   "intensity": 0.9
+  },
+  "ambient": 0.6,
+  "testRoute": [
+   {
+    "key": "KeyW",
+    "ms": 5000,
+    "expect": "entrance"
+   },
+   {
+    "key": "KeyW",
+    "ms": 4200,
+    "expect": "hall"
+   }
+  ],
+  "testShots": [
+   "courtyard",
+   "entrance",
+   "hall",
+   "mihrab",
+   "stairs",
+   "gallery",
+   "galleryView"
+  ],
+  "elements": [
+   {
+    "t": "terrain",
+    "rect": [
+     -160,
+     160,
+     -160,
+     160
+    ],
+    "y": -0.03,
+    "mat": "court"
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -9,
+     9,
+     -8,
+     10
+    ],
+    "y": 0,
+    "mat": "hallFloor"
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -0.8,
+     0.8,
+     9.9,
+     10.9
+    ],
+    "y": 0.002,
+    "mat": "hallFloor"
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -3,
+     3,
+     -13.9,
+     -8.9
+    ],
+    "y": 0.01,
+    "mat": "setts"
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -4,
+     4,
+     -17,
+     -13.9
+    ],
+    "y": 0.01,
+    "mat": "setts"
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -9,
+     -3.6,
+     -13.1,
+     -8.9
+    ],
+    "y": 0.005,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "floor",
+    "rect": [
+     3.6,
+     9,
+     -13.1,
+     -8.9
+    ],
+    "y": 0.005,
+    "mat": "floorGrey"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -9.45,
+     -13.9
+    ],
+    "to": [
+     -9.45,
+     10.9
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.9,
+    "ops": [
+     {
+      "u": 2.5,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 2.5,
+      "w": 1.1,
+      "sill": 5.5,
+      "spring": 1.4,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 8.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 14.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 20.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 8.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 14.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 20.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     }
+    ],
+    "mat": "wallIn"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -9.92,
+     -13.9
+    ],
+    "to": [
+     -9.92,
+     10.9
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.04,
+    "ops": [
+     {
+      "u": 2.5,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 2.5,
+      "w": 1.1,
+      "sill": 5.5,
+      "spring": 1.4,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 8.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 14.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 20.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 8.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 14.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 20.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     }
+    ],
+    "mat": "wallOut"
+   },
+   {
+    "t": "wall",
+    "from": [
+     9.45,
+     10.9
+    ],
+    "to": [
+     9.45,
+     -13.9
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.9,
+    "ops": [
+     {
+      "u": 22.3,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 22.3,
+      "w": 1.1,
+      "sill": 5.5,
+      "spring": 1.4,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 15.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 9.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 3.9000000000000004,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 15.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 9.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 3.9000000000000004,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     }
+    ],
+    "mat": "wallIn"
+   },
+   {
+    "t": "wall",
+    "from": [
+     9.92,
+     10.9
+    ],
+    "to": [
+     9.92,
+     -13.9
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.04,
+    "ops": [
+     {
+      "u": 22.3,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 22.3,
+      "w": 1.1,
+      "sill": 5.5,
+      "spring": 1.4,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 15.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 9.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 3.9000000000000004,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 15.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 9.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 3.9000000000000004,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     }
+    ],
+    "mat": "wallOut"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -9.9,
+     10.45
+    ],
+    "to": [
+     9.9,
+     10.45
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.9,
+    "ops": [
+     {
+      "u": 3.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 15.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 3.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 9.9,
+      "w": 1.5,
+      "sill": 0,
+      "spring": 2.1,
+      "kind": "niche",
+      "back": 1
+     },
+     {
+      "u": 9.9,
+      "w": 1,
+      "sill": 6.3,
+      "spring": 1.3,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 15.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     }
+    ],
+    "mat": "wallIn"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -9.9,
+     10.92
+    ],
+    "to": [
+     9.9,
+     10.92
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.04,
+    "ops": [
+     {
+      "u": 3.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 15.9,
+      "w": 1.3,
+      "sill": 1,
+      "spring": 1.7,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 3.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 9.9,
+      "w": 1.5,
+      "sill": 0,
+      "spring": 2.1,
+      "kind": "niche",
+      "back": 1
+     },
+     {
+      "u": 9.9,
+      "w": 1,
+      "sill": 6.3,
+      "spring": 1.3,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 15.9,
+      "w": 1.2,
+      "sill": 5.7,
+      "spring": 1.5,
+      "kind": "window",
+      "fill": "glass"
+     }
+    ],
+    "mat": "wallOut"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -9,
+     -8.45
+    ],
+    "to": [
+     9,
+     -8.45
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.9,
+    "ops": [
+     {
+      "u": 9,
+      "w": 1.6,
+      "sill": 0,
+      "spring": 2.5,
+      "kind": "door"
+     },
+     {
+      "u": 5.05,
+      "w": 0.9,
+      "sill": 4.6,
+      "spring": 2,
+      "kind": "door"
+     }
+    ],
+    "mat": "wallIn"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -3,
+     -8.92
+    ],
+    "to": [
+     3,
+     -8.92
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.04,
+    "ops": [
+     {
+      "u": 3,
+      "w": 1.6,
+      "sill": 0,
+      "spring": 2.5,
+      "kind": "door"
+     }
+    ],
+    "mat": "iwan"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -9.9,
+     -13.45
+    ],
+    "to": [
+     -3.3,
+     -13.45
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.9,
+    "ops": [
+     {
+      "u": 2.3,
+      "w": 1.7,
+      "sill": 0.5,
+      "spring": 2.1,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 2.3,
+      "w": 1.7,
+      "sill": 5,
+      "spring": 2,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 4.7,
+      "w": 1.7,
+      "sill": 0.5,
+      "spring": 2.1,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 4.7,
+      "w": 1.7,
+      "sill": 5,
+      "spring": 2,
+      "kind": "window",
+      "fill": "glass"
+     }
+    ],
+    "mat": "wallIn"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -9.9,
+     -13.92
+    ],
+    "to": [
+     -3.3,
+     -13.92
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.04,
+    "ops": [
+     {
+      "u": 2.3,
+      "w": 1.7,
+      "sill": 0.5,
+      "spring": 2.1,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 2.3,
+      "w": 1.7,
+      "sill": 5,
+      "spring": 2,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 4.7,
+      "w": 1.7,
+      "sill": 0.5,
+      "spring": 2.1,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 4.7,
+      "w": 1.7,
+      "sill": 5,
+      "spring": 2,
+      "kind": "window",
+      "fill": "glass"
+     }
+    ],
+    "mat": "wallOut"
+   },
+   {
+    "t": "wall",
+    "from": [
+     3.3,
+     -13.45
+    ],
+    "to": [
+     9.9,
+     -13.45
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.9,
+    "ops": [
+     {
+      "u": 1.9,
+      "w": 1.7,
+      "sill": 0.5,
+      "spring": 2.1,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 1.9,
+      "w": 1.7,
+      "sill": 5,
+      "spring": 2,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 4.3,
+      "w": 1.7,
+      "sill": 0.5,
+      "spring": 2.1,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 4.3,
+      "w": 1.7,
+      "sill": 5,
+      "spring": 2,
+      "kind": "window",
+      "fill": "glass"
+     }
+    ],
+    "mat": "wallIn"
+   },
+   {
+    "t": "wall",
+    "from": [
+     3.3,
+     -13.92
+    ],
+    "to": [
+     9.9,
+     -13.92
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.04,
+    "ops": [
+     {
+      "u": 1.9,
+      "w": 1.7,
+      "sill": 0.5,
+      "spring": 2.1,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 1.9,
+      "w": 1.7,
+      "sill": 5,
+      "spring": 2,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 4.3,
+      "w": 1.7,
+      "sill": 0.5,
+      "spring": 2.1,
+      "kind": "window",
+      "fill": "glass"
+     },
+     {
+      "u": 4.3,
+      "w": 1.7,
+      "sill": 5,
+      "spring": 2,
+      "kind": "window",
+      "fill": "glass"
+     }
+    ],
+    "mat": "wallOut"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -3.3,
+     -13.6
+    ],
+    "to": [
+     3.3,
+     -13.6
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.6,
+    "ops": [
+     {
+      "u": 3.3,
+      "w": 6,
+      "sill": 0,
+      "spring": 5.6,
+      "kind": "door"
+     }
+    ],
+    "mat": "wallOut"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -3.3,
+     -13.28
+    ],
+    "to": [
+     3.3,
+     -13.28
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.04,
+    "ops": [
+     {
+      "u": 3.3,
+      "w": 6,
+      "sill": 0,
+      "spring": 5.6,
+      "kind": "door"
+     }
+    ],
+    "mat": "iwan"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -3.3,
+     -13.9
+    ],
+    "to": [
+     -3.3,
+     -8.9
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.6,
+    "ops": [
+     {
+      "u": 2.9,
+      "w": 1,
+      "sill": 0,
+      "spring": 2.1,
+      "kind": "door"
+     }
+    ],
+    "mat": "wallIn"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -2.98,
+     -13.9
+    ],
+    "to": [
+     -2.98,
+     -8.9
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.04,
+    "ops": [
+     {
+      "u": 2.9,
+      "w": 1,
+      "sill": 0,
+      "spring": 2.1,
+      "kind": "door"
+     }
+    ],
+    "mat": "iwan"
+   },
+   {
+    "t": "wall",
+    "from": [
+     3.3,
+     -8.9
+    ],
+    "to": [
+     3.3,
+     -13.9
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.6,
+    "ops": [
+     {
+      "u": 2.1,
+      "w": 1,
+      "sill": 0,
+      "spring": 2.1,
+      "kind": "door"
+     }
+    ],
+    "mat": "wallIn"
+   },
+   {
+    "t": "wall",
+    "from": [
+     2.98,
+     -8.9
+    ],
+    "to": [
+     2.98,
+     -13.9
+    ],
+    "y0": 0,
+    "h": 10,
+    "th": 0.04,
+    "ops": [
+     {
+      "u": 2.1,
+      "w": 1,
+      "sill": 0,
+      "spring": 2.1,
+      "kind": "door"
+     }
+    ],
+    "mat": "iwan"
+   },
+   {
+    "t": "vault",
+    "x": [
+     -3,
+     3
+    ],
+    "z": [
+     -13.3,
+     -8.92
+    ],
+    "y": 5.6,
+    "axis": "z",
+    "scaleY": 1.3,
+    "mat": "iwan"
+   },
+   {
+    "t": "vault",
+    "x": [
+     -9,
+     -3.6
+    ],
+    "z": [
+     -13,
+     -8.9
+    ],
+    "y": 7.6,
+    "axis": "x",
+    "scaleY": 0.8,
+    "mat": "vault"
+   },
+   {
+    "t": "vault",
+    "x": [
+     3.6,
+     9
+    ],
+    "z": [
+     -13,
+     -8.9
+    ],
+    "y": 7.6,
+    "axis": "x",
+    "scaleY": 0.8,
+    "mat": "vault"
+   },
+   {
+    "t": "box",
+    "min": [
+     -9.9,
+     10,
+     -13.9
+    ],
+    "max": [
+     9.9,
+     10.3,
+     -8
+    ],
+    "mat": "roofSlab"
+   },
+   {
+    "t": "box",
+    "min": [
+     -10.1,
+     9.9,
+     -14.1
+    ],
+    "max": [
+     10.1,
+     10.45,
+     -13.7
+    ],
+    "mat": "wallOut"
+   },
+   {
+    "t": "box",
+    "min": [
+     -10.1,
+     9.9,
+     10.7
+    ],
+    "max": [
+     10.1,
+     10.45,
+     11.1
+    ],
+    "mat": "wallOut"
+   },
+   {
+    "t": "box",
+    "min": [
+     -10.1,
+     9.9,
+     -14.1
+    ],
+    "max": [
+     -9.7,
+     10.45,
+     11.1
+    ],
+    "mat": "wallOut"
+   },
+   {
+    "t": "box",
+    "min": [
+     9.7,
+     9.9,
+     -14.1
+    ],
+    "max": [
+     10.1,
+     10.45,
+     11.1
+    ],
+    "mat": "wallOut"
+   },
+   {
+    "t": "stair",
+    "from": [
+     -4.3,
+     -12.5
+    ],
+    "dir": [
+     -1,
+     0
+    ],
+    "width": 1.2,
+    "steps": 8,
+    "rise": 0.2875,
+    "run": 0.4625,
+    "y0": 0,
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -9,
+     0,
+     -13.1
+    ],
+    "max": [
+     -8,
+     2.3,
+     -8.9
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "stair",
+    "from": [
+     -8,
+     -9.5
+    ],
+    "dir": [
+     1,
+     0
+    ],
+    "width": 1.2,
+    "steps": 8,
+    "rise": 0.2875,
+    "run": 0.4625,
+    "y0": 2.3,
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -8,
+     0,
+     -10.1
+    ],
+    "max": [
+     -4.3,
+     2.3,
+     -8.9
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "box",
+    "min": [
+     -4.3,
+     4.3,
+     -10.1
+    ],
+    "max": [
+     -3.6,
+     4.6,
+     -8.9
+    ],
+    "mat": "stone"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     -3,
+     -2
+    ],
+    "y0": 0,
+    "h": 5,
+    "r": 0.36,
+    "mat": "pillar"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     3,
+     -2
+    ],
+    "y0": 0,
+    "h": 5,
+    "r": 0.36,
+    "mat": "pillar"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     -3,
+     4
+    ],
+    "y0": 0,
+    "h": 5,
+    "r": 0.36,
+    "mat": "pillar"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     3,
+     4
+    ],
+    "y0": 0,
+    "h": 5,
+    "r": 0.36,
+    "mat": "pillar"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -9,
+     -2
+    ],
+    "to": [
+     -3,
+     -2
+    ],
+    "y0": 5,
+    "h": 5,
+    "th": 0.7,
+    "ops": [
+     {
+      "u": 3,
+      "w": 5.95,
+      "sill": 0,
+      "spring": 0.02,
+      "kind": "door"
+     }
+    ],
+    "mat": "vault"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -3,
+     -2
+    ],
+    "to": [
+     3,
+     -2
+    ],
+    "y0": 5,
+    "h": 5,
+    "th": 0.7,
+    "ops": [
+     {
+      "u": 3,
+      "w": 5.95,
+      "sill": 0,
+      "spring": 0.02,
+      "kind": "door"
+     }
+    ],
+    "mat": "vault"
+   },
+   {
+    "t": "wall",
+    "from": [
+     3,
+     -2
+    ],
+    "to": [
+     9,
+     -2
+    ],
+    "y0": 5,
+    "h": 5,
+    "th": 0.7,
+    "ops": [
+     {
+      "u": 3,
+      "w": 5.95,
+      "sill": 0,
+      "spring": 0.02,
+      "kind": "door"
+     }
+    ],
+    "mat": "vault"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -9,
+     4
+    ],
+    "to": [
+     -3,
+     4
+    ],
+    "y0": 5,
+    "h": 5,
+    "th": 0.7,
+    "ops": [
+     {
+      "u": 3,
+      "w": 5.95,
+      "sill": 0,
+      "spring": 0.02,
+      "kind": "door"
+     }
+    ],
+    "mat": "vault"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -3,
+     4
+    ],
+    "to": [
+     3,
+     4
+    ],
+    "y0": 5,
+    "h": 5,
+    "th": 0.7,
+    "ops": [
+     {
+      "u": 3,
+      "w": 5.95,
+      "sill": 0,
+      "spring": 0.02,
+      "kind": "door"
+     }
+    ],
+    "mat": "vault"
+   },
+   {
+    "t": "wall",
+    "from": [
+     3,
+     4
+    ],
+    "to": [
+     9,
+     4
+    ],
+    "y0": 5,
+    "h": 5,
+    "th": 0.7,
+    "ops": [
+     {
+      "u": 3,
+      "w": 5.95,
+      "sill": 0,
+      "spring": 0.02,
+      "kind": "door"
+     }
+    ],
+    "mat": "vault"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -3,
+     -8
+    ],
+    "to": [
+     -3,
+     -2
+    ],
+    "y0": 5,
+    "h": 5,
+    "th": 0.7,
+    "ops": [
+     {
+      "u": 3,
+      "w": 5.95,
+      "sill": 0,
+      "spring": 0.02,
+      "kind": "door"
+     }
+    ],
+    "mat": "vault"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -3,
+     -2
+    ],
+    "to": [
+     -3,
+     4
+    ],
+    "y0": 5,
+    "h": 5,
+    "th": 0.7,
+    "ops": [
+     {
+      "u": 3,
+      "w": 5.95,
+      "sill": 0,
+      "spring": 0.02,
+      "kind": "door"
+     }
+    ],
+    "mat": "vault"
+   },
+   {
+    "t": "wall",
+    "from": [
+     -3,
+     4
+    ],
+    "to": [
+     -3,
+     10
+    ],
+    "y0": 5,
+    "h": 5,
+    "th": 0.7,
+    "ops": [
+     {
+      "u": 3,
+      "w": 5.95,
+      "sill": 0,
+      "spring": 0.02,
+      "kind": "door"
+     }
+    ],
+    "mat": "vault"
+   },
+   {
+    "t": "wall",
+    "from": [
+     3,
+     -8
+    ],
+    "to": [
+     3,
+     -2
+    ],
+    "y0": 5,
+    "h": 5,
+    "th": 0.7,
+    "ops": [
+     {
+      "u": 3,
+      "w": 5.95,
+      "sill": 0,
+      "spring": 0.02,
+      "kind": "door"
+     }
+    ],
+    "mat": "vault"
+   },
+   {
+    "t": "wall",
+    "from": [
+     3,
+     -2
+    ],
+    "to": [
+     3,
+     4
+    ],
+    "y0": 5,
+    "h": 5,
+    "th": 0.7,
+    "ops": [
+     {
+      "u": 3,
+      "w": 5.95,
+      "sill": 0,
+      "spring": 0.02,
+      "kind": "door"
+     }
+    ],
+    "mat": "vault"
+   },
+   {
+    "t": "wall",
+    "from": [
+     3,
+     4
+    ],
+    "to": [
+     3,
+     10
+    ],
+    "y0": 5,
+    "h": 5,
+    "th": 0.7,
+    "ops": [
+     {
+      "u": 3,
+      "w": 5.95,
+      "sill": 0,
+      "spring": 0.02,
+      "kind": "door"
+     }
+    ],
+    "mat": "vault"
+   },
+   {
+    "t": "sailVault",
+    "x": [
+     -9,
+     -3
+    ],
+    "z": [
+     4,
+     10
+    ],
+    "y": 6.46,
+    "rise": 0.8,
+    "mat": "vault"
+   },
+   {
+    "t": "box",
+    "min": [
+     -9,
+     10,
+     4
+    ],
+    "max": [
+     -3,
+     10.3,
+     10
+    ],
+    "mat": "roofSlab"
+   },
+   {
+    "t": "dome",
+    "c": [
+     -6,
+     7
+    ],
+    "r": 2.75,
+    "y": 10.3,
+    "sy": 0.7,
+    "outside": true,
+    "mat": "domeOut",
+    "eras": [
+     "xix",
+     "ruin"
+    ]
+   },
+   {
+    "t": "sailVault",
+    "x": [
+     -9,
+     -3
+    ],
+    "z": [
+     -2,
+     4
+    ],
+    "y": 6.46,
+    "rise": 0.8,
+    "mat": "vault"
+   },
+   {
+    "t": "box",
+    "min": [
+     -9,
+     10,
+     -2
+    ],
+    "max": [
+     -3,
+     10.3,
+     4
+    ],
+    "mat": "roofSlab"
+   },
+   {
+    "t": "dome",
+    "c": [
+     -6,
+     1
+    ],
+    "r": 2.75,
+    "y": 10.3,
+    "sy": 0.7,
+    "outside": true,
+    "mat": "domeOut",
+    "eras": [
+     "xix",
+     "ruin"
+    ]
+   },
+   {
+    "t": "sailVault",
+    "x": [
+     -9,
+     -3
+    ],
+    "z": [
+     -8,
+     -2
+    ],
+    "y": 6.46,
+    "rise": 0.8,
+    "mat": "vault"
+   },
+   {
+    "t": "box",
+    "min": [
+     -9,
+     10,
+     -8
+    ],
+    "max": [
+     -3,
+     10.3,
+     -2
+    ],
+    "mat": "roofSlab"
+   },
+   {
+    "t": "dome",
+    "c": [
+     -6,
+     -5
+    ],
+    "r": 2.75,
+    "y": 10.3,
+    "sy": 0.7,
+    "outside": true,
+    "mat": "domeOut",
+    "eras": [
+     "xix",
+     "ruin"
+    ]
+   },
+   {
+    "t": "sailVault",
+    "x": [
+     -3,
+     3
+    ],
+    "z": [
+     4,
+     10
+    ],
+    "y": 6.46,
+    "rise": 0.8,
+    "mat": "vault"
+   },
+   {
+    "t": "box",
+    "min": [
+     -3,
+     10,
+     4
+    ],
+    "max": [
+     3,
+     10.3,
+     10
+    ],
+    "mat": "roofSlab"
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     7
+    ],
+    "r": 2.75,
+    "y": 10.3,
+    "sy": 0.7,
+    "outside": true,
+    "mat": "domeOut",
+    "eras": [
+     "xix",
+     "ruin"
+    ]
+   },
+   {
+    "t": "sailVault",
+    "x": [
+     -3,
+     3
+    ],
+    "z": [
+     -2,
+     4
+    ],
+    "y": 6.46,
+    "rise": 0.8,
+    "mat": "vault",
+    "eras": [
+     "xix",
+     "today"
+    ]
+   },
+   {
+    "t": "sailVault",
+    "x": [
+     -3,
+     3
+    ],
+    "z": [
+     -2,
+     4
+    ],
+    "y": 6.46,
+    "rise": 0.8,
+    "mat": "vault",
+    "hole": 0.9,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -3,
+     10,
+     -2
+    ],
+    "max": [
+     3,
+     10.3,
+     4
+    ],
+    "mat": "roofSlab",
+    "eras": [
+     "xix",
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -3,
+     10,
+     -2
+    ],
+    "max": [
+     -0.9,
+     10.3,
+     4
+    ],
+    "mat": "roofSlab",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     0.9,
+     10,
+     -2
+    ],
+    "max": [
+     3,
+     10.3,
+     4
+    ],
+    "mat": "roofSlab",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -0.9,
+     10,
+     -2
+    ],
+    "max": [
+     0.9,
+     10.3,
+     0.09999999999999998
+    ],
+    "mat": "roofSlab",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -0.9,
+     10,
+     1.9
+    ],
+    "max": [
+     0.9,
+     10.3,
+     4
+    ],
+    "mat": "roofSlab",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     1
+    ],
+    "r": 2.75,
+    "y": 10.3,
+    "sy": 0.7,
+    "outside": true,
+    "mat": "domeOut",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     1
+    ],
+    "r": 2.75,
+    "y": 10.3,
+    "sy": 0.7,
+    "outside": true,
+    "hole": 0.9,
+    "mat": "domeOut",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "sailVault",
+    "x": [
+     -3,
+     3
+    ],
+    "z": [
+     -8,
+     -2
+    ],
+    "y": 6.46,
+    "rise": 0.8,
+    "mat": "vault"
+   },
+   {
+    "t": "box",
+    "min": [
+     -3,
+     10,
+     -8
+    ],
+    "max": [
+     3,
+     10.3,
+     -2
+    ],
+    "mat": "roofSlab"
+   },
+   {
+    "t": "dome",
+    "c": [
+     0,
+     -5
+    ],
+    "r": 2.75,
+    "y": 10.3,
+    "sy": 0.7,
+    "outside": true,
+    "mat": "domeOut",
+    "eras": [
+     "xix",
+     "ruin"
+    ]
+   },
+   {
+    "t": "sailVault",
+    "x": [
+     3,
+     9
+    ],
+    "z": [
+     4,
+     10
+    ],
+    "y": 6.46,
+    "rise": 0.8,
+    "mat": "vault"
+   },
+   {
+    "t": "box",
+    "min": [
+     3,
+     10,
+     4
+    ],
+    "max": [
+     9,
+     10.3,
+     10
+    ],
+    "mat": "roofSlab"
+   },
+   {
+    "t": "dome",
+    "c": [
+     6,
+     7
+    ],
+    "r": 2.75,
+    "y": 10.3,
+    "sy": 0.7,
+    "outside": true,
+    "mat": "domeOut",
+    "eras": [
+     "xix",
+     "ruin"
+    ]
+   },
+   {
+    "t": "sailVault",
+    "x": [
+     3,
+     9
+    ],
+    "z": [
+     -2,
+     4
+    ],
+    "y": 6.46,
+    "rise": 0.8,
+    "mat": "vault"
+   },
+   {
+    "t": "box",
+    "min": [
+     3,
+     10,
+     -2
+    ],
+    "max": [
+     9,
+     10.3,
+     4
+    ],
+    "mat": "roofSlab"
+   },
+   {
+    "t": "dome",
+    "c": [
+     6,
+     1
+    ],
+    "r": 2.75,
+    "y": 10.3,
+    "sy": 0.7,
+    "outside": true,
+    "mat": "domeOut",
+    "eras": [
+     "xix",
+     "ruin"
+    ]
+   },
+   {
+    "t": "sailVault",
+    "x": [
+     3,
+     9
+    ],
+    "z": [
+     -8,
+     -2
+    ],
+    "y": 6.46,
+    "rise": 0.8,
+    "mat": "vault",
+    "eras": [
+     "xix",
+     "today"
+    ]
+   },
+   {
+    "t": "sailVault",
+    "x": [
+     3,
+     9
+    ],
+    "z": [
+     -8,
+     -2
+    ],
+    "y": 6.46,
+    "rise": 0.8,
+    "mat": "vault",
+    "hole": 0.9,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     3,
+     10,
+     -8
+    ],
+    "max": [
+     9,
+     10.3,
+     -2
+    ],
+    "mat": "roofSlab",
+    "eras": [
+     "xix",
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     3,
+     10,
+     -8
+    ],
+    "max": [
+     5.1,
+     10.3,
+     -2
+    ],
+    "mat": "roofSlab",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     6.9,
+     10,
+     -8
+    ],
+    "max": [
+     9,
+     10.3,
+     -2
+    ],
+    "mat": "roofSlab",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     5.1,
+     10,
+     -8
+    ],
+    "max": [
+     6.9,
+     10.3,
+     -5.9
+    ],
+    "mat": "roofSlab",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     5.1,
+     10,
+     -4.1
+    ],
+    "max": [
+     6.9,
+     10.3,
+     -2
+    ],
+    "mat": "roofSlab",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "dome",
+    "c": [
+     6,
+     -5
+    ],
+    "r": 2.75,
+    "y": 10.3,
+    "sy": 0.7,
+    "outside": true,
+    "mat": "domeOut",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "dome",
+    "c": [
+     6,
+     -5
+    ],
+    "r": 2.75,
+    "y": 10.3,
+    "sy": 0.7,
+    "outside": true,
+    "hole": 0.9,
+    "mat": "domeOut",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "gallery",
+    "x": [
+     -6.95,
+     6.95
+    ],
+    "z": [
+     -8,
+     -5.95
+    ],
+    "y": 4.6,
+    "rail": [
+     "s"
+    ],
+    "railMat": "rail",
+    "mat": "galFloor",
+    "eras": [
+     "xix",
+     "today"
+    ]
+   },
+   {
+    "t": "gallery",
+    "x": [
+     -6.95,
+     6.95
+    ],
+    "z": [
+     -8,
+     -5.95
+    ],
+    "y": 4.6,
+    "rail": [
+     "s"
+    ],
+    "railMat": "rail",
+    "mat": "galFloor",
+    "broken": true,
+    "seed": -77,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "gallery",
+    "x": [
+     -9,
+     -6.95
+    ],
+    "z": [
+     -8,
+     -5.95
+    ],
+    "y": 4.6,
+    "rail": [],
+    "railMat": "rail",
+    "mat": "galFloor",
+    "eras": [
+     "xix",
+     "today"
+    ]
+   },
+   {
+    "t": "gallery",
+    "x": [
+     -9,
+     -6.95
+    ],
+    "z": [
+     -8,
+     -5.95
+    ],
+    "y": 4.6,
+    "rail": [],
+    "railMat": "rail",
+    "mat": "galFloor",
+    "broken": true,
+    "seed": -98,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "gallery",
+    "x": [
+     6.95,
+     9
+    ],
+    "z": [
+     -8,
+     -5.95
+    ],
+    "y": 4.6,
+    "rail": [],
+    "railMat": "rail",
+    "mat": "galFloor",
+    "eras": [
+     "xix",
+     "today"
+    ]
+   },
+   {
+    "t": "gallery",
+    "x": [
+     6.95,
+     9
+    ],
+    "z": [
+     -8,
+     -5.95
+    ],
+    "y": 4.6,
+    "rail": [],
+    "railMat": "rail",
+    "mat": "galFloor",
+    "broken": true,
+    "seed": 62,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "gallery",
+    "x": [
+     -9,
+     -6.95
+    ],
+    "z": [
+     -5.95,
+     7.4
+    ],
+    "y": 4.6,
+    "rail": [
+     "e",
+     "s"
+    ],
+    "railMat": "rail",
+    "mat": "galFloor",
+    "eras": [
+     "xix",
+     "today"
+    ]
+   },
+   {
+    "t": "gallery",
+    "x": [
+     -9,
+     -6.95
+    ],
+    "z": [
+     -5.95,
+     7.4
+    ],
+    "y": 4.6,
+    "rail": [
+     "e",
+     "s"
+    ],
+    "railMat": "rail",
+    "mat": "galFloor",
+    "broken": true,
+    "seed": -96,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "gallery",
+    "x": [
+     6.95,
+     9
+    ],
+    "z": [
+     -5.95,
+     7.4
+    ],
+    "y": 4.6,
+    "rail": [
+     "w",
+     "s"
+    ],
+    "railMat": "rail",
+    "mat": "galFloor",
+    "eras": [
+     "xix",
+     "today"
+    ]
+   },
+   {
+    "t": "gallery",
+    "x": [
+     6.95,
+     9
+    ],
+    "z": [
+     -5.95,
+     7.4
+    ],
+    "y": 4.6,
+    "rail": [
+     "w",
+     "s"
+    ],
+    "railMat": "rail",
+    "mat": "galFloor",
+    "broken": true,
+    "seed": 64,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     -3,
+     -5.95
+    ],
+    "y0": 0,
+    "h": 4.25,
+    "r": 0.24,
+    "mat": "pillar"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     3,
+     -5.95
+    ],
+    "y0": 0,
+    "h": 4.25,
+    "r": 0.24,
+    "mat": "pillar"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     -6.95,
+     -5.95
+    ],
+    "y0": 0,
+    "h": 4.25,
+    "r": 0.24,
+    "mat": "pillar"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     6.95,
+     -5.95
+    ],
+    "y0": 0,
+    "h": 4.25,
+    "r": 0.24,
+    "mat": "pillar"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     -6.95,
+     -2
+    ],
+    "y0": 0,
+    "h": 4.25,
+    "r": 0.24,
+    "mat": "pillar"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     6.95,
+     -2
+    ],
+    "y0": 0,
+    "h": 4.25,
+    "r": 0.24,
+    "mat": "pillar"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     -6.95,
+     4
+    ],
+    "y0": 0,
+    "h": 4.25,
+    "r": 0.24,
+    "mat": "pillar"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     6.95,
+     4
+    ],
+    "y0": 0,
+    "h": 4.25,
+    "r": 0.24,
+    "mat": "pillar"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     -6.95,
+     7.4
+    ],
+    "y0": 0,
+    "h": 4.25,
+    "r": 0.24,
+    "mat": "pillar"
+   },
+   {
+    "t": "kColumn",
+    "c": [
+     6.95,
+     7.4
+    ],
+    "y0": 0,
+    "h": 4.25,
+    "r": 0.24,
+    "mat": "pillar"
+   },
+   {
+    "t": "box",
+    "min": [
+     -1.25,
+     0,
+     9.94
+    ],
+    "max": [
+     -0.85,
+     3.9,
+     10
+    ],
+    "mat": "c:#d6c8a8",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -1.25,
+     0,
+     9.94
+    ],
+    "max": [
+     -0.85,
+     3.9,
+     10
+    ],
+    "mat": "tile",
+    "eras": [
+     "ruin",
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     0.85,
+     0,
+     9.94
+    ],
+    "max": [
+     1.25,
+     3.9,
+     10
+    ],
+    "mat": "c:#d6c8a8",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     0.85,
+     0,
+     9.94
+    ],
+    "max": [
+     1.25,
+     3.9,
+     10
+    ],
+    "mat": "tile",
+    "eras": [
+     "ruin",
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -1.25,
+     3.9,
+     9.94
+    ],
+    "max": [
+     1.25,
+     4.35,
+     10
+    ],
+    "mat": "c:#d6c8a8",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -1.25,
+     3.9,
+     9.94
+    ],
+    "max": [
+     1.25,
+     4.35,
+     10
+    ],
+    "mat": "tile",
+    "eras": [
+     "ruin",
+     "today"
+    ]
+   },
+   {
+    "t": "minaret",
+    "c": [
+     -8.6,
+     -12.6
+    ],
+    "y0": 10.3,
+    "r": 1.2,
+    "h": 14,
+    "base": {
+     "r": 1.45,
+     "h": 2.6
+    },
+    "belts": 3,
+    "lantern": {
+     "h": 2.1
+    },
+    "brick": "mBrick",
+    "stone": "minaretBase",
+    "wood": "wood",
+    "cap": "tin"
+   },
+   {
+    "t": "minaret",
+    "c": [
+     8.6,
+     -12.6
+    ],
+    "y0": 10.3,
+    "r": 1.2,
+    "h": 14,
+    "base": {
+     "r": 1.45,
+     "h": 2.6
+    },
+    "belts": 3,
+    "lantern": {
+     "h": 2.1
+    },
+    "brick": "mBrick",
+    "stone": "minaretBase",
+    "wood": "wood",
+    "cap": "tin"
+   },
+   {
+    "t": "quad",
+    "pts": [
+     [
+      -10.5,
+      10.3,
+      -14.5
+     ],
+     [
+      10.5,
+      10.3,
+      -14.5
+     ],
+     [
+      0,
+      14.700000000000001,
+      -4.5
+     ],
+     [
+      0,
+      14.700000000000001,
+      -4.5
+     ]
+    ],
+    "mat": "metalRoof",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "quad",
+    "pts": [
+     [
+      10.5,
+      10.3,
+      11.5
+     ],
+     [
+      -10.5,
+      10.3,
+      11.5
+     ],
+     [
+      0,
+      14.700000000000001,
+      1.5
+     ],
+     [
+      0,
+      14.700000000000001,
+      1.5
+     ]
+    ],
+    "mat": "metalRoof",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "quad",
+    "pts": [
+     [
+      -10.5,
+      10.3,
+      11.5
+     ],
+     [
+      -10.5,
+      10.3,
+      -14.5
+     ],
+     [
+      0,
+      14.700000000000001,
+      -4.5
+     ],
+     [
+      0,
+      14.700000000000001,
+      1.5
+     ]
+    ],
+    "mat": "metalRoof",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "quad",
+    "pts": [
+     [
+      10.5,
+      10.3,
+      -14.5
+     ],
+     [
+      10.5,
+      10.3,
+      11.5
+     ],
+     [
+      0,
+      14.700000000000001,
+      1.5
+     ],
+     [
+      0,
+      14.700000000000001,
+      -4.5
+     ]
+    ],
+    "mat": "metalRoof",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -1.1,
+     12.5,
+     -9
+    ],
+    "max": [
+     1.1,
+     13.9,
+     -7.4
+    ],
+    "mat": "metalRoof",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     0,
+     0,
+     1
+    ],
+    "size": [
+     5.6,
+     16
+    ],
+    "pattern": 0,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     -6,
+     0,
+     1.5
+    ],
+    "size": [
+     4.2,
+     14
+    ],
+    "pattern": 1,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     6,
+     0,
+     1.5
+    ],
+    "size": [
+     4.2,
+     14
+    ],
+    "pattern": 2,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     0,
+     4.4,
+     -5
+    ],
+    "light": 0.9,
+    "distance": 9,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     0,
+     4.4,
+     1
+    ],
+    "light": 0.9,
+    "distance": 9,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     0,
+     4.4,
+     7
+    ],
+    "light": 0.9,
+    "distance": 9,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     -6,
+     4.4,
+     1
+    ],
+    "light": 0.9,
+    "distance": 9,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "lamp",
+    "at": [
+     6,
+     4.4,
+     1
+    ],
+    "light": 0.9,
+    "distance": 9,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     -6,
+     0,
+     -1.5
+    ],
+    "size": [
+     5.6,
+     6
+    ],
+    "pattern": 1,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     0,
+     0,
+     -1.5
+    ],
+    "size": [
+     5.6,
+     6
+    ],
+    "pattern": 0,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     6,
+     0,
+     -1.5
+    ],
+    "size": [
+     5.6,
+     6
+    ],
+    "pattern": 2,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     -6,
+     0,
+     4.5
+    ],
+    "size": [
+     5.6,
+     6
+    ],
+    "pattern": 2,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     0,
+     0,
+     4.5
+    ],
+    "size": [
+     5.6,
+     6
+    ],
+    "pattern": 1,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     6,
+     0,
+     4.5
+    ],
+    "size": [
+     5.6,
+     6
+    ],
+    "pattern": 0,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     -6,
+     0,
+     8
+    ],
+    "size": [
+     5.6,
+     3.6
+    ],
+    "pattern": 0,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     0,
+     0,
+     8
+    ],
+    "size": [
+     5.6,
+     3.6
+    ],
+    "pattern": 2,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     6,
+     0,
+     8
+    ],
+    "size": [
+     5.6,
+     3.6
+    ],
+    "pattern": 1,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "carpet",
+    "at": [
+     0,
+     0,
+     -5
+    ],
+    "size": [
+     17,
+     5.6
+    ],
+    "pattern": 1,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "lampRing",
+    "at": [
+     0,
+     6.9,
+     1
+    ],
+    "r": 0.95,
+    "n": 14,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "light",
+    "at": [
+     0,
+     6.4,
+     1
+    ],
+    "intensity": 1.2,
+    "distance": 13,
+    "color": "#fff1d6",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "lampRing",
+    "at": [
+     0,
+     6.9,
+     7
+    ],
+    "r": 0.95,
+    "n": 14,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "light",
+    "at": [
+     0,
+     6.4,
+     7
+    ],
+    "intensity": 1.2,
+    "distance": 13,
+    "color": "#fff1d6",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "light",
+    "at": [
+     0,
+     3.6,
+     -4.5
+    ],
+    "intensity": 0.8,
+    "distance": 10,
+    "color": "#fff1d6",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "lectern",
+    "at": [
+     -1.6,
+     0,
+     8.6
+    ],
+    "rotY": 180,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "shaft",
+    "at": [
+     8.9,
+     6.4,
+     1
+    ],
+    "to": [
+     4.8,
+     0,
+     2.2
+    ],
+    "w": 0.9,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "shaft",
+    "at": [
+     -8.9,
+     6.4,
+     7
+    ],
+    "to": [
+     -4.8,
+     0,
+     6.2
+    ],
+    "w": 0.9,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "rubble",
+    "rect": [
+     -8.8,
+     8.8,
+     -7.8,
+     9.8
+    ],
+    "y": 0,
+    "n": 160,
+    "seed": 3,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "rubble",
+    "rect": [
+     -1.4,
+     1.4,
+     -0.3999999999999999,
+     2.4
+    ],
+    "y": 0,
+    "n": 70,
+    "size": [
+     0.15,
+     0.6
+    ],
+    "seed": 17,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "shaft",
+    "at": [
+     0,
+     10.4,
+     1
+    ],
+    "to": [
+     1,
+     0,
+     1.9
+    ],
+    "w": 1.6,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "light",
+    "at": [
+     0.4,
+     3,
+     1.4
+    ],
+    "intensity": 0.9,
+    "distance": 9,
+    "color": "#fff4dc",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "rubble",
+    "rect": [
+     4.6,
+     7.4,
+     -6.4,
+     -3.6
+    ],
+    "y": 0,
+    "n": 70,
+    "size": [
+     0.15,
+     0.6
+    ],
+    "seed": 23,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "shaft",
+    "at": [
+     6,
+     10.4,
+     -5
+    ],
+    "to": [
+     7,
+     0,
+     -4.1
+    ],
+    "w": 1.6,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "light",
+    "at": [
+     6.4,
+     3,
+     -4.6
+    ],
+    "intensity": 0.9,
+    "distance": 9,
+    "color": "#fff4dc",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "patches",
+    "from": [
+     -9,
+     -8
+    ],
+    "to": [
+     -9,
+     10
+    ],
+    "y0": 0.4,
+    "h": 8.5,
+    "n": 5,
+    "seed": 1,
+    "side": -1,
+    "mat": "c:#c4b494",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "patches",
+    "from": [
+     9,
+     10
+    ],
+    "to": [
+     9,
+     -8
+    ],
+    "y0": 0.4,
+    "h": 8.5,
+    "n": 5,
+    "seed": 2,
+    "side": -1,
+    "mat": "c:#c4b494",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "patches",
+    "from": [
+     -9,
+     10
+    ],
+    "to": [
+     9,
+     10
+    ],
+    "y0": 0.4,
+    "h": 8.5,
+    "n": 5,
+    "seed": 3,
+    "side": -1,
+    "mat": "c:#c4b494",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "patches",
+    "from": [
+     9,
+     -8
+    ],
+    "to": [
+     -9,
+     -8
+    ],
+    "y0": 0.4,
+    "h": 8.5,
+    "n": 5,
+    "seed": 4,
+    "side": -1,
+    "mat": "c:#c4b494",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "rubble",
+    "rect": [
+     -3,
+     3,
+     -13.6,
+     -9
+    ],
+    "y": 0.01,
+    "n": 30,
+    "size": [
+     0.08,
+     0.3
+    ],
+    "seed": 9,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -25,
+     -40
+    ],
+    "to": [
+     -3,
+     -40
+    ],
+    "y0": 0,
+    "h": 2.4,
+    "th": 0.6,
+    "mat": "lime",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     3,
+     -40
+    ],
+    "to": [
+     25,
+     -40
+    ],
+    "y0": 0,
+    "h": 2.4,
+    "th": 0.6,
+    "mat": "lime",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     25,
+     -40
+    ],
+    "to": [
+     25,
+     18
+    ],
+    "y0": 0,
+    "h": 2.4,
+    "th": 0.6,
+    "mat": "lime",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     25,
+     18
+    ],
+    "to": [
+     -25,
+     18
+    ],
+    "y0": 0,
+    "h": 2.4,
+    "th": 0.6,
+    "mat": "lime",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -25,
+     18
+    ],
+    "to": [
+     -25,
+     -40
+    ],
+    "y0": 0,
+    "h": 2.4,
+    "th": 0.6,
+    "mat": "lime",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -3,
+     3,
+     -40,
+     -17
+    ],
+    "y": 0.008,
+    "mat": "floor",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     -18,
+     0,
+     -28
+    ],
+    "h": 9,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     18,
+     0,
+     -28
+    ],
+    "h": 9,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     -18,
+     0,
+     -6
+    ],
+    "h": 9,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "cypress",
+    "at": [
+     18,
+     0,
+     -6
+    ],
+    "h": 9,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -18,
+     0,
+     10
+    ],
+    "r": 2.4,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     18,
+     0,
+     10
+    ],
+    "r": 2.4,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -10,
+     0,
+     -34
+    ],
+    "r": 2.4,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     10,
+     0,
+     -34
+    ],
+    "r": 2.4,
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -47.25049988820707,
+     0,
+     9.132632243741599
+    ],
+    "max": [
+     -38.47344157983243,
+     4.516513802537934,
+     15.151621096139598
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -46.96157139491363,
+     0,
+     -14.510201213886123
+    ],
+    "max": [
+     -38.840423026047844,
+     4.129045464344809,
+     -7.369565686615913
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -46.22115242328549,
+     0,
+     -26.257338295577718
+    ],
+    "max": [
+     -39.596045853614825,
+     5.135403528034409,
+     -20.09122184086182
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -36.71486411416664,
+     0,
+     29.296563565869146
+    ],
+    "max": [
+     -30.711982897814355,
+     5.445227553437104,
+     35.72116679871509
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -37.429448919570746,
+     0,
+     18.53618728161612
+    ],
+    "max": [
+     -30.02353401483201,
+     5.831108757029804,
+     25.74799122556485
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -38.730387200941514,
+     0,
+     6.218937687444937
+    ],
+    "max": [
+     -30.04942696124754,
+     4.613322997192537,
+     14.117686223992001
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -37.172545679925264,
+     0,
+     -14.131108624456036
+    ],
+    "max": [
+     -30.85160164760966,
+     5.554731520430526,
+     -8.024757496092821
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -37.635763114148645,
+     0,
+     -24.575642649585212
+    ],
+    "max": [
+     -28.95983366200693,
+     4.640131402500035,
+     -17.22934050379756
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -37.59451349014161,
+     0,
+     -37.47891409810582
+    ],
+    "max": [
+     -31.120695013143447,
+     4.616685420003107,
+     -30.01177118998569
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -25.921436361000612,
+     0,
+     28.91027461034724
+    ],
+    "max": [
+     -17.66977511005,
+     4.820740228714766,
+     36.58091933726376
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -16.049802591116077,
+     0,
+     40.20652539804882
+    ],
+    "max": [
+     -7.749164427048138,
+     3.8031949271462837,
+     49.03214888788394
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -14.217585844787576,
+     0,
+     31.11684051254617
+    ],
+    "max": [
+     -6.679455990986645,
+     3.9574012523318647,
+     37.46529334479258
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     8.609510945672874,
+     0,
+     39.83847265240665
+    ],
+    "max": [
+     15.578161571211258,
+     5.714368601382882,
+     47.949536076024884
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     7.562764470029047,
+     0,
+     29.42534561847586
+    ],
+    "max": [
+     16.320763649335486,
+     5.933105755193674,
+     36.11755222180744
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     16.46876511907613,
+     0,
+     41.078779707233785
+    ],
+    "max": [
+     24.56026781818842,
+     5.772732516272335,
+     47.96464368745901
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     17.41001922586468,
+     0,
+     28.846185450603336
+    ],
+    "max": [
+     23.9510414597816,
+     5.392175161182962,
+     37.806870892321164
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     28.73293295164263,
+     0,
+     30.175017626571943
+    ],
+    "max": [
+     37.480087165012996,
+     3.9705535871770947,
+     37.59588174223708
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     30.482597794142826,
+     0,
+     17.81281426028014
+    ],
+    "max": [
+     36.53163486557623,
+     5.970704640434452,
+     25.978873841454682
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     27.648294286172977,
+     0,
+     6.72606320456884
+    ],
+    "max": [
+     36.38214874378506,
+     4.1149861662252745,
+     15.61793229082503
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     30.299653488350874,
+     0,
+     -14.235822713345208
+    ],
+    "max": [
+     38.65364049638326,
+     5.389369895769921,
+     -5.776178713085213
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     29.916700132152396,
+     0,
+     -26.50854100566755
+    ],
+    "max": [
+     36.23508112935121,
+     4.768482011728214,
+     -18.479121085246614
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     30.181944179899038,
+     0,
+     -35.63909834490116
+    ],
+    "max": [
+     36.85542566182811,
+     5.443842034900488,
+     -29.43583156305171
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     40.15900752561121,
+     0,
+     19.408916583475154
+    ],
+    "max": [
+     48.52344803257075,
+     5.159265641849146,
+     26.560517052449526
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     40.375218064931786,
+     0,
+     6.857745544453032
+    ],
+    "max": [
+     46.720987817841106,
+     4.4397833999431615,
+     13.20998269143048
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     38.902268892341425,
+     0,
+     -15.418557761664761
+    ],
+    "max": [
+     46.76696724922721,
+     4.136963108431996,
+     -7.433273582222533
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     41.55388950163214,
+     0,
+     -25.017860601431625
+    ],
+    "max": [
+     48.84146592851796,
+     4.23288293510344,
+     -17.72085393137338
+    ],
+    "mat": "c:#d9c8a2",
+    "eras": [
+     "xix"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -38.47344157983243,
+     15.151621096139598
+    ],
+    "to": [
+     -47.25049988820707,
+     15.151621096139598
+    ],
+    "y0": 0,
+    "h": 0.6332536009295162,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -47.25049988820707,
+     15.151621096139598
+    ],
+    "to": [
+     -47.25049988820707,
+     9.132632243741599
+    ],
+    "y0": 0,
+    "h": 1.4027117148985675,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -41.30245004119465,
+     0,
+     15.006410981298616
+    ],
+    "r": 2.5403789317889043,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -46.96157139491363,
+     -14.510201213886123
+    ],
+    "to": [
+     -38.840423026047844,
+     -14.510201213886123
+    ],
+    "y0": 0,
+    "h": 1.2310651369537529,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -46.96157139491363,
+     -7.369565686615913
+    ],
+    "to": [
+     -46.96157139491363,
+     -14.510201213886123
+    ],
+    "y0": 0,
+    "h": 1.8275004737207206,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -41.74608530860678,
+     0,
+     -10.335548654587729
+    ],
+    "r": 1.747976190106932,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -46.22115242328549,
+     -20.09122184086182
+    ],
+    "to": [
+     -46.22115242328549,
+     -26.257338295577718
+    ],
+    "y0": 0,
+    "h": 2.559167955517381,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -43.74899518315168,
+     0,
+     -23.710603366704007
+    ],
+    "r": 1.4704859667785866,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -36.71486411416664,
+     29.296563565869146
+    ],
+    "to": [
+     -30.711982897814355,
+     29.296563565869146
+    ],
+    "y0": 0,
+    "h": 1.0772788402052964,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -30.711982897814355,
+     35.72116679871509
+    ],
+    "to": [
+     -36.71486411416664,
+     35.72116679871509
+    ],
+    "y0": 0,
+    "h": 1.1004794313108919,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -36.30052526984388,
+     0,
+     33.08952009845037
+    ],
+    "r": 1.2179135657930344,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -30.02353401483201,
+     18.53618728161612
+    ],
+    "to": [
+     -30.02353401483201,
+     25.74799122556485
+    ],
+    "y0": 0,
+    "h": 1.7678561030737385,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -34.63549745741091,
+     0,
+     20.47841180208065
+    ],
+    "r": 1.6194859931336185,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -38.730387200941514,
+     6.218937687444937
+    ],
+    "to": [
+     -30.04942696124754,
+     6.218937687444937
+    ],
+    "y0": 0,
+    "h": 1.6389506579558137,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -30.04942696124754,
+     6.218937687444937
+    ],
+    "to": [
+     -30.04942696124754,
+     14.117686223992001
+    ],
+    "y0": 0,
+    "h": 2.604782257324449,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -38.730387200941514,
+     14.117686223992001
+    ],
+    "to": [
+     -38.730387200941514,
+     6.218937687444937
+    ],
+    "y0": 0,
+    "h": 2.3966218028201824,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -33.64535323770035,
+     0,
+     7.88475788169762
+    ],
+    "r": 2.6151141150924913,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -37.172545679925264,
+     -14.131108624456036
+    ],
+    "to": [
+     -30.85160164760966,
+     -14.131108624456036
+    ],
+    "y0": 0,
+    "h": 0.43926976921002836,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -30.85160164760966,
+     -14.131108624456036
+    ],
+    "to": [
+     -30.85160164760966,
+     -8.024757496092821
+    ],
+    "y0": 0,
+    "h": 2.035775292774558,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -32.783844849692585,
+     0,
+     -8.236254903830707
+    ],
+    "r": 2.022606759901441,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -37.635763114148645,
+     -24.575642649585212
+    ],
+    "to": [
+     -28.95983366200693,
+     -24.575642649585212
+    ],
+    "y0": 0,
+    "h": 2.5648945139557564,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -28.95983366200693,
+     -24.575642649585212
+    ],
+    "to": [
+     -28.95983366200693,
+     -17.22934050379756
+    ],
+    "y0": 0,
+    "h": 1.6883862442748558,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -28.95983366200693,
+     -17.22934050379756
+    ],
+    "to": [
+     -37.635763114148645,
+     -17.22934050379756
+    ],
+    "y0": 0,
+    "h": 2.5597146897389154,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -37.635763114148645,
+     -17.22934050379756
+    ],
+    "to": [
+     -37.635763114148645,
+     -24.575642649585212
+    ],
+    "y0": 0,
+    "h": 2.9529579356093696,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -30.842358880370092,
+     0,
+     -20.33068553350432
+    ],
+    "r": 1.558444758671543,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -31.120695013143447,
+     -37.47891409810582
+    ],
+    "to": [
+     -31.120695013143447,
+     -30.01177118998569
+    ],
+    "y0": 0,
+    "h": 2.065375731822744,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -31.120695013143447,
+     -30.01177118998569
+    ],
+    "to": [
+     -37.59451349014161,
+     -30.01177118998569
+    ],
+    "y0": 0,
+    "h": 2.525186803343327,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -37.59451349014161,
+     -30.01177118998569
+    ],
+    "to": [
+     -37.59451349014161,
+     -37.47891409810582
+    ],
+    "y0": 0,
+    "h": 0.4459203716581317,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -32.31832780959938,
+     0,
+     -31.62618122488548
+    ],
+    "r": 2.19892582045818,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -17.66977511005,
+     28.91027461034724
+    ],
+    "to": [
+     -17.66977511005,
+     36.58091933726376
+    ],
+    "y0": 0,
+    "h": 2.168082833834031,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -17.66977511005,
+     36.58091933726376
+    ],
+    "to": [
+     -25.921436361000612,
+     36.58091933726376
+    ],
+    "y0": 0,
+    "h": 2.339893546579356,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -25.921436361000612,
+     36.58091933726376
+    ],
+    "to": [
+     -25.921436361000612,
+     28.91027461034724
+    ],
+    "y0": 0,
+    "h": 2.8034967109577247,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -20.251249428256997,
+     0,
+     32.742053232268454
+    ],
+    "r": 2.117422929833374,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -16.049802591116077,
+     40.20652539804882
+    ],
+    "to": [
+     -7.749164427048138,
+     40.20652539804882
+    ],
+    "y0": 0,
+    "h": 0.6323619472944932,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -7.749164427048138,
+     49.03214888788394
+    ],
+    "to": [
+     -16.049802591116077,
+     49.03214888788394
+    ],
+    "y0": 0,
+    "h": 0.7398315131384094,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -16.049802591116077,
+     49.03214888788394
+    ],
+    "to": [
+     -16.049802591116077,
+     40.20652539804882
+    ],
+    "y0": 0,
+    "h": 2.6918189885522326,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -9.818543668984688,
+     0,
+     44.97522966027038
+    ],
+    "r": 1.8628102208780173,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -14.217585844787576,
+     31.11684051254617
+    ],
+    "to": [
+     -6.679455990986645,
+     31.11684051254617
+    ],
+    "y0": 0,
+    "h": 1.346177241553635,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -6.679455990986645,
+     31.11684051254617
+    ],
+    "to": [
+     -6.679455990986645,
+     37.46529334479258
+    ],
+    "y0": 0,
+    "h": 0.905996188757008,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -6.679455990986645,
+     37.46529334479258
+    ],
+    "to": [
+     -14.217585844787576,
+     37.46529334479258
+    ],
+    "y0": 0,
+    "h": 0.8121868436281509,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     -14.217585844787576,
+     37.46529334479258
+    ],
+    "to": [
+     -14.217585844787576,
+     31.11684051254617
+    ],
+    "y0": 0,
+    "h": 0.48838596171158644,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -11.36500133334892,
+     0,
+     33.00472426205162
+    ],
+    "r": 1.5836805747745935,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     8.609510945672874,
+     39.83847265240665
+    ],
+    "to": [
+     15.578161571211258,
+     39.83847265240665
+    ],
+    "y0": 0,
+    "h": 0.8808641249690503,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     15.578161571211258,
+     39.83847265240665
+    ],
+    "to": [
+     15.578161571211258,
+     47.949536076024884
+    ],
+    "y0": 0,
+    "h": 0.43579961389107613,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     15.578161571211258,
+     47.949536076024884
+    ],
+    "to": [
+     8.609510945672874,
+     47.949536076024884
+    ],
+    "y0": 0,
+    "h": 2.8479855849631064,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     8.609510945672874,
+     47.949536076024884
+    ],
+    "to": [
+     8.609510945672874,
+     39.83847265240665
+    ],
+    "y0": 0,
+    "h": 1.0608641240097882,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     14.963064487307829,
+     0,
+     45.0128469110992
+    ],
+    "r": 2.103116125288939,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     7.562764470029047,
+     29.42534561847586
+    ],
+    "to": [
+     16.320763649335486,
+     29.42534561847586
+    ],
+    "y0": 0,
+    "h": 0.9962259658594736,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     16.320763649335486,
+     36.11755222180744
+    ],
+    "to": [
+     7.562764470029047,
+     36.11755222180744
+    ],
+    "y0": 0,
+    "h": 2.6263704535674166,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     7.562764470029047,
+     36.11755222180744
+    ],
+    "to": [
+     7.562764470029047,
+     29.42534561847586
+    ],
+    "y0": 0,
+    "h": 1.837698947562696,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     12.648406412521567,
+     0,
+     35.309473090250734
+    ],
+    "r": 2.6859272062247284,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     16.46876511907613,
+     41.078779707233785
+    ],
+    "to": [
+     24.56026781818842,
+     41.078779707233785
+    ],
+    "y0": 0,
+    "h": 2.958082139379383,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     24.56026781818842,
+     47.96464368745901
+    ],
+    "to": [
+     16.46876511907613,
+     47.96464368745901
+    ],
+    "y0": 0,
+    "h": 1.003952210118972,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     18.29326315307676,
+     0,
+     43.9172371557994
+    ],
+    "r": 1.6257013918951626,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     17.41001922586468,
+     28.846185450603336
+    ],
+    "to": [
+     23.9510414597816,
+     28.846185450603336
+    ],
+    "y0": 0,
+    "h": 2.147253030979658,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     23.9510414597816,
+     28.846185450603336
+    ],
+    "to": [
+     23.9510414597816,
+     37.806870892321164
+    ],
+    "y0": 0,
+    "h": 2.5919836147650996,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     23.9510414597816,
+     37.806870892321164
+    ],
+    "to": [
+     17.41001922586468,
+     37.806870892321164
+    ],
+    "y0": 0,
+    "h": 1.9846916994939985,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     17.41001922586468,
+     37.806870892321164
+    ],
+    "to": [
+     17.41001922586468,
+     28.846185450603336
+    ],
+    "y0": 0,
+    "h": 1.60280040642377,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     18.75690902967793,
+     0,
+     31.02311813995387
+    ],
+    "r": 1.6233601169769467,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     37.480087165012996,
+     30.175017626571943
+    ],
+    "to": [
+     37.480087165012996,
+     37.59588174223708
+    ],
+    "y0": 0,
+    "h": 2.86663790059585,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     37.480087165012996,
+     37.59588174223708
+    ],
+    "to": [
+     28.73293295164263,
+     37.59588174223708
+    ],
+    "y0": 0,
+    "h": 1.7636500519531082,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     28.73293295164263,
+     37.59588174223708
+    ],
+    "to": [
+     28.73293295164263,
+     30.175017626571943
+    ],
+    "y0": 0,
+    "h": 1.7743171395614357,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     35.52535146382886,
+     0,
+     31.352951940546255
+    ],
+    "r": 2.082778393143219,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     30.482597794142826,
+     25.978873841454682
+    ],
+    "to": [
+     30.482597794142826,
+     17.81281426028014
+    ],
+    "y0": 0,
+    "h": 2.3600876261294297,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     33.259575615990705,
+     0,
+     19.479066057586607
+    ],
+    "r": 2.323271181212399,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     27.648294286172977,
+     6.72606320456884
+    ],
+    "to": [
+     36.38214874378506,
+     6.72606320456884
+    ],
+    "y0": 0,
+    "h": 2.0371817563833585,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     36.38214874378506,
+     15.61793229082503
+    ],
+    "to": [
+     27.648294286172977,
+     15.61793229082503
+    ],
+    "y0": 0,
+    "h": 1.1097247033890918,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     27.648294286172977,
+     15.61793229082503
+    ],
+    "to": [
+     27.648294286172977,
+     6.72606320456884
+    ],
+    "y0": 0,
+    "h": 1.5112848344777174,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     32.62494397728003,
+     0,
+     10.77742164082705
+    ],
+    "r": 1.5624991567630782,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     30.299653488350874,
+     -14.235822713345208
+    ],
+    "to": [
+     38.65364049638326,
+     -14.235822713345208
+    ],
+    "y0": 0,
+    "h": 2.2995284153612,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     38.65364049638326,
+     -14.235822713345208
+    ],
+    "to": [
+     38.65364049638326,
+     -5.776178713085213
+    ],
+    "y0": 0,
+    "h": 1.511730316240215,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     38.65364049638326,
+     -5.776178713085213
+    ],
+    "to": [
+     30.299653488350874,
+     -5.776178713085213
+    ],
+    "y0": 0,
+    "h": 1.700803444860877,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     30.299653488350874,
+     -5.776178713085213
+    ],
+    "to": [
+     30.299653488350874,
+     -14.235822713345208
+    ],
+    "y0": 0,
+    "h": 0.9871340604439071,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     33.697002101781315,
+     0,
+     -9.497676787896863
+    ],
+    "r": 1.840056753456619,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     29.916700132152396,
+     -26.50854100566755
+    ],
+    "to": [
+     36.23508112935121,
+     -26.50854100566755
+    ],
+    "y0": 0,
+    "h": 1.0610338462800877,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     29.916700132152396,
+     -18.479121085246614
+    ],
+    "to": [
+     29.916700132152396,
+     -26.50854100566755
+    ],
+    "y0": 0,
+    "h": 2.0169192179184963,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     30.909649606519217,
+     0,
+     -22.506725322458298
+    ],
+    "r": 1.8095697174824634,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     36.85542566182811,
+     -35.63909834490116
+    ],
+    "to": [
+     36.85542566182811,
+     -29.43583156305171
+    ],
+    "y0": 0,
+    "h": 1.9787012974632443,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     30.181944179899038,
+     -29.43583156305171
+    ],
+    "to": [
+     30.181944179899038,
+     -35.63909834490116
+    ],
+    "y0": 0,
+    "h": 0.7739282914315948,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     31.471286668894486,
+     0,
+     -33.159885798422565
+    ],
+    "r": 2.792764638360946,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     40.15900752561121,
+     19.408916583475154
+    ],
+    "to": [
+     48.52344803257075,
+     19.408916583475154
+    ],
+    "y0": 0,
+    "h": 1.4065300670482825,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     48.52344803257075,
+     19.408916583475154
+    ],
+    "to": [
+     48.52344803257075,
+     26.560517052449526
+    ],
+    "y0": 0,
+    "h": 1.1154502641947244,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     48.52344803257075,
+     26.560517052449526
+    ],
+    "to": [
+     40.15900752561121,
+     26.560517052449526
+    ],
+    "y0": 0,
+    "h": 0.7255205235097189,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     41.648192740114496,
+     0,
+     25.144816740250597
+    ],
+    "r": 1.6798383729904138,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     40.375218064931786,
+     6.857745544453032
+    ],
+    "to": [
+     46.720987817841106,
+     6.857745544453032
+    ],
+    "y0": 0,
+    "h": 2.8216107444007,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     46.720987817841106,
+     6.857745544453032
+    ],
+    "to": [
+     46.720987817841106,
+     13.20998269143048
+    ],
+    "y0": 0,
+    "h": 1.605663079677924,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     46.720987817841106,
+     13.20998269143048
+    ],
+    "to": [
+     40.375218064931786,
+     13.20998269143048
+    ],
+    "y0": 0,
+    "h": 1.2421284457864838,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     40.375218064931786,
+     13.20998269143048
+    ],
+    "to": [
+     40.375218064931786,
+     6.857745544453032
+    ],
+    "y0": 0,
+    "h": 2.6135200103807823,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     44.77305941017021,
+     0,
+     11.877234966669807
+    ],
+    "r": 1.342361219293606,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     38.902268892341425,
+     -15.418557761664761
+    ],
+    "to": [
+     46.76696724922721,
+     -15.418557761664761
+    ],
+    "y0": 0,
+    "h": 1.8103456060450274,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     46.76696724922721,
+     -15.418557761664761
+    ],
+    "to": [
+     46.76696724922721,
+     -7.433273582222533
+    ],
+    "y0": 0,
+    "h": 1.843624929638405,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     46.76696724922721,
+     -7.433273582222533
+    ],
+    "to": [
+     38.902268892341425,
+     -7.433273582222533
+    ],
+    "y0": 0,
+    "h": 1.0622158848970271,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     38.902268892341425,
+     -7.433273582222533
+    ],
+    "to": [
+     38.902268892341425,
+     -15.418557761664761
+    ],
+    "y0": 0,
+    "h": 2.5780430725673416,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     42.07289646918555,
+     0,
+     -9.68087374241132
+    ],
+    "r": 2.245255906621579,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     41.55388950163214,
+     -25.017860601431625
+    ],
+    "to": [
+     48.84146592851796,
+     -25.017860601431625
+    ],
+    "y0": 0,
+    "h": 1.8489333419357115,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "wall",
+    "from": [
+     41.55388950163214,
+     -17.72085393137338
+    ],
+    "to": [
+     41.55388950163214,
+     -25.017860601431625
+    ],
+    "y0": 0,
+    "h": 1.4043245904167763,
+    "th": 0.5,
+    "mat": "c:#a89a7e",
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     43.31319571836535,
+     0,
+     -19.858275966419967
+    ],
+    "r": 1.664909015067345,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -6.718380882739266,
+     0,
+     -34.958224573618836
+    ],
+    "r": 1.4833025915004794,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     18.181324300440643,
+     0,
+     -4.332999680346347
+    ],
+    "r": 0.8793415458776717,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     19.346686517515536,
+     0,
+     -1.622970973897246
+    ],
+    "r": 1.210336653101415,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -14.045294160975747,
+     0,
+     -5.271247585896056
+    ],
+    "r": 1.0095863143026766,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     20.386232076392616,
+     0,
+     -2.0553029170517334
+    ],
+    "r": 0.9030389728038754,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     22.953421733786087,
+     0,
+     -8.391111977580522
+    ],
+    "r": 0.942053311803403,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -20.0722263362595,
+     0,
+     -22.972207162050626
+    ],
+    "r": 0.667683623390125,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     22.195999323481693,
+     0,
+     -20.472572377171634
+    ],
+    "r": 1.0348907338617792,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     10.27701702819998,
+     0,
+     15.372108156500431
+    ],
+    "r": 0.9504131885014536,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     15.03094446241434,
+     0,
+     -9.690674410988887
+    ],
+    "r": 1.4020464131152477,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -6.804426416197991,
+     0,
+     15.589644410456366
+    ],
+    "r": 0.9908442619679703,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -10.300017305789522,
+     0,
+     17.527712761204555
+    ],
+    "r": 0.5568140572667187,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     22.85936647600465,
+     0,
+     -4.508395662767995
+    ],
+    "r": 1.071267335243182,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -6.977304778516899,
+     0,
+     -15.303373478028632
+    ],
+    "r": 0.9348646594839473,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -12.203696871271214,
+     0,
+     -15.269422841849469
+    ],
+    "r": 0.7567470127515248,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     12.96189010374336,
+     0,
+     -36.994906882287424
+    ],
+    "r": 1.2837936609442315,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     3.0571413687696403,
+     0,
+     14.828106767883575
+    ],
+    "r": 1.3480947000198509,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -22.79462253246206,
+     0,
+     -36.641924566888214
+    ],
+    "r": 0.49812387484038434,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -12.307006152489691,
+     0,
+     -25.321655913871552
+    ],
+    "r": 0.8727924330498988,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     16.25115358468664,
+     0,
+     4.875443209370339
+    ],
+    "r": 1.3022658944140497,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     14.525996375142595,
+     0,
+     1.5921347344257555
+    ],
+    "r": 0.8363677524665221,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -9.477132879885442,
+     0,
+     -32.958210616818725
+    ],
+    "r": 0.9946479213864767,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     17.326449458173684,
+     0,
+     -23.523114073799512
+    ],
+    "r": 1.0642058244274026,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -1.8636588500177762,
+     0,
+     14.961896866076579
+    ],
+    "r": 1.094149844206008,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     22.97155943465026,
+     0,
+     11.957630285042164
+    ],
+    "r": 0.4738175995525986,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     17.55908424107315,
+     0,
+     2.9306813240659793
+    ],
+    "r": 0.7027088781831362,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -18.409500044961227,
+     0,
+     -11.564600593207683
+    ],
+    "r": 1.381614016453556,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -15.84983847655814,
+     0,
+     3.215708755522826
+    ],
+    "r": 1.356185508266178,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -20.087764440145232,
+     0,
+     9.472857495524387
+    ],
+    "r": 0.44392275872822984,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -19.208467838917144,
+     0,
+     2.6312461777735763
+    ],
+    "r": 0.956723462490702,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -13.037058273813248,
+     0,
+     -3.554742974953143
+    ],
+    "r": 1.451350033772807,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -6.703256286076855,
+     0,
+     -17.80098344655753
+    ],
+    "r": 1.213074742729345,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -21.940317726666255,
+     0,
+     -29.028372096376664
+    ],
+    "r": 0.7442274796051102,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -6.116162306683214,
+     0,
+     15.172634820068545
+    ],
+    "r": 1.1675993617473168,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -13.419364924272227,
+     0,
+     4.386575622664097
+    ],
+    "r": 0.5740368815018037,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -17.983967964529974,
+     0,
+     -11.66407565850023
+    ],
+    "r": 0.4735939369879635,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -1.0526690599753836,
+     0,
+     12.91425670074031
+    ],
+    "r": 0.7017863151160006,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -23.013898707467085,
+     0,
+     -23.80298814913397
+    ],
+    "r": 0.9533792285497205,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -17.686069738904976,
+     0,
+     6.189627020708109
+    ],
+    "r": 1.1028874266440456,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -12.883953782210105,
+     0,
+     -26.238554606325252
+    ],
+    "r": 1.2081724938043266,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -17.231852975316276,
+     0,
+     8.631844663355423
+    ],
+    "r": 0.768182460622947,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -16.665296111565688,
+     0,
+     -27.471694393768765
+    ],
+    "r": 0.8406130400209748,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -15.998677853494268,
+     0,
+     -3.482576111090637
+    ],
+    "r": 1.3547867412002697,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -10.875955508498453,
+     0,
+     -20.889279528003783
+    ],
+    "r": 1.3080494849048785,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -15.809768889010778,
+     0,
+     4.967257895026016
+    ],
+    "r": 0.8685135495236673,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "rubble",
+    "rect": [
+     -24,
+     24,
+     -40,
+     -15
+    ],
+    "y": 0,
+    "n": 90,
+    "size": [
+     0.2,
+     0.9
+    ],
+    "seed": 31,
+    "eras": [
+     "ruin"
+    ]
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -3,
+     3,
+     -46,
+     -17
+    ],
+    "y": 0.008,
+    "mat": "floorGrey",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "floor",
+    "rect": [
+     -13,
+     13,
+     -17.5,
+     -14.1
+    ],
+    "y": 0.008,
+    "mat": "floorGrey",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -4.65,
+     0,
+     -40
+    ],
+    "max": [
+     -3.75,
+     0.9,
+     -18
+    ],
+    "mat": "c:#476e3a",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -12.12,
+     0,
+     -36.12
+    ],
+    "max": [
+     -11.88,
+     1.8,
+     -35.88
+    ],
+    "mat": "c:#6b4a2e",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -12,
+     1.5,
+     -36
+    ],
+    "r": 1.3,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -12.12,
+     0,
+     -31.12
+    ],
+    "max": [
+     -11.88,
+     1.8,
+     -30.88
+    ],
+    "mat": "c:#6b4a2e",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -12,
+     1.5,
+     -31
+    ],
+    "r": 1.3,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -12.12,
+     0,
+     -26.12
+    ],
+    "max": [
+     -11.88,
+     1.8,
+     -25.88
+    ],
+    "mat": "c:#6b4a2e",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -12,
+     1.5,
+     -26
+    ],
+    "r": 1.3,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -12.12,
+     0,
+     -21.12
+    ],
+    "max": [
+     -11.88,
+     1.8,
+     -20.88
+    ],
+    "mat": "c:#6b4a2e",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -12,
+     1.5,
+     -21
+    ],
+    "r": 1.3,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     -12.12,
+     0,
+     -16.12
+    ],
+    "max": [
+     -11.88,
+     1.8,
+     -15.88
+    ],
+    "mat": "c:#6b4a2e",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     -12,
+     1.5,
+     -16
+    ],
+    "r": 1.3,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     3.75,
+     0,
+     -40
+    ],
+    "max": [
+     4.65,
+     0.9,
+     -18
+    ],
+    "mat": "c:#476e3a",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     11.88,
+     0,
+     -36.12
+    ],
+    "max": [
+     12.12,
+     1.8,
+     -35.88
+    ],
+    "mat": "c:#6b4a2e",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     12,
+     1.5,
+     -36
+    ],
+    "r": 1.3,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     11.88,
+     0,
+     -31.12
+    ],
+    "max": [
+     12.12,
+     1.8,
+     -30.88
+    ],
+    "mat": "c:#6b4a2e",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     12,
+     1.5,
+     -31
+    ],
+    "r": 1.3,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     11.88,
+     0,
+     -26.12
+    ],
+    "max": [
+     12.12,
+     1.8,
+     -25.88
+    ],
+    "mat": "c:#6b4a2e",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     12,
+     1.5,
+     -26
+    ],
+    "r": 1.3,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     11.88,
+     0,
+     -21.12
+    ],
+    "max": [
+     12.12,
+     1.8,
+     -20.88
+    ],
+    "mat": "c:#6b4a2e",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     12,
+     1.5,
+     -21
+    ],
+    "r": 1.3,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     11.88,
+     0,
+     -16.12
+    ],
+    "max": [
+     12.12,
+     1.8,
+     -15.88
+    ],
+    "mat": "c:#6b4a2e",
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "furniture",
+    "kind": "bush",
+    "at": [
+     12,
+     1.5,
+     -16
+    ],
+    "r": 1.3,
+    "eras": [
+     "today"
+    ]
+   },
+   {
+    "t": "box",
+    "min": [
+     5,
+     0,
+     -21.5
+    ],
+    "max": [
+     6.4,
+     1.6,
+     -20.4
+    ],
+    "mat": "c:#8f6f62",
+    "eras": [
+     "today"
+    ]
+   }
+  ],
+  "zones": [
+   {
+    "id": "mihrab",
+    "rect": [
+     -2.5,
+     2.5,
+     7,
+     9.85
+    ],
+    "floor": 0
+   },
+   {
+    "id": "galleryView",
+    "rect": [
+     -3,
+     3,
+     -6.6,
+     -5.95
+    ],
+    "floor": 4.6
+   },
+   {
+    "id": "gallery",
+    "rect": [
+     -9,
+     9,
+     -8,
+     -5.95
+    ],
+    "floor": 4.6
+   },
+   {
+    "id": "gallery",
+    "rect": [
+     -9,
+     -6.95,
+     -5.95,
+     7.4
+    ],
+    "floor": 4.6
+   },
+   {
+    "id": "gallery",
+    "rect": [
+     6.95,
+     9,
+     -5.95,
+     7.4
+    ],
+    "floor": 4.6
+   },
+   {
+    "id": "gallery",
+    "rect": [
+     -4.45,
+     -3.5,
+     -8.95,
+     -7.95
+    ],
+    "floor": 4.6
+   },
+   {
+    "id": "stairs",
+    "rect": [
+     -4.3,
+     -3.6,
+     -10.1,
+     -8.9
+    ],
+    "floor": 4.6
+   },
+   {
+    "id": "stairs",
+    "rect": [
+     -8,
+     -4.3,
+     -10.1,
+     -8.9
+    ],
+    "floor": {
+     "ramp": {
+      "axis": "x",
+      "from": -8,
+      "to": -4.3,
+      "y0": 2.3,
+      "y1": 4.6
+     }
+    }
+   },
+   {
+    "id": "stairs",
+    "rect": [
+     -9,
+     -8,
+     -13.1,
+     -8.9
+    ],
+    "floor": 2.3
+   },
+   {
+    "id": "stairs",
+    "rect": [
+     -8,
+     -4.3,
+     -13.1,
+     -11.9
+    ],
+    "floor": {
+     "ramp": {
+      "axis": "x",
+      "from": -4.3,
+      "to": -8,
+      "y0": 0,
+      "y1": 2.3
+     }
+    }
+   },
+   {
+    "id": "stairs",
+    "rect": [
+     -8,
+     -3.6,
+     -11.9,
+     -10.1
+    ],
+    "floor": 0
+   },
+   {
+    "id": "stairs",
+    "rect": [
+     -3.65,
+     -2.95,
+     -11.5,
+     -10.5
+    ],
+    "floor": 0
+   },
+   {
+    "id": "hall",
+    "rect": [
+     -0.8,
+     0.8,
+     -9,
+     -7.95
+    ],
+    "floor": 0
+   },
+   {
+    "id": "entrance",
+    "rect": [
+     -3,
+     3,
+     -17,
+     -8.9
+    ],
+    "floor": 0
+   },
+   {
+    "id": "hall",
+    "rect": [
+     -9,
+     9,
+     -8,
+     10
+    ],
+    "floor": 0
+   },
+   {
+    "id": "courtyard",
+    "rect": [
+     -25,
+     25,
+     -40,
+     -13.95
+    ]
+   },
+   {
+    "id": "courtyard",
+    "rect": [
+     -25,
+     -9.95,
+     -13.95,
+     17.5
+    ]
+   },
+   {
+    "id": "courtyard",
+    "rect": [
+     9.95,
+     25,
+     -13.95,
+     17.5
+    ]
+   },
+   {
+    "id": "courtyard",
+    "rect": [
+     -25,
+     25,
+     10.95,
+     17.5
+    ]
+   }
+  ],
+  "zoneInfo": {
+   "courtyard": {
+    "title": {
+     "az": "Həyət və minarələr",
+     "en": "Courtyard and minarets"
+    },
+    "text": {
+     "az": "Şimal fasadı: ortada uca giriş eyvanı, iki tərəfində iki mərtəbəli tağlar, künclərdə iki kərpic minarə.",
+     "en": "The north facade: a tall entrance iwan in the middle, two-storey arcades either side, two brick minarets on the corners."
+    },
+    "conf": "ok",
+    "factIds": [
+     "ag-built",
+     "ag-minarets",
+     "ag-facade"
+    ],
+    "byEra": {
+     "xix": {
+      "text": {
+       "az": "Fasad və minarələr sonrakı fotolara görə qurulub. Həyət divarı, ağaclar və ətrafdakı evlər bədii fərziyyədir — XIX əsrdən foto yoxdur.",
+       "en": "The facade and minarets follow later photographs. The courtyard wall, trees and houses around are an artistic hypothesis — no 19th-century photos survive."
+      },
+      "conf": "hyp",
+      "photos": [
+       "xix_1992",
+       "stamp_2002"
+      ],
+      "links": [
+       {
+        "title": {
+         "az": "RFE/RL: 1990-cı il arxiv fotosu (lisenziyası açıq deyil)",
+         "en": "RFE/RL: archival photo from 1990 (not openly licensed)"
+        },
+        "url": "https://www.rferl.org/a/inside-agdam-the-ghost-city-of-the-caucasus-after-1990s-conflict/30966555.html"
+       }
+      ]
+     },
+     "ruin": {
+      "text": {
+       "az": "1993-cü ildən sonra ətrafdakı şəhər dağıdılıb kol basdı; məscid tək qaldı. Fasadda 1970–80-ci illərdə vurulmuş mərmər üzlüyün qalıqları görünür.",
+       "en": "After 1993 the town around was destroyed and overgrown; the mosque stood alone. Remains of the marble cladding added in the 1970s–80s show on the facade."
+      },
+      "conf": "ok",
+      "photos": [
+       "ruin_front_2018",
+       "ruin_alone_2018",
+       "ruin_view_2010",
+       "ruin_front_2010",
+       "ruin_side_2021",
+       "ruin_minarets_2021"
+      ],
+      "factIds": [
+       "ag-town-destroyed",
+       "ag-marble",
+       "ag-satellite"
+      ]
+     },
+     "today": {
+      "text": {
+       "az": "Bərpadan sonra məscidin önündə meydan salınıb; yolun kənarındakı daş lövhə bərpanı xatırladır. Minarələrin naxışları göy-ağ rəngdədir.",
+       "en": "After the restoration a square was laid out in front of the mosque; a stone with a plaque by the path records the restoration. The minaret patterns are blue and white."
+      },
+      "conf": "ok",
+      "photos": [
+       "today_front",
+       "today_press",
+       "today_side"
+      ],
+      "factIds": [
+       "ag-restoration",
+       "ag-reopened"
+      ]
+     }
+    }
+   },
+   "entrance": {
+    "title": {
+     "az": "Giriş eyvanı və tarixi daş döşəmə",
+     "en": "Entrance iwan and the historic stone pavement"
+    },
+    "text": {
+     "az": "Uca şiş tağlı eyvan girişi kölgələyir; qapının üstündə yazı lövhəsi var.",
+     "en": "A tall pointed-arch iwan shades the entrance; an inscription panel sits above the door."
+    },
+    "conf": "ok",
+    "factIds": [
+     "ag-facade",
+     "ag-pavement"
+    ],
+    "byEra": {
+     "xix": {
+      "text": {
+       "az": "Eyvanın içi göy rəngə boyanıb, qapı üstündə Quran yazıları var. Bu boyanın və yazıların tarixi mənbələrdə göstərilmir.",
+       "en": "The inside of the iwan is painted blue with Quranic inscriptions above the door. The sources do not date this paint or the inscriptions."
+      },
+      "conf": "mid"
+     },
+     "ruin": {
+      "text": {
+       "az": "Eyvanın suvağı və göy boyası tökülüb, divarın dibində his izləri var. Döşəmə toz və daş qırıntıları altında qalıb.",
+       "en": "The iwan's plaster and blue paint have flaked off; there are soot marks at the foot of the wall. The floor lies under dust and stone debris."
+      },
+      "conf": "ok",
+      "photos": [
+       "ruin_portal_2021",
+       "ruin_portal_2021b"
+      ],
+      "factIds": [
+       "ag-fire",
+       "ag-facade"
+      ]
+     },
+     "today": {
+      "text": {
+       "az": "2022-ci ilin qazıntılarında girişdə tarixi daş döşəmə tapıldı. Giriş qapısı və eyvan bərpa olunub.",
+       "en": "Excavations in 2022 uncovered a historic stone pavement at the entrance. The entrance door and the iwan were restored."
+      },
+      "conf": "ok",
+      "photos": [
+       "today_door",
+       "today_front",
+       "restoration_2022"
+      ],
+      "factIds": [
+       "ag-pavement",
+       "ag-restoration-works"
+      ]
+     }
+    }
+   },
+   "hall": {
+    "title": {
+     "az": "Namaz zalı",
+     "en": "Prayer hall"
+    },
+    "text": {
+     "az": "Səkkizüzlü daş sütunlar zalı üç nefə bölür; şiş tağlar doqquz günbəzli örtüyü daşıyır.",
+     "en": "Octagonal stone pillars divide the hall into three naves; pointed arches carry the roof of nine domed bays."
+    },
+    "conf": "mid",
+    "factIds": [
+     "ag-naves",
+     "ag-domes",
+     "ag-materials"
+    ],
+    "byEra": {
+     "xix": {
+      "text": {
+       "az": "Sütunlar, tağlar və günbəzlər sonrakı fotolara görə qurulub; ölçülər təxminidir. Xalçalar və çıraqlar bədii fərziyyədir.",
+       "en": "The pillars, arches and domes follow later photographs; the dimensions are estimates. The carpets and oil lamps are an artistic hypothesis."
+      },
+      "conf": "mid"
+     },
+     "ruin": {
+      "text": {
+       "az": "Zal boş qalıb: döşəmədə daş qırıntıları, divarlarda tökülmüş suvaq. Mənbələr tavanın bir neçə yerdə uçurulduğunu yazır; deşiklərin yeri modeldə təxminidir.",
+       "en": "The hall stands empty: stone debris on the floor, fallen plaster on the walls. Sources say the ceiling was broken in several places; the holes' positions in the model are estimates."
+      },
+      "conf": "mid",
+      "photos": [
+       "ruin_interior_2000",
+       "ruin_interior_2018"
+      ],
+      "factIds": [
+       "ag-ceiling-broken",
+       "ag-animals",
+       "ag-rferl-2011"
+      ],
+      "links": [
+       {
+        "title": {
+         "az": "RFE/RL: Stepan Lohrun 2011-ci il fotoları (lisenziyası açıq deyil)",
+         "en": "RFE/RL: Stepan Lohr's 2011 photos (not openly licensed)"
+        },
+        "url": "https://www.rferl.org/a/inside-agdam-the-ghost-city-of-the-caucasus-after-1990s-conflict/30966555.html"
+       }
+      ]
+     },
+     "today": {
+      "text": {
+       "az": "Bərpadan sonra divarlar ağ əhənglə suvanıb, döşəmə xalçalarla örtülüb, tağların altından çilçıraqlar asılıb. Günbəz və tağlar əhəng suyu və əhəng pastası ilə möhkəmləndirilib.",
+       "en": "After the restoration the walls are white lime plaster, carpets cover the floor and chandeliers hang below the arches. The domes and vaults were reinforced with lime water and lime paste."
+      },
+      "conf": "ok",
+      "photos": [
+       "today_interior"
+      ],
+      "factIds": [
+       "ag-lime",
+       "ag-restoration"
+      ]
+     }
+    }
+   },
+   "mihrab": {
+    "title": {
+     "az": "Mehrab",
+     "en": "Mihrab"
+    },
+    "text": {
+     "az": "Mehrab cənub divarının ortasındadır.",
+     "en": "The mihrab is in the middle of the south wall."
+    },
+    "conf": "ok",
+    "factIds": [
+     "ag-mihrab"
+    ],
+    "byEra": {
+     "xix": {
+      "text": {
+       "az": "Bir mənbəyə görə mehrabın bəzəyi 1913-cü ildə Məhəmməd Nəqqaş Təvrizi tərəfindən çəkilib. Deməli, XIX əsrdə mehrab daha sadə ola bilərdi; modeldəki görünüş təxminidir.",
+       "en": "One source says the mihrab's decoration was painted in 1913 by Muhammad Naghash Tawriz. In the 19th century it may therefore have been plainer; its look in the model is approximate."
+      },
+      "conf": "mid",
+      "factIds": [
+       "ag-mihrab",
+       "ag-1913"
+      ]
+     },
+     "ruin": {
+      "text": {
+       "az": "Mehrabın naxışlı çərçivəsi qalıb, bəzəyi isə zədələnib.",
+       "en": "The mihrab's patterned frame survived, but its decoration is damaged."
+      },
+      "conf": "ok",
+      "photos": [
+       "ruin_interior_2018"
+      ],
+      "factIds": [
+       "ag-mihrab",
+       "ag-inscriptions-destroyed"
+      ]
+     },
+     "today": {
+      "text": {
+       "az": "Bərpa olunmuş mehrab; yanında Quran rəhli durur. 2000-ci ildə Heydər Əliyevə təqdim olunan məscid daşı indi məscidin içində saxlanılır.",
+       "en": "The restored mihrab, with a Quran stand beside it. A stone from the mosque presented to Heydar Aliyev in 2000 is now kept inside the mosque."
+      },
+      "conf": "ok",
+      "photos": [
+       "today_interior"
+      ],
+      "factIds": [
+       "ag-mihrab",
+       "ag-stone-2000"
+      ]
+     }
+    }
+   },
+   "stairs": {
+    "title": {
+     "az": "Qalereyaya pilləkən",
+     "en": "Stairs to the women's gallery"
+    },
+    "text": {
+     "az": "Qadınlar qalereyasına aparan pilləkən. Pilləkənin yeri mənbələrdə göstərilmir: modeldə qərb yan otağa qoyulub.",
+     "en": "The stairs up to the women's gallery. The sources do not say where they were: the model puts them in the western side room."
+    },
+    "conf": "hyp",
+    "factIds": [
+     "ag-gallery"
+    ]
+   },
+   "gallery": {
+    "title": {
+     "az": "Qadınlar qalereyası",
+     "en": "Women's gallery"
+    },
+    "text": {
+     "az": "Zalın şimal, qərb və şərq divarları boyunca ikinci mərtəbə qalereyası. Qarabağ məscidlərində belə qalereyalar qadınlar üçün olub.",
+     "en": "A second-storey gallery along the north, west and east walls of the hall. In Karabakh mosques such galleries were for women."
+    },
+    "conf": "mid",
+    "factIds": [
+     "ag-gallery",
+     "ag-karabakh-type"
+    ],
+    "byEra": {
+     "ruin": {
+      "text": {
+       "az": "Qalereyanın məhəccəri qırılıb; döşəməsi tozla örtülüb.",
+       "en": "The gallery's balustrade is broken; its floor is covered in dust."
+      },
+      "conf": "mid"
+     },
+     "today": {
+      "text": {
+       "az": "Bərpadan sonra qalereyaya taxta məhəccər qoyulub — 2024-cü il fotolarında görünür.",
+       "en": "After the restoration the gallery has a wooden balustrade — visible in photos from 2024."
+      },
+      "conf": "ok",
+      "photos": [
+       "today_interior"
+      ],
+      "factIds": [
+       "ag-gallery",
+       "ag-balcony-restored"
+      ]
+     }
+    }
+   },
+   "galleryView": {
+    "title": {
+     "az": "Qalereyadan zala baxış",
+     "en": "View down into the hall"
+    },
+    "text": {
+     "az": "Yuxarıdan zal bütöv görünür: dörd sütun, doqquz günbəzli örtük və cənub divarında mehrab.",
+     "en": "From up here the whole hall opens out: four pillars, the nine domed bays and the mihrab in the south wall."
+    },
+    "conf": "mid",
+    "factIds": [
+     "ag-naves",
+     "ag-domes"
+    ],
+    "byEra": {
+     "ruin": {
+      "text": {
+       "az": "Yuxarıdan dağıntılar aydın görünür: döşəmədə daş qırıntıları, deşik günbəzlərdən düşən işıq zolaqları.",
+       "en": "From above the damage is clear: stone debris on the floor, shafts of light falling through the broken domes."
+      },
+      "photos": [
+       "ruin_interior_2000"
+      ],
+      "factIds": [
+       "ag-ceiling-broken"
+      ]
+     },
+     "today": {
+      "photos": [
+       "today_interior"
+      ],
+      "factIds": [
+       "ag-naves",
+       "ag-lime"
+      ]
+     }
+    }
+   }
+  },
+  "obstacles": [
+   [
+    -3,
+    -2,
+    0.65
+   ],
+   [
+    3,
+    -2,
+    0.65
+   ],
+   [
+    -3,
+    4,
+    0.65
+   ],
+   [
+    3,
+    4,
+    0.65
+   ],
+   [
+    -3,
+    -5.95,
+    0.4
+   ],
+   [
+    3,
+    -5.95,
+    0.4
+   ],
+   [
+    -6.95,
+    -5.95,
+    0.4
+   ],
+   [
+    6.95,
+    -5.95,
+    0.4
+   ],
+   [
+    -6.95,
+    -2,
+    0.4
+   ],
+   [
+    6.95,
+    -2,
+    0.4
+   ],
+   [
+    -6.95,
+    4,
+    0.4
+   ],
+   [
+    6.95,
+    4,
+    0.4
+   ],
+   [
+    -6.95,
+    7.4,
+    0.4
+   ],
+   [
+    6.95,
+    7.4,
+    0.4
+   ]
+  ],
+  "eras": [
+   "xix",
+   "ruin",
+   "today"
+  ]
+ },
+ "introFacts": [
+  "ag-built",
+  "ag-architect",
+  "ag-minarets",
+  "ag-domes"
+ ]
+}

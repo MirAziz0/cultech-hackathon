@@ -6,13 +6,16 @@ import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { z } from "zod/v4";
 import { getBundle, listSlugs } from "@/lib/content";
 import { guessLang, mockAnswer } from "@/lib/mock";
+import { COMMON_RULES, factLines, personaRules } from "@/lib/persona";
 import type { Lang } from "@/lib/types";
+import { zoneInfoFor } from "@/lib/eras";
 
 const Body = z.object({
   slug: z.string().max(64),
   question: z.string().min(1).max(600),
   lang: z.enum(["az", "en"]).optional(),
   zone: z.string().max(64).nullish(),
+  era: z.string().max(32).nullish(),
   history: z.array(z.object({ role: z.enum(["user", "assistant"]), text: z.string().max(1200) })).max(8).optional(),
 });
 
@@ -28,23 +31,14 @@ const hasKey = () => !!(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_A
 function systemPrompt(slug: string) {
   const b = getBundle(slug);
   const m = b.manifest;
-  const facts = b.facts.map((f) => `[${f.id}] (${f.conf}${f.verify ? ", unverified" : ""}) ${f.text.az} | EN: ${f.text.en ?? ""}`).join("\n");
-  return `You are ${m.architect.name.en ?? m.architect.name.az} (${m.architect.name.az}), ${m.architect.role.en ?? m.architect.role.az}, guiding visitors through ${m.name.en ?? m.name.az} (${m.name.az}, ${m.location.place.en ?? m.location.place.az}) in a virtual time-travel app.
-
-You are a representative character, not a historical person: never claim to be a named historical figure, and if asked, say you are an imagined master builder of that era.
-
-Rules:
-- Speak in the first person as the builder, warmly and vividly, as if showing the place with your own hands ("Bu zalı mən elə tikdim ki…").
-- Use ONLY the facts below. Do not add dates, names, numbers or claims that are not in them.
-- If the facts do not answer the question, say plainly that historians are not sure (or that the sources do not say), and suggest something you can talk about.
-- Facts marked "unverified" may be mentioned only with a hedge ("deyilənə görə", "it is said").
-- Reconstructed parts of the 3D model are approximate; say so if the visitor asks about exact appearance.
+  return `${personaRules(m)}
+${COMMON_RULES}
 - At most 90 words. Plain spoken sentences, no lists, no markdown — it will be read aloud.
 - Answer in Azerbaijani by default; if the visitor writes in another language, answer in that language.
 - Return the ids of the facts you used in factIds.
 
 FACTS (${m.slug}):
-${facts}`;
+${factLines(b.facts, m)}`;
 }
 
 export async function POST(req: Request) {
@@ -56,17 +50,18 @@ export async function POST(req: Request) {
   }
   if (!listSlugs().includes(body.slug)) return Response.json({ error: "unknown monument" }, { status: 404 });
   const bundle = getBundle(body.slug);
-  const fallback = (reason: string) => Response.json({ ...mockAnswer(body.question, bundle.facts, bundle.qa, body.lang), reason });
+  const fallback = (reason: string) => Response.json({ ...mockAnswer(body.question, bundle.facts, bundle.qa, body.lang, { knowsUntil: bundle.manifest.architect.historical?.knowsUntil }), reason });
   if (!hasKey()) return fallback("no-key");
 
   client ??= new Anthropic();
   const model = process.env.ANTHROPIC_MODEL || "claude-opus-5-5";
-  const zoneInfo = body.zone ? bundle.manifest.walk?.zoneInfo[body.zone] : undefined;
+  const zoneInfo = body.zone ? zoneInfoFor(bundle.manifest.walk, body.zone, body.era ?? undefined) : undefined;
+  const eraInfo = body.era ? bundle.manifest.eras[body.era] : undefined;
   const messages: Anthropic.Beta.BetaMessageParam[] = [
     ...(body.history ?? []).map((h) => ({ role: h.role, content: h.text })),
     {
       role: "user",
-      content: `${zoneInfo ? `[Visitor is standing in: ${zoneInfo.title.az} / ${zoneInfo.title.en ?? ""}]\n` : ""}${body.question}`,
+      content: `${zoneInfo ? `[Visitor is standing in: ${zoneInfo.title.az} / ${zoneInfo.title.en ?? ""}]\n` : ""}${eraInfo ? `[Era shown: ${eraInfo.label.en ?? eraInfo.label.az}]\n` : ""}${body.question}`,
     },
   ];
   try {

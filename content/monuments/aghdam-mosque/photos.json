@@ -1,0 +1,307 @@
+{
+ "photos": [
+  {
+   "id": "today_front",
+   "file": "today_front.jpg",
+   "commons": "Ağdam Cümə məscidi restavrasiyadan sonra, 2024-cü ilin aprelində.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:A%C4%9Fdam_C%C3%BCm%C9%99_m%C9%99scidi_restavrasiyadan_sonra,_2024-c%C3%BC_ilin_aprelind%C9%99.jpg",
+   "author": "Press Service of the President of the Republic of Azerbaijan",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "caption": {
+    "az": "Bərpadan sonra şimal fasadı, aprel 2024",
+    "en": "The north facade after the restoration, April 2024"
+   },
+   "w": 1200,
+   "h": 991
+  },
+  {
+   "id": "today_press",
+   "file": "today_press.jpg",
+   "commons": "Aghdam Juma Mosque after restoration 01.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Aghdam_Juma_Mosque_after_restoration_01.jpg",
+   "author": "Press Service of the President of the Republic of Azerbaijan",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "caption": {
+    "az": "Bərpa olunmuş məscid və bərpa lövhəli daş, 25 aprel 2024",
+    "en": "The restored mosque and the stone with the restoration plaque, 25 April 2024"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "today_side",
+   "file": "today_side.jpg",
+   "commons": "Ağdam Mosque in August 2024.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:A%C4%9Fdam_Mosque_in_August_2024.jpg",
+   "author": "Golden",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Məscid avqust 2024-də",
+    "en": "The mosque in August 2024"
+   },
+   "w": 1200,
+   "h": 900
+  },
+  {
+   "id": "today_interior",
+   "file": "today_interior.jpg",
+   "commons": "Interior of Aghdam Juma Mosque after restoration 01.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Interior_of_Aghdam_Juma_Mosque_after_restoration_01.jpg",
+   "author": "Press Service of the President of the Republic of Azerbaijan",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "caption": {
+    "az": "Bərpadan sonra namaz zalı: səkkizüzlü sütunlar, qalereya, çilçıraq",
+    "en": "The prayer hall after the restoration: octagonal pillars, the gallery, a chandelier"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "today_door",
+   "file": "today_door.jpg",
+   "commons": "Door of the Ağdam mosque.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Door_of_the_A%C4%9Fdam_mosque.jpg",
+   "author": "Golden",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Bərpa olunmuş giriş qapısı, 2024",
+    "en": "The restored entrance door, 2024"
+   },
+   "w": 900,
+   "h": 1200
+  },
+  {
+   "id": "restoration_2022",
+   "file": "restoration_2022.jpg",
+   "commons": "Ilham Aliyev and First Lady Mehriban Aliyeva viewed progress of restoration work at Aghdam Juma Mosque 05.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Ilham_Aliyev_and_First_Lady_Mehriban_Aliyeva_viewed_progress_of_restoration_work_at_Aghdam_Juma_Mosque_05.jpg",
+   "author": "Press Service of the President of the Republic of Azerbaijan",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "caption": {
+    "az": "Fevral 2022: bərpa başlamazdan əvvəl fasad və tağlar",
+    "en": "February 2022: the facade and arcades before the restoration began"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "ruin_front_2018",
+   "file": "ruin_front_2018.jpg",
+   "commons": "Agdam Mosque2018-11.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Agdam_Mosque2018-11.jpg",
+   "author": "Yerevantsi",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Şimal fasadı, mart 2018",
+    "en": "The north facade, March 2018"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "ruin_alone_2018",
+   "file": "ruin_alone_2018.jpg",
+   "commons": "Agdam Mosque2018-15.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Agdam_Mosque2018-15.jpg",
+   "author": "Yerevantsi",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Dağıntılar arasında tək qalmış məscid, mart 2018",
+    "en": "The mosque standing alone among ruins, March 2018"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "ruin_domes_2018",
+   "file": "ruin_domes_2018.jpg",
+   "commons": "Agdam Mosque2018-6.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Agdam_Mosque2018-6.jpg",
+   "author": "Yerevantsi",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Damda açıq qalmış kərpic günbəzlər, 2018",
+    "en": "The exposed brick domes on the roof, 2018"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "ruin_interior_2018",
+   "file": "ruin_interior_2018.jpg",
+   "commons": "Agdam Mosque2018-7.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Agdam_Mosque2018-7.jpg",
+   "author": "Yerevantsi",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Namaz zalı və mehrab, 2018: tökülmüş suvaq, qırıntılar",
+    "en": "The prayer hall and the mihrab, 2018: fallen plaster, debris"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "ruin_interior_2000",
+   "file": "ruin_interior_2000.jpg",
+   "commons": "Aghdam Azeri Mosque 2.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Aghdam_Azeri_Mosque_2.jpg",
+   "author": "Vagharsh",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "caption": {
+    "az": "Namaz zalı, 2000: sütunlar və iki mərtəbəli pəncərələr",
+    "en": "The prayer hall, 2000: the pillars and two tiers of windows"
+   },
+   "w": 1200,
+   "h": 900
+  },
+  {
+   "id": "ruin_front_2010",
+   "file": "ruin_front_2010.jpg",
+   "commons": "Juma Mosque Agdam2.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Juma_Mosque_Agdam2.JPG",
+   "author": "Armen Manukov",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "caption": {
+    "az": "Kol basmış həyət və fasad, iyun 2010",
+    "en": "The overgrown courtyard and the facade, June 2010"
+   },
+   "w": 900,
+   "h": 1200
+  },
+  {
+   "id": "ruin_view_2010",
+   "file": "ruin_view_2010.jpg",
+   "commons": "Agdam 1.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Agdam_1.jpg",
+   "author": "KennyOMG",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Məsciddən dağıdılmış şəhərə baxış, 2010",
+    "en": "View from the mosque over the destroyed town, 2010"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "ruin_pano_2010",
+   "file": "ruin_pano_2010.jpg",
+   "commons": "Agdam pano.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Agdam_pano.jpg",
+   "author": "KennyOMG",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Minarədən panorama, 2010",
+    "en": "Panorama from a minaret, 2010"
+   },
+   "w": 1200,
+   "h": 130
+  },
+  {
+   "id": "ruin_side_2021",
+   "file": "ruin_side_2021.jpg",
+   "commons": "Agdam Juma Mosque side view.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Agdam_Juma_Mosque_side_view.jpg",
+   "author": "Toghrul R",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Yan fasad və damdakı günbəzlər, avqust 2021",
+    "en": "The side facade and the domes on the roof, August 2021"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "ruin_minarets_2021",
+   "file": "ruin_minarets_2021.jpg",
+   "commons": "Agdam Juma Mosque minarets.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Agdam_Juma_Mosque_minarets.jpg",
+   "author": "Toghrul R",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Minarələr: qurşaqlar və kərpic naxışlar, 2021",
+    "en": "The minarets: belts and brick patterns, 2021"
+   },
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": "ruin_portal_2021",
+   "file": "ruin_portal_2021.jpg",
+   "commons": "Agdam Mosque portal.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Agdam_Mosque_portal.jpg",
+   "author": "Toghrul R",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Giriş eyvanı bərpadan əvvəl: tökülmüş göy boya, his izləri, 2021",
+    "en": "The entrance iwan before the restoration: flaking blue paint, soot marks, 2021"
+   },
+   "w": 849,
+   "h": 1200
+  },
+  {
+   "id": "ruin_portal_2021b",
+   "file": "ruin_portal_2021b.jpg",
+   "commons": "Agdam Mosque portal 2.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Agdam_Mosque_portal_2.jpg",
+   "author": "Toghrul R",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Qapı üstündəki yazı lövhəsi, 2021",
+    "en": "The inscription panel above the door, 2021"
+   },
+   "w": 774,
+   "h": 1200
+  },
+  {
+   "id": "xix_1992",
+   "file": "xix_1992.jpg",
+   "commons": "Shakhsey-vakhsey in Agdam for victims of Khojaly massacre 3.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Shakhsey-vakhsey_in_Agdam_for_victims_of_Khojaly_massacre_3.jpg",
+   "author": "Ilgar Jafarov",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "caption": {
+    "az": "Məscid 1992-ci ildə: sovet dövrünə aid metal dam, mərmər üzlük, sərv ağacları. Kadr Xocalı qurbanlarının yas mərasimində çəkilmiş fotodan kəsilib.",
+    "en": "The mosque in 1992: the Soviet-era metal roof, marble cladding, cypress trees. Cropped from a photo taken at a mourning ceremony for the victims of Khojaly."
+   },
+   "w": 896,
+   "h": 960,
+   "modified": {
+    "az": "kəsilib (yalnız bina)",
+    "en": "cropped to the building"
+   }
+  },
+  {
+   "id": "stamp_2002",
+   "file": "stamp_2002.jpg",
+   "commons": "Stamps of Azerbaijan, 2002-610.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Stamps_of_Azerbaijan,_2002-610.jpg",
+   "author": "Post of Azerbaijan",
+   "license": "Public domain",
+   "caption": {
+    "az": "Ağdam məscidi 2002-ci il Azərbaycan poçt markasında",
+    "en": "The Aghdam mosque on a 2002 Azerbaijani postage stamp"
+   },
+   "w": 266,
+   "h": 312
+  }
+ ]
+}

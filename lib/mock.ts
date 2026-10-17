@@ -28,7 +28,8 @@ function score(qw: string[], hay: string) {
 
 export interface Answer { text: string; factIds: string[]; lang: Lang; mock: true }
 
-export function mockAnswer(question: string, facts: Fact[], qa: QA[], langHint?: Lang): Answer {
+/** knowsUntil: for a historical guide, facts after that year are quoted from sources, not told first-hand */
+export function mockAnswer(question: string, facts: Fact[], qa: QA[], langHint?: Lang, opts: { knowsUntil?: number } = {}): Answer {
   const lang = guessLang(question) ?? langHint ?? "az";
   const qw = words(question);
   // 1) canned Q&A
@@ -43,6 +44,7 @@ export function mockAnswer(question: string, facts: Fact[], qa: QA[], langHint?:
     .map((f) => ({ f, s: score(qw, [f.text.az, f.text.en ?? "", ...(f.tags ?? [])].join(" ")) }))
     .filter((x) => x.s > 0)
     .sort((a, b) => b.s - a.s)
+    .filter((x, i, all) => i === 0 || x.s >= all[0].s * 0.6) // drop weak second matches
     .slice(0, 2);
   if (!ranked.length) {
     return {
@@ -55,7 +57,9 @@ export function mockAnswer(question: string, facts: Fact[], qa: QA[], langHint?:
     };
   }
   const intro = lang === "en" ? ["Listen, friend: ", "Here is what the sources say: ", "As far as we know: "] : ["Qulaq as, dostum: ", "Mənbələr belə deyir: ", "Bildiyimiz budur: "];
-  const pick = intro[(question.length + ranked[0].f.id.length) % intro.length];
+  const later = opts.knowsUntil !== undefined && ranked.some((x) => x.f.year !== undefined && x.f.year > opts.knowsUntil!);
+  // a historical guide never tells later events as a witness
+  const pick = later ? (lang === "en" ? "The sources say: " : "Mənbələr yazır ki: ") : intro[(question.length + ranked[0].f.id.length) % intro.length];
   const body = ranked.map((x) => (lang === "en" ? x.f.text.en : x.f.text.az) || x.f.text.az).join(" ");
   const unsure = ranked.some((x) => x.f.verify)
     ? lang === "en" ? " Some of this still needs a historian's check." : " Bunun bir hissəsini tarixçilər hələ yoxlamalıdır."

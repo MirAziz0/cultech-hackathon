@@ -202,6 +202,60 @@ function part(b: ExtBuilder, p: ExteriorPart, era: Era, r: ReturnType<typeof rng
       break;
     }
     case "water": b.box(p.size[0], p.size[1], 0.25, ...p.at, mat ?? "water"); break;
+    case "minaret": {
+      const [x, y, z0] = p.at;
+      let z = z0;
+      if (p.base) { b.cyl(p.base.r, p.base.h, x, y, z, mat ?? "stone", 20); z += p.base.h; }
+      // patterned shaft: alternating thin rings in two brick tones, stone belts between bands
+      const [ma, mb] = p.brickMats ?? ["brick", "brick2"];
+      const bands = (p.belts ?? 3) + 1, seg = p.h / bands, rings = 6;
+      for (let i = 0; i < bands; i++) {
+        for (let k = 0; k < rings; k++) {
+          const t = (i * rings + k) / (bands * rings), r = p.r * (1 - 0.1 * t);
+          b.cyl(r, seg / rings, x, y, z + (seg * k) / rings, k % 2 ? mb : ma, 18, p.r * (1 - 0.1 * (t + 1 / (bands * rings))));
+        }
+        z += seg;
+        if (i < bands - 1) b.cyl(p.r * (1 - 0.1 * ((i + 1) / bands)) + 0.08, 0.25, x, y, z - 0.12, "belt", 18);
+      }
+      const rt = p.r * 0.9, lh = p.lantern ?? 2.2;
+      b.cyl(rt + 0.35, 0.3, x, y, z, "lantern", 8);
+      z += 0.3;
+      if (!p.noLantern) for (let k = 0; k < 8; k++) {
+        const a = (k / 8) * Math.PI * 2;
+        b.box(0.14, 0.14, lh, x + Math.cos(a) * (rt + 0.2), y + Math.sin(a) * (rt + 0.2), z, "lantern");
+      }
+      z += lh;
+      b.cyl(rt + 0.6, 0.2, x, y, z, "cap", 8);
+      b.dome(rt + 0.3, 1.6, x, y, z + 0.2, "cap", 16, 0.2);
+      b.cyl(0.05, 0.9, x, y, z + 1.7, "cap", 6);
+      break;
+    }
+    case "hipRoof": {
+      const [cx, cy, cz] = p.at, [sx, sy] = p.size, h = p.h;
+      const long = sx >= sy, half = (long ? sy : sx) / 2, rl = Math.max(0, (long ? sx : sy) / 2 - half);
+      // corners (build coords) and ridge ends
+      const c = [[-sx / 2, -sy / 2], [sx / 2, -sy / 2], [sx / 2, sy / 2], [-sx / 2, sy / 2]].map(([u, v]) => tp(cx + u, cy + v, cz));
+      const r0 = long ? tp(cx - rl, cy, cz + h) : tp(cx, cy - rl, cz + h), r1 = long ? tp(cx + rl, cy, cz + h) : tp(cx, cy + rl, cz + h);
+      const tri: THREE.Vector3[] = long
+        ? [c[0], c[1], r1, c[0], r1, r0, c[1], c[2], r1, c[2], c[3], r0, c[2], r0, r1, c[3], c[0], r0]
+        : [c[1], c[2], r1, c[1], r1, r0, c[2], c[3], r1, c[3], c[0], r0, c[3], r0, r1, c[0], c[1], r0];
+      // both windings: the exterior materials are single-sided
+      for (const pts of [tri, [...tri].reverse()]) {
+        const g = new THREE.BufferGeometry().setFromPoints(pts);
+        g.computeVertexNormals();
+        b.add(g, mat ?? "roof");
+      }
+      break;
+    }
+    case "bush": {
+      const s = p.s ?? 1;
+      const t = new THREE.IcosahedronGeometry(1.1 * s, 0);
+      t.scale(1, 0.7, 1);
+      const q = tp(p.at[0], p.at[1], p.at[2] + 0.6 * s);
+      t.translate(q.x, q.y, q.z);
+      b.add(t, mat ?? "tree");
+      break;
+    }
   }
 }
 
@@ -209,6 +263,7 @@ const DEFAULT_PALETTE: Record<string, [number, number, number]> = {
   base: [92, 66, 48], ground: [196, 178, 140], terrace: [184, 164, 126], stone: [214, 192, 150], stone_rs: [230, 211, 168],
   stone_old: [176, 156, 120], dome: [205, 184, 140], niche: [92, 72, 52], window: [70, 56, 42], water: [58, 143, 160],
   tree: [94, 122, 58], trunk: [110, 84, 58], tile: [40, 128, 140], path: [222, 206, 172],
+  brick: [158, 92, 64], brick2: [214, 196, 168], belt: [222, 208, 180], lantern: [104, 76, 52], cap: [176, 182, 186], roof: [176, 182, 186],
 };
 
 /** build one era of the maquette; returns a Group already scaled & converted to Y-up */
@@ -237,7 +292,7 @@ export function buildExterior(spec: ExteriorSpec & { eraMat?: Partial<Record<Era
       color: new THREE.Color().setRGB(c[0] / 255, c[1] / 255, c[2] / 255, THREE.LinearSRGBColorSpace),
       roughness: key === "water" ? 0.35 : 0.92,
       metalness: 0,
-      flatShading: key === "tree",
+      flatShading: key === "tree" || key.startsWith("tree") || key === "bush",
     });
     const mesh = new THREE.Mesh(merged, mat);
     mesh.name = key;

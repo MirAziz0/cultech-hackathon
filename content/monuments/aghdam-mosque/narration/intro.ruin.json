@@ -1,0 +1,13 @@
+{
+ "zone": "intro",
+ "era": "ruin",
+ "text": {
+  "az": "Bu məscidi mən tikmişəm, amma 1993–2020-ci illəri görməmişəm. Ona görə bu dövrü mənbələrdən oxuyacağam. Mənbələr yazır ki, 1993-cü ilin iyulunda Ağdam tutulandan sonra şəhər talan edilib və yandırılıb, məscid isə mərkəzdə ayaqda qalan bina olub. Gəl, nə qaldığına baxaq.",
+  "en": "I built this mosque, but I did not see the years 1993–2020, so I will read this period to you from the sources. The sources say that after Aghdam was captured in July 1993 the town was looted and burned, while the mosque was the building left standing in the centre. Come, let us see what remained."
+ },
+ "factIds": [
+  "ag-town-destroyed",
+  "ag-architect"
+ ],
+ "generatedBy": "hand"
+}

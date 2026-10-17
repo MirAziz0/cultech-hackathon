@@ -4,6 +4,7 @@
 import * as THREE from "three";
 import type { El, Furniture, Op, Frame } from "../types";
 import { Builder, D2R } from "./builder";
+import { gallery, kColumn, minaret, patches, rubble, sailVault } from "./karabakh";
 
 /* ---------------- arches ---------------- */
 /** pointed (two-centred) arch between a and b springing at yS; from reference archPts */
@@ -21,7 +22,8 @@ export function frameMatrix(f: Frame) {
 }
 
 /* ---------------- walls ---------------- */
-/** wall from (x1,z1) to (x2,z2); interior on local +z. Openings are cut as pointed arches. */
+/** wall from (x1,z1) to (x2,z2); interior on local +z. Openings are cut as pointed arches.
+   Openings that overlap along the wall are stacked (e.g. lower and upper windows of a two-storey hall). */
 export function wall(B: Builder, x1: number, z1: number, x2: number, z2: number, y0: number, h: number, th: number, ops: Op[] = [], mat = "stone") {
   const dx = x2 - x1, dz = z2 - z1, L = Math.hypot(dx, dz), ang = Math.atan2(dz, dx);
   const m4 = new THREE.Matrix4().makeRotationY(-ang).setPosition(x1, 0, z1);
@@ -31,36 +33,52 @@ export function wall(B: Builder, x1: number, z1: number, x2: number, z2: number,
     g.translate((u0 + u1) / 2, (ya + yb) / 2, 0);
     B.add(g, mat, m4);
   };
+  // group openings into columns of overlapping u-ranges
+  const cols: { a: number; b: number; ops: Op[] }[] = [];
+  for (const op of ops.slice().sort((p, q) => p.u - p.w / 2 - (q.u - q.w / 2))) {
+    const a = op.u - op.w / 2, b = op.u + op.w / 2, last = cols[cols.length - 1];
+    if (last && a < last.b - 0.001) { last.ops.push(op); last.b = Math.max(last.b, b); }
+    else cols.push({ a, b, ops: [op] });
+  }
   let cur = 0;
-  ops.slice().sort((p, q) => p.u - q.u).forEach((op) => {
-    const a = op.u - op.w / 2, b = op.u + op.w / 2, ys = y0 + op.sill + op.spring;
-    piece(cur, a, y0, y0 + h);
-    piece(a, b, y0, y0 + op.sill);
-    const { pts, apex } = archPts(a, b, ys);
-    const top = Math.max(y0 + h, apex + 0.15);
-    const s = new THREE.Shape();
-    s.moveTo(a, ys); s.lineTo(a, top); s.lineTo(b, top);
-    for (const [px, py] of pts) s.lineTo(px, py);
-    const eg = new THREE.ExtrudeGeometry(s, { depth: th, bevelEnabled: false, curveSegments: 4 });
-    eg.translate(0, 0, -th / 2);
-    B.add(eg, mat, m4);
-    // reveal (jamb) faces are part of the extrusion; add a thin sill board for windows
-    if (op.kind === "window" || op.kind === "niche") {
-      const hs = new THREE.Shape();
-      hs.moveTo(a, y0 + op.sill); hs.lineTo(b, y0 + op.sill);
-      for (const [px, py] of pts) hs.lineTo(px, py);
-      hs.lineTo(a, y0 + op.sill);
-      const sg = new THREE.ShapeGeometry(hs, 8);
-      if (op.kind === "niche") {
-        sg.translate(0, 0, (op.back || -1) * (th / 2 - 0.03));
-        B.add(sg, mat === "stone" ? "stoneDS" : mat + (mat.endsWith("DS") ? "" : "DS"), m4);
-      } else {
-        const fill = op.fill ?? "shebeke";
-        if (fill !== "open") B.add(sg, fill === "glass" ? "daylight" : fill === "mirror" ? "mirror" : fill, m4);
+  for (const col of cols) {
+    piece(cur, col.a, y0, y0 + h);
+    const stack = col.ops.sort((p, q) => p.sill - q.sill);
+    let prevTop = y0;
+    stack.forEach((op, k) => {
+      const a = op.u - op.w / 2, b = op.u + op.w / 2, ys = y0 + op.sill + op.spring;
+      const { pts, apex } = archPts(a, b, ys);
+      const next = stack[k + 1];
+      const top = next ? Math.max(apex + 0.15, y0 + next.sill) : Math.max(y0 + h, apex + 0.15);
+      // solid below the opening, and beside it if the column is wider than this opening
+      piece(col.a, col.b, prevTop, y0 + op.sill);
+      piece(col.a, a, y0 + op.sill, top);
+      piece(b, col.b, y0 + op.sill, top);
+      const s = new THREE.Shape();
+      s.moveTo(a, ys); s.lineTo(a, top); s.lineTo(b, top);
+      for (const [px, py] of pts) s.lineTo(px, py);
+      const eg = new THREE.ExtrudeGeometry(s, { depth: th, bevelEnabled: false, curveSegments: 4 });
+      eg.translate(0, 0, -th / 2);
+      B.add(eg, mat, m4);
+      // reveal (jamb) faces are part of the extrusion; add a thin sill board for windows
+      if (op.kind === "window" || op.kind === "niche") {
+        const hs = new THREE.Shape();
+        hs.moveTo(a, y0 + op.sill); hs.lineTo(b, y0 + op.sill);
+        for (const [px, py] of pts) hs.lineTo(px, py);
+        hs.lineTo(a, y0 + op.sill);
+        const sg = new THREE.ShapeGeometry(hs, 8);
+        if (op.kind === "niche") {
+          sg.translate(0, 0, (op.back || -1) * (th / 2 - 0.03));
+          B.add(sg, mat === "stone" ? "stoneDS" : mat + (mat.endsWith("DS") ? "" : "DS"), m4);
+        } else {
+          const fill = op.fill ?? "shebeke";
+          if (fill !== "open") B.add(sg, fill === "glass" ? "daylight" : fill === "mirror" ? "mirror" : fill, m4);
+        }
       }
-    }
-    cur = b;
-  });
+      prevTop = top;
+    });
+    cur = col.b;
+  }
   piece(cur, L, y0, y0 + h);
 }
 
@@ -283,10 +301,11 @@ export function furniture(B: Builder, f: Furniture) {
     }
     case "mihrab": {
       const w = f.w ?? 1.5, m = new THREE.Matrix4().makeRotationY((f.rotY ?? 0) * D2R).setPosition(x, y, z);
+      // archPts runs from the right springing over the apex to the left one
       const { pts } = archPts(-w / 2, w / 2, 2.2);
-      const s = new THREE.Shape(); s.moveTo(-w / 2, 0); s.lineTo(-w / 2, 2.2); for (const [px, py] of pts) s.lineTo(px, py); s.lineTo(w / 2, 0); s.closePath();
+      const s = new THREE.Shape(); s.moveTo(-w / 2, 0); s.lineTo(w / 2, 0); for (const [px, py] of pts) s.lineTo(px, py); s.closePath();
       const g = new THREE.ExtrudeGeometry(s, { depth: 0.05, bevelEnabled: false }); B.add(g, "c:#8c7556", m);
-      const fr = new THREE.Shape(); const W = w + 0.36; const { pts: p2 } = archPts(-W / 2, W / 2, 2.3); fr.moveTo(-W / 2, 0); fr.lineTo(-W / 2, 2.3); for (const [px, py] of p2) fr.lineTo(px, py); fr.lineTo(W / 2, 0); fr.closePath();
+      const fr = new THREE.Shape(); const W = w + 0.36; const { pts: p2 } = archPts(-W / 2, W / 2, 2.3); fr.moveTo(-W / 2, 0); fr.lineTo(W / 2, 0); for (const [px, py] of p2) fr.lineTo(px, py); fr.closePath();
       const fg = new THREE.ExtrudeGeometry(fr, { depth: 0.03, bevelEnabled: false }); fg.translate(0, -0.1, -0.02); B.add(fg, "tile", m.clone());
       for (let i = 0; i < 4; i++) { const st = new THREE.BoxGeometry(1.3 - i * 0.28, 0.16, 0.25); st.translate(0, 2.25 + i * 0.16 + 0.6, 0.12); B.add(st, "mq0", m.clone()); }
       break;
@@ -616,6 +635,24 @@ export function buildEl(B: Builder, e: El) {
     }
     case "furniture":
       furniture(B, e as Furniture);
+      break;
+    case "minaret":
+      minaret(B, e.c[0], e.c[1], e.y0, e);
+      break;
+    case "kColumn":
+      kColumn(B, e.c[0], e.c[1], e.y0, e.h, e.r, mat ?? "stone");
+      break;
+    case "sailVault":
+      sailVault(B, e.x[0], e.x[1], e.z[0], e.z[1], e.y, { rise: e.rise, hole: e.hole, mat: mat ?? "limeDS", outside: e.outside, shell: e.shell });
+      break;
+    case "gallery":
+      gallery(B, e.x[0], e.x[1], e.z[0], e.z[1], e.y, { th: e.th, rail: e.rail, railH: e.railH, railMat: e.railMat, slabMat: mat, broken: e.broken, seed: e.seed });
+      break;
+    case "rubble":
+      rubble(B, ...e.rect, e.y, e.n, { size: e.size, seed: e.seed, mat });
+      break;
+    case "patches":
+      patches(B, e.from[0], e.from[1], e.to[0], e.to[1], e.y0, e.h, e.n, { seed: e.seed, mat, side: e.side });
       break;
   }
 }

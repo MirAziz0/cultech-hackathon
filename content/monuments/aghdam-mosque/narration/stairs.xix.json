@@ -1,0 +1,13 @@
+{
+ "zone": "stairs",
+ "era": "xix",
+ "text": {
+  "az": "Bu pilləkən qadınlar qalereyasına qalxır. Düzünü deyim: mənbələr pilləkənin harada olduğunu göstərmir. Modeldə onu qərb yan otağa qoyublar — bu, fərziyyədir. Minarələrə isə hər birinin içində kərpic pilləkən qalxır, iki girişdən.",
+  "en": "These stairs climb to the women's gallery. To be honest: the sources do not say where the stairs were. The model puts them in the western side room — this is a hypothesis. The minarets, by contrast, each have brick stairs inside, reached by two entrances."
+ },
+ "factIds": [
+  "ag-gallery",
+  "ag-minarets"
+ ],
+ "generatedBy": "hand"
+}

@@ -45,7 +45,7 @@ async function exportOne(slug: string) {
   const outDir = path.join(process.cwd(), "public", "monuments", slug, "models");
   fs.rmSync(outDir, { recursive: true, force: true });
   fs.mkdirSync(outDir, { recursive: true });
-  for (const era of ["past", "today"] as Era[])
+  for (const era of Object.keys(m.eras) as Era[])
     for (const lang of ["az", "en"] as Lang[]) {
       const name = `${era}.${lang}`;
       const scene = arScene(m, era, lang);

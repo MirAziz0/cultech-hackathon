@@ -20,6 +20,7 @@ export const ArchitectSvg = forwardRef<ArchitectRig, { look?: ArchitectSpec["loo
   const sash = look?.sash ?? "#d9a441";
   const hat = look?.headwear ?? "turban";
   const beard = look?.beard ?? true;
+  const chokha = look?.chokha ?? false;
   const body = useRef<SVGGElement>(null);
   const head = useRef<SVGGElement>(null);
   const eyes = useRef<SVGGElement>(null);
@@ -116,6 +117,19 @@ export const ArchitectSvg = forwardRef<ArchitectRig, { look?: ArchitectSpec["loo
           <rect x="48" y="214" width="104" height="14" rx="3" fill={sash} />
           <path d="M48 218h104M48 224h104" stroke="#00000026" strokeWidth="2" />
           <path d="M100 196v18" stroke="#00000033" strokeWidth="2" />
+          {chokha && (
+            /* Caucasian chokha: dark under-coat (arkhaluq) in the V, rows of cartridge pockets (gazyr) on the chest */
+            <g>
+              <path d="M74 168l26 26 26-26-6 52H80z" fill="#2a2420" opacity=".85" />
+              {[0, 1, 2, 3, 4, 5].map((i) => (
+                <g key={i}>
+                  <rect x={52 + i * 1.6} y={176 + i * 6} width="16" height="4.2" rx="1.6" fill="#d9c7a0" stroke="#5a4630" strokeWidth=".8" />
+                  <rect x={132 - i * 1.6} y={176 + i * 6} width="16" height="4.2" rx="1.6" fill="#d9c7a0" stroke="#5a4630" strokeWidth=".8" />
+                </g>
+              ))}
+              <path d="M56 172c-4 20-6 44-6 68M144 172c4 20 6 44 6 68" stroke="#00000030" strokeWidth="2" fill="none" />
+            </g>
+          )}
           {/* neck */}
           <path d="M88 140h24v24l-12 10-12-10z" fill={skinShade} />
           {/* head */}
@@ -167,6 +181,15 @@ export const ArchitectSvg = forwardRef<ArchitectRig, { look?: ArchitectSpec["loo
               <g>
                 <path d="M66 82c-2-28 4-50 8-56h52c4 6 10 28 8 56-10-6-22-9-34-9s-24 3-34 9z" fill="#1e1a17" />
                 <path d="M72 40h56M70 52h60M68 64h64M68 76h64" stroke="#3a332c" strokeWidth="3" strokeDasharray="3 4" />
+              </g>
+            )}
+            {hat === "papaq" && (
+              /* tall sheepskin papaq */
+              <g>
+                <path d="M66 84c-3-22-1-44 4-58 9-6 19-8 30-8s21 2 30 8c5 14 7 36 4 58-10-6-22-9-34-9s-24 3-34 9z" fill="#2b2420" />
+                {[30, 42, 54, 66, 78].map((y) => (
+                  <path key={y} d={`M${70 - (y - 30) / 12} ${y}q5-4 10 0t10 0 10 0 10 0 10 0 10 0`} fill="none" stroke="#4a3f36" strokeWidth="2.6" strokeLinecap="round" />
+                ))}
               </g>
             )}
             {hat === "cap" && (

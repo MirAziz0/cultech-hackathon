@@ -1,0 +1,14 @@
+{
+ "zone": "stairs",
+ "era": "today",
+ "text": {
+  "az": "Pilləkənin yeri mənbələrdə göstərilmir, modeldəki yer fərziyyədir. Mənbələr yazır ki, bərpa zamanı eyvan divarlarının daşları və hörgü tikişləri qeyri-təbii materiallardan təmizlənib, taxta konstruksiyalar isə konservasiya olunub.",
+  "en": "The sources do not show where these stairs were; their place in the model is a hypothesis. The sources say that during the restoration the stones and joints of the balcony walls were cleaned of unnatural materials and the timber structures were conserved."
+ },
+ "factIds": [
+  "ag-gallery",
+  "ag-balcony-restored",
+  "ag-restoration-works"
+ ],
+ "generatedBy": "hand"
+}

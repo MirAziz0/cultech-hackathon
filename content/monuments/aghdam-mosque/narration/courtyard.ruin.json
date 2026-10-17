@@ -1,0 +1,14 @@
+{
+ "zone": "courtyard",
+ "era": "ruin",
+ "text": {
+  "az": "Bu dövrü görməmişəm, mənbələri oxuyuram. ATƏT missiyası 2005-ci ildə şəhəri mərkəzdəki məsciddən başqa tamamilə xaraba halında görüb. Fasaddakı mərmər üzlük mənim vaxtımda yox idi: mənbələr yazır ki, onu 1970–80-ci illərdəki təmirdə vurublar. Peyk təsvirlərinə görə binanın forması dəyişməyib.",
+  "en": "I did not see this period; I am reading the sources. In 2005 an OSCE mission found the town in complete ruins except for the mosque in the centre. The marble cladding on the facade was not there in my time: the sources say it was added during renovations in the 1970s–80s. Satellite images show the building's form unchanged."
+ },
+ "factIds": [
+  "ag-town-destroyed",
+  "ag-marble",
+  "ag-satellite"
+ ],
+ "generatedBy": "hand"
+}

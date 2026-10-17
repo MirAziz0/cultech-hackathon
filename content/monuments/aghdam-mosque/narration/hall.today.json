@@ -1,0 +1,14 @@
+{
+ "zone": "hall",
+ "era": "today",
+ "text": {
+  "az": "Mənbələr yazır ki, bərpa zamanı Avstriya mütəxəssisləri ilkin materialları araşdırıb, günbəzlərin zədələnmiş suvağı bərpa olunub, günbəz və tağtavanlar əhəng suyu və əhəng pastası ilə möhkəmləndirilib. Mən də bu tağları əhəngli məhlulla hörmüşdüm — əhəng bu binanın öz dilidir.",
+  "en": "The sources say that during the restoration Austrian specialists examined the original materials, the damaged plaster of the domes was repaired, and the domes and vaults were reinforced with lime water and lime paste. I laid these arches with lime mortar too — lime is this building's own language."
+ },
+ "factIds": [
+  "ag-restoration",
+  "ag-lime",
+  "ag-materials"
+ ],
+ "generatedBy": "hand"
+}

@@ -70,9 +70,10 @@ Create `content/monuments/<slug>/` containing:
 
 ```
 manifest.json          the monument (schema below, TypeScript types in lib/types.ts)
-facts.json             { monument, facts: [{ id, text:{az,en}, sources:[{title,url}], conf, tags?, verify? }] }
-photos.sources.json    [{ id, commons: "File title.jpg", caption:{az,en} }]  → npm run photos <slug>
+facts.json             { monument, facts: [{ id, text:{az,en}, sources:[{title,url}], conf, tags?, verify?, year? }] }
+photos.sources.json    [{ id, commons: "File title.jpg", caption:{az,en}, crop?, modified? }]  → npm run photos <slug>
 narration/<zone>.json  { zone, text:{az,en}, factIds, generatedBy }  (+ "intro"; optional qa.json for mock mode)
+narration/<zone>.<era>.json   one per era when the walk has eras ({ …, era })
 ```
 
 Then run `npm run photos <slug>` and `npm run build`. The home page, map pin, `/m/<slug>`, `/m/<slug>/walk`, AR models and Q&A all pick it up from these files.
@@ -86,9 +87,12 @@ Then run `npm run photos <slug>` and `npm run build`. The home page, map pin, `/
   "location": { "lat": 40.0, "lon": 49.0, "place": {…} },
   "cover": "photo_id",
   "eras": { "past":  { "label": {…}, "badge": {…}, "summary": {…} },
-            "today": { "label": {…}, "badge": {…}, "summary": {…} } },
+            "today": { "label": {…}, "badge": {…}, "summary": {…} } },   // or any number of eras, e.g. xix / ruin / today
+  "eraOrder": ["past", "today"],   // toggle order (optional)
+  "confLabels": { "ok": { "short": {…}, "long": {…} }, … },  // optional per-monument wording of the confidence levels
   "architect": { "name": {…}, "role": {…}, "voice": "male", "greeting": {…},
-                 "look": { "robe": "#2f5d7c", "sash": "#d9a441", "headwear": "turban|kalpak|cap", "beard": true } },
+                 "look": { "robe": "#2f5d7c", "sash": "#d9a441", "headwear": "turban|kalpak|cap|papaq", "beard": true, "chokha": false },
+                 "historical": { "knowsUntil": 1885, "note": {…} } },  // only for a real, named person (see Honesty rules)
   "exterior": {                     // maquette, build coords: x east, y north, z up, metres
     "scale": 0.008, "home": { "target": [0, 0.06, 0], "az": -38, "pol": 58, "dist": 1.05 },
     "palette": { "stone": [214, 192, 150] }, "eraMat": { "past": { "stone": "stone_rs" } },
@@ -96,15 +100,19 @@ Then run `npm run photos <slug>` and `npm run build`. The home page, map pin, `/
                { "t": "dome", "r": 3, "h": 3, "at": [0, 0, 6], "eras": ["past"] } ]
   },
   "buildings": [ { "id": "main", "name": {…}, "date": {…}, "pos": [0, 0, 12], "conf": "ok|mid|hyp",
-                   "text": {…} | "past"/"today": {…}, "photos": ["id"], "factIds": ["id"],
-                   "walk": true, "interior": "key", "pastOnly": false } ],
+                   "text": {…} | "past"/"today": {…} | "byEra": { "<era>": {…} }, "photos": ["id"], "factIds": ["id"],
+                   "walk": true, "interior": "key", "pastOnly": false, "eras": ["<era>"] } ],
   "interiors": { "key": { "shape": "oct|rect", "size": 4, "h": 5, "dome": {…}, "openings": [...], "furniture": [...] } },
   "walk": {                         // three.js coords: x east, y up, z south, metres
-    "title": {…}, "start": { "x": 0, "z": 10, "yaw": 0 }, "defaultFloor": 0,
+    "title": {…}, "cta": {…}, "start": { "x": 0, "z": 10, "yaw": 0 }, "defaultFloor": 0,
+    "eras": ["xix", "ruin", "today"], "defaultEra": "today",          // optional: era toggle inside the walk
+    "eraLook": { "ruin": { "sky": "#c4cfd6", "fog": [45, 130], "alias": { "wallIn": "limeWorn", "daylight": "none" } } },
     "map": { "bounds": [x0, x1, z0, z1], "hide": ["outside"], "levels": [ { "name": {…}, "y": 3.5, "at": [x, z] } ] },
     "elements": [ … architecture kit elements … ],
     "zones": [ { "id": "hall", "rect": [x0, x1, z0, z1], "floor": 1.2 } ],
-    "zoneInfo": { "hall": { "title": {…}, "text": {…}, "conf": "ok", "photos": ["id"], "factIds": ["id"] } }
+    "zoneInfo": { "hall": { "title": {…}, "text": {…}, "conf": "ok", "photos": ["id"], "factIds": ["id"],
+                            "links": [ { "title": {…}, "url": "…" } ],     // photos that may not be embedded
+                            "byEra": { "ruin": { "text": {…}, "conf": "mid", "photos": [] } } } }
   },
   "disclaimer": {…}
 }
@@ -121,6 +129,9 @@ Then run `npm run photos <slug>` and `npm run build`. The home page, map pin, `/
 - **Light:** `light`, `shaft` (light beam + dust).
 - **Frames:** `group` (local frame `{pos, rot}`).
 - **`furniture`:** carpet, cushion, jug, lamp, chest, tray, lectern, loom, cypress, bush, cenotaph, mihrab, minbar, lampRing, bench, cannon, pool, skylights, brazier.
+- **Karabakh mosque set** ([lib/kit/karabakh.ts](lib/kit/karabakh.ts)): `minaret` (brick shaft with belts, timber lantern, metal cap), `kColumn` (octagonal stone pillar with faceted capital), `sailVault` (domed bay on a square plan, optional broken crown `hole`), `gallery` (two-storey gallery slab with balustrade, `broken` for ruins), `rubble`, `patches` (fallen plaster).
+- **Eras:** any element can carry `"eras": [...]`; materials can be swapped per era with `walk.eraLook[era].alias`, and aliasing a material to `"none"` removes those surfaces (e.g. glass that is gone). Wall openings that overlap along a wall are stacked (lower and upper windows).
+- **Exterior parts** also include `minaret`, `hipRoof` and `bush`. Switching eras on the maquette plays a "time sweep": a glowing plane crosses the model and swaps the geometry as it passes (instant with reduced motion).
 
 Static geometry is merged per material, which usually gives a single-digit number of meshes. Point lights come from a fixed pool of 6 that follows the nearest lamps.
 
@@ -128,7 +139,7 @@ Static geometry is merged per material, which usually gives a single-digit numbe
 
 **Confidence:** `ok` means standing or observed, `mid` means evidence-based (remains, plans, old photos), `hyp` means hypothesis. Use it on every building, zone and fact.
 
-The manifests for the three monuments were written with small generator scripts. The JSON in `content/` is the source of truth; edit it directly.
+The manifests for the first three monuments were written with small generator scripts. Their JSON in `content/` is the source of truth; edit it directly. **Exception:** the Aghdam mosque's geometry (`exterior.parts`, `walk.elements`, `walk.zones`, `walk.obstacles`) is generated by [scripts/monuments/aghdam-mosque.ts](scripts/monuments/aghdam-mosque.ts); edit the script and rerun it. All its text lives in the JSON and is kept.
 
 ## Deploy to Vercel
 
@@ -154,6 +165,8 @@ Note: `public/monuments/` is generated and git-ignored, so the build recreates i
 
 - 3D models are approximate reconstructions, not measured data, and each part is labelled with its confidence.
 - The architects (Usta Rəşid, Usta Fərrux, Usta Kərim) are invented representative characters, not historical people. They say so when asked.
+- Kərbəlayi Səfixan Qarabaği (Aghdam) is a real architect shown as a stylised, representative figure: no authentic portrait is known, and the app says so. He speaks first-hand only about his own time (`architect.historical.knowsUntil`); facts with a later `year` are quoted ("Mənbələr yazır ki…"), never told as a witness.
+- Where sources disagree, the text says so ("mənbələrdə fərqli göstərilir") and cites both.
 - They answer only from sourced facts and say "historians are unsure" when the facts don't cover a question.
 - Claims that need a historian's review are listed in `CONTENT_TODO.md`.
 - Photos come from Wikimedia Commons and show author, license and file page wherever they appear.

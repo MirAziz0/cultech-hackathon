@@ -1,0 +1,13 @@
+{
+ "zone": "galleryView",
+ "era": "today",
+ "text": {
+  "az": "Buradan bərpa olunmuş zal bütöv görünür: ağ əhəng suvağı, xalçalar, çilçıraqlar. Bina indi dörd tərəfə maili metal damla örtülüb. Mənbələr yazır ki, bərpa olunmuş məscidin açılışı 25 aprel 2024-cü ildə olub.",
+  "en": "From here the whole restored hall opens out: white lime plaster, carpets, chandeliers. The building is now covered by a four-sided metal roof. The sources say the restored mosque was opened on 25 April 2024."
+ },
+ "factIds": [
+  "ag-lime",
+  "ag-reopened"
+ ],
+ "generatedBy": "hand"
+}

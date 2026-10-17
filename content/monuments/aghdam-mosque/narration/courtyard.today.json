@@ -1,0 +1,14 @@
+{
+ "zone": "courtyard",
+ "era": "today",
+ "text": {
+  "az": "Minarələrin kərpic naxışları indi göy-ağ rəngdədir. Mənbələr yazır ki, bərpa zamanı minarələrin sınmış daşları bərpa olunub, fasad isə tarixi görkəminə uyğun yenilənib. Yolun kənarındakı lövhəli daş bərpanı xatırladır. Mənim vaxtımdakı rənglər mənbələrdə göstərilmir, onları dəqiq deyə bilmərəm.",
+  "en": "The minarets' brick patterns are now blue and white. The sources say the broken stones of the minarets were repaired during the restoration and the facade was renewed to its historical appearance. The stone with a plaque by the path records the restoration. The sources do not give the colours of my time, so I cannot tell you them exactly."
+ },
+ "factIds": [
+  "ag-minaret-repair",
+  "ag-restoration-works",
+  "ag-restoration"
+ ],
+ "generatedBy": "hand"
+}

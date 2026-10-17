@@ -13,6 +13,7 @@ export default function Page() {
     cover: m.coverUrl,
     coverCredit: m.coverPhoto ? `© ${m.coverPhoto.author} · ${m.coverPhoto.license}` : undefined,
     walk: !!m.walk,
+    eras: Object.keys(m.eras).length,
   }));
   return <Home monuments={monuments} />;
 }

@@ -23,6 +23,53 @@ These came up while collecting facts. Each needs a historian's decision; the app
 - **Erivan Fortress — Hall of Mirrors dimensions.** Unknown. The model's 9 × 12 m hall with a two-column open front follows Gagarin's lithograph proportions.
 - **All monuments — architects.** Usta Rəşid, Usta Fərrux and Usta Kərim are invented representative characters, not historical people, and say so when asked.
 
+### Aghdam Juma Mosque (added October 2026)
+
+- **No measured plan.** All dimensions (about 20 × 25 m footprint, 10 m walls, minarets ≈ 30 m, 6 m domed bays, four free-standing pillars, gallery at 4.6 m) are estimated from Commons photos. The Yukhari Govhar Agha Mosque (26.5 × 21.5 m, same architect) was used as a sanity check.
+- **Number of domes.** Wikipedia: "9 (maybe more)"; the 2018 roof photos show a 3×3 grid over the hall. Whether the front block also had domes is unknown (the model gives it a flat roof).
+- **19th-century roof.** Not documented. The 1992 photo shows a Soviet-era metal hipped roof; the 2002 stamp also draws a pitched roof. The model's 19th-century state shows exposed lime-plastered domes — a hypothesis.
+- **19th-century facade finish.** The marble cladding dates from the 1970s–80s (Monument Watch), so the 19th-century state shows plastered limestone. The blue paint and inscriptions of the iwan are undated.
+- **Mihrab decoration.** Painted in 1913 by Muhammad Naghash Tawriz according to Monument Watch (citing qarabag.com) — single source.
+- **Women's gallery and stairs.** Monument Watch says the interior is two-storey; the 2024 photo shows a balcony with a wooden balustrade. The U-shaped layout, the piers under it and the stair in the western side room are hypotheses.
+- **Damage 1993–2020.** Sources differ in degree: Cornell satellite study — structure unchanged, only the Soviet roofing removed, minor damage; soyqirim.az — minarets dismantled from inside, ceiling broken in several places, inscriptions destroyed; Monument Watch — mihrab and inscriptions intact, minarets undamaged; Report.az (A. Cəfərli) — set on fire several times, minarets damaged, used as an observation post. The app quotes each with attribution. The two holed vaults in the model are placed arbitrarily.
+- **First Friday prayer, November 2020.** "After 27 years" (geo.tv) vs "28 years" (Wikipedia).
+- **Ashaghi Govhar Agha Mosque date.** 1874–1875 (AZERTAG) vs 1875–1876 (Wikipedia).
+- **Courtyard, streets and houses (19th century).** Pure hypothesis; no plan of 19th-century Aghdam was found.
+- **Square after 2024.** Hedges, paths and trees approximate the 2024 photos; the layout is not surveyed.
+- **Architect persona.** Kərbəlayi Səfixan Qarabaği is a real person; no authentic portrait is known (a 2016 stamp shows a depiction). The app's figure is an original stylised drawing and says so. He speaks first-hand only about events up to 1885 and quotes sources for anything later.
+
+## Ağdam Cümə məscidi / Aghdam Juma Mosque (`aghdam-mosque`)
+
+### Facts marked for verification (3 of 34)
+
+- [ ] **ag-1913** (evidence-based reconstruction) — According to one source, the interior decoration and the mihrab were executed in 1913 by Muhammad Naghash Tawriz.
+  - source: [Monument Watch (qarabag.com-a istinadla)](https://monumentwatch.org/en/monument/the-aghdam-mosque/)
+- [ ] **ag-dimensions** (hypothesis) — No measured plan of the mosque has been published. The model's dimensions (about 20 × 25 m, 10 m walls, minarets close to 30 m) are estimated from photos. For comparison, the same architect's Yukhari Govhar Agha Mosque in Shusha measures 26.5 × 21.5 m.
+  - source: [Wikipedia: Yukhari Govhar Agha Mosque](https://en.wikipedia.org/wiki/Yukhari_Govhar_Agha_Mosque)
+  - source: [Commons: Ağdam məscidinin fotoları](https://commons.wikimedia.org/wiki/Category:A%C4%9Fdam_Mosque)
+- [ ] **ag-ceiling-broken** (evidence-based reconstruction) — One Azerbaijani source says the minarets were dismantled from the inside, the ceiling was broken through in several places and the decoration and inscriptions were destroyed. The holes' positions in the model are estimates.
+  - source: [soyqirim.az](https://soyqirim.az/en/tarix/tarixm/6805/)
+
+### Reconstructed parts (3D model)
+
+- [ ] building **domes** — evidence-based reconstruction: The prayer hall is covered by nine brick domes. How they were roofed in the 19th century is unknown: the model shows exposed lime-plastered domes (hypothesis).
+- [ ] building **town** — hypothesis: The courtyard wall, streets and low houses around the mosque are an artistic hypothesis: no source was found for the plan or look of 19th-century Aghdam.
+- [ ] building **square** — evidence-based reconstruction: The square laid out in front of the mosque: a footpath, hedges, young trees. Its plan is approximated from photos.
+- [ ] walk zone **courtyard** (19th c.) — hypothesis: The facade and minarets follow later photographs. The courtyard wall, trees and houses around are an artistic hypothesis — no 19th-century photos survive.
+- [ ] walk zone **entrance** (19th c.) — evidence-based reconstruction: The inside of the iwan is painted blue with Quranic inscriptions above the door. The sources do not date this paint or the inscriptions.
+- [ ] walk zone **hall** — evidence-based reconstruction: Octagonal stone pillars divide the hall into three naves; pointed arches carry the roof of nine domed bays.
+- [ ] walk zone **hall** (19th c.) — evidence-based reconstruction: The pillars, arches and domes follow later photographs; the dimensions are estimates. The carpets and oil lamps are an artistic hypothesis.
+- [ ] walk zone **hall** (1993–2020) — evidence-based reconstruction: The hall stands empty: stone debris on the floor, fallen plaster on the walls. Sources say the ceiling was broken in several places; the holes' positions in the model are estimates.
+- [ ] walk zone **mihrab** (19th c.) — evidence-based reconstruction: One source says the mihrab's decoration was painted in 1913 by Muhammad Naghash Tawriz. In the 19th century it may therefore have been plainer; its look in the model is approximate.
+- [ ] walk zone **stairs** — hypothesis: The stairs up to the women's gallery. The sources do not say where they were: the model puts them in the western side room.
+- [ ] walk zone **gallery** — evidence-based reconstruction: A second-storey gallery along the north, west and east walls of the hall. In Karabakh mosques such galleries were for women.
+- [ ] walk zone **gallery** (1993–2020) — evidence-based reconstruction: The gallery's balustrade is broken; its floor is covered in dust.
+- [ ] walk zone **galleryView** — evidence-based reconstruction: From up here the whole hall opens out: four pillars, the nine domed bays and the mihrab in the south wall.
+
+### Narration
+
+- [ ] review 24 narration scripts in `content/monuments/aghdam-mosque/narration/` (written from facts.json; check wording and hedges)
+
 ## İrəvan qalası və Sərdar sarayı / Erivan Fortress and the Sardar's Palace (`erivan-fortress`)
 
 ### Facts marked for verification (8 of 16)
@@ -49,7 +96,7 @@ These came up while collecting facts. Each needs a historian's decision; the app
 
 ### Reconstructed parts (3D model)
 
-- [ ] building **fortress** — evidence-based reconstruction: A fortress about 1,200 m around on the river's left bank, protected on three sides by double walls with towers and on the west by the Zangi gorge. The model follows the 1827 plan and the museum model.
+- [ ] building **fortress** — evidence-based reconstruction: The fortress was demolished in the 19th–20th centuries; the site is now occupied by the Ararat wine and brandy factory, and only wall remnants survive.
 - [ ] building **palace** — evidence-based reconstruction: The residence of the ruler (sardar) of the Erivan Khanate, in the part of the fortress overlooking the gorge. Famous for its Hall of Mirrors. Completely destroyed in 1914–1918.
 - [ ] building **mirrors** — evidence-based reconstruction: A hall with mirror-covered ceiling and wall recesses, patterned tiles and portraits on the walls, a marble platform with a fountain in the middle and a large wooden window with coloured glass facing the gorge.
 - [ ] building **mosque** — evidence-based reconstruction: An early-19th-century Shia mosque named after Abbas Mirza. After 1827 it was used as an arsenal. Its form and colours in the model are approximate.
@@ -128,7 +175,7 @@ These came up while collecting facts. Each needs a historian's decision; the app
 
 ### Reconstructed parts (3D model)
 
-- [ ] building **bath** — evidence-based reconstruction: Restored with domed rooms on the plan of the remains. The height and shape of the domes are approximate.
+- [ ] building **bath** — evidence-based reconstruction: Today only half-buried wall remains survive. The bathhouse was uncovered by excavation.
 - [ ] building **garden** — hypothesis: AI hypothesis: a garden and pool imagined from period palace traditions. There is no archaeological basis; shown as an example.
 - [ ] walk zone **vest** — evidence-based reconstruction: Part 1 on the plan: the passage from the portal to the central hall.
 - [ ] walk zone **stair** — evidence-based reconstruction: Part 5 on the plan. The palace is known to have three narrow spiral stairs.

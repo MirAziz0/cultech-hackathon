@@ -1,0 +1,13 @@
+{
+ "zone": "stairs",
+ "era": "ruin",
+ "text": {
+  "az": "Pilləkənin yeri mənbələrdə göstərilmir; modeldəki yer fərziyyədir. Mənbələr bu illər üçün minarələr barədə də fərqli yazır: bir mənbə onların içəridən söküldüyünü, digəri isə zədəsiz qaldığını bildirir.",
+  "en": "The sources do not show where these stairs were; their place in the model is a hypothesis. For these years the sources also differ on the minarets: one says they were dismantled from the inside, another reports them undamaged."
+ },
+ "factIds": [
+  "ag-gallery",
+  "ag-ceiling-broken"
+ ],
+ "generatedBy": "hand"
+}

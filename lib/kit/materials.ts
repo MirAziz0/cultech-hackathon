@@ -2,7 +2,7 @@
 import * as THREE from "three";
 import {
   bandTex, carpetTex, floorTex, mirrorTex, paintingTex, reliefNormal, reliefTex, shebekeTex, stainedTex,
-  stoneNormal, stoneTex, tileTex, glowTex,
+  stoneNormal, stoneTex, tileTex, glowTex, minaretBrickTex, marbleTex, plasterTex, settsTex, metalRoofTex,
 } from "./textures";
 
 export interface MatInfo { mat: THREE.Material; worldUV?: number }
@@ -52,6 +52,23 @@ const factories: Record<string, () => MatInfo> = {
   carpet0: () => ({ mat: S({ map: carpetTex(0), roughness: 1 }) }),
   carpet1: () => ({ mat: S({ map: carpetTex(1), roughness: 1 }) }),
   carpet2: () => ({ mat: S({ map: carpetTex(2), roughness: 1 }) }),
+  // Karabakh mosque set (Aghdam)
+  minaretBrick: () => ({ mat: S({ map: minaretBrickTex("red") }), worldUV: 2.4 }),
+  minaretBlue: () => ({ mat: S({ map: minaretBrickTex("blue"), roughness: 0.55 }), worldUV: 2.4 }),
+  marble: () => ({ mat: S({ map: marbleTex(false), roughness: 0.6 }), worldUV: 3 }),
+  marbleWorn: () => ({ mat: S({ map: marbleTex(true), roughness: 0.8 }), worldUV: 3 }),
+  lime: () => ({ mat: S({ map: plasterTex(false), side: THREE.DoubleSide }), worldUV: 4 }),
+  // vault and dome undersides: a little self-light so crowns read as lit plaster, not shadow
+  vaultLime: () => ({ mat: S({ map: plasterTex(false), side: THREE.DoubleSide, emissive: 0x5c574e, emissiveIntensity: 0.55 }), worldUV: 4 }),
+  vaultLimeWorn: () => ({ mat: S({ map: plasterTex(true), side: THREE.DoubleSide, emissive: 0x4e4840, emissiveIntensity: 0.5 }), worldUV: 4 }),
+  limeWorn: () => ({ mat: S({ map: plasterTex(true), side: THREE.DoubleSide }), worldUV: 4 }),
+  setts: () => ({ mat: S({ map: settsTex() }), worldUV: 1.6 }),
+  metalRoof: () => ({ mat: S({ map: metalRoofTex(), metalness: 0.45, roughness: 0.45, side: THREE.DoubleSide }), worldUV: 2 }),
+  tin: () => ({ mat: S({ color: 0xaab0b4, metalness: 0.55, roughness: 0.4, side: THREE.DoubleSide }) }),
+  iwanBlue: () => ({ mat: S({ color: 0x6f9cc4, side: THREE.DoubleSide }) }),
+  rubble: () => ({ mat: S({ color: 0x9a8a72 }) }),
+  dust: () => ({ mat: S({ color: 0x8e7f68, roughness: 1 }) }),
+  sky: () => ({ mat: new THREE.MeshBasicMaterial({ color: 0xcfe0ec, toneMapped: false, side: THREE.DoubleSide }) }),
   shaft: () => ({
     mat: new THREE.MeshBasicMaterial({ map: glowTex(), transparent: true, opacity: 0.16, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide, toneMapped: false }),
   }),

@@ -1,0 +1,13 @@
+{
+ "zone": "mihrab",
+ "era": "xix",
+ "text": {
+  "az": "Mehrabı cənub divarının ortasına, qibləyə tərəf qoydum. Onun bəzəyi barədə ehtiyatlı olmalıyam: bir mənbə yazır ki, indi görünən naxışlar 1913-cü ildə Məhəmməd Nəqqaş Təvrizi tərəfindən çəkilib. Deməli, mənim vaxtımda mehrab daha sadə ola bilərdi.",
+  "en": "I placed the mihrab in the middle of the south wall, toward the qibla. About its decoration I must be careful: one source says the painting seen later was done in 1913 by Muhammad Naghash Tawriz. So in my time the mihrab may well have been plainer."
+ },
+ "factIds": [
+  "ag-mihrab",
+  "ag-1913"
+ ],
+ "generatedBy": "hand"
+}

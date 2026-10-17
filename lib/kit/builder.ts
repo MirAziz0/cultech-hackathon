@@ -46,12 +46,21 @@ export class Builder {
   }
 
   resolve(key: string) {
-    return this.alias[key] ?? key;
+    const hit = this.alias[key];
+    if (hit) return hit;
+    // "xxxDS" follows the alias of "xxx" (double-sided variant)
+    if (key.endsWith("DS")) {
+      const base = this.alias[key.slice(0, -2)];
+      if (base) return base === "none" ? "none" : base.endsWith("DS") ? base : base + "DS";
+    }
+    return key;
   }
 
   /** add geometry in local frame coords; `local` is applied first */
   add(geo: THREE.BufferGeometry, matKey: string, local?: THREE.Matrix4) {
     const key = this.resolve(matKey);
+    // an era can alias a material to "none" (e.g. window glass that is gone) — skip the surface
+    if (key === "none") { geo.dispose(); return; }
     if (local) geo.applyMatrix4(local);
     geo.applyMatrix4(this.frame);
     const info = this.mats.get(key);

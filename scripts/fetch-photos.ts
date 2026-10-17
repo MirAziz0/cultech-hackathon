@@ -13,7 +13,8 @@ const ROOT = path.join(process.cwd(), "content", "monuments");
 const API = "https://commons.wikimedia.org/w/api.php";
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-interface SourceEntry { id: string; commons: string; caption: L }
+/** crop = [left, top, width, height] as fractions of the image; `modified` is shown in the credit line */
+interface SourceEntry { id: string; commons: string; caption: L; crop?: [number, number, number, number]; modified?: L }
 interface ImageInfo {
   width: number; height: number; thumburl?: string; url: string; descriptionurl: string;
   extmetadata?: Record<string, { value: string }>;
@@ -67,12 +68,17 @@ async function info(titles: string[]): Promise<Map<string, ImageInfo>> {
   return out;
 }
 
-async function download(url: string, dest: string) {
+async function download(url: string, dest: string, crop?: SourceEntry["crop"]) {
   for (let attempt = 0; attempt < 6; attempt++) {
     const res = await fetch(url, { headers: { "User-Agent": UA } });
     if (res.status === 429) { await sleep(4000 + attempt * 3000); continue; }
     if (!res.ok) throw new Error(`${res.status} ${url}`);
-    const buf = Buffer.from(await res.arrayBuffer());
+    let buf: Buffer = Buffer.from(await res.arrayBuffer());
+    if (crop) {
+      const im = sharp(buf).rotate();
+      const { width = 0, height = 0 } = await im.metadata();
+      buf = await im.extract({ left: Math.round(crop[0] * width), top: Math.round(crop[1] * height), width: Math.round(crop[2] * width), height: Math.round(crop[3] * height) }).toBuffer();
+    }
     const meta = await sharp(buf)
       .rotate()
       .resize({ width: 1200, height: 1200, fit: "inside", withoutEnlargement: true })
@@ -100,7 +106,7 @@ async function run(slug: string, force: boolean) {
     let w = 0, h = 0;
     if (force || !fs.existsSync(dest)) {
       try {
-        const m = await download(ii.thumburl ?? ii.url, dest);
+        const m = await download(ii.thumburl ?? ii.url, dest, s.crop);
         w = m.width; h = m.height;
         console.log(`  ok ${file} ${w}x${h}`);
         await sleep(1200);
@@ -115,7 +121,7 @@ async function run(slug: string, force: boolean) {
       author: cleanAuthor(em.Artist?.value ?? "") || cleanAuthor(em.Credit?.value ?? "") || "Unknown",
       license: strip(em.LicenseShortName?.value) || strip(em.UsageTerms?.value) || "see file page",
       licenseUrl: em.LicenseUrl?.value || undefined,
-      caption: s.caption, w, h,
+      caption: s.caption, w, h, ...(s.modified ? { modified: s.modified } : {}),
     });
   }
   fs.writeFileSync(path.join(dir, "photos.json"), JSON.stringify({ photos }, null, 1) + "\n");

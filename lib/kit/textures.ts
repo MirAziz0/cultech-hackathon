@@ -360,3 +360,137 @@ export function glowTex() {
     g.fillRect(0, 0, w, h);
   });
 }
+
+/* ---------------- Karabakh mosque set (Aghdam) ---------------- */
+
+/** minaret brickwork: running-bond courses with lighter bricks forming a lozenge lattice
+   (Aghdam / Shusha minarets). "blue" is the glazed blue-and-white look after the 2022–24 restoration. */
+export function minaretBrickTex(tone: "red" | "blue" = "red") {
+  return ctex(`minaret-${tone}`, 256, 256, (g, w, h) => {
+    const r = rnd(tone === "red" ? 41 : 43);
+    const mortar = tone === "red" ? "#cdbb9c" : "#e9e6de";
+    const dark = tone === "red" ? [150, 78, 52] : [38, 52, 92];
+    const light = tone === "red" ? [226, 214, 190] : [236, 236, 230];
+    g.fillStyle = mortar;
+    g.fillRect(0, 0, w, h);
+    const bw = 32, bh = 16, cells = w / bw;
+    for (let row = 0; row < h / bh; row++)
+      for (let col = -1; col <= cells; col++) {
+        const x = col * bw + (row % 2 ? bw / 2 : 0);
+        // lozenge lattice: light bricks on two diagonals of an 8×8-brick repeat
+        const cx = Math.round((x + bw / 2) / (bw / 2)) % 8, cy = row % 8;
+        const onDiag = cx === cy || cx === (8 - cy) % 8;
+        const c = onDiag ? light : dark;
+        const j = (r() - 0.5) * 22;
+        g.fillStyle = `rgb(${c[0] + j},${c[1] + j * 0.7},${c[2] + j * 0.6})`;
+        g.fillRect(x + 1.5, row * bh + 1.5, bw - 3, bh - 3);
+      }
+  });
+}
+
+/** grey-and-white marble cladding slabs (added in the 1970s–80s) */
+export function marbleTex(worn = false) {
+  return ctex(`marble-${worn}`, 512, 512, (g, w, h) => {
+    const r = rnd(worn ? 77 : 71);
+    const sw = 128, sh = 96;
+    for (let row = 0; row < Math.ceil(h / sh); row++)
+      for (let col = 0; col < w / sw; col++) {
+        const grey = (row + col) % 2 === 0 ? r() < 0.75 : r() < 0.2;
+        const base = grey ? 150 + r() * 25 : 218 + r() * 20;
+        g.fillStyle = `rgb(${base},${base + 2},${base + 4})`;
+        g.fillRect(col * sw, row * sh, sw, sh);
+        g.strokeStyle = "rgba(90,90,90,.25)";
+        for (let k = 0; k < 4; k++) {
+          g.beginPath();
+          g.moveTo(col * sw + r() * sw, row * sh);
+          g.bezierCurveTo(col * sw + r() * sw, row * sh + sh * 0.3, col * sw + r() * sw, row * sh + sh * 0.7, col * sw + r() * sw, row * sh + sh);
+          g.stroke();
+        }
+        if (worn && r() < 0.28) {
+          // missing slab: rough rubble stone shows through
+          g.fillStyle = `rgb(${176 + r() * 20},${160 + r() * 16},${126 + r() * 14})`;
+          g.fillRect(col * sw + 2, row * sh + 2, sw - 4, sh - 4);
+          for (let k = 0; k < 14; k++) {
+            g.fillStyle = `rgba(110,92,70,${0.25 + r() * 0.3})`;
+            g.fillRect(col * sw + r() * sw, row * sh + r() * sh, 10 + r() * 22, 6 + r() * 12);
+          }
+        }
+        g.fillStyle = "rgba(60,60,60,.5)";
+        g.fillRect(col * sw, row * sh, sw, 2);
+        g.fillRect(col * sw, row * sh, 2, sh);
+      }
+    if (worn) {
+      g.fillStyle = "rgba(70,60,45,.18)";
+      for (let k = 0; k < 40; k++) g.fillRect(r() * w, r() * h * 0.2 + h * 0.8, 3 + r() * 6, 20 + r() * 60);
+    }
+  });
+}
+
+/** lime plaster; worn = peeling patches with rubble stone behind and water stains */
+export function plasterTex(worn = false) {
+  return ctex(`plaster-${worn}`, 512, 512, (g, w, h) => {
+    const r = rnd(worn ? 91 : 93);
+    g.fillStyle = worn ? "#ddd2bb" : "#f2ede2";
+    g.fillRect(0, 0, w, h);
+    for (let k = 0; k < 260; k++) {
+      g.fillStyle = `rgba(${worn ? "150,130,100" : "200,190,170"},${r() * 0.08})`;
+      g.beginPath();
+      g.arc(r() * w, r() * h, 6 + r() * 40, 0, Math.PI * 2);
+      g.fill();
+    }
+    if (!worn) return;
+    for (let k = 0; k < 4; k++) {
+      const x = r() * w, y = r() * h, rw = 24 + r() * 70, rh = 18 + r() * 50;
+      g.fillStyle = `rgb(${168 + r() * 20},${148 + r() * 16},${116 + r() * 14})`;
+      g.beginPath();
+      for (let a = 0; a < 12; a++) {
+        const t = (a / 12) * Math.PI * 2, f = 0.7 + r() * 0.5;
+        g.lineTo(x + Math.cos(t) * rw * f, y + Math.sin(t) * rh * f);
+      }
+      g.closePath();
+      g.fill();
+      for (let s = 0; s < 10; s++) {
+        g.fillStyle = `rgba(105,88,66,${0.3 + r() * 0.3})`;
+        g.fillRect(x + (r() - 0.5) * rw, y + (r() - 0.5) * rh, 8 + r() * 18, 5 + r() * 10);
+      }
+    }
+    const st = g.createLinearGradient(0, 0, 0, h);
+    st.addColorStop(0, "rgba(90,80,60,.22)");
+    st.addColorStop(0.35, "rgba(90,80,60,0)");
+    g.fillStyle = st;
+    g.fillRect(0, 0, w, h);
+  });
+}
+
+/** historic stone pavement (setts) at the entrance */
+export function settsTex() {
+  return ctex("setts", 512, 512, (g, w, h) => {
+    const r = rnd(57);
+    g.fillStyle = "#6f6455";
+    g.fillRect(0, 0, w, h);
+    const s = 64;
+    for (let row = 0; row < h / s; row++)
+      for (let col = -1; col <= w / s; col++) {
+        const x = col * s + (row % 2 ? s / 2 : 0) + (r() - 0.5) * 6, y = row * s + (r() - 0.5) * 6;
+        const v = 150 + r() * 45;
+        g.fillStyle = `rgb(${v},${v - 8},${v - 22})`;
+        g.beginPath();
+        g.roundRect(x + 4, y + 4, s - 8 + (r() - 0.5) * 8, s - 8 + (r() - 0.5) * 8, 10);
+        g.fill();
+      }
+  });
+}
+
+/** standing-seam sheet metal roof */
+export function metalRoofTex() {
+  return ctex("metal-roof", 256, 256, (g, w, h) => {
+    g.fillStyle = "#b9bec2";
+    g.fillRect(0, 0, w, h);
+    for (let x = 0; x < w; x += 32) {
+      g.fillStyle = "#d8dcdf";
+      g.fillRect(x, 0, 3, h);
+      g.fillStyle = "#8f959a";
+      g.fillRect(x + 3, 0, 2, h);
+    }
+  });
+}

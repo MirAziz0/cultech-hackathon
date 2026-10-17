@@ -1,0 +1,13 @@
+{
+ "zone": "galleryView",
+ "era": "xix",
+ "text": {
+  "az": "Yuxarıdan bax: sütunlar zalı üç nefə bölür, hər bölmənin üstündə bir günbəz var. Mənbələr doqquz günbəz yazır, bəlkə də daha çox. Günbəzlərin damda necə örtüldüyü isə mənbələrdə yoxdur — modeldə əhənglə suvanmış açıq günbəzlər göstərilib, bu fərziyyədir.",
+  "en": "Look from above: the pillars divide the hall into three naves, with a dome over each bay. The sources speak of nine domes, perhaps more. How the domes were covered on the roof is not in the sources — the model shows exposed lime-plastered domes, which is a hypothesis."
+ },
+ "factIds": [
+  "ag-naves",
+  "ag-domes"
+ ],
+ "generatedBy": "hand"
+}

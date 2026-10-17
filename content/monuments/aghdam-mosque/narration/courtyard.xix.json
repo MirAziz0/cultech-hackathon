@@ -1,0 +1,13 @@
+{
+ "zone": "courtyard",
+ "era": "xix",
+ "text": {
+  "az": "Bax, iki minarəni fasadın künclərinə qoydum. Gövdələri bişmiş kərpicdən hördük, üfüqi qurşaqlarla böldük, kərpicdən naxış saldıq; yuxarıda taxta şərəfə var, içəridə pilləkən qalxır. Bu həyət divarı və ağaclar isə bədii fərziyyədir — o dövrdən şəkil qalmayıb.",
+  "en": "Look, I placed the two minarets on the corners of the facade. We built the shafts of fired brick, divided them with horizontal belts and laid patterns in the brick; at the top is a timber balcony, and stairs climb inside. This courtyard wall and the trees are an artistic hypothesis — no picture survives from that time."
+ },
+ "factIds": [
+  "ag-minarets",
+  "ag-facade"
+ ],
+ "generatedBy": "hand"
+}

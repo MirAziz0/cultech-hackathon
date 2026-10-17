@@ -1,0 +1,13 @@
+{
+ "zone": "galleryView",
+ "era": "ruin",
+ "text": {
+  "az": "Yuxarıdan dağıntılar aydın görünür. Mənbələr yazır ki, sovet dövründə qoyulmuş dam örtüyü götürülüb və günbəzlər açıq qalıb; peyk təsvirləri binanın formasının isə dəyişmədiyini göstərir. Döşəmədəki qırıntılar və deşiklərin yeri modeldə təxminidir.",
+  "en": "From above the damage is clear. The sources say the Soviet-era roofing was removed and the domes were left exposed, while satellite images show the building's form unchanged. The debris on the floor and the positions of the holes in the model are approximate."
+ },
+ "factIds": [
+  "ag-satellite",
+  "ag-ceiling-broken"
+ ],
+ "generatedBy": "hand"
+}

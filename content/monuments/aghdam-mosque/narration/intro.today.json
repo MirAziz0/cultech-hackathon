@@ -1,0 +1,14 @@
+{
+ "zone": "intro",
+ "era": "today",
+ "text": {
+  "az": "Xoş gəldin! Mən Kərbəlayi Səfixanam, bu məscidi 1868–1870-ci illərdə tikmişəm. Sonrakı illərdə olanları mənbələrdən danışacağam. Mənbələr yazır ki, bərpa 2022-ci ilin martında Heydər Əliyev Fondu tərəfindən başlayıb və məscid 25 aprel 2024-cü ildə yenidən açılıb. Gəl, içəri keçək.",
+  "en": "Welcome! I am Karbalayi Safikhan; I built this mosque in 1868–1870. What happened in later years I will tell you from the sources. The sources say that the Heydar Aliyev Foundation began the restoration in March 2022 and the mosque reopened on 25 April 2024. Come, let us go in."
+ },
+ "factIds": [
+  "ag-built",
+  "ag-restoration",
+  "ag-reopened"
+ ],
+ "generatedBy": "hand"
+}

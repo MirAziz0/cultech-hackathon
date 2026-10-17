@@ -8,6 +8,7 @@ import { TTFLoader } from "three/examples/jsm/loaders/TTFLoader.js";
 import { Font } from "three/examples/jsm/loaders/FontLoader.js";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { anchor } from "../lib/kit/exterior";
+import { buildingVisible } from "../lib/eras";
 import type { Era, Lang, Manifest } from "../lib/types";
 
 let font: Font | null = null;
@@ -43,7 +44,7 @@ export function buildArLabels(m: Manifest, era: Era, lang: Lang, model: THREE.Ob
   const face = THREE.MathUtils.degToRad(m.exterior.home.az); // face the default camera
   const mats = { plate: plateMat(), text: textMat(), pin: pinMat() };
 
-  const list = m.buildings.filter((b) => !(b.pastOnly && era === "today") && !(b.todayOnly && era === "past"));
+  const list = m.buildings.filter((b) => buildingVisible(b, era));
   const right = new THREE.Vector3(Math.cos(face), 0, -Math.sin(face)); // sign's horizontal axis
   model.updateMatrixWorld(true);
   const top = new THREE.Box3().setFromObject(model).max.y + 1;

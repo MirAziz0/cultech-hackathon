@@ -5,6 +5,7 @@ import type { Fact, Lang, MonumentBundle } from "@/lib/types";
 import { Speaker, type Utterance } from "@/lib/speech/speaker";
 import { mockAnswer } from "@/lib/mock";
 import { narrationAudioUrl } from "@/lib/bundle";
+import { zoneInfoFor } from "@/lib/eras";
 import { ArchitectSvg, type ArchitectRig } from "./ArchitectSvg";
 import { FactChip } from "@/components/monument/FactsPanel";
 
@@ -21,12 +22,14 @@ type SR = { lang: string; interimResults: boolean; maxAlternatives: number; star
 export const ArchitectDock = forwardRef<ArchitectHandle, {
   bundle: MonumentBundle;
   zone: string | null;
+  /** current era (walk eras / exterior toggle): picks "zone@era" narrations */
+  era?: string;
   mode: "dock" | "panel";
   onClose?: () => void;
   /** greet when mounted (after a user gesture) */
   greet?: boolean;
   onHeight?: (h: number) => void;
-}>(function ArchitectDock({ bundle, zone, mode, onClose, greet = true, onHeight }, ref) {
+}>(function ArchitectDock({ bundle, zone, era, mode, onClose, greet = true, onHeight }, ref) {
   const m = bundle.manifest;
   const { t, c, lang } = useT();
   const rig = useRef<ArchitectRig>(null);
@@ -79,10 +82,12 @@ export const ArchitectDock = forwardRef<ArchitectHandle, {
   }, [m.architect.voice, status]);
 
   const narrateZone = useCallback((id: string, force = false) => {
-    if (!force && heard.current.has(id)) return;
-    heard.current.add(id);
-    const n = bundle.narration[id];
-    const info = m.walk?.zoneInfo[id];
+    const key = era && bundle.narration[`${id}@${era}`] ? `${id}@${era}` : id;
+    const seen = `${id}@${era ?? ""}`;
+    if (!force && heard.current.has(seen)) return;
+    heard.current.add(seen);
+    const n = bundle.narration[key];
+    const info = zoneInfoFor(m.walk, id, era);
     if (!n && !info) return;
     const L: Lang = lang;
     const text = n ? c(n.text) : c(info!.text);
@@ -91,7 +96,7 @@ export const ArchitectDock = forwardRef<ArchitectHandle, {
       { text, factIds: n?.factIds ?? info?.factIds ?? [], lang: L, who: "architect" },
       { audioUrl: narrationAudioUrl(bundle, audio), visemes: n?.visemes?.[L] },
     );
-  }, [bundle, c, lang, m.walk, say]);
+  }, [bundle, c, lang, m.walk, say, era]);
 
   useImperativeHandle(ref, () => ({ narrateZone, stop: () => speaker.current?.stop() }), [narrateZone]);
 
@@ -100,10 +105,10 @@ export const ArchitectDock = forwardRef<ArchitectHandle, {
   useEffect(() => {
     if (!greet || greeted.current || status === null) return;
     greeted.current = true;
-    const intro = bundle.narration["intro"];
+    const intro = bundle.narration["intro"] ?? (era ? bundle.narration[`intro@${era}`] : undefined);
     if (intro) narrateZone("intro", true);
     else say({ text: c(m.architect.greeting), factIds: [], lang, who: "architect" });
-  }, [greet, status, bundle.narration, narrateZone, say, c, m.architect.greeting, lang]);
+  }, [greet, status, bundle.narration, narrateZone, say, c, m.architect.greeting, lang, era]);
 
   const ask = useCallback(async (q: string) => {
     const question = q.trim();
@@ -117,18 +122,18 @@ export const ArchitectDock = forwardRef<ArchitectHandle, {
       const r = await fetch("/api/architect", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ slug: m.slug, question, lang, zone, history: history.current.slice(-6) }),
+        body: JSON.stringify({ slug: m.slug, question, lang, zone, era, history: history.current.slice(-6) }),
       });
       if (!r.ok) throw new Error(String(r.status));
       ans = await r.json();
     } catch {
       // offline / server down: same mock brain on the client
-      ans = mockAnswer(question, bundle.facts, bundle.qa, lang);
+      ans = mockAnswer(question, bundle.facts, bundle.qa, lang, { knowsUntil: m.architect.historical?.knowsUntil });
     }
     history.current.push({ role: "user", text: question }, { role: "assistant", text: ans.text });
     setBusy(false);
     say({ ...ans, who: "architect" });
-  }, [busy, bundle.facts, bundle.qa, lang, m.slug, say, zone]);
+  }, [busy, bundle.facts, bundle.qa, lang, m.slug, m.architect.historical?.knowsUntil, say, zone, era]);
 
   const SRClass = typeof window !== "undefined" ? ((window as unknown as { SpeechRecognition?: new () => SR; webkitSpeechRecognition?: new () => SR }).SpeechRecognition ?? (window as unknown as { webkitSpeechRecognition?: new () => SR }).webkitSpeechRecognition) : undefined;
   const mic = () => {
@@ -187,6 +192,7 @@ export const ArchitectDock = forwardRef<ArchitectHandle, {
             <div className="min-w-0">
               <div className="font-display text-[16px] leading-tight font-bold">{c(m.architect.name)}</div>
               <div className="text-[11px] leading-snug text-[#cfc3ad] max-sm:hidden">{c(m.architect.role)}</div>
+              {m.architect.historical && mode === "panel" && <div className="mt-0.5 text-[10.5px] leading-snug text-[#b9ad99] max-sm:hidden">{c(m.architect.historical.note)}</div>}
             </div>
             <div className="flex shrink-0 gap-1">
               <button type="button" aria-label={muted ? t("unmute") : t("mute")} aria-pressed={muted} onClick={() => setMuted(!muted)}

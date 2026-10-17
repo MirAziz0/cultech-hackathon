@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
 import { SMAAPass } from "three/examples/jsm/postprocessing/SMAAPass.js";
-import type { WalkSpec } from "../types";
+import type { Era, WalkSpec } from "../types";
 import { buildWalkWorld, type WalkWorld } from "../kit/walkScene";
 import { Walker, drawMap } from "../walk/controller";
 import { ZoneMap } from "../walk/zones";
@@ -37,12 +37,18 @@ export class WalkViewer {
   onFrame?: (dt: number) => void;
   mini?: { ctx: CanvasRenderingContext2D; w: number; h: number; colors: { bg: string; floor: string; me: string; other: string } };
 
-  constructor(private canvas: HTMLCanvasElement, private host: HTMLElement, private spec: WalkSpec, public quality: Quality = detectQuality()) {
+  /** worlds built so far, one per era (built on first visit, so switching back is instant) */
+  private worlds = new Map<string, WalkWorld>();
+  era: Era | undefined;
+
+  constructor(private canvas: HTMLCanvasElement, private host: HTMLElement, private spec: WalkSpec, public quality: Quality = detectQuality(), era?: Era) {
     const r = (this.renderer = new THREE.WebGLRenderer({ canvas, antialias: quality === "low", powerPreference: "high-performance" }));
     r.setPixelRatio(Math.min(window.devicePixelRatio || 1, quality === "high" ? 2 : 1.5));
     r.toneMapping = THREE.ACESFilmicToneMapping;
     r.toneMappingExposure = 1.0;
-    this.world = buildWalkWorld(spec, r);
+    this.era = spec.eras?.length ? (era && spec.eras.includes(era) ? era : spec.defaultEra ?? spec.eras[0]) : undefined;
+    this.world = buildWalkWorld(spec, r, { era: this.era });
+    this.worlds.set(this.era ?? "", this.world);
     this.map = new ZoneMap(spec.zones, spec.defaultFloor ?? 0, spec.obstacles ?? []);
     this.walker = new Walker(this.map, spec);
     this.ro = new ResizeObserver(() => this.resize());
@@ -50,6 +56,21 @@ export class WalkViewer {
     this.resize();
     if (quality === "high") this.setupAO().catch((e) => console.warn("[walk] AO disabled:", e));
     this.world.pool.update(0, this.camera.position, true);
+  }
+
+  /** swap to another era's world; the walker keeps its position */
+  setEra(era: Era) {
+    if (!this.spec.eras?.includes(era) || era === this.era) return;
+    this.era = era;
+    let w = this.worlds.get(era);
+    if (!w) { w = buildWalkWorld(this.spec, this.renderer, { era }); this.worlds.set(era, w); }
+    this.world = w;
+    this.world.pool.update(0, this.camera.position, true);
+    if (this.composer) {
+      this.composer.dispose();
+      this.composer = null;
+      this.setupAO().catch((e) => console.warn("[walk] AO disabled:", e));
+    }
   }
 
   private async setupAO() {
@@ -118,8 +139,7 @@ export class WalkViewer {
     cancelAnimationFrame(this.raf);
     this.ro.disconnect();
     this.composer?.dispose();
-    this.world.dispose();
-    this.world.materials.dispose();
+    for (const w of this.worlds.values()) { w.dispose(); w.materials.dispose(); }
     this.renderer.dispose();
   }
 }

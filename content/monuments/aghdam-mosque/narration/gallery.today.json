@@ -1,0 +1,13 @@
+{
+ "zone": "gallery",
+ "era": "today",
+ "text": {
+  "az": "Bərpadan sonra qalereyaya taxta məhəccər qoyulub — 2024-cü ilin fotolarında görünür. Mənbələr yazır ki, eyvan divarlarının daşları və tikişləri təmizlənib bərpa olunub. Buradan zal bütöv görünür; mən də onu elə qurmuşdum ki, hər yerdən mehrab görünsün.",
+  "en": "After the restoration the gallery has a wooden balustrade — visible in photos from 2024. The sources say the stones and joints of the balcony walls were cleaned and restored. From here the whole hall opens out; I built it so that the mihrab can be seen from everywhere."
+ },
+ "factIds": [
+  "ag-balcony-restored",
+  "ag-gallery"
+ ],
+ "generatedBy": "hand"
+}

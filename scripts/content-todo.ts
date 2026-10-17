@@ -5,6 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { FactsFile, Manifest } from "../lib/types";
+import { buildingText, eraList } from "../lib/eras";
 
 const ROOT = path.join(process.cwd(), "content", "monuments");
 const CONF = { ok: "standing / observed", mid: "evidence-based reconstruction", hyp: "hypothesis" } as const;
@@ -29,10 +30,16 @@ for (const slug of fs.readdirSync(ROOT).filter((d) => fs.existsSync(path.join(RO
     for (const s of x.sources) lines.push(`  - source: [${s.title}](${s.url})`);
   }
   lines.push("", "### Reconstructed parts (3D model)", "");
-  for (const b of m.buildings.filter((b) => b.conf !== "ok"))
-    lines.push(`- [ ] building **${b.id}** — ${CONF[b.conf]}: ${(b.text ?? b.past)?.en ?? (b.text ?? b.past)?.az ?? ""}`);
-  for (const [id, z] of Object.entries(m.walk?.zoneInfo ?? {}).filter(([, z]) => z.conf && z.conf !== "ok"))
-    lines.push(`- [ ] walk zone **${id}** — ${CONF[z.conf!]}: ${z.text.en ?? z.text.az}`);
+  const eras = eraList(m);
+  for (const b of m.buildings.filter((b) => b.conf !== "ok")) {
+    const t = eras.map((e) => buildingText(b, e)).find(Boolean);
+    lines.push(`- [ ] building **${b.id}** — ${CONF[b.conf]}: ${t?.en ?? t?.az ?? ""}`);
+  }
+  for (const [id, z] of Object.entries(m.walk?.zoneInfo ?? {})) {
+    if (z.conf && z.conf !== "ok") lines.push(`- [ ] walk zone **${id}** — ${CONF[z.conf]}: ${z.text.en ?? z.text.az}`);
+    for (const [era, o] of Object.entries(z.byEra ?? {}))
+      if (o?.conf && o.conf !== "ok") lines.push(`- [ ] walk zone **${id}** (${m.eras[era]?.label.en ?? era}) — ${CONF[o.conf]}: ${(o.text ?? z.text).en ?? (o.text ?? z.text).az}`);
+  }
   const narr = path.join(ROOT, slug, "narration");
   if (fs.existsSync(narr)) {
     const n = fs.readdirSync(narr).filter((x) => x.endsWith(".json") && x !== "qa.json").length;

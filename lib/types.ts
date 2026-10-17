@@ -6,7 +6,8 @@ export type Lang = "az" | "en";
 export type L = { az: string; en?: string };
 /** ok = standing / observed, mid = based on excavation, plans or old photos, hyp = hypothesis */
 export type Confidence = "ok" | "mid" | "hyp";
-export type Era = "past" | "today";
+/** era key from manifest.eras ("past"/"today" for the two-era monuments; any id for more) */
+export type Era = string;
 export type Vec2 = [number, number];
 export type Vec3 = [number, number, number];
 
@@ -22,7 +23,11 @@ export interface Manifest {
   /** photo id from photos.json used on cards / hero */
   cover?: string;
   eras: Record<Era, { label: L; badge: L; summary: L }>;
+  /** order of the era toggle (default: today, past — or the key order of `eras`) */
+  eraOrder?: Era[];
   defaultEra?: Era;
+  /** per-monument wording of the three confidence levels (default: standing / evidence / hypothesis) */
+  confLabels?: Partial<Record<Confidence, { short: L; long: L }>>;
   architect: ArchitectSpec;
   exterior: ExteriorSpec;
   buildings: Building[];
@@ -40,7 +45,14 @@ export interface ArchitectSpec {
   role: L;
   voice: "male" | "female";
   /** costume tint so each era's builder looks different */
-  look?: { robe?: string; sash?: string; headwear?: "turban" | "kalpak" | "cap"; beard?: boolean };
+  look?: { robe?: string; sash?: string; headwear?: "turban" | "kalpak" | "cap" | "papaq"; beard?: boolean; /** Caucasian coat with cartridge pockets (gazyr) */ chokha?: boolean };
+  /** set when the guide portrays a real, named person (stylised, no known likeness) */
+  historical?: {
+    /** last year the person can speak about first-hand; later facts are quoted from sources */
+    knowsUntil: number;
+    /** shown under the character: e.g. "no authentic portrait is known" */
+    note: L;
+  };
   /** first-person greeting shown when walk mode opens */
   greeting: L;
 }
@@ -58,6 +70,10 @@ export interface Building {
   today?: L;
   pastOnly?: boolean;
   todayOnly?: boolean;
+  /** eras in which this label is shown (instead of pastOnly/todayOnly) */
+  eras?: Era[];
+  /** era-specific text for monuments with more than two eras */
+  byEra?: Partial<Record<Era, L>>;
   photos?: string[];
   /** key into manifest.interiors */
   interior?: string;
@@ -81,7 +97,7 @@ export interface ExteriorSpec {
   overviewPhotos?: string[];
 }
 
-type PartBase = { eras?: Era[]; mat?: string; /** material per era */ matByEra?: Partial<Record<Era, string>> };
+type PartBase = { eras?: Era[]; mat?: string; /** material per era */ matByEra?: Partial<Record<Era, string>>; /** confidence for this part (documentation only) */ conf?: Confidence };
 export type ExteriorPart = PartBase & (
   | { t: "box"; size: Vec3; at: Vec3 }                                  // bottom-centred at `at`
   | { t: "cyl"; r: number; h: number; at: Vec3; sides?: number; r2?: number }
@@ -102,6 +118,11 @@ export type ExteriorPart = PartBase & (
   /** prism from a 2D polygon footprint */
   | { t: "prism"; pts: Vec2[]; h: number; z: number }
   | { t: "water"; size: Vec2; at: Vec3 }
+  /** Karabakh brick minaret: stone base, banded shaft with belts, timber lantern, metal cap. `at` = foot */
+  | { t: "minaret"; at: Vec3; r: number; h: number; base?: { r: number; h: number }; belts?: number; lantern?: number; brickMats?: [string, string]; noLantern?: boolean }
+  /** hipped roof over a rectangle; `at` = centre at eave height */
+  | { t: "hipRoof"; at: Vec3; size: Vec2; h: number }
+  | { t: "bush"; at: Vec3; s?: number }
 );
 
 /* ---------------- look-around interiors ---------------- */
@@ -128,6 +149,8 @@ export interface InteriorSpec {
 /** Walk coordinates: three.js world, metres; x east, y up, z south. */
 export interface WalkSpec {
   title: L;
+  /** label of the "walk inside" button, e.g. "Məscidin içində gəz" */
+  cta?: L;
   eye?: number;
   /** floor height for zones without `floor` */
   defaultFloor?: number;
@@ -138,6 +161,11 @@ export interface WalkSpec {
   map: { bounds: [number, number, number, number]; hide?: string[]; /** quick jump buttons (stacked floors) */ levels?: { name: L; y: number; at: Vec2; yaw?: number; pitch?: number }[] };
   sun?: { dir: Vec3; intensity?: number };
   ambient?: number;
+  /** eras the walk can show (elements filter by `eras`); defaults to a single static world */
+  eras?: Era[];
+  /** sky, fog and light per era */
+  eraLook?: Partial<Record<Era, { sky?: string; fog?: Vec2; sun?: { dir: Vec3; intensity?: number }; ambient?: number; /** material aliases, e.g. { wallIn: "limeWorn" } */ alias?: Record<string, string> }>>;
+  defaultEra?: Era;
   elements: El[];
   zones: Zone[];
   obstacles?: [number, number, number][];
@@ -153,6 +181,10 @@ export interface ZoneInfo {
   conf?: Confidence;
   photos?: string[];
   factIds?: string[];
+  /** photos that may not be embedded (no open licence): shown as links */
+  links?: { title: L; url: string }[];
+  /** overrides for one era (walk.eras) */
+  byEra?: Partial<Record<Era, Partial<Omit<ZoneInfo, "byEra" | "title">>>>;
 }
 
 /** floor height: constant, ramp along an axis, or helix (spiral stairs) */
@@ -189,7 +221,7 @@ export interface Op {
   fill?: "shebeke" | "glass" | "open" | "mirror";
 }
 
-type ElBase = { mat?: string; id?: string };
+type ElBase = { mat?: string; id?: string; /** only built in these eras (walk.eras) */ eras?: Era[] };
 export type El = ElBase & (
   | { t: "group"; frame: Frame; children: El[] }
   | { t: "floor"; rect: [number, number, number, number]; y: number }
@@ -224,6 +256,15 @@ export type El = ElBase & (
   | { t: "light"; at: Vec3; intensity?: number; distance?: number; color?: string }
   | { t: "shaft"; at: Vec3; to: Vec3; w: number }
   | ({ t: "furniture" } & Furniture)
+  /* Karabakh mosque kit (lib/kit/karabakh.ts) */
+  | { t: "minaret"; c: Vec2; y0: number; r: number; h: number; base?: { r: number; h: number }; belts?: number; taper?: number; lantern?: { h: number; r?: number }; brick?: string; belt?: string; stone?: string; wood?: string; cap?: string; broken?: boolean }
+  | { t: "kColumn"; c: Vec2; y0: number; h: number; r: number }
+  /** domed bay on a rectangular plan (sail vault); hole = broken crown open to the sky */
+  | { t: "sailVault"; x: Vec2; z: Vec2; y: number; rise?: number; hole?: number; outside?: string; shell?: number }
+  | { t: "gallery"; x: Vec2; z: Vec2; y: number; th?: number; rail?: ("n" | "s" | "e" | "w")[]; railH?: number; railMat?: string; broken?: boolean; seed?: number }
+  | { t: "rubble"; rect: [number, number, number, number]; y: number; n: number; size?: Vec2; seed?: number }
+  /** fallen plaster on the room side of a wall line */
+  | { t: "patches"; from: Vec2; to: Vec2; y0: number; h: number; n: number; seed?: number; side?: 1 | -1 }
 );
 
 export type Furniture =
@@ -257,6 +298,8 @@ export interface Fact {
   tags?: string[];
   /** needs historian check — mirrored in CONTENT_TODO.md */
   verify?: boolean;
+  /** year the fact refers to; for a historical guide, facts after architect.historical.knowsUntil are quoted, not witnessed */
+  year?: number;
 }
 export interface FactsFile { monument: string; facts: Fact[] }
 
@@ -274,6 +317,8 @@ export interface Photo {
   caption: L;
   w: number;
   h: number;
+  /** how the image was changed for the app (e.g. cropped) — required by CC BY-SA */
+  modified?: L;
 }
 export interface PhotosFile { photos: Photo[] }
 
@@ -281,6 +326,8 @@ export interface PhotosFile { photos: Photo[] }
 export interface Viseme { t: number; id: number }
 export interface Narration {
   zone: string;
+  /** era variant of a zone narration; stored in the bundle as "zone@era" */
+  era?: Era;
   text: L;
   factIds: string[];
   /** relative to the monument's narration/ folder */

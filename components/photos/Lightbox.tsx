@@ -7,10 +7,11 @@ export interface PhotoWithUrl extends Photo { url: string }
 
 /** Credit line: author, license (linked) and Commons file page. Required for every photo shown. */
 export function Credit({ p, className = "" }: { p: PhotoWithUrl; className?: string }) {
-  const { t } = useT();
+  const { t, c } = useT();
   return (
     <span className={className}>
       © {p.author} ·{" "}
+      {p.modified && <>{c(p.modified)} ·{" "}</>}
       {p.licenseUrl ? (
         <a href={p.licenseUrl} target="_blank" rel="noopener noreferrer license" className="underline decoration-dotted">
           {p.license}

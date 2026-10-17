@@ -1,0 +1,12 @@
+{
+ "zone": "entrance",
+ "era": "xix",
+ "text": {
+  "az": "Bu uca şiş tağlı eyvanı fasadın ortasına qoydum ki, giriş kölgədə qalsın. Eyvanın iki yanında kiçik qapılar yan otaqlara aparır. İçinin göy rəngi və qapı üstündəki Quran yazıları sonrakı fotolarda görünür, amma onların tarixini mənbələr göstərmir.",
+  "en": "I set this tall pointed-arch iwan in the middle of the facade so that the entrance stays in shade. Small doors on either side lead to the side rooms. The blue inside and the Quranic inscriptions above the door appear in later photos, but the sources do not date them."
+ },
+ "factIds": [
+  "ag-facade"
+ ],
+ "generatedBy": "hand"
+}

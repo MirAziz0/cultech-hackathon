@@ -17,3 +17,18 @@ These came up while collecting facts. Each needs a historian's decision; the app
 - **Erivan Fortress — gates.** Names (Tabriz, Shirvan, Korpu) are sourced; their positions in the model are a hypothesis.
 - **Erivan Fortress — Hall of Mirrors dimensions.** Unknown. The model's 9 × 12 m hall with a two-column open front follows Gagarin's lithograph proportions.
 - **All monuments — architects.** Usta Rəşid, Usta Fərrux and Usta Kərim are invented representative characters, not historical people, and say so when asked.
+
+### Aghdam Juma Mosque (added October 2026)
+
+- **No measured plan.** All dimensions (about 20 × 25 m footprint, 10 m walls, minarets ≈ 30 m, 6 m domed bays, four free-standing pillars, gallery at 4.6 m) are estimated from Commons photos. The Yukhari Govhar Agha Mosque (26.5 × 21.5 m, same architect) was used as a sanity check.
+- **Number of domes.** Wikipedia: "9 (maybe more)"; the 2018 roof photos show a 3×3 grid over the hall. Whether the front block also had domes is unknown (the model gives it a flat roof).
+- **19th-century roof.** Not documented. The 1992 photo shows a Soviet-era metal hipped roof; the 2002 stamp also draws a pitched roof. The model's 19th-century state shows exposed lime-plastered domes — a hypothesis.
+- **19th-century facade finish.** The marble cladding dates from the 1970s–80s (Monument Watch), so the 19th-century state shows plastered limestone. The blue paint and inscriptions of the iwan are undated.
+- **Mihrab decoration.** Painted in 1913 by Muhammad Naghash Tawriz according to Monument Watch (citing qarabag.com) — single source.
+- **Women's gallery and stairs.** Monument Watch says the interior is two-storey; the 2024 photo shows a balcony with a wooden balustrade. The U-shaped layout, the piers under it and the stair in the western side room are hypotheses.
+- **Damage 1993–2020.** Sources differ in degree: Cornell satellite study — structure unchanged, only the Soviet roofing removed, minor damage; soyqirim.az — minarets dismantled from inside, ceiling broken in several places, inscriptions destroyed; Monument Watch — mihrab and inscriptions intact, minarets undamaged; Report.az (A. Cəfərli) — set on fire several times, minarets damaged, used as an observation post. The app quotes each with attribution. The two holed vaults in the model are placed arbitrarily.
+- **First Friday prayer, November 2020.** "After 27 years" (geo.tv) vs "28 years" (Wikipedia).
+- **Ashaghi Govhar Agha Mosque date.** 1874–1875 (AZERTAG) vs 1875–1876 (Wikipedia).
+- **Courtyard, streets and houses (19th century).** Pure hypothesis; no plan of 19th-century Aghdam was found.
+- **Square after 2024.** Hedges, paths and trees approximate the 2024 photos; the layout is not surveyed.
+- **Architect persona.** Kərbəlayi Səfixan Qarabaği is a real person; no authentic portrait is known (a 2016 stamp shows a depiction). The app's figure is an original stylised drawing and says so. He speaks first-hand only about events up to 1885 and quotes sources for anything later.

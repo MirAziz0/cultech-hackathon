@@ -17,6 +17,7 @@ export interface MonumentCard {
   cover?: string;
   coverCredit?: string;
   walk: boolean;
+  eras: number;
 }
 
 const D2R = Math.PI / 180;
@@ -117,7 +118,7 @@ export function Home({ monuments }: { monuments: MonumentCard[] }) {
                   <h3 className="font-display text-[21px] leading-tight font-bold">{c(m.name)}</h3>
                   <p className="text-[14px] text-muted">{c(m.tagline)}</p>
                   <div className="mt-2 flex flex-wrap gap-1.5 text-[12px] font-semibold">
-                    <span className="rounded-full border border-line px-2 py-0.5">3D · {c({ az: "iki dövr", en: "two eras" })}</span>
+                    <span className="rounded-full border border-line px-2 py-0.5">3D · {m.eras > 2 ? c({ az: `${m.eras} dövr`, en: `${m.eras} eras` }) : c({ az: "iki dövr", en: "two eras" })}</span>
                     {m.walk && <span className="rounded-full border border-line px-2 py-0.5">{t("walkInside")}</span>}
                     <span className="rounded-full border border-line px-2 py-0.5">{t("talkArchitect")}</span>
                   </div>

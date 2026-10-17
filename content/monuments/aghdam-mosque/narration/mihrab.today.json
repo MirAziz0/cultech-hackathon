@@ -1,0 +1,14 @@
+{
+ "zone": "mihrab",
+ "era": "today",
+ "text": {
+  "az": "Mehrab bərpa olunub. Mənbələr yazır ki, 2000-ci ilin mayında bu məscidə aid bir daş parçası Heydər Əliyevə təqdim edilib və o daş indi məscidin içində saxlanılır. Mənbələr həmçinin yazır ki, 2020-ci ilin noyabrında burada uzun fasilədən sonra ilk cümə namazı qılınıb.",
+  "en": "The mihrab has been restored. The sources say that in May 2000 a stone fragment from this mosque was presented to Heydar Aliyev, and that stone is now kept inside the mosque. The sources also say that in November 2020 the first Friday prayer after a long break was held here."
+ },
+ "factIds": [
+  "ag-mihrab",
+  "ag-stone-2000",
+  "ag-return-2020"
+ ],
+ "generatedBy": "hand"
+}

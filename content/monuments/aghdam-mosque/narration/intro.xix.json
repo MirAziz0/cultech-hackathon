@@ -1,0 +1,14 @@
+{
+ "zone": "intro",
+ "era": "xix",
+ "text": {
+  "az": "Xoş gəldin! Mən Kərbəlayi Səfixanam, bu məscidi 1868–1870-ci illərdə mən tikmişəm. Divarları ağ əhəngdaşından hördük, minarələri, tağları və günbəzləri kərpicdən qaldırdıq. Ətrafdakı həyəti və evləri isə heç kim çəkməyib — onlar burada təxminidir. Gəl, şimaldakı uca eyvandan içəri keçək.",
+  "en": "Welcome! I am Karbalayi Safikhan; I built this mosque in 1868–1870. We laid the walls in white limestone and raised the minarets, arches and domes in brick. Nobody recorded the courtyard and houses around it — here they are approximate. Come, let us go in through the tall iwan on the north side."
+ },
+ "factIds": [
+  "ag-built",
+  "ag-architect",
+  "ag-materials"
+ ],
+ "generatedBy": "hand"
+}

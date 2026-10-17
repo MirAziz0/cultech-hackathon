@@ -1,7 +1,7 @@
 /* Builds the full walk-mode scene from manifest.walk. */
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
-import type { WalkSpec } from "../types";
+import type { El, Era, WalkSpec } from "../types";
 import { Builder, type LightDef } from "./builder";
 import { buildEl } from "./elements";
 import { Materials } from "./materials";
@@ -47,15 +47,25 @@ export interface WalkWorld {
   dispose(): void;
 }
 
-export function buildWalkWorld(spec: WalkSpec, renderer: THREE.WebGLRenderer, opts: { alias?: Record<string, string> } = {}): WalkWorld {
+/** drop elements (and group children) that belong to other eras */
+function forEra(els: El[], era?: Era): El[] {
+  if (!era) return els;
+  return els
+    .filter((e) => !e.eras || e.eras.includes(era))
+    .map((e) => (e.t === "group" ? { ...e, children: forEra(e.children, era) } : e));
+}
+
+export function buildWalkWorld(spec: WalkSpec, renderer: THREE.WebGLRenderer, opts: { alias?: Record<string, string>; era?: Era } = {}): WalkWorld {
+  const look = (opts.era && spec.eraLook?.[opts.era]) || {};
   const scene = new THREE.Scene();
-  const sky = new THREE.Color(spec.sky ?? "#bcd6e8");
+  const sky = new THREE.Color(look.sky ?? spec.sky ?? "#bcd6e8");
   scene.background = sky;
-  scene.fog = new THREE.Fog(sky, spec.fog?.[0] ?? 30, spec.fog?.[1] ?? 90);
+  const fog = look.fog ?? spec.fog;
+  scene.fog = new THREE.Fog(sky, fog?.[0] ?? 30, fog?.[1] ?? 90);
 
   const B = new Builder();
-  B.alias = opts.alias ?? {};
-  for (const e of spec.elements) buildEl(B, e);
+  B.alias = { ...(look.alias ?? {}), ...(opts.alias ?? {}) };
+  for (const e of forEra(spec.elements, opts.era)) buildEl(B, e);
   const group = B.finish();
   scene.add(group);
 
@@ -66,10 +76,11 @@ export function buildWalkWorld(spec: WalkSpec, renderer: THREE.WebGLRenderer, op
   scene.environmentIntensity = 0.25;
   pmrem.dispose();
 
-  const amb = spec.ambient ?? 0.62;
+  const amb = look.ambient ?? spec.ambient ?? 0.62;
   scene.add(new THREE.HemisphereLight(0xfff3e0, 0x6a5640, amb * Math.PI));
-  const sun = new THREE.DirectionalLight(0xfff0d8, (spec.sun?.intensity ?? 0.8) * Math.PI);
-  const d = spec.sun?.dir ?? [-10, 20, 6];
+  const sunSpec = look.sun ?? spec.sun;
+  const sun = new THREE.DirectionalLight(0xfff0d8, (sunSpec?.intensity ?? 0.8) * Math.PI);
+  const d = sunSpec?.dir ?? [-10, 20, 6];
   sun.position.set(d[0], d[1], d[2]);
   scene.add(sun);
 

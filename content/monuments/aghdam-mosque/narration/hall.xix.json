@@ -1,0 +1,15 @@
+{
+ "zone": "hall",
+ "era": "xix",
+ "text": {
+  "az": "Bu, namaz zalıdır. Səkkizüzlü daş sütunları elə düzdüm ki, zal üç nefə bölünsün; sütunlardan qalxan şiş tağlar günbəzli örtüyü daşıyır. Bu, Qarabağ məscidlərinin tipik quruluşudur. Sütunların sayı və ölçülər modeldə fotolardan təxmin edilib, xalçalar və çıraqlar isə fərziyyədir.",
+  "en": "This is the prayer hall. I arranged the octagonal stone pillars so that the hall divides into three naves; pointed arches rise from them to carry the domed roof. This is the typical plan of Karabakh mosques. The number of pillars and the dimensions in the model are estimated from photos; the carpets and lamps are a hypothesis."
+ },
+ "factIds": [
+  "ag-naves",
+  "ag-domes",
+  "ag-karabakh-type",
+  "ag-dimensions"
+ ],
+ "generatedBy": "hand"
+}
