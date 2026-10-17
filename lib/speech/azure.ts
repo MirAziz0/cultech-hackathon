@@ -21,7 +21,7 @@ export async function synthesize(text: string, lang: Lang, voice: "male" | "fema
   synth.visemeReceived = (_s, e) => visemes.push({ t: Math.round(e.audioOffset / 10_000), id: e.visemeId });
   const name = VOICES[lang][voice];
   const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="${name.slice(0, 5)}">
-<voice name="${name}"><mstts:viseme type="redlips_front"/><prosody rate="-4%">${esc(text)}</prosody></voice></speak>`;
+<voice name="${name}"><mstts:viseme type="redlips_front"/><prosody rate="-12%" pitch="-6%">${esc(text)}</prosody></voice></speak>`;
   try {
     const result = await new Promise<sdk.SpeechSynthesisResult>((resolve, reject) => synth.speakSsmlAsync(ssml, resolve, reject));
     if (result.reason !== sdk.ResultReason.SynthesizingAudioCompleted) {
@@ -50,7 +50,7 @@ export async function synthesizeStory(src: string, lang: Lang, voice: "male" | "
   }).join("");
   const name = VOICES[lang][voice];
   const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="${name.slice(0, 5)}">
-<voice name="${name}"><mstts:viseme type="redlips_front"/><prosody rate="-4%">${body}</prosody></voice></speak>`;
+<voice name="${name}"><mstts:viseme type="redlips_front"/><prosody rate="-12%" pitch="-6%">${body}</prosody></voice></speak>`;
   try {
     const result = await new Promise<sdk.SpeechSynthesisResult>((resolve, reject) => synth.speakSsmlAsync(ssml, resolve, reject));
     if (result.reason !== sdk.ResultReason.SynthesizingAudioCompleted) throw new Error(`Azure TTS failed: ${result.errorDetails ?? result.reason}`);

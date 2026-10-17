@@ -11,6 +11,9 @@ const VOICES: Record<Lang, { male: string; female: string }> = {
   en: { male: "en-GB-RyanNeural", female: "en-GB-SoniaNeural" },
 };
 
+/** "calm architect": slower and a little deeper than the stock voice (chosen by the project owner) */
+export const VOICE_STYLE = { rate: "-12%", pitch: "-6%" };
+
 interface Word { t: number; d: number; text: string }
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -19,7 +22,7 @@ async function run(text: string, lang: Lang, voice: "male" | "female"): Promise<
   const tts = new MsEdgeTTS();
   try {
     await tts.setMetadata(VOICES[lang][voice], OUTPUT_FORMAT.AUDIO_24KHZ_48KBITRATE_MONO_MP3, { wordBoundaryEnabled: true });
-    const { audioStream, metadataStream } = tts.toStream(esc(text), { rate: "-4%" });
+    const { audioStream, metadataStream } = tts.toStream(esc(text), VOICE_STYLE);
     const chunks: Buffer[] = [], words: Word[] = [];
     audioStream.on("data", (d: Buffer) => chunks.push(d));
     metadataStream?.on("data", (d: Buffer) => {
