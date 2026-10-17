@@ -35,7 +35,6 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
   const pendingTour = useRef(false);
   const [tourStops, setTourStops] = useState<TourStop[]>([]);
   const [offer, setOffer] = useState<TourStop | null>(null);
-  const offered = useRef(new Set<string>());
   const [highlight, setHighlight] = useState(false);
   const hud = useRef<GuideHudHandle>(null);
   const [started, setStarted] = useState(false);
@@ -47,7 +46,6 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
   const [debug, setDebug] = useState<string>("");
   const [floorY, setFloorY] = useState(0);
   const startedRef = useRef(false);
-  const narrTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   // eras inside the walk (Aghdam: 19th c. / 1993–2020 / today); the exterior page passes ?era=
   const walkEras = spec.eras ?? [];
   const [era, setEraState] = useState<Era | undefined>(() => spec.defaultEra ?? walkEras[0]);
@@ -73,15 +71,6 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
           const list = photosOf(bundle, info?.photos ?? []);
           setCard(list.length || info ? { list, i: 0 } : null);
           setCardOpen(true);
-          // free mode: offer this place's story instead of auto-playing it (debounced past doorways)
-          if (narrTimer.current) clearTimeout(narrTimer.current);
-          setOffer(null);
-          narrTimer.current = setTimeout(() => {
-            const tr = tour.current;
-            if (!startedRef.current || !tr || tr.active || offered.current.has(id)) return;
-            const st = tr.stops.find((x) => x.zone === id);
-            if (st) { offered.current.add(id); setOffer(st); }
-          }, 1200);
         };
         // the guide: built now (nav grid + body), shown when the walk starts
         try {
@@ -198,11 +187,12 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
       g.avatar.gesture("wave");
       g.avatar.setExpression("happy");
       setTimeout(() => g.avatar.setExpression("neutral"), 4000);
-      // greet, then the tour begins (or after 15 s if the greeting never ends)
+      // greet; then he follows the visitor and tells each stop when they reach it (▶ starts the guided tour)
       setTimeout(() => hud.current?.greet(), 400);
-      if (tour.current?.stops.length) {
-        pendingTour.current = true;
-        setTimeout(() => { if (pendingTour.current) { pendingTour.current = false; tour.current?.start(); } }, 15000);
+      if (tour.current) {
+        tour.current.autoTell = false;
+        pendingTour.current = true; // = greeting in progress
+        setTimeout(() => { if (pendingTour.current && tour.current) { pendingTour.current = false; tour.current.autoTell = true; } }, 20000);
       }
     }
     canvasRef.current?.focus({ preventScroll: true });
@@ -215,7 +205,7 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
       const g = guide.current;
       if (g) { g.talking = on; g.avatar.setTalking(on); }
       if (on) return;
-      if (pendingTour.current) { pendingTour.current = false; setTimeout(() => tour.current?.start(), 900); }
+      if (pendingTour.current) { pendingTour.current = false; setTimeout(() => { if (tour.current) tour.current.autoTell = true; }, 900); }
       else tour.current?.storyEnded();
     },
     viseme: (id, open) => { lastViseme.current = performance.now(); guide.current?.avatar.setMouth(azureToShape(id, 0.55 + 0.45 * open)); },
@@ -253,7 +243,7 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
     if (!tr || !zone) return;
     const i = tr.stops.findIndex((x) => x.zone === zone);
     setOffer(null);
-    if (i >= 0) tr.tellOne(i);
+    if (i >= 0) tr.tellHere(i);
     else hud.current?.tellStop({ id: zone, zone, title: { az: zone }, stand: [0, 0, 0] });
   }, [zone]);
 
@@ -371,7 +361,7 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
             <div className="eyebrow text-[#cfc3ad]!">{c(m.name)}</div>
             <h1 className="font-display text-[26px] leading-tight font-bold">{c(spec.title)}</h1>
             <p className="text-[14px] text-[#e5dccb]">{t("walkHint")}</p>
-            <p className="text-[13px] text-[#cfc3ad]">{c({ az: "Memar yanınızda gəzəcək və yeri sizə hekayə kimi danışacaq. Turu istədiyiniz an dayandırıb sərbəst gəzə bilərsiniz.", en: "The architect walks with you and tells the place as a story. Pause the tour any time to explore on your own." })}</p>
+            <p className="text-[13px] text-[#cfc3ad]">{c({ az: "Memar sizinlə gəzəcək və hər maraqlı yerə çatanda onu hekayə kimi danışacaq. ▶ düyməsi ilə onu bələdçi turuna da çıxara bilərsiniz.", en: "The architect walks with you and tells each place as a story when you reach it. Press ▶ for a guided tour." })}</p>
             <button type="button" className="btn primary justify-center text-[15px]!" onClick={start} autoFocus>
               ▶ {c({ az: "Gəzintiyə başla", en: "Start the walk" })}
             </button>

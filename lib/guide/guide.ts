@@ -174,12 +174,12 @@ export class Guide {
   private followLogic(dt: number, v: Visitor) {
     this.followTimer -= dt;
     if (this.followTimer > 0) return;
-    this.followTimer = 0.4;
+    this.followTimer = 0.25;
     const vp = this.visitorPos, d = d3(this.pos, vp);
     // another storey (level buttons) or far away: floors and walls hide him, so re-appear nearby
     if (Math.abs(this.pos.y - vp.y) > 2 || d > 30) { this.appearNear(v); this.followTimer = 0; return; }
-    const need = this.moving ? d2(vp, this.lastVisitor) > 0.8
-      : d > 3.0 || d2(this.pos, vp) < 0.8 || Math.abs(this.pos.y - vp.y) > 1.2 || (!this.talking && this.blocksView(v)) || this.inNarrowSpot(vp);
+    const need = this.moving ? d2(vp, this.lastVisitor) > 0.5
+      : d > 2.4 || d2(this.pos, vp) < 0.8 || Math.abs(this.pos.y - vp.y) > 1.2 || (!this.talking && this.blocksView(v)) || this.inNarrowSpot(vp);
     if (!need) return;
     const spot = this.followSpot(v);
     if (!spot) return;
@@ -205,17 +205,17 @@ export class Guide {
       const remaining = NavGrid.pathLength(this.pos, this.path);
       if (this.mode === "lead") {
         // lead at a walking pace; slow down and stop to wait if the visitor falls behind
-        want = dv > 9 ? 0 : dv > 6 ? 0.5 : 1.15;
+        want = dv > 9 ? 0 : dv > 6 ? 0.6 : 1.5;
         if (want === 0) {
           this.waitWave -= dt;
           if (this.waitWave <= 0) { this.avatar.gesture("wave"); this.waitWave = 5; }
         }
-      } else want = dv > 5 ? 2.6 : dv > 3 ? 1.7 : 1.15;
+      } else want = dv > 8 ? 4.5 : dv > 5 ? 3.4 : dv > 3 ? 2.4 : 1.6; // keep up with a walking (2 m/s) or running visitor
       want = Math.min(want, 0.5 + remaining * 1.4); // ease into the stop
       const ang = Math.atan2(dx, dz), diff = wrap(ang - this.heading);
       if (Math.abs(diff) > 1.3) want *= 0.15; // turn mostly on the spot first
       this.heading += Math.sign(diff) * Math.min(Math.abs(diff), dt * 4.5);
-      this.speed += (want - this.speed) * Math.min(1, dt * 4);
+      this.speed += (want - this.speed) * Math.min(1, dt * 6);
       let step = this.speed * dt;
       while (step > 0 && this.path.length) {
         const q = this.path[0];

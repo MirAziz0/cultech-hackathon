@@ -39,8 +39,10 @@ function build(geo: THREE.BufferGeometry, H: number, map: THREE.Texture | null):
   const mk = (y: number, x = 0) => { const b = new THREE.Bone(); b.position.set(x, y, 0); return b; };
   const yHip = 0.52 * H, ySpine = 0.6 * H, yChest = 0.72 * H, yNeck = 0.83 * H, yHead = 0.87 * H;
   const root = mk(0), hips = mk(yHip), legL = mk(0, 0.06 * H), legR = mk(0, -0.06 * H), spine = mk(ySpine - yHip), chest = mk(yChest - ySpine), neck = mk(yNeck - yChest), head = mk(yHead - yNeck);
-  root.add(hips); hips.add(legL, legR, spine); spine.add(chest); chest.add(neck); neck.add(head);
-  const bones = [root, hips, legL, legR, spine, chest, neck, head];
+  const yShoulder = 0.8 * H;
+  const armL = mk(yShoulder - yChest, 0.11 * H), armR = mk(yShoulder - yChest, -0.11 * H);
+  root.add(hips); hips.add(legL, legR, spine); spine.add(chest); chest.add(neck, armL, armR); neck.add(head);
+  const bones = [root, hips, legL, legR, spine, chest, neck, head, armL, armR];
 
   /* weights by height; below the hips also by side, fading into the hips near the top */
   const pos = geo.attributes.position, n = pos.count;
@@ -59,6 +61,11 @@ function build(geo: THREE.BufferGeometry, H: number, map: THREE.Texture | null):
       const h = ss(yNeck - 0.02 * H, yHead + 0.02 * H, y), nk = ss(yChest + 0.04 * H, yNeck, y) * (1 - h);
       w.push([5, 1 - h - nk], [6, nk], [7, h]);
     }
+    // arms (8 left, 9 right): outside the torso, between hip and shoulder height
+    // low down only the forward hand belongs to the arm, not the robe hanging beside it
+    const z = pos.getZ(i), low = y < 0.58 * H ? ss(0.01 * H, 0.05 * H, z) : 1;
+    const ax = Math.abs(x), arm = ss(0.075 * H, 0.11 * H, ax) * ss(0.4 * H, 0.47 * H, y) * (1 - ss(0.79 * H, 0.84 * H, y)) * low;
+    if (arm > 0.01) { for (const e of w) e[1] *= 1 - arm; w.push([x > 0 ? 8 : 9, arm]); }
     const sum = w.reduce((a, b) => a + b[1], 0) || 1;
     w.forEach(([b, v], k) => { si[i * 4 + k] = b; sw[i * 4 + k] = v / sum; });
   }
@@ -83,7 +90,7 @@ function build(geo: THREE.BufferGeometry, H: number, map: THREE.Texture | null):
 
   let time = 0, speed = 0, turn = 0, walkW = 0, phase = 0;
   let clip: { g: Gesture; t0: number; dur: number } | null = null;
-  let talking = false, nextTalk = 0, open = 0, openT = 0;
+  let talking = false, nextTalk = 0, open = 0, openT = 0, nextArm = 4;
   let lookT: THREE.Vector3 | null = null, pointT: THREE.Vector3 | null = null, pointUntil = Infinity, pointW = 0;
   let lookYaw = 0, lookPitch = 0, twist = 0;
   const v1 = new THREE.Vector3(), q = new THREE.Quaternion();
@@ -121,6 +128,21 @@ function build(geo: THREE.BufferGeometry, H: number, map: THREE.Texture | null):
         default: break;
       }
     }
+    // arms: walk swing, and the hand lowered / raised again with speech and now and then
+    let aL = -0.12 * walkW * s, aR = 0.12 * walkW * s;
+    if (clip) {
+      const u = time - clip.t0, k = Math.sin(Math.min(1, u / clip.dur) * Math.PI);
+      if (clip.g === "talk1" || clip.g === "wave" || clip.g === "welcome") aR -= 0.6 * k;   // raise
+      else if (clip.g === "talk2") aR += 0.4 * k;                                            // lower
+      else if (clip.g === "talk3") { aR += 0.3 * Math.sin(u * 4) * k; aL -= 0.25 * k; }
+      else if (clip.g === "think") aR -= 0.5 * k;
+    } else if (walkW < 0.2 && time > nextArm) {
+      clip = { g: Math.random() < 0.5 ? "talk1" : "talk2", t0: time, dur: 1.8 };
+      nextArm = time + 5 + Math.random() * 6;
+    }
+    aR -= 0.35 * pointW;
+    armL.rotation.x += (aL - armL.rotation.x) * Math.min(1, dt * 8);
+    armR.rotation.x += (aR - armR.rotation.x) * Math.min(1, dt * 8);
     // talking life: tiny head movement with the voice
     openT += (open - openT) * Math.min(1, dt * 18);
     hx += 0.035 * openT;

@@ -7,7 +7,7 @@ import type { TourStop } from "../types";
 import type { Guide } from "./guide";
 import type { P3 } from "./nav";
 
-export type TourPhase = "idle" | "walking" | "waiting" | "presenting" | "telling" | "between" | "paused" | "done";
+export type TourPhase = "idle" | "approach" | "walking" | "waiting" | "presenting" | "telling" | "between" | "paused" | "done";
 
 export interface TourEvents {
   /** start narrating this stop; call tour.storyEnded() when the speech is over */
@@ -32,6 +32,8 @@ export class Tour {
 
   get current(): TourStop | null { return this.stops[this.index] ?? null; }
   get active() { return this.phase !== "idle" && this.phase !== "done"; }
+  /** the guided (leading) tour is running, not a single story */
+  get guided() { return this.active && !this.single; }
 
   private set(p: TourPhase) {
     this.phase = p;
@@ -44,6 +46,7 @@ export class Tour {
     if (i < 0 || i >= this.stops.length) { this.finish(); return; }
     this.index = i;
     this.single = single;
+    this.told.add(this.stops[i].id);
     const s = this.stops[i];
     const stand: P3 = { x: s.stand[0], y: s.stand[1], z: s.stand[2] };
     this.guide.avatar.pointAt(null);
@@ -57,6 +60,21 @@ export class Tour {
 
   /** free mode: tell just this stop, then go back to following */
   tellOne(i: number) { this.goTo(i, true); }
+
+  /** free mode: tell stop i where the visitor is — the guide keeps following and tells it beside them */
+  tellHere(i: number) {
+    if (i < 0 || i >= this.stops.length) return;
+    this.index = i;
+    this.single = true;
+    this.told.add(this.stops[i].id);
+    this.guide.marker = null;
+    this.guide.follow();
+    this.set("approach");
+  }
+  /** stops already told (free mode doesn't repeat them) */
+  told = new Set<string>();
+  /** free mode: tell a stop by itself when the visitor comes near it */
+  autoTell = true;
   private single = false;
   start(from = 0) { this.goTo(from); }
   next() { this.goTo(this.index + 1); }
@@ -115,6 +133,24 @@ export class Tour {
     const g = this.guide, s = this.current;
     if (this.t > this.lookBackAt) { g.look(null); this.lookBackAt = Infinity; }
     switch (this.phase) {
+      case "idle": case "done": {
+        // free mode: the visitor reached a stop's spot (same level, ~5 m) → tell it there
+        if (!this.autoTell) break;
+        const v = g.visitorPos;
+        const i = this.stops.findIndex((x) => !this.told.has(x.id) && Math.hypot(x.stand[0] - v.x, x.stand[2] - v.z) < 5 && Math.abs(x.stand[1] - v.y) < 1.5);
+        if (i >= 0) this.tellHere(i);
+        break;
+      }
+      case "approach": {
+        // the guide is following; start once he is close and has stopped
+        if (s && g.distToVisitor() < 3.2 && (!g.moving || this.t > 4)) this.present(s);
+        break;
+      }
+      case "telling": {
+        // the visitor walks on: keep talking and follow them
+        if (g.mode === "hold" && g.distToVisitor() > 4) g.follow();
+        break;
+      }
       case "waiting": {
         if (!s) return;
         const near = g.distToVisitor() < NEAR;
