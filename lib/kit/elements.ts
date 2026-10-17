@@ -599,7 +599,7 @@ export function buildEl(B: Builder, e: El) {
       const g = new THREE.PlaneGeometry(e.size[0], e.size[1]);
       g.rotateY(e.rotY * D2R);
       g.translate(...e.at);
-      B.add(g, e.motif === "hunt" ? "paintHunt" : e.motif === "portrait" ? "paintPortrait" : "paintFloral");
+      B.add(g, e.src ? `art:${e.src}` : e.motif === "hunt" ? "paintHunt" : e.motif === "portrait" ? "paintPortrait" : "paintFloral");
       const fr = new THREE.BoxGeometry(e.size[0] + 0.12, e.size[1] + 0.12, 0.03);
       fr.translate(0, 0, -0.025);
       fr.rotateY(e.rotY * D2R);

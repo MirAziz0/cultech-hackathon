@@ -6014,7 +6014,8 @@
      1.9
     ],
     "rotY": 0,
-    "motif": "portrait"
+    "motif": "portrait",
+    "src": "art_fath-ali-shah"
    },
    {
     "t": "painting",
@@ -6028,7 +6029,8 @@
      1.9
     ],
     "rotY": 180,
-    "motif": "portrait"
+    "motif": "portrait",
+    "src": "art_abbas-mirza"
    },
    {
     "t": "painting",
@@ -6042,7 +6044,8 @@
      1.9
     ],
     "rotY": 0,
-    "motif": "portrait"
+    "motif": "portrait",
+    "src": "art_hossein-qoli-khan"
    },
    {
     "t": "painting",
@@ -6056,7 +6059,8 @@
      1.9
     ],
     "rotY": 180,
-    "motif": "portrait"
+    "motif": "portrait",
+    "src": "art_rustam-zal"
    },
    {
     "t": "painting",
@@ -6070,7 +6074,8 @@
      1.4
     ],
     "rotY": 0,
-    "motif": "portrait"
+    "motif": "portrait",
+    "src": "art_sohrab"
    },
    {
     "t": "painting",
@@ -6084,7 +6089,8 @@
      1.4
     ],
     "rotY": 180,
-    "motif": "portrait"
+    "motif": "portrait",
+    "src": "art_warrior"
    },
    {
     "t": "mirrorWall",

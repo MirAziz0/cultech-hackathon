@@ -150,6 +150,9 @@ export class Materials {
       m = { mat, worldUV: base.worldUV };
     } else if (key.startsWith("c:")) {
       m = { mat: S({ color: new THREE.Color(key.slice(2)) }) };
+    } else if (key.startsWith("art:")) {
+      // a real painting (photo of the artwork), stretched once over the canvas
+      m = { mat: S({ map: photoTex(key.slice(4)), roughness: 0.7 }) };
     } else if (key.startsWith("cs:")) {
       // shiny glazed colour (ceramics)
       m = { mat: S({ color: new THREE.Color(key.slice(3)), roughness: 0.3, side: THREE.DoubleSide }) };

@@ -277,7 +277,7 @@ export type El = ElBase & (
   | { t: "well"; c: Vec2; r: number; y: number; depth: number }
   | { t: "relief"; at: Vec3; size: Vec2; rotY: number; pattern?: "star" | "kufic" | "rosette" }
   | { t: "mirrorWall"; from: Vec2; to: Vec2; y0: number; h: number; cells?: Vec2 }
-  | { t: "painting"; at: Vec3; size: Vec2; rotY: number; motif: "floral" | "hunt" | "portrait" }
+  | { t: "painting"; at: Vec3; size: Vec2; rotY: number; motif: "floral" | "hunt" | "portrait"; /** real artwork: content/textures/<src>.jpg (credited in CREDITS.md) instead of the drawn motif */ src?: string }
   /** arbitrary quad (slopes, banks): four corners in order */
   | { t: "quad"; pts: [Vec3, Vec3, Vec3, Vec3] }
   | { t: "terrain"; rect: [number, number, number, number]; y: number; color?: string }

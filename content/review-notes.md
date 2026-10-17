@@ -64,3 +64,4 @@ The stories in content/scripts/ marked these details for a historian; the guide 
 - shirvanshahs.en.md @r3: verify — "Today you'll see only low walls and the shapes of rooms in the ground. It was hidden underground for centuries…"
 - shirvanshahs.en.md @stair: verify — "They come from a fortress that once stood near Baku and later disappeared under the waters of the Caspian. For…"
 <!-- guide-stories:end -->
+- **Erivan, Hall of Mirrors portraits.** Hossein Qoli Khan, Rustam Zal, Sohrab and the warrior are works of Mirza Gadim Irevani described on Commons as paintings of the Sardar's Palace (Rustam Zal: "from Mirrors hall"); their exact place in the hall is unknown. Fath-Ali Shah (an Irevani watercolour on paper) and Abbas Mirza (oil attributed to Mihr Ali, c. 1800) are portraits of the same people from other collections, standing in for the hall's own portraits of them.
