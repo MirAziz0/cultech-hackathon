@@ -144,7 +144,13 @@ function makeSky(zenith: string, horizon: string): THREE.Mesh {
       const px = cx + (rnd() - 0.5) * r * 2.4, py = cy + (rnd() - 0.5) * r * 0.5, pr = r * (0.5 + rnd() * 0.6);
       const rg = x.createRadialGradient(px, py, 0, px, py, pr);
       rg.addColorStop(0, "rgba(255,255,255,.38)"); rg.addColorStop(1, "rgba(255,255,255,0)");
-      x.fillStyle = rg; x.beginPath(); x.ellipse(px, py, pr * 1.6, pr * 0.7, 0, 0, Math.PI * 2); x.fill();
+      x.fillStyle = rg;
+      // repeat across the left/right edge so the dome's wrap-around has no seam
+      for (const dx of [-W, 0, W]) {
+        x.save(); x.translate(dx, 0);
+        x.beginPath(); x.ellipse(px, py, pr * 1.6, pr * 0.7, 0, 0, Math.PI * 2); x.fill();
+        x.restore();
+      }
     }
   }
   const tex = new THREE.CanvasTexture(c);

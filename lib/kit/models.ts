@@ -16,7 +16,8 @@ export function loadModel(src: string): Promise<THREE.Object3D> {
         cfg.texture ? new THREE.TextureLoader().loadAsync(`${base}/${cfg.texture}`) : Promise.resolve(null),
       ]);
       if (map) { map.colorSpace = THREE.SRGBColorSpace; map.anisotropy = 8; }
-      const mat = new THREE.MeshStandardMaterial({ map, roughness: 0.85, metalness: 0 });
+      const cutout = !!cfg.texture?.endsWith(".png");
+      const mat = new THREE.MeshStandardMaterial({ map, roughness: 0.85, metalness: 0, ...(cutout ? { alphaTest: 0.5, side: THREE.DoubleSide } : {}) });
       gltf.scene.traverse((o) => { const m = o as THREE.Mesh; if (m.isMesh) m.material = mat; });
       return gltf.scene;
     })();

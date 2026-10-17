@@ -2,7 +2,7 @@
    Each variant is centred on its trunk base and scaled to 1 m height, so a tree of height h is
    just scale h. Walks with "trees": "<id>" place every { kind: "tree" } furniture with these
    models (instanced), alternating variants.
-   writes content/models/<id>/{model.glb, texture.jpg, model.json}
+   writes content/models/<id>/{model.glb, texture.png, model.json}
    usage: npx tsx scripts/import-trees.ts <file.zip | file.fbx> <id> */
 import fs from "node:fs";
 import os from "node:os";
@@ -63,8 +63,8 @@ async function main() {
   fs.mkdirSync(dst, { recursive: true });
   const glb = await new GLTFExporter().parseAsync(out, { binary: true }) as ArrayBuffer;
   fs.writeFileSync(path.join(dst, "model.glb"), Buffer.from(glb));
-  if (tex) await sharp(fs.readFileSync(tex)).resize(512, 512, { fit: "inside" }).jpeg({ quality: 90 }).toFile(path.join(dst, "texture.jpg"));
-  fs.writeFileSync(path.join(dst, "model.json"), JSON.stringify({ kind: "variants", model: "model.glb", texture: tex ? "texture.jpg" : null }, null, 1) + "\n");
+  if (tex) await sharp(fs.readFileSync(tex)).resize(512, 512, { fit: "inside" }).png({ palette: true, quality: 90 }).toFile(path.join(dst, "texture.png")); // PNG keeps the leaf cut-out alpha
+  fs.writeFileSync(path.join(dst, "model.json"), JSON.stringify({ kind: "variants", model: "model.glb", texture: tex ? "texture.png" : null }, null, 1) + "\n");
   console.log(`✓ content/models/${id}: ${k} variants, ${(glb.byteLength / 1024).toFixed(0)} KB`);
 }
 main().catch((e) => { console.error(e); process.exit(1); });
