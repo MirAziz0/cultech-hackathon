@@ -118,8 +118,8 @@ function exterior(): ExteriorPart[] {
     for (let i = 0; i < 5; i++) P.push({ t: "tree", at: [s * 12, 20 + i * 5, 0], s: 0.9, eras: [TODAY], mat: "tree" });
     P.push({ t: "box", size: [3, 30, 0.08], at: [s * 13, -1, 0.04], eras: [TODAY], mat: "pathNew" });
   }
-  P.push({ t: "cyl", r: 0.8, r2: 0.45, h: 1.8, sides: 7, at: [5.7, 20.95, 0], eras: [TODAY], mat: "memorial" }); // the restoration stone
-  P.push({ t: "box", size: [0.65, 0.06, 0.45], at: [5.7, 21.62, 0.7], eras: [TODAY], mat: "plaque" });            // its bronze plaque, on the side facing the gate
+  P.push({ t: "cyl", r: 0.8, r2: 0.45, h: 1.8, sides: 7, at: [-5.7, 20.95, 0], eras: [TODAY], mat: "memorial" }); // the restoration stone
+  P.push({ t: "box", size: [0.65, 0.06, 0.45], at: [-5.7, 21.62, 0.7], eras: [TODAY], mat: "plaque" });            // its bronze plaque, on the side facing the gate
   return P;
 }
 
@@ -324,7 +324,7 @@ function walk(): { elements: El[]; zones: Zone[]; obstacles: [number, number, nu
     }
   }
   // the 2024 restoration stone: granite boulder with a bronze plaque, facing the path to the door (photo: today_press)
-  E.push({ t: "furniture", kind: "plaqueStone", at: [5.7, 0, -20.95], rotY: -18, h: 1.8, eras: [TODAY] });
+  E.push({ t: "furniture", kind: "plaqueStone", at: [-5.7, 0, -20.95], rotY: 18, h: 1.8, eras: [TODAY] }); // right of the path, walking to the door
   // today: the textured model of the restored mosque (content/models/aghdam-mosque) replaces the kit's outside
   // fitted to the kit's footprint (x ±9.9, z −13.9…10.9); the kit's outer surfaces are hidden in this era
   E.push({ t: "model", src: "aghdam-mosque", at: [0, -1.16, -1.5], rotY: 180, scale: [0.985, 1, 1.214], cut: [[-0.95, 0.95, -1.3, 2.6, -10.8, -7.9]], eras: [TODAY], replaces: { types: ["minaret"], mats: ["metalRoof", "domeOut", "wallOut", "iwan", "roofSlab"] } });
