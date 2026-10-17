@@ -38,6 +38,10 @@ These came up while collecting facts. Each needs a historian's decision; the app
 - **Square after 2024.** Hedges, paths and trees approximate the 2024 photos; the layout is not surveyed.
 - **Architect persona.** Kərbəlayi Səfixan Qarabaği is a real person; no authentic portrait is known (a 2016 stamp shows a depiction). The app's figure is an original stylised drawing and says so. He speaks first-hand only about events up to 1885 and quotes sources for anything later.
 
+### Materials (October 2026)
+
+- **Photo textures are stand-ins.** Shirvanshahs, Maiden Tower and Erivan now use CC0 Poly Haven photo textures (see CREDITS.md), tinted to match photos of each site. They show the right kind of material (Absheron limestone, rough coursed stone, fired brick), not the actual stones of the monument.
+
 ## Ağdam Cümə məscidi / Aghdam Juma Mosque (`aghdam-mosque`)
 
 ### Facts marked for verification (3 of 34)

@@ -68,7 +68,7 @@ export function buildWalkWorld(spec: WalkSpec, renderer: THREE.WebGLRenderer, op
   scene.fog = new THREE.Fog(sky, fog?.[0] ?? 30, fog?.[1] ?? 90);
 
   const B = new Builder();
-  B.alias = { ...(look.alias ?? {}), ...(opts.alias ?? {}) };
+  B.alias = { ...(spec.alias ?? {}), ...(look.alias ?? {}), ...(opts.alias ?? {}) };
   // a textured model shown in this era can replace kit parts (e.g. the scene's own minarets)
   const models = forEra(spec.elements, opts.era).filter((e) => e.t === "model") as Extract<El, { t: "model" }>[];
   const hideT = new Set(models.flatMap((m) => m.replaces?.types ?? [])), hideM = new Set(models.flatMap((m) => m.replaces?.mats ?? []));

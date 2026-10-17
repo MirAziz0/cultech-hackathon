@@ -392,8 +392,8 @@
     "r": 5,
     "h": 12,
     "at": [
-     35.0,
-     130.0,
+     35,
+     130,
      0
     ],
     "sides": 14,
@@ -434,7 +434,7 @@
     "r": 5,
     "h": 12,
     "at": [
-     185.0,
+     185,
      68.333,
      0
     ],
@@ -448,7 +448,7 @@
     "r": 5,
     "h": 12,
     "at": [
-     180.0,
+     180,
      26.667,
      0
     ],
@@ -462,8 +462,8 @@
     "r": 5,
     "h": 12,
     "at": [
-     175.0,
-     -15.0,
+     175,
+     -15,
      0
     ],
     "sides": 14,
@@ -476,7 +476,7 @@
     "r": 5,
     "h": 12,
     "at": [
-     170.0,
+     170,
      -56.667,
      0
     ],
@@ -490,7 +490,7 @@
     "r": 5,
     "h": 12,
     "at": [
-     165.0,
+     165,
      -98.333,
      0
     ],
@@ -532,8 +532,8 @@
     "r": 5,
     "h": 12,
     "at": [
-     5.0,
-     -130.0,
+     5,
+     -130,
      0
     ],
     "sides": 14,
@@ -4546,7 +4546,7 @@
     {
      "side": "n",
      "kind": "niche",
-     "w": 1.0,
+     "w": 1,
      "h": 1.6,
      "sill": 1.2,
      "offset": -3
@@ -4554,7 +4554,7 @@
     {
      "side": "n",
      "kind": "niche",
-     "w": 1.0,
+     "w": 1,
      "h": 1.6,
      "sill": 1.2,
      "offset": -1
@@ -4562,7 +4562,7 @@
     {
      "side": "n",
      "kind": "niche",
-     "w": 1.0,
+     "w": 1,
      "h": 1.6,
      "sill": 1.2,
      "offset": 1
@@ -4570,7 +4570,7 @@
     {
      "side": "n",
      "kind": "niche",
-     "w": 1.0,
+     "w": 1,
      "h": 1.6,
      "sill": 1.2,
      "offset": 3
@@ -4578,7 +4578,7 @@
     {
      "side": "s",
      "kind": "niche",
-     "w": 1.0,
+     "w": 1,
      "h": 1.6,
      "sill": 1.2,
      "offset": -3
@@ -4586,7 +4586,7 @@
     {
      "side": "s",
      "kind": "niche",
-     "w": 1.0,
+     "w": 1,
      "h": 1.6,
      "sill": 1.2,
      "offset": -1
@@ -4594,7 +4594,7 @@
     {
      "side": "s",
      "kind": "niche",
-     "w": 1.0,
+     "w": 1,
      "h": 1.6,
      "sill": 1.2,
      "offset": 1
@@ -4602,7 +4602,7 @@
     {
      "side": "s",
      "kind": "niche",
-     "w": 1.0,
+     "w": 1,
      "h": 1.6,
      "sill": 1.2,
      "offset": 3
@@ -4616,7 +4616,7 @@
       0,
       0
      ],
-     "r": 1.0,
+     "r": 1,
      "sides": 12
     },
     {
@@ -4674,7 +4674,7 @@
     "y": 3.6
    },
    "eye": 1.6,
-   "reach": 3.0
+   "reach": 3
   },
   "mosque": {
    "title": {
@@ -4804,7 +4804,7 @@
     34,
     -10
    ],
-   "intensity": 1.0
+   "intensity": 1
   },
   "ambient": 0.6,
   "elements": [
@@ -5486,7 +5486,7 @@
        "u": 23,
        "w": 1.2,
        "sill": 0,
-       "spring": 2.0,
+       "spring": 2,
        "kind": "door"
       }
      ]
@@ -6094,7 +6094,7 @@
     ],
     "to": [
      -13.98,
-     -3.0
+     -3
     ],
     "y0": 0.9500000000000001,
     "h": 2.6,
@@ -6107,7 +6107,7 @@
     "t": "mirrorWall",
     "from": [
      -13.98,
-     3.0
+     3
     ],
     "to": [
      -13.98,
@@ -6142,7 +6142,7 @@
      0.27,
      0
     ],
-    "r": 1.0,
+    "r": 1,
     "sides": 12
    },
    {
@@ -6257,7 +6257,7 @@
      4.75,
      -2.5
     ],
-    "light": 0.0
+    "light": 0
    },
    {
     "t": "furniture",
@@ -6267,7 +6267,7 @@
      4.75,
      2.5
     ],
-    "light": 0.0
+    "light": 0
    },
    {
     "t": "light",
@@ -6328,7 +6328,7 @@
        "u": 2.6,
        "w": 1.1,
        "sill": 0,
-       "spring": 2.0,
+       "spring": 2,
        "kind": "door"
       }
      ],
@@ -6422,7 +6422,7 @@
      -11.9
     ],
     "max": [
-     -16.0,
+     -16,
      1.15,
      -6.3
     ],
@@ -6536,7 +6536,7 @@
    {
     "t": "painting",
     "at": [
-     -9.0,
+     -9,
      2.35,
      11.47
     ],
@@ -6672,7 +6672,7 @@
     ],
     "r": 6,
     "y": 11,
-    "sy": 1.0,
+    "sy": 1,
     "mat": "tile",
     "outside": true
    },
@@ -7050,7 +7050,18 @@
    "north",
    "balcony",
    "south"
-  ]
+  ],
+  "clouds": "#4a8ad0",
+  "alias": {
+   "brick": "brickPH",
+   "floorBrick": "brickFloorPH",
+   "plaster": "plasterPH",
+   "floorGrey": "pavingStonePH",
+   "c:#8a6e4eDS": "cliffPHDS",
+   "c:#8f7452DS": "cliffPHDS",
+   "c:#7f8a52DS": "grassBankPHDS",
+   "c:#a9a06aDS": "groundPHDS"
+  }
  },
  "disclaimer": {
   "az": "Qala və saray dağıdılıb: bərpa 1827-ci il planı, muzey maketi, Qaqarinin litoqrafiyası və köhnə fotolar əsasında təxminidir. Ölçülərin və detalların çoxu fərziyyədir; faktlar tarixçi tərəfindən yoxlanılmalıdır.",

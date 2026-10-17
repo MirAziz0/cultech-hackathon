@@ -85,6 +85,18 @@ const factories: Record<string, () => MatInfo> = {
   asphaltPH: () => P("asphalt_02", 6),
   fencePH: () => P("painted_plaster_wall", 3, { side: THREE.DoubleSide, color: 0xf1e2c4 }),
   hedgePH: () => P("leafy_grass", 1.2, { color: 0x7fc062 }),
+  // Absheron limestone (Shirvanshahs): warm sand-beige blocks in horizontal courses
+  limestonePH: () => P("sandstone_blocks_08", 1.5, { color: 0xf3efe9 }),
+  // Maiden Tower: rough coursed limestone; darker weathered stone for the base and inner walls
+  towerStonePH: () => P("castle_wall_slates", 2.6, { color: 0xeee6da, normalScale: new THREE.Vector2(1, 1) }),
+  towerStoneGreyPH: () => P("old_stone_wall", 2.4, { color: 0xddd6cb, normalScale: new THREE.Vector2(1, 1) }),
+  pavingStonePH: () => P("rock_tile_floor", 3, { color: 0xf4ead8 }),
+  // Erivan: fired brick walls and brick floors, the Hrazdan gorge, dry open ground
+  brickPH: () => P("red_brick_03", 1.8, { color: 0xffe2cc }),
+  brickFloorPH: () => P("brick_floor", 2),
+  cliffPH: () => P("rock_face", 9, { color: 0xe6cfae, normalScale: new THREE.Vector2(1.2, 1.2) }),
+  groundPH: () => P("dry_ground_01", 5),
+  grassBankPH: () => P("leafy_grass", 4, { color: 0xb8d898 }),
   // vault and dome undersides: a little self-light so crowns read as lit plaster, not shadow
   vaultLime: () => ({ mat: S({ map: plasterTex(false), side: THREE.DoubleSide, emissive: 0x5c574e, emissiveIntensity: 0.55 }), worldUV: 4 }),
   vaultLimeWorn: () => ({ mat: S({ map: plasterTex(true), side: THREE.DoubleSide, emissive: 0x4e4840, emissiveIntensity: 0.5 }), worldUV: 4 }),
