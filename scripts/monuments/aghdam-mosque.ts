@@ -148,7 +148,7 @@ function walk(): { elements: El[]; zones: Zone[]; obstacles: [number, number, nu
   E.push({ t: "floor", rect: [-0.8, 0.8, 9.9, 10.9], y: 0.002, mat: "hallFloor" });
   // the historic stone pavement at the entrance (found in the 2022 excavations)
   E.push({ t: "floor", rect: [-3, 3, -13.9, -8.9], y: 0.01, mat: "setts" });
-  E.push({ t: "floor", rect: [-4, 4, -17, -13.9], y: 0.01, mat: "setts" });
+  E.push({ t: "floor", rect: [-4, 4, -17, -13.9], y: 0.03, mat: "setts" }); // 3 cm above the today paving (2 mm flickered)
   E.push({ t: "floor", rect: [-9, -3.6, -13.1, -8.9], y: 0.005, mat: "floorGrey" });
   E.push({ t: "floor", rect: [3.6, 9, -13.1, -8.9], y: 0.005, mat: "floorGrey" });
 
@@ -173,8 +173,8 @@ function walk(): { elements: El[]; zones: Zone[]; obstacles: [number, number, nu
   wall2(E, [3.3, -13.45], [9.9, -13.45], 0.9, H, [...arc(1.9), ...arc(4.3)], wIn, wOut, -1);
   // iwan: framing arch, side walls with doors to the side rooms, pointed vault
   wall2(E, [-3.3, -13.6], [3.3, -13.6], 0.6, H, [door(3.3, 6.0, 5.6)], wOut, "iwan", 1);
-  wall2(E, [-3.3, -13.9], [-3.3, -8.9], 0.6, H, [door(2.9, 1.0, 2.1)], wIn, "iwan", -1);
-  wall2(E, [3.3, -8.9], [3.3, -13.9], 0.6, H, [door(2.1, 1.0, 2.1)], wIn, "iwan", -1);
+  wall2(E, [-3.3, -13.6], [-3.3, -8.9], 0.6, H, [door(2.6, 1.0, 2.1)], wIn, "iwan", -1); // starts inside the facade wall: no coplanar end face
+  wall2(E, [3.3, -8.9], [3.3, -13.6], 0.6, H, [door(2.1, 1.0, 2.1)], wIn, "iwan", -1);
   E.push({ t: "vault", x: [-3, 3], z: [-13.3, -8.92], y: 5.6, axis: "z", scaleY: 1.3, mat: "iwan" });
   // side rooms: barrel vaults; roof over the front block
   E.push({ t: "vault", x: [-9, -3.6], z: [-13.0, -8.9], y: 7.6, axis: "x", scaleY: 0.8, mat: "vault" });

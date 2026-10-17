@@ -4,8 +4,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
-type Box = { t: "box"; min: number[]; max: number[]; mat?: string; tag: "closure" };
+type Box = { t: "box"; min: number[]; max: number[]; mat?: string; tag: "closure" } | { t: "floor" | "terrain"; rect: number[]; y: number; mat: string; tag: "closure" };
 const box = (min: number[], max: number[], mat?: string): Box => ({ t: "box", min, max, ...(mat ? { mat } : {}), tag: "closure" });
+const ground = (t: "floor" | "terrain", rect: number[], y: number, mat: string): Box => ({ t, rect, y, mat, tag: "closure" });
 
 /* Closures: walls and house blocks that seal gaps where the world showed through (added on top of the
    hand-made geometry, tagged "closure" so re-running replaces them). Mostly artistic hypothesis. */
@@ -35,12 +36,16 @@ function closures(slug: string): Box[] {
     }
   }
   if (slug === "erivan-fortress") {
+    // ground everywhere east of the cliff (the street paving only covered the street) and the gate threshold
+    out.push(ground("terrain", [-15, 260, -260, 260], -0.06, "groundPH"));
+    out.push(ground("floor", [20, 20.5, -1.3, 1.3], 0, "floorGrey"));
+    // blocks are kept 2 cm inside the walls they meet, so no two faces share a plane (shared planes flicker)
     for (const s of [-1, 1]) {
       const z = (a: number, b: number) => (s > 0 ? [a, b] : [-b, -a]);
-      const [g0, g1] = z(10.3, 14), [p0, p1] = z(6.25, 10.3);
-      out.push(box([19.5, 0, g0], [22, 5.2, g1], "brick"));        // gate flanks → street houses
-      out.push(box([-5.3, 0.15, p0], [-4.75, 4.6, p1], "plaster")); // palace corner → courtyard rooms
-      out.push(box([-8.25, 0.15, s > 0 ? 11.75 : -14], [-4.5, 4.6, s > 0 ? 14 : -11.75], "plaster"));
+      const [g0, g1] = z(10.32, 13.98), [p0, p1] = z(6.27, 10.28), [c0, c1] = z(11.77, 13.98);
+      out.push(box([19.52, 0, g0], [21.98, 5.15, g1], "brick"));         // gate flanks → street houses
+      out.push(box([-5.28, 0.15, p0], [-4.77, 4.55, p1], "plaster"));    // palace corner → courtyard rooms
+      out.push(box([-8.23, 0.15, c0], [-4.52, 4.55, c1], "plaster"));
     }
   }
   return out;

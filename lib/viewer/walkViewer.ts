@@ -23,7 +23,7 @@ export function detectQuality(): Quality {
 
 export class WalkViewer {
   renderer: THREE.WebGLRenderer;
-  camera = new THREE.PerspectiveCamera(72, 1, 0.05, 150);
+  camera = new THREE.PerspectiveCamera(72, 1, 0.1, 150);
   world: WalkWorld;
   walker: Walker;
   map: ZoneMap;
