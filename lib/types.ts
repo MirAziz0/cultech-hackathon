@@ -105,9 +105,10 @@ export interface ExteriorSpec {
 type PartBase = { eras?: Era[]; mat?: string; /** material per era */ matByEra?: Partial<Record<Era, string>>; /** confidence for this part (documentation only) */ conf?: Confidence };
 export type ExteriorPart = PartBase & (
   | { t: "box"; size: Vec3; at: Vec3 }                                  // bottom-centred at `at`
-  /** flat-roofed town house (bottom-centred): parapet, earthen roof, windows, a door, sometimes a rooftop room;
-      wall tone (mat, else house / house2 / house3) and details vary with its position */
-  | { t: "house"; size: Vec3; at: Vec3 }
+  /** town house (bottom-centred): windows and a door; flat (default) adds a parapet, an earthen roof and sometimes a
+      rooftop room (flat: false = walls only, for a separate pitched roof). Wall tone = mat, else house / house2 /
+      house3 by position; details vary with its position */
+  | { t: "house"; size: Vec3; at: Vec3; flat?: boolean }
   /** arc = [startDeg, lengthDeg] from +x toward +y (half cylinders: apses) */
   | { t: "cyl"; r: number; h: number; at: Vec3; sides?: number; r2?: number; arc?: Vec2 }
   | { t: "dome"; r: number; h: number; at: Vec3; pointed?: number; sides?: number }

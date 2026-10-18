@@ -119,12 +119,15 @@ function exterior(): ExteriorPart[] {
     const x = TER.x0 + 1 + r() * (TER.x1 - TER.x0 - 2), y = (r() < 0.5 ? -1 : 1) * (6.4 + r() * 2.6);
     P.push({ t: "bush", at: [x, y, 0.1], s: 0.3 + r() * 0.2, eras: [TODAY], mat: "rose" });
   }
-  // --- village beyond the wall ---
+  // --- village beyond the wall: only houses (with their roofs and trees) that fit on the base ---
+  const fits = (x: number, y: number, rx: number, ry: number) => Math.abs(x - cx) + rx < 52 - 1 && Math.abs(y) + ry < 42 - 1;
   for (const h of houses()) {
-    P.push({ t: "box", size: [h.w, h.d, h.h], at: [h.x, h.y, LOW], matByEra: { xii: "riverStone", today: "house" } });
+    if (!fits(h.x, h.y, h.w / 2 + 0.6, h.d / 2 + 0.6)) continue;
+    P.push({ t: "house", size: [h.w, h.d, h.h], at: [h.x, h.y, LOW], flat: false, matByEra: { xii: "riverStone", today: "house" } });
     P.push({ t: "hipRoof", at: [h.x, h.y, LOW + h.h], size: [h.w + 0.6, h.d + 0.6], h: 1.5, eras: [TODAY], mat: "roofHouse" });
     P.push({ t: "box", size: [h.w + 0.3, h.d + 0.3, 0.25], at: [h.x, h.y, LOW + h.h], eras: [XII], mat: "earth" });
-    if (r() < 0.5) P.push({ t: "tree", at: [h.x + h.w / 2 + 2, h.y + (r() - 0.5) * 4, LOW], s: 1.2 + r() * 0.5, kind: "round" });
+    const tx = h.x + h.w / 2 + 2, ty = h.y + (r() - 0.5) * 4, ts = 1.2 + r() * 0.5;
+    if (r() < 0.5 && fits(tx, ty, 1.5 * ts, 1.5 * ts)) P.push({ t: "tree", at: [tx, ty, LOW], s: ts, kind: "round" });
   }
   return P;
 }
