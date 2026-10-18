@@ -5,7 +5,7 @@ import type { L, Lang } from "./types";
 /* UI strings. Content strings live in the monument JSON as {az, en}. */
 const UI = {
   brand: { az: "ZamanQapısı AI", en: "ZamanQapısı AI" },
-  heroTitle: { az: "Zamanın qapısını aç", en: "Open the gate of time" },
+  heroTitle: { az: "Tariximiz rəqəmsal dünyada", en: "Our history in the digital world" },
   heroSub: {
     az: "Azərbaycan memarlıq irsinə virtual səyahət: abidələri bu gün və öz dövründə gör, içəridə gəz, memarın özündən dinlə.",
     en: "A virtual journey through Azerbaijani architectural heritage: see monuments today and in their own era, walk inside, and listen to their architect.",
