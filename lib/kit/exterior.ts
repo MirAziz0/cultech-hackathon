@@ -128,10 +128,52 @@ class ExtBuilder {
   }
 }
 
+/** flat-roofed town house: walls, a low parapet round an earthen roof, dark windows and a wooden door,
+   on some a small rooftop room. Variation comes from the position, so it is stable across builds and eras. */
+function house(b: ExtBuilder, sx: number, sy: number, h: number, x: number, y: number, z: number, wall?: string) {
+  const r = rng(Math.abs(Math.round(x * 73.1 + y * 19.7 + sx * 7)) % 2147483646 + 1);
+  r.random();
+  const w = wall ?? ["house", "house2", "house3"][Math.floor(r.random() * 3)];
+  b.box(sx, sy, h, x, y, z, w);
+  // parapet ring (0.3 m thick, 0.4 m high) and the earthen roof inside it
+  const t = 0.3, ph = 0.4, top = z + h;
+  b.box(sx, t, ph, x, y - sy / 2 + t / 2, top, w);
+  b.box(sx, t, ph, x, y + sy / 2 - t / 2, top, w);
+  b.box(t, sy - 2 * t, ph, x - sx / 2 + t / 2, y, top, w);
+  b.box(t, sy - 2 * t, ph, x + sx / 2 - t / 2, y, top, w);
+  b.box(sx - 2 * t, sy - 2 * t, 0.08, x, y, top, "houseRoof");
+  // windows on each facade, a door on one
+  const door = Math.floor(r.random() * 4), wz = z + Math.min(h - 1.5, Math.max(1.2, h * 0.45));
+  const faces: [number, number, number, number][] = [[sx, x, y - sy / 2, 0], [sx, x, y + sy / 2, 0], [sy, x - sx / 2, y, 1], [sy, x + sx / 2, y, 1]];
+  faces.forEach(([len, fx, fy, side], i) => {
+    const n = Math.max(1, Math.floor(len / 3.4)), d = 0.12;
+    for (let k = 0; k < n; k++) {
+      if (r.random() < 0.3) continue;
+      const u = -len / 2 + (len * (k + 0.5)) / n;
+      if (side === 0) b.box(0.8, d, 1.0, fx + u, fy, wz, "window");
+      else b.box(d, 0.8, 1.0, fx, fy + u, wz, "window");
+    }
+    if (i === door) {
+      const u = (r.random() - 0.5) * (len - 2.5);
+      if (side === 0) b.box(1.1, d + 0.02, 2.0, fx + u, fy, z, "door");
+      else b.box(d + 0.02, 1.1, 2.0, fx, fy + u, z, "door");
+    }
+  });
+  // a rooftop room (bala-khana) on about a third of the houses
+  if (r.random() < 0.35 && sx > 7 && sy > 7) {
+    const rx = sx * (0.32 + r.random() * 0.12), ry = sy * (0.32 + r.random() * 0.12), rh = 2.4;
+    const cx = x + (r.random() < 0.5 ? -1 : 1) * (sx / 2 - t - rx / 2), cy = y + (r.random() < 0.5 ? -1 : 1) * (sy / 2 - t - ry / 2);
+    b.box(rx, ry, rh, cx, cy, top, w);
+    b.box(rx + 0.3, ry + 0.3, 0.15, cx, cy, top + rh, "houseRoof");
+    b.box(0.8, 0.12, 0.9, cx, cy - ry / 2, top + 1.1, "window");
+  }
+}
+
 function part(b: ExtBuilder, p: ExteriorPart, era: Era, r: ReturnType<typeof rng>) {
   const mat = p.matByEra?.[era] ?? p.mat;
   switch (p.t) {
     case "box": b.box(p.size[0], p.size[1], p.size[2], ...p.at, mat ?? "stone"); break;
+    case "house": house(b, p.size[0], p.size[1], p.size[2], ...p.at, mat === "house" ? undefined : mat); break;
     case "cyl": b.cyl(p.r, p.h, ...p.at, mat ?? "stone", p.sides ?? 16, p.r2, p.arc); break;
     case "dome": b.dome(p.r, p.h, ...p.at, mat ?? "dome", p.sides ?? 28, p.pointed ?? 0.18); break;
     case "tent": {
