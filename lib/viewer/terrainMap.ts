@@ -98,6 +98,9 @@ export class TerrainMap {
     c.target.set(0, 0, 15);
     c.enabled = false;
     c.minDistance = 90;
+    // the controls are only a camera helper here: detach them from the canvas, or they set touch-action: none
+    // on it and a finger on the map (most of the phone screen) can no longer scroll the page
+    c.disconnect();
 
     // a little less ambient and a stronger, low sun deepen the relief shading
     this.scene.add(new THREE.HemisphereLight(0xffffff, 0xc9b8a6, 0.66));

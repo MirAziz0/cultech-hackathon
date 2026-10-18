@@ -67,7 +67,7 @@ export function Home({ monuments }: { monuments: MonumentCard[] }) {
     <div className="min-h-dvh">
       {/* hero: the 3D map fills the width and runs up under the transparent header;
           the intro sits on top of it over a dark scrim */}
-      <section className="relative h-[min(744px,100dvh)] min-h-[620px] overflow-hidden bg-[#2d4a2a] md:h-dvh md:max-h-[980px]">
+      <section className="relative h-[min(744px,100svh)] min-h-[620px] overflow-hidden bg-[#2d4a2a] md:h-dvh md:max-h-[980px]">
           <SiteHeader overlay />
           {/* background layer, under the map: a forested lake landscape across the whole hero,
               with an even, light dark veil (no gradient) so the white text over it reads clearly */}
