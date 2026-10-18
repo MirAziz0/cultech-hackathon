@@ -1,7 +1,8 @@
 "use client";
 /* The guide's on-screen layer in walk mode (the guide himself is 3D in the scene):
    cinematic subtitles synced to speech, small source chips, floating controls
-   (tour ▶/❚❚, next stop, mic, keyboard, mute, CC), the question box (opens on tap)
+   (tour ▶/❚❚, next stop, mic, keyboard, mute, CC), the chat panel (keyboard button: every question and
+   answer stays readable there while the answer is also spoken)
    and the free-mode "Memar danışsın?" offer. Markers in stories ([point], [smile]…) are
    reported through body.mark() when the voice reaches them. */
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from "react";
@@ -30,6 +31,8 @@ export interface GuideBody {
   mark(name: Marker): void;
 }
 
+interface ChatMsg { id: number; who: "you" | "architect"; text: string; factIds: string[]; lang: Lang }
+
 interface Line extends ParsedStory { factIds: string[]; who: "architect" | "you"; lang: Lang; marksMs?: number[] }
 
 type SR = { lang: string; interimResults: boolean; maxAlternatives: number; start(): void; stop(): void; onresult: ((e: { results: ArrayLike<ArrayLike<{ transcript: string }>> }) => void) | null; onend: (() => void) | null; onerror: (() => void) | null };
@@ -46,6 +49,7 @@ const ICON: Record<string, string> = {
   sound: "M4 9.5h3.5L12 5.5v13l-4.5-4H4zM15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11",
   mute: "M4 9.5h3.5L12 5.5v13l-4.5-4H4zM16 9.5l5 5M21 9.5l-5 5",
   close: "M6 6l12 12M18 6L6 18",
+  send: "M4 12l16-8-6 16-2.5-6.5z",
 };
 function Icon({ name, fill }: { name: keyof typeof ICON; fill?: boolean }) {
   return (
@@ -85,6 +89,11 @@ export const GuideHud = forwardRef<GuideHudHandle, {
   const [showSources, setShowSources] = useState(false);
   const [status, setStatus] = useState<{ llm: boolean; tts: boolean } | null>(null);
   const history = useRef<{ role: "user" | "assistant"; text: string }[]>([]);
+  const [chat, setChat] = useState<ChatMsg[]>([]);
+  const chatId = useRef(0);
+  const chatEnd = useRef<HTMLDivElement | null>(null);
+  const addChat = useCallback((msg: Omit<ChatMsg, "id">) => setChat((list) => [...list, { ...msg, id: ++chatId.current }]), []);
+  useEffect(() => { if (typing) chatEnd.current?.scrollIntoView({ block: "end" }); }, [chat, busy, typing]);
   const rec = useRef<SR | null>(null);
   const audioMode = useRef(false);
 
@@ -159,8 +168,8 @@ export const GuideHud = forwardRef<GuideHudHandle, {
     if (!question || busy) return;
     onAsk();
     setInput("");
-    setTyping(false);
     setBusy(true);
+    addChat({ who: "you", text: question, factIds: [], lang });
     speaker.current?.stop();
     const you: Line = { ...parseStory(question), factIds: [], who: "you", lang };
     lineRef.current = you;
@@ -175,9 +184,10 @@ export const GuideHud = forwardRef<GuideHudHandle, {
       ans = mockAnswer(question, bundle.facts, bundle.qa, lang, { knowsUntil: m.architect.historical?.knowsUntil });
     }
     history.current.push({ role: "user", text: question }, { role: "assistant", text: ans.text });
+    addChat({ who: "architect", text: parseStory(ans.text).plain, factIds: ans.factIds, lang: ans.lang });
     setBusy(false);
     say(ans.text, ans.factIds, ans.lang);
-  }, [busy, bundle.facts, bundle.qa, era, lang, m.architect.historical?.knowsUntil, m.slug, onAsk, say, zone]);
+  }, [addChat, busy, bundle.facts, bundle.qa, era, lang, m.architect.historical?.knowsUntil, m.slug, onAsk, say, zone]);
 
   const SRClass = typeof window !== "undefined" ? ((window as unknown as { SpeechRecognition?: new () => SR; webkitSpeechRecognition?: new () => SR }).SpeechRecognition ?? (window as unknown as { webkitSpeechRecognition?: new () => SR }).webkitSpeechRecognition) : undefined;
   const mic = () => {
@@ -208,13 +218,13 @@ export const GuideHud = forwardRef<GuideHudHandle, {
     <>
       {/* subtitles + sources */}
       {cc && sub && (speaking || busy || line?.who === "you") && (
-        <div aria-live="polite" className="pointer-events-none fixed inset-x-0 z-30 flex flex-col items-center gap-1.5 px-4 bottom-[calc(max(12px,env(safe-area-inset-bottom))+84px)] max-sm:bottom-[calc(max(12px,env(safe-area-inset-bottom))+118px)] max-sm:pr-[180px] max-sm:pl-14">
+        <div aria-live="polite" className={`pointer-events-none fixed inset-x-0 z-30 ${typing ? "max-sm:hidden" : ""} flex flex-col items-center gap-1.5 px-4 bottom-[calc(max(12px,env(safe-area-inset-bottom))+84px)] max-sm:bottom-[calc(max(12px,env(safe-area-inset-bottom))+118px)] max-sm:pr-[180px] max-sm:pl-14`}>
           <p key={`${chunk}-${line?.plain.length}`} className="anim-in m-0 max-w-[min(720px,100%)] rounded-lg bg-[rgba(14,12,10,.8)] px-4 py-2 text-center font-display text-[19px] leading-snug text-white shadow-[0_6px_24px_rgba(0,0,0,.35)] [text-shadow:0_1px_2px_rgba(0,0,0,.6)] max-sm:px-2.5 max-sm:py-1.5 max-sm:text-[14.5px]">
             {line?.who === "you" ? <span className="text-[#9fe0e3]">{sub}</span> : sub}
           </p>
         </div>
       )}
-      {facts.length > 0 && (
+      {facts.length > 0 && !typing && (
         <div className="fixed z-30 flex max-w-[min(560px,calc(100vw-24px))] flex-col items-start gap-1 left-[max(12px,env(safe-area-inset-left))] bottom-[calc(max(12px,env(safe-area-inset-bottom))+70px)] max-sm:bottom-[calc(max(12px,env(safe-area-inset-bottom))+64px)] max-sm:max-w-[200px]">
           <button type="button" onClick={() => setShowSources((v) => !v)} aria-expanded={showSources}
             className="rounded-full border border-white/12 bg-[rgba(20,17,14,.86)] px-3 py-1.5 text-[12.5px] font-semibold text-[#e5dccb] shadow-[0_6px_18px_rgba(0,0,0,.3)] backdrop-blur-md hover:text-white">
@@ -238,15 +248,48 @@ export const GuideHud = forwardRef<GuideHudHandle, {
         </div>
       )}
 
-      {/* question box (opens on tap) */}
+      {/* chat with the architect (keyboard button): questions and answers stay readable, answers are also spoken */}
       {typing && (
-        <form className="anim-in glass fixed left-1/2 z-40 flex w-[min(520px,calc(100vw-24px))] -translate-x-1/2 gap-1.5 rounded-full border border-white/15 p-1.5 bottom-[calc(max(12px,env(safe-area-inset-bottom))+60px)] max-sm:bottom-[calc(max(12px,env(safe-area-inset-bottom))+124px)]"
-          onSubmit={(e) => { e.preventDefault(); ask(input); }}>
-          <input autoFocus value={input} onChange={(e) => setInput(e.target.value)} placeholder={t("ask")} aria-label={t("ask")} maxLength={500}
-            className="h-10 min-w-0 flex-1 rounded-full border border-white/20 bg-black/30 px-3.5 text-[14px] text-white placeholder:text-white/50 focus:border-[#7fd0d4] focus:outline-none" />
-          <button type="submit" disabled={busy || !input.trim()} className="h-10 shrink-0 rounded-full bg-accent px-3.5 text-[13px] font-semibold text-accent-ink disabled:opacity-50">{t("send")}</button>
-          <button type="button" aria-label={t("close")} onClick={() => setTyping(false)} className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-[13px]">✕</button>
-        </form>
+        <section aria-label={c({ az: "Memarla söhbət", en: "Chat with the architect" })}
+          className="anim-in fixed z-40 flex flex-col overflow-hidden rounded-2xl border border-white/12 bg-[rgba(20,17,14,.9)] text-white shadow-[0_16px_40px_rgba(0,0,0,.45)] backdrop-blur-md left-[max(12px,env(safe-area-inset-left))] bottom-[calc(max(12px,env(safe-area-inset-bottom))+72px)] w-[min(400px,calc(100vw-24px))] h-[min(460px,calc(100dvh-180px))] max-sm:inset-x-3 max-sm:bottom-[max(12px,env(safe-area-inset-bottom))] max-sm:w-auto max-sm:h-[min(60dvh,440px)]">
+          <header className="flex items-center gap-2 border-b border-white/10 py-2 pr-1.5 pl-3.5">
+            <div className="min-w-0 flex-1">
+              <b className="block truncate font-display text-[15px]">{c(m.architect.name)}</b>
+              <span className="block truncate text-[11.5px] text-[#b9ad99]">{status && !status.llm ? t("mockNote") : c({ az: "Sual verin — cavabı həm oxuyun, həm eşidin", en: "Ask — read the answer and hear it" })}</span>
+            </div>
+            <button type="button" aria-label={t("close")} title={t("close")} onClick={() => setTyping(false)} className="grid h-9 w-9 place-items-center rounded-lg hover:bg-white/10"><Icon name="close" /></button>
+          </header>
+          <div className="flex-1 space-y-2.5 overflow-y-auto overscroll-contain px-3 py-3" aria-live="polite">
+            {chat.length === 0 && !busy && (
+              <p className="m-0 rounded-xl bg-white/6 px-3 py-2.5 text-[13.5px] leading-snug text-[#e5dccb]">
+                {c({ az: "Salam! Bu abidə haqqında nə bilmək istəyirsiniz? Məsələn: “Nə vaxt tikilib?” və ya “Bu otaq nə üçün idi?”", en: "Hello! What would you like to know about this monument? For example: “When was it built?” or “What was this room for?”" })}
+              </p>
+            )}
+            {chat.map((msg) => {
+              const fs = msg.factIds.map((id) => bundle.facts.find((f) => f.id === id)).filter((f): f is Fact => !!f);
+              return msg.who === "you" ? (
+                <p key={msg.id} className="m-0 ml-auto w-fit max-w-[85%] rounded-xl rounded-br-sm bg-accent px-3 py-2 text-[14px] leading-snug text-accent-ink">{msg.text}</p>
+              ) : (
+                <div key={msg.id} className="max-w-[92%]">
+                  <p className="m-0 rounded-xl rounded-bl-sm bg-white/10 px-3 py-2 text-[14px] leading-relaxed">{msg.text}</p>
+                  <div className="mt-1 flex flex-wrap items-center gap-1 [&_a]:border-white/20 [&_a]:bg-white/10 [&_a]:text-white">
+                    <button type="button" onClick={() => say(msg.text, msg.factIds, msg.lang)} title={c({ az: "Yenidən dinlə", en: "Listen again" })} aria-label={c({ az: "Yenidən dinlə", en: "Listen again" })}
+                      className="grid h-7 w-7 place-items-center rounded-full text-[#cfc3ad] hover:bg-white/10 hover:text-white [&_svg]:h-4 [&_svg]:w-4"><Icon name="sound" /></button>
+                    {fs.map((f) => <FactChip key={f.id} fact={f} />)}
+                  </div>
+                </div>
+              );
+            })}
+            {busy && <p className="m-0 w-fit animate-pulse rounded-xl bg-white/10 px-3 py-2 text-[13.5px] text-[#cfc3ad]">{t("thinking")}</p>}
+            <div ref={chatEnd} />
+          </div>
+          <form className="flex gap-1.5 border-t border-white/10 p-2" onSubmit={(e) => { e.preventDefault(); ask(input); }}>
+            <input autoFocus value={input} onChange={(e) => setInput(e.target.value)} placeholder={t("ask")} aria-label={t("ask")} maxLength={500}
+              className="h-10 min-w-0 flex-1 rounded-full border border-white/20 bg-black/30 px-3.5 text-[14px] text-white placeholder:text-white/50 focus:border-[#7fd0d4] focus:outline-none" />
+            <button type="button" title={listening ? t("listening") : t("mic")} aria-label={listening ? t("listening") : t("mic")} aria-pressed={listening} onClick={mic} className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${listening ? "animate-pulse bg-hyp" : "bg-white/10 hover:bg-white/15"}`}><Icon name="mic" /></button>
+            <button type="submit" disabled={busy || !input.trim()} title={t("send")} aria-label={t("send")} className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-accent text-accent-ink disabled:opacity-50"><Icon name="send" fill /></button>
+          </form>
+        </section>
       )}
 
       {/* guide toolbar: a row bottom-left on desktop, a column on the left edge on phones */}
