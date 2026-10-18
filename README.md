@@ -13,6 +13,7 @@ Every reconstructed part carries a confidence label, and every photo is credited
 | Şirvanşahlar Sarayı, Bakı | the palace building: courtyard, west portal, octagonal hall, spiral stair, 3 rooms | port of the original prototype; 4 look-around interiors |
 | Qız qalası, Bakı | plaza, entrance passage, 8 storeys, in-wall stair, roof | storey jump buttons; the 21 m well under stacked oculi |
 | İrəvan qalası & Sərdar sarayı | fortress street, palace court, **Hall of Mirrors**, side rooms, balcony over the gorge | demolished site: reconstruction from the 1827 plan, the museum model and Gagarin's lithograph |
+| Ağdam Cümə məscidi, Ağdam | the mosque square, entrance iwan, prayer hall, mihrab, stairs and the women's gallery | three eras (19th c. / 1993–2020 / today); a real architect, Kərbəlayi Səfixan Qarabaği, shown as a stylised figure; dimensions estimated from Commons photos |
 | Kiş alban məbədi, Şəki | gate and yard, churchyard, grave under glass, west door, hall with the museum showcases, the domed bay, the raised chancel | two eras (12th c. / today); dimensions estimated from Commons photos; photo-textured maquette (`exterior.textures`) |
 
 ## Run locally
@@ -33,7 +34,9 @@ Copy `.env.example` to `.env.local`. **All variables are optional.** With none s
 
 | Variable | Used for | Without it |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | live Q&A in `/api/architect`; `npm run narration -- --text` | answers come from `facts.json` and `qa.json` (keyword match) |
+| `OPENAI_API_KEY` | live Q&A in `/api/architect` with GPT (takes priority over Anthropic) | Anthropic if set, else answers from `facts.json` and `qa.json` (keyword match) |
+| `OPENAI_MODEL`, `OPENAI_REASONING_EFFORT` | GPT model id (default `gpt-5-mini`) and reasoning effort (default `low`; set empty for models without reasoning) | defaults |
+| `ANTHROPIC_API_KEY` | live Q&A in `/api/architect` when no OpenAI key is set; `npm run narration -- --text` | answers come from `facts.json` and `qa.json` (keyword match) |
 | `ANTHROPIC_MODEL` | model id, default `claude-opus-5-5` | default |
 | `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION` | Azerbaijani TTS (`az-AZ-BabekNeural` / `az-AZ-BanuNeural`) with viseme lip sync in `/api/tts`; pre-generated narration audio | browser `speechSynthesis` if an az voice exists (else a Turkish voice), else animated subtitles |
 | `GEMINI_API_KEY` (+ optional `GEMINI_TTS_MODEL`, `GEMINI_VOICE_MALE`, `GEMINI_VOICE_FEMALE`) | Gemini TTS (`gemini-3.8-flash-tts`, voice Algieba) for `/api/tts` and pre-generated narration when Azure is not set; lip sync follows the audio's loudness | the keyless Edge voices (Babek / Ryan) |

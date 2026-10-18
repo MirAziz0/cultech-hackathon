@@ -1,6 +1,7 @@
 /* POST /api/architect — live Q&A with the monument's architect.
    Answers only from that monument's facts.json; returns the fact ids used (UI shows "Mənbə" chips).
-   No ANTHROPIC_API_KEY (or any failure) → mock answer from facts/qa, so the demo never breaks. */
+   OPENAI_API_KEY → GPT (OpenAI Chat Completions); else ANTHROPIC_API_KEY → Claude;
+   no key (or any failure) → mock answer from facts/qa, so the demo never breaks. */
 import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { z } from "zod/v4";
@@ -26,7 +27,50 @@ const Reply = z.object({
 });
 
 let client: Anthropic | null = null;
-const hasKey = () => !!(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN);
+const hasOpenAI = () => !!process.env.OPENAI_API_KEY;
+const hasAnthropic = () => !!(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN);
+const hasKey = () => hasOpenAI() || hasAnthropic();
+
+/** JSON schema of Reply for OpenAI structured outputs (strict mode) */
+const REPLY_SCHEMA = {
+  type: "object",
+  additionalProperties: false,
+  required: ["text", "factIds", "lang"],
+  properties: {
+    text: { type: "string", description: "The architect's spoken answer: a short story-flavoured reply, first person, at most 80 words" },
+    factIds: { type: "array", items: { type: "string" }, description: "ids of the facts the answer relies on; empty if none" },
+    lang: { type: "string", enum: ["az", "en", "other"], description: "language of the answer" },
+  },
+} as const;
+
+type Msg = { role: "user" | "assistant"; content: string };
+
+/** GPT via the Chat Completions REST API (no SDK needed); null on refusal or unparsable output */
+async function askOpenAI(system: string, messages: Msg[]): Promise<z.infer<typeof Reply> | null> {
+  const base = (process.env.OPENAI_BASE_URL || "https://api.openai.com/v1").replace(/\/$/, "");
+  const res = await fetch(`${base}/chat/completions`, {
+    method: "POST",
+    headers: { "content-type": "application/json", authorization: `Bearer ${process.env.OPENAI_API_KEY}` },
+    body: JSON.stringify({
+      model: process.env.OPENAI_MODEL || "gpt-5-mini",
+      messages: [{ role: "system", content: system }, ...messages],
+      response_format: { type: "json_schema", json_schema: { name: "architect_reply", strict: true, schema: REPLY_SCHEMA } },
+      max_completion_tokens: 2000,
+      // conversational route: keep latency low
+      ...(process.env.OPENAI_REASONING_EFFORT !== "" ? { reasoning_effort: process.env.OPENAI_REASONING_EFFORT || "low" } : {}),
+    }),
+    signal: AbortSignal.timeout(25_000),
+  });
+  if (!res.ok) {
+    const msg = (await res.text().catch(() => "")).slice(0, 300);
+    throw new Error(`OpenAI ${res.status}: ${msg}`);
+  }
+  const data = (await res.json()) as { choices?: { message?: { content?: string | null; refusal?: string | null } }[] };
+  const m = data.choices?.[0]?.message;
+  if (!m?.content || m.refusal) return null;
+  const parsed = Reply.safeParse(JSON.parse(m.content));
+  return parsed.success ? parsed.data : null;
+}
 
 function systemPrompt(slug: string) {
   const b = getBundle(slug);
@@ -54,8 +98,6 @@ export async function POST(req: Request) {
   const fallback = (reason: string) => Response.json({ ...mockAnswer(body.question, bundle.facts, bundle.qa, body.lang, { knowsUntil: bundle.manifest.architect.historical?.knowsUntil }), reason });
   if (!hasKey()) return fallback("no-key");
 
-  client ??= new Anthropic();
-  const model = process.env.ANTHROPIC_MODEL || "claude-opus-5-5";
   const zoneInfo = body.zone ? zoneInfoFor(bundle.manifest.walk, body.zone, body.era ?? undefined) : undefined;
   const eraInfo = body.era ? bundle.manifest.eras[body.era] : undefined;
   const messages: Anthropic.Beta.BetaMessageParam[] = [
@@ -65,6 +107,25 @@ export async function POST(req: Request) {
       content: `${zoneInfo ? `[Visitor is standing in: ${zoneInfo.title.az} / ${zoneInfo.title.en ?? ""}]\n` : ""}${eraInfo ? `[Era shown: ${eraInfo.label.en ?? eraInfo.label.az}]\n` : ""}${body.question}`,
     },
   ];
+  const known = new Set(bundle.facts.map((f) => f.id));
+  const reply = (out: z.infer<typeof Reply>) => {
+    const lang: Lang = out.lang === "en" ? "en" : out.lang === "az" ? "az" : guessLang(body.question);
+    return Response.json({ text: out.text, factIds: out.factIds.filter((id) => known.has(id)), lang, mock: false });
+  };
+
+  if (hasOpenAI()) {
+    try {
+      const out = await askOpenAI(systemPrompt(body.slug), messages as Msg[]);
+      if (out) return reply(out);
+      if (!hasAnthropic()) return fallback("unparsed");
+    } catch (e) {
+      console.error("[architect]", (e as Error).message);
+      if (!hasAnthropic()) return fallback("api-error");
+    }
+  }
+
+  client ??= new Anthropic();
+  const model = process.env.ANTHROPIC_MODEL || "claude-opus-5-5";
   try {
     const res = await client.beta.messages.parse(
       {
@@ -81,10 +142,7 @@ export async function POST(req: Request) {
       { timeout: 25_000 },
     );
     if (res.stop_reason === "refusal" || !res.parsed_output) return fallback(res.stop_reason ?? "unparsed");
-    const out = res.parsed_output;
-    const known = new Set(bundle.facts.map((f) => f.id));
-    const lang: Lang = out.lang === "en" ? "en" : out.lang === "az" ? "az" : guessLang(body.question);
-    return Response.json({ text: out.text, factIds: out.factIds.filter((id) => known.has(id)), lang, mock: false });
+    return reply(res.parsed_output);
   } catch (e) {
     if (e instanceof Anthropic.AuthenticationError) console.error("[architect] invalid API key");
     else if (e instanceof Anthropic.RateLimitError) console.warn("[architect] rate limited");
