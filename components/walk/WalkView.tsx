@@ -98,7 +98,9 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
             onPhase: (ph, _s, i) => { setTourPhase(ph); setTourIdx(i); },
           });
           tour.current = tr;
-          v.beforeRender = (dt) => { if (gg.avatar.root.visible) { tr.update(dt); gg.update(dt, vv.walker.floorPos(), vv.camera); } };
+          // only after "Start": the shader warm-up shows the guide for a moment while the visitor's position is
+          // still unset (0,0,0), and the tour would start telling whichever stop lies near the centre
+          v.beforeRender = (dt) => { if (startedRef.current && gg.avatar.root.visible) { tr.update(dt); gg.update(dt, vv.walker.floorPos(), vv.camera); } };
           v.mapMarks = () => [
             ...(gg.marker ? [{ ...gg.marker, color: "#f2c46b", kind: "diamond" as const }] : []),
             ...(gg.avatar.root.visible ? [{ ...gg.pos, color: "#7fd0d4", kind: "dot" as const }] : []),
