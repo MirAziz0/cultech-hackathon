@@ -4256,7 +4256,187 @@
     ],
     "mat": "plaque"
    }
-  ]
+  ],
+  "textures": {
+   "ground": {
+    "tex": "dry_ground_01",
+    "size": 5
+   },
+   "groundNew": {
+    "tex": "dry_ground_01",
+    "size": 5,
+    "tint": [
+     236,
+     232,
+     214
+    ]
+   },
+   "groundWild": {
+    "tex": "leafy_grass",
+    "size": 3.5,
+    "tint": [
+     176,
+     196,
+     128
+    ]
+   },
+   "weed": {
+    "tex": "leafy_grass",
+    "size": 2,
+    "tint": [
+     160,
+     190,
+     110
+    ]
+   },
+   "lawn": {
+    "tex": "leafy_grass",
+    "size": 3.5,
+    "tint": [
+     140,
+     214,
+     104
+    ]
+   },
+   "hedge": {
+    "tex": "leafy_grass",
+    "size": 1.2,
+    "tint": [
+     127,
+     192,
+     98
+    ]
+   },
+   "path": {
+    "tex": "grey_stone_path",
+    "size": 2.6,
+    "tint": [
+     242,
+     236,
+     228
+    ]
+   },
+   "track": {
+    "tex": "dry_ground_01",
+    "size": 4,
+    "tint": [
+     226,
+     216,
+     196
+    ]
+   },
+   "paving": {
+    "tex": "patterned_paving_02",
+    "size": 3
+   },
+   "pathNew": {
+    "tex": "marble_tiles",
+    "size": 3
+   },
+   "wallLime": {
+    "tex": "painted_plaster_wall",
+    "size": 3,
+    "tint": [
+     255,
+     252,
+     246
+    ]
+   },
+   "cornice": {
+    "tex": "painted_plaster_wall",
+    "size": 3,
+    "tint": [
+     246,
+     238,
+     222
+    ]
+   },
+   "wallMarble": {
+    "tex": "marble_01",
+    "size": 1.6
+   },
+   "wallStone": {
+    "tex": "sandstone_blocks_08",
+    "size": 2,
+    "tint": [
+     296,
+     292,
+     294
+    ]
+   },
+   "minaretBase": {
+    "tex": "sandstone_blocks_08",
+    "size": 2,
+    "tint": [
+     290,
+     286,
+     286
+    ]
+   },
+   "domeLime": {
+    "tex": "painted_plaster_wall",
+    "size": 3,
+    "tint": [
+     248,
+     242,
+     230
+    ]
+   },
+   "domeBrick": {
+    "tex": "red_brick_03",
+    "size": 1.8,
+    "tint": [
+     255,
+     226,
+     204
+    ]
+   },
+   "roofFlat": {
+    "tex": "painted_plaster_wall",
+    "size": 3,
+    "tint": [
+     236,
+     228,
+     210
+    ]
+   },
+   "roofRuin": {
+    "tex": "old_stone_wall",
+    "size": 2.4,
+    "tint": [
+     210,
+     200,
+     180
+    ]
+   },
+   "ruinStone": {
+    "tex": "old_stone_wall",
+    "size": 2.4,
+    "tint": [
+     221,
+     214,
+     203
+    ]
+   },
+   "house": {
+    "tex": "painted_plaster_wall",
+    "size": 3,
+    "tint": [
+     244,
+     232,
+     210
+    ]
+   },
+   "houseRoof": {
+    "tex": "clay_roof_tiles_02",
+    "size": 1.6,
+    "tint": [
+     255,
+     226,
+     204
+    ]
+   }
+  }
  },
  "buildings": [
   {

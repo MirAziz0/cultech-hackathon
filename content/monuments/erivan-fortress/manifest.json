@@ -4254,7 +4254,102 @@
    "model_0",
    "siege_0",
    "porter_0"
-  ]
+  ],
+  "textures": {
+   "stone": {
+    "tex": "red_brick_03",
+    "size": 4,
+    "tint": [
+     255,
+     226,
+     204
+    ]
+   },
+   "stone_rs": {
+    "tex": "red_brick_03",
+    "size": 4,
+    "tint": [
+     255,
+     232,
+     214
+    ]
+   },
+   "stone_old": {
+    "tex": "red_brick_03",
+    "size": 4,
+    "tint": [
+     236,
+     212,
+     194
+    ]
+   },
+   "palace": {
+    "tex": "painted_plaster_wall",
+    "size": 5,
+    "tint": [
+     255,
+     240,
+     214
+    ]
+   },
+   "court": {
+    "tex": "patterned_paving_02",
+    "size": 5
+   },
+   "house": {
+    "tex": "painted_plaster_wall",
+    "size": 5,
+    "tint": [
+     226,
+     200,
+     164
+    ]
+   },
+   "dome": {
+    "tex": "painted_plaster_wall",
+    "size": 5,
+    "tint": [
+     240,
+     226,
+     200
+    ]
+   },
+   "roof": {
+    "tex": "clay_roof_tiles_02",
+    "size": 3,
+    "tint": [
+     255,
+     226,
+     204
+    ]
+   },
+   "modern": {
+    "tex": "grey_plaster_02",
+    "size": 6
+   },
+   "ground": {
+    "tex": "dry_ground_01",
+    "size": 14
+   },
+   "earth": {
+    "tex": "dry_ground_01",
+    "size": 10,
+    "tint": [
+     220,
+     200,
+     170
+    ]
+   },
+   "gorge": {
+    "tex": "rock_face",
+    "size": 14,
+    "tint": [
+     230,
+     207,
+     174
+    ]
+   }
+  }
  },
  "buildings": [
   {

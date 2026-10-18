@@ -1405,7 +1405,67 @@
   ],
   "overviewPhotos": [
    "overview_0"
-  ]
+  ],
+  "textures": {
+   "stone": {
+    "tex": "sandstone_blocks_08",
+    "size": 2,
+    "tint": [
+     282,
+     280,
+     284
+    ]
+   },
+   "stone_rs": {
+    "tex": "sandstone_blocks_08",
+    "size": 2,
+    "tint": [
+     298,
+     294,
+     294
+    ]
+   },
+   "stone_old": {
+    "tex": "old_stone_wall",
+    "size": 2.4,
+    "tint": [
+     230,
+     222,
+     208
+    ]
+   },
+   "dome": {
+    "tex": "sandstone_blocks_08",
+    "size": 1.6,
+    "tint": [
+     290,
+     286,
+     286
+    ]
+   },
+   "terrace": {
+    "tex": "sandstone_blocks_08",
+    "size": 2.5,
+    "tint": [
+     262,
+     258,
+     262
+    ]
+   },
+   "path": {
+    "tex": "rock_tile_floor",
+    "size": 3,
+    "tint": [
+     244,
+     234,
+     216
+    ]
+   },
+   "ground": {
+    "tex": "dry_ground_01",
+    "size": 5
+   }
+  }
  },
  "buildings": [
   {

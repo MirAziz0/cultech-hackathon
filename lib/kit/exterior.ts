@@ -34,14 +34,26 @@ function archShape(w: number, hs: number, cRatio = 0.18, n = 10) {
   return s;
 }
 
+/** metres around a round body (from its own uv.x and radius, before it is moved), so textures wrap a tower
+   without the seams of a planar projection */
+function arcLength(g: THREE.CylinderGeometry | THREE.LatheGeometry) {
+  const prm = g.parameters as { thetaStart?: number; thetaLength?: number; phiStart?: number; phiLength?: number };
+  const a0 = prm.thetaStart ?? prm.phiStart ?? 0, len = prm.thetaLength ?? prm.phiLength ?? Math.PI * 2;
+  const p = g.attributes.position, uv = g.attributes.uv, out = new Float32Array(p.count);
+  for (let i = 0; i < p.count; i++) out[i] = (a0 + uv.getX(i) * len) * Math.hypot(p.getX(i), p.getZ(i));
+  g.setAttribute("arc", new THREE.BufferAttribute(out, 1));
+}
+
 class ExtBuilder {
   buckets = new Map<string, THREE.BufferGeometry[]>();
   constructor(private resolve: (m: string) => string) {}
   add(g: THREE.BufferGeometry, mat: string) {
     const key = this.resolve(mat);
     const ng = g.index ? g.toNonIndexed() : g;
-    for (const name of Object.keys(ng.attributes)) if (name !== "position" && name !== "normal") ng.deleteAttribute(name);
+    for (const name of Object.keys(ng.attributes)) if (name !== "position" && name !== "normal" && name !== "arc") ng.deleteAttribute(name);
     if (!ng.attributes.normal) ng.computeVertexNormals();
+    // every geometry needs the same attributes to merge; NaN = "no arc length, project planar"
+    if (!ng.attributes.arc) ng.setAttribute("arc", new THREE.BufferAttribute(new Float32Array(ng.attributes.position.count).fill(NaN), 1));
     ng.clearGroups();
     (this.buckets.get(key) ?? this.buckets.set(key, []).get(key)!).push(ng);
   }
@@ -56,6 +68,7 @@ class ExtBuilder {
   /** arc = [startDeg, lengthDeg] from +x toward +y; three's theta runs from +z toward +x, so θ = angle + 90° */
   cyl(r: number, h: number, x: number, y: number, z: number, mat: string, sides = 16, r2?: number, arc?: [number, number]) {
     const g = arc ? new THREE.CylinderGeometry(r2 ?? r, r, h, sides, 1, false, (arc[0] + 90) * D2R, arc[1] * D2R) : new THREE.CylinderGeometry(r2 ?? r, r, h, sides);
+    arcLength(g);
     const p = tp(x, y, z + h / 2);
     g.translate(p.x, p.y, p.z);
     this.add(g, mat);
@@ -64,6 +77,7 @@ class ExtBuilder {
     const g = arc
       ? new THREE.LatheGeometry(pts.map(([a, b]) => new THREE.Vector2(a, b)), sides, (arc[0] + 90) * D2R, arc[1] * D2R)
       : new THREE.LatheGeometry(pts.map(([a, b]) => new THREE.Vector2(a, b)), sides);
+    arcLength(g);
     const p = tp(x, y, z);
     g.translate(p.x, p.y, p.z);
     this.add(g, mat);
@@ -286,10 +300,12 @@ function part(b: ExtBuilder, p: ExteriorPart, era: Era, r: ReturnType<typeof rng
 
 /** planar world UVs (metres / size) by the dominant normal axis, as in the walk kit */
 function planarUV(geo: THREE.BufferGeometry, size: number) {
-  const p = geo.attributes.position, n = geo.attributes.normal, uv = new Float32Array(p.count * 2);
+  const p = geo.attributes.position, n = geo.attributes.normal, arc = geo.attributes.arc, uv = new Float32Array(p.count * 2);
   for (let i = 0; i < p.count; i++) {
     const ax = Math.abs(n.getX(i)), ay = Math.abs(n.getY(i)), az = Math.abs(n.getZ(i));
-    const [u, v] = ay >= ax && ay >= az ? [p.getX(i), p.getZ(i)] : ax >= az ? [p.getZ(i), p.getY(i)] : [p.getX(i), p.getY(i)];
+    const top = ay >= ax && ay >= az, a = arc?.getX(i) ?? NaN;
+    // round walls wrap by arc length; flat walls and roofs are projected on their dominant axis
+    const [u, v] = top ? [p.getX(i), p.getZ(i)] : !Number.isNaN(a) ? [a, p.getY(i)] : ax >= az ? [p.getZ(i), p.getY(i)] : [p.getX(i), p.getY(i)];
     uv[i * 2] = u / size;
     uv[i * 2 + 1] = v / size;
   }
@@ -320,6 +336,7 @@ export function buildExterior(spec: ExteriorSpec & { eraMat?: Partial<Record<Era
     if (!flat) continue;
     const tx = opts.texture ? spec.textures?.[key] : undefined;
     if (tx) planarUV(flat, tx.size); // in metres, before the maquette scale
+    flat.deleteAttribute("arc");
     // weld identical vertices back into an indexed mesh (≈4× smaller GLBs)
     const merged = mergeVertices(flat);
     flat.dispose();

@@ -1149,7 +1149,54 @@
   "overviewPhotos": [
    "ext_1",
    "old_0"
-  ]
+  ],
+  "textures": {
+   "tower": {
+    "tex": "castle_wall_slates",
+    "size": 8,
+    "tint": [
+     292,
+     290,
+     288
+    ]
+   },
+   "house": {
+    "tex": "sandstone_blocks_08",
+    "size": 2.5,
+    "tint": [
+     290,
+     290,
+     296
+    ]
+   },
+   "stone_old": {
+    "tex": "old_stone_wall",
+    "size": 2.4,
+    "tint": [
+     221,
+     214,
+     203
+    ]
+   },
+   "ground": {
+    "tex": "rock_tile_floor",
+    "size": 3,
+    "tint": [
+     244,
+     234,
+     216
+    ]
+   },
+   "path": {
+    "tex": "grey_stone_path",
+    "size": 2.6,
+    "tint": [
+     242,
+     236,
+     228
+    ]
+   }
+  }
  },
  "buildings": [
   {
