@@ -50,3 +50,6 @@ next-env.d.ts
 /public/characters
 /public/models
 /public/textures
+
+# raw elevation tiles downloaded by scripts/make-terrain.ts
+/scripts/data/terrain-cache/

@@ -7,7 +7,7 @@ export function LangToggle({ dark = false }: { dark?: boolean }) {
     <div
       role="group"
       aria-label="Language / Dil"
-      className={`inline-flex rounded-full border p-[3px] text-[12px] font-semibold ${dark ? "border-white/25 bg-black/40 text-white" : "border-line bg-surface"}`}
+      className={`inline-flex rounded-full border p-[3px] text-[12px] font-semibold ${dark ? "border-white/25 bg-black/40 text-white" : "grad-stroke on-surface"}`}
     >
       {(["az", "en"] as const).map((l) => (
         <button

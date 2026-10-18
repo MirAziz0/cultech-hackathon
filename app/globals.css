@@ -1,51 +1,29 @@
 @import "tailwindcss";
 
-/* Palette and type ported from the reference demo (museum maquette on limestone). */
+/* Azerbaijan brand typefaces (Serif for headings, Sans for subheadings): the @font-face rules are
+   generated from the files present in public/fonts/; until they arrive the stacks fall back to
+   Cormorant / Inter. The ZamanQapısı wordmark keeps Cormorant (font-brand). */
+@import "./brand-fonts.css";
+
+/* Brand palette: azure page (#f0ffff), primary #007A87. Light only, regardless of system theme. */
 :root {
-  --bg: #ece6da;
-  --surface: #f7f3eb;
-  --ink: #2a241d;
-  --muted: #6e6455;
-  --line: #d6ccba;
-  --accent: #1f7a80;
+  --bg: #f0ffff;
+  --surface: #f5f8f8;
+  --ink: #1d2729;
+  --muted: #586466;
+  --line: #dbe3e4;
+  --accent: #007a87;
   --accent-ink: #ffffff;
   --ok: #3e7b3a;
   --mid: #b08a1e;
   --hyp: #a33a2b;
-  --stage: #dcd3c2;
+  --stage: #e8eff0;
   --gold: #b8862b;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #161411;
-    --surface: #1f1c18;
-    --ink: #ede3d3;
-    --muted: #a79a86;
-    --line: #3a342c;
-    --accent: #4fb3b8;
-    --accent-ink: #0e1a1b;
-    --ok: #7dba72;
-    --mid: #d9b44a;
-    --hyp: #e07a68;
-    --stage: #24201b;
-    --gold: #d9a441;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #161411;
-  --surface: #1f1c18;
-  --ink: #ede3d3;
-  --muted: #a79a86;
-  --line: #3a342c;
-  --accent: #4fb3b8;
-  --accent-ink: #0e1a1b;
-  --ok: #7dba72;
-  --mid: #d9b44a;
-  --hyp: #e07a68;
-  --stage: #24201b;
-  --gold: #d9a441;
-  color-scheme: dark;
+  /* secondary brand gradient for details (strokes, dividers), top → bottom */
+  --accent-2-top: #806363;
+  --accent-2-bottom: #b0927a;
+  --accent-2: linear-gradient(180deg, var(--accent-2-top), var(--accent-2-bottom));
+  color-scheme: light;
 }
 
 @theme inline {
@@ -61,9 +39,12 @@
   --color-hyp: var(--hyp);
   --color-stage: var(--stage);
   --color-gold: var(--gold);
-  --font-display: var(--font-spectral), Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-manrope), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Azerbaijan Serif", var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-brand: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, Menlo, monospace;
+  --font-az-serif: "Azerbaijan Serif", var(--font-cormorant), Georgia, serif;
+  --font-az-sans: "Azerbaijan Sans", var(--font-inter), system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -71,11 +52,20 @@
 html, body { background: var(--bg); color: var(--ink); }
 body { font-family: var(--font-sans); font-size: 15px; line-height: 1.55; -webkit-tap-highlight-color: transparent; }
 
-.eyebrow { font: 500 11px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.eyebrow { font: 500 11.5px/1 "Azerbaijan Sans", var(--font-inter), system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; }
-.btn { display: inline-flex; align-items: center; gap: 6px; font: 600 13px/1 var(--font-sans); padding: 10px 13px; border-radius: 4px;
+.btn { display: inline-flex; align-items: center; gap: 6px; font: 600 13px/1 var(--font-sans); padding: 10px 13px; border-radius: 10px;
   border: 1px solid var(--line); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; min-height: 40px; }
 .btn:hover { background: var(--bg); }
+/* gradient stroke: the inner fill sits on padding-box, the gradient shows through a transparent border */
+.grad-stroke, .btn:not(.primary) {
+  --stroke-fill: var(--bg);
+  border-width: 2px;
+  border-color: transparent;
+  background: linear-gradient(var(--stroke-fill), var(--stroke-fill)) padding-box, var(--accent-2) border-box;
+}
+.grad-stroke.on-surface { --stroke-fill: var(--surface); }
+.btn:not(.primary):hover { --stroke-fill: var(--surface); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .btn.primary:hover { filter: brightness(1.06); }
 .btn:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -85,9 +75,56 @@ body { font-family: var(--font-sans); font-size: 15px; line-height: 1.55; -webki
 /* overlays on dark 3D scenes always use a fixed dark glass, independent of theme */
 .glass { background: rgba(20, 17, 14, .66); color: #f3ead9; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
 
+/* home map parallax: layers drift by depth (sea least, pins most) as the mouse moves */
+.map3d { --px: 0; --py: 0; }
+.map3d .lyr { transition: transform .5s cubic-bezier(.2, .7, .2, 1); }
+.map3d .lyr-sea { transform: translate(calc(var(--px) * -5px), calc(var(--py) * -4px)); }
+.map3d .lyr-land { transform: translate(calc(var(--px) * 4px), calc(var(--py) * 3px)); }
+.map3d .lyr-pins { transform: translate(calc(var(--px) * 9px), calc(var(--py) * 7px)); }
+.map3d .map-rise { animation: maprise .9s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes maprise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+/* home monument cards: fade up on scroll, a 3D tilt + glare under the mouse, staged hover details */
+.mcard {
+  --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 50%; --lift: 0px;
+  transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--lift));
+  transition: transform .35s cubic-bezier(.2, .7, .2, 1), box-shadow .35s ease,
+    opacity .7s ease var(--delay, 0ms), translate .7s cubic-bezier(.2, .7, .2, 1) var(--delay, 0ms);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
+  will-change: transform;
+}
+.mcard[data-shown="false"] { opacity: 0; translate: 0 28px; }
+.mcard[data-shown="true"] { opacity: 1; translate: 0 0; }
+.mcard:hover, .mcard:focus-visible, .mcard[data-active="true"] {
+  --lift: -6px;
+  box-shadow: 0 24px 48px -20px rgba(0, 70, 80, .45), 0 6px 14px -6px rgba(0, 0, 0, .12);
+}
+.mcard-img { transition: transform .9s cubic-bezier(.2, .7, .2, 1), filter .5s ease; }
+.mcard:hover .mcard-img, .mcard[data-active="true"] .mcard-img { transform: scale(1.08); filter: saturate(1.12) contrast(1.04); }
+.mcard-badge { transition: transform .35s cubic-bezier(.2, .7, .2, 1); }
+.mcard:hover .mcard-badge { transform: translateY(2px) scale(1.04); }
+.mcard-chip { transition: transform .3s cubic-bezier(.2, .7, .2, 1) calc(var(--i, 0) * 50ms), background-color .3s; }
+.mcard:hover .mcard-chip { transform: translateY(-2px); }
+.mcard-glare {
+  background: radial-gradient(460px circle at var(--mx) var(--my), rgba(255, 255, 255, .32), transparent 42%);
+  mix-blend-mode: soft-light; opacity: 0; transition: opacity .35s ease;
+}
+.mcard:hover .mcard-glare { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .mcard, .mcard * { transition: none !important; }
+  .mcard { transform: none !important; }
+  .mcard[data-shown="false"] { opacity: 1; translate: none; }
+}
+
 @keyframes zcin { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
 .anim-in { animation: zcin .45s ease-out; }
 @media (prefers-reduced-motion: reduce) {
-  .anim-in { animation: none; }
+  .anim-in, .map3d .map-rise { animation: none; }
+  .map3d .lyr { transform: none; }
   * { transition: none !important; }
 }
+
+/* card photo → monument stage: the shared element grows into place with a soft blur mid-flight */
+::view-transition-group(.morph) { animation-duration: 560ms; animation-timing-function: cubic-bezier(.2, .7, .2, 1); }
+::view-transition-image-pair(.morph) { animation-name: via-blur; }
+@keyframes via-blur { 35% { filter: blur(4px); } }

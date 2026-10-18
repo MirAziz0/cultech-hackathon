@@ -7,6 +7,7 @@ export default function Page() {
     name: m.name,
     tagline: m.tagline,
     period: m.period,
+    year: m.year,
     place: m.location.place,
     lat: m.location.lat,
     lon: m.location.lon,
