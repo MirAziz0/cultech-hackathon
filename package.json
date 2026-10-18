@@ -9,7 +9,7 @@
     "prebuild": "npm run content",
     "start": "next start",
     "lint": "eslint",
-    "content": "tsx scripts/sync-content.ts && tsx scripts/export-glb.ts",
+    "content": "tsx scripts/sync-content.ts && tsx scripts/sync-fonts.ts && tsx scripts/export-glb.ts",
     "photos": "tsx scripts/fetch-photos.ts",
     "narration": "tsx scripts/generate-narration.ts",
     "map": "tsx scripts/make-map.ts",

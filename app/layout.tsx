@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Manrope, Spectral } from "next/font/google";
+import { Cormorant_Garamond, IBM_Plex_Mono, Inter } from "next/font/google";
 import { LangProvider } from "@/lib/i18n";
 import { SwRegister } from "@/components/ui/SwRegister";
 import "./globals.css";
 
-const spectral = Spectral({ variable: "--font-spectral", subsets: ["latin", "latin-ext"], weight: ["500", "700"], style: ["normal", "italic"] });
-const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin", "latin-ext"], weight: ["400", "600", "700"] });
-const plex = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin", "latin-ext"], weight: ["500"] });
+const cormorant = Cormorant_Garamond({ variable: "--font-cormorant", subsets: ["latin", "latin-ext"], weight: ["500", "600", "700"], style: ["normal", "italic"] });
+const inter = Inter({ variable: "--font-inter", subsets: ["latin", "latin-ext"], weight: ["400", "500", "600", "700"] });
+const plex = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin", "latin-ext"], weight: ["500", "700"] });
 
 export const metadata: Metadata = {
   title: { default: "ZamanQapısı AI", template: "%s · ZamanQapısı AI" },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1f7a80",
+  themeColor: "#007a87",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="az" className={`${spectral.variable} ${manrope.variable} ${plex.variable} antialiased`}>
+    <html lang="az" className={`${cormorant.variable} ${inter.variable} ${plex.variable} antialiased`}>
       <body className="min-h-dvh">
         <LangProvider>{children}</LangProvider>
         <SwRegister />

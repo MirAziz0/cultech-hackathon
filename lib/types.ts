@@ -17,6 +17,8 @@ export interface Manifest {
   order?: number;
   name: L;
   tagline: L;
+  /** representative year (start of construction) that places the monument on the home timeline */
+  year?: number;
   /** e.g. "XV əsr" */
   period: L;
   location: { lat: number; lon: number; place: L };

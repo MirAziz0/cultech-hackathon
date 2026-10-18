@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, ViewTransition } from "react";
 import { CONF_KEY, useT } from "@/lib/i18n";
 import type { Era, MonumentBundle } from "@/lib/types";
 import { factsFor, photos as photosOf } from "@/lib/bundle";
@@ -11,6 +11,7 @@ import { ConfBadge, ConfidenceLegend } from "@/components/ui/ConfidenceLegend";
 import { Gallery } from "@/components/photos/Gallery";
 import { Lightbox, type PhotoWithUrl } from "@/components/photos/Lightbox";
 import { FactsPanel } from "./FactsPanel";
+import { GlossaryText } from "@/components/ui/GlossaryText";
 import { ArButton } from "./ArButton";
 import { ArchitectDock } from "@/components/architect/ArchitectDock";
 
@@ -94,15 +95,20 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
       <SiteHeader back />
       <main className="mx-auto grid max-w-[1180px] gap-[18px] px-4">
         <div>
-          <div className="eyebrow">ZamanQapısı AI · {c(m.location.place)}</div>
-          <h1 className="mt-1.5 font-display text-[clamp(28px,4.4vw,44px)] leading-[1.05] font-bold text-balance">
-            {c(m.name)}, <em className="font-medium text-accent">{c(m.tagline).toLowerCase()}</em>
+          {/* headings: bold Azerbaijan Serif · subheadings: medium Azerbaijan Sans · body text unchanged */}
+          <div className="font-az-sans text-[13px] font-medium tracking-[.08em] text-muted uppercase">{c(m.location.place)}</div>
+          <h1 className="mt-1.5 font-az-serif text-[clamp(28px,4.4vw,44px)] leading-[1.05] font-bold text-balance">
+            {c(m.name)}, <em className="font-bold text-accent">{c(m.tagline).toLowerCase()}</em>
           </h1>
         </div>
 
+        {/* desktop: stage top-left, the reference panels fill the space under it, and the info panel
+            stays beside them (sticky); phones: stage, info panel, then the reference panels */}
         <div className="grid items-start gap-[18px] min-[861px]:grid-cols-[minmax(0,1fr)_340px]">
           {/* ---------- stage ---------- */}
-          <div className="relative overflow-hidden rounded-md border border-line bg-stage">
+          {/* the home card's photo grows into this stage when the page opens from a card */}
+          <ViewTransition name={`monument-${m.slug}`} share="morph" default="none">
+          <div className="relative overflow-hidden rounded-md border border-line bg-stage min-[861px]:col-start-1 min-[861px]:row-start-1">
             <div ref={viewRef} className="relative h-[min(68vh,620px)] min-h-[380px] w-full" role="img" aria-label={inside ? c(m.interiors?.[inside]?.title) : c(m.name)}>
               <canvas
                 ref={canvasRef}
@@ -145,15 +151,15 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
               <>
                 <button type="button" className="btn absolute top-3 left-3 bg-surface" onClick={exitInterior}>{t("backOut")}</button>
                 <div className="absolute right-3 bottom-3 left-3 grid max-w-[520px] gap-1 rounded border border-line bg-surface px-3 py-2.5 text-[13px]">
-                  <b className="font-display text-[16px]">{c(m.interiors?.[inside]?.title)}</b>
-                  <span className="text-muted">{c(m.interiors?.[inside]?.note)} {lang === "az" ? "Təxmini bərpadır. Yuxarı baxmaq üçün sürüşdürün." : "Approximate reconstruction. Drag to look up."}</span>
+                  <b className="font-az-serif text-[16px] font-bold">{c(m.interiors?.[inside]?.title)}</b>
+                  <span className="text-muted"><GlossaryText text={c(m.interiors?.[inside]?.note)} />{" "}{lang === "az" ? "Təxmini bərpadır. Yuxarı baxmaq üçün sürüşdürün." : "Approximate reconstruction. Drag to look up."}</span>
                 </div>
               </>
             ) : (
               <>
-                <div className="absolute top-3.5 left-3.5 rounded border border-line bg-surface px-2.5 py-[7px] font-mono text-[12px] leading-none tracking-[.08em]">{c(m.eras[era].badge)}</div>
+                <div className="absolute top-3.5 left-3.5 rounded border border-line bg-surface px-2.5 py-[7px] font-az-sans text-[12px] leading-none font-medium tracking-[.08em]">{c(m.eras[era].badge)}</div>
                 <div className="absolute top-3 right-3"><ArButton bundle={bundle} era={era} /></div>
-                <div role="group" aria-label={t("era")} className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-1 rounded-full border border-line bg-surface p-1 shadow-[0_6px_20px_rgba(0,0,0,.12)]">
+                <div role="group" aria-label={t("era")} className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-1 rounded-full border grad-stroke on-surface p-1 shadow-[0_6px_20px_rgba(0,0,0,.12)]">
                   {eras.map((e) => (
                     <button key={e} type="button" aria-pressed={era === e} onClick={() => setEra(e)}
                       className={`rounded-full py-2.5 text-[14px] leading-none font-semibold whitespace-nowrap ${eras.length > 2 ? "px-3 max-sm:px-2.5 max-sm:text-[13px]" : "px-4"} ${era === e ? "bg-accent text-accent-ink" : ""}`}>
@@ -164,15 +170,16 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
               </>
             )}
           </div>
+          </ViewTransition>
 
           {/* ---------- side panel ---------- */}
-          <aside className="grid min-w-0 gap-3.5">
+          <aside className="grid min-w-0 gap-3.5 min-[861px]:sticky min-[861px]:top-4 min-[861px]:col-start-2 min-[861px]:row-span-2 min-[861px]:row-start-1">
             <section className="panel min-h-[120px]" aria-live="polite">
               {b ? (
                 <>
-                  <div className="font-mono text-[12px] tracking-[.06em] text-muted">{c(b.date)}</div>
-                  <h3 className="mt-0.5 font-display text-[22px] leading-[1.15] font-bold text-balance">{c(b.name)}</h3>
-                  <p className="mt-2.5">{c(buildingText(b, era))}</p>
+                  <div className="font-az-sans text-[12px] font-medium tracking-[.06em] text-muted">{c(b.date)}</div>
+                  <h3 className="mt-0.5 font-az-serif text-[22px] leading-[1.15] font-bold text-balance">{c(b.name)}</h3>
+                  <p className="mt-2.5"><GlossaryText text={c(buildingText(b, era))} /></p>
                   <div className="mt-3"><ConfBadge conf={b.conf} labels={m.confLabels} /></div>
                   <div className="mt-3.5 flex flex-wrap gap-2">
                     {b.walk && m.walk && <Link className="btn primary" href={`/m/${m.slug}/walk${m.walk.eras?.includes(era) ? `?era=${era}` : ""}`}>{m.walk.cta ? c(m.walk.cta) : t("walkInside")}</Link>}
@@ -183,9 +190,9 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
                 </>
               ) : (
                 <>
-                  <div className="font-mono text-[12px] tracking-[.06em] text-muted">{c(m.eras[era].badge)}</div>
-                  <h3 className="mt-0.5 font-display text-[22px] leading-[1.15] font-bold">{c(m.name)}</h3>
-                  <p className="mt-2.5">{c(m.eras[era].summary)}</p>
+                  <div className="font-az-sans text-[12px] font-medium tracking-[.06em] text-muted">{c(m.eras[era].badge)}</div>
+                  <h3 className="mt-0.5 font-az-serif text-[22px] leading-[1.15] font-bold">{c(m.name)}</h3>
+                  <p className="mt-2.5"><GlossaryText text={c(m.eras[era].summary)} /></p>
                   <div className="mt-3.5 flex flex-wrap gap-2">
                     {walkBuilding && m.walk && <Link className="btn primary" href={`/m/${m.slug}/walk${m.walk.eras?.includes(era) ? `?era=${era}` : ""}`}>{m.walk.cta ? c(m.walk.cta) : t("walkInside")}</Link>}
                     <button type="button" className="btn" onClick={() => setTalk(true)}>{t("talkArchitect")}</button>
@@ -195,9 +202,12 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
                 </>
               )}
             </section>
+          </aside>
 
+          {/* ---------- reference panels, under the stage ---------- */}
+          <div className="grid min-w-0 items-start gap-[18px] sm:grid-cols-2 min-[861px]:col-start-1 min-[861px]:row-start-2">
             <section className="panel">
-              <h2 className="mb-2.5 font-display text-[19px] font-bold">{t("buildings")}</h2>
+              <h2 className="mb-2.5 font-az-serif text-[19px] font-bold">{t("buildings")}</h2>
               <ul className="grid gap-0.5">
                 {visibleBuildings.map((x) => (
                   <li key={x.id}>
@@ -211,9 +221,11 @@ export function MonumentView({ bundle }: { bundle: MonumentBundle }) {
               </ul>
             </section>
             <ConfidenceLegend labels={m.confLabels} />
-            <FactsPanel facts={factsFor(bundle, b?.factIds) .length ? factsFor(bundle, b?.factIds) : bundle.facts} />
-            <p className="text-[13px] text-muted">{c(m.disclaimer)}</p>
-          </aside>
+            <div className="sm:col-span-2">
+              <FactsPanel facts={factsFor(bundle, b?.factIds) .length ? factsFor(bundle, b?.factIds) : bundle.facts} />
+            </div>
+            <p className="m-0 text-[13px] text-muted sm:col-span-2">{c(m.disclaimer)}</p>
+          </div>
         </div>
       </main>
       {lb && <Lightbox list={lb.list} index={lb.i} onIndex={(i) => setLb({ ...lb, i })} onClose={() => setLb(null)} />}

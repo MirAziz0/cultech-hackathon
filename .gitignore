@@ -47,3 +47,6 @@ next-env.d.ts
 !.env.example
 /test-results/
 /screenshots/
+
+# raw elevation tiles downloaded by scripts/make-terrain.ts
+/scripts/data/terrain-cache/

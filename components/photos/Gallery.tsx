@@ -7,7 +7,7 @@ export function Gallery({ photos, onOpen }: { photos: PhotoWithUrl[]; onOpen: (l
   if (!photos.length) return null;
   return (
     <div>
-      <div className="mt-4 mb-2 font-mono text-[11px] uppercase tracking-[.1em] text-muted">{t("photos")}</div>
+      <div className="mt-4 mb-2 font-az-sans text-[12px] font-medium uppercase tracking-[.1em] text-muted">{t("photos")}</div>
       <div className="grid grid-cols-3 gap-1.5">
         {photos.map((p, i) => (
           <button
@@ -23,7 +23,6 @@ export function Gallery({ photos, onOpen }: { photos: PhotoWithUrl[]; onOpen: (l
           </button>
         ))}
       </div>
-      <p className="mt-1.5 text-[11px] text-muted">{t("photoCredit")}</p>
     </div>
   );
 }
