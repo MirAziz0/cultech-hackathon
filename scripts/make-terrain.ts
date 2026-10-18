@@ -66,18 +66,21 @@ async function main() {
   let max = 0;
   for (const v of elev) if (v > max) max = v;
   max = Math.ceil(max);
-  // 16-bit value split across R (high byte) and G (low byte): browsers only read 8-bit canvas channels
+  // elevation in STEP-metre steps split across R (high byte) and G (low byte), as browsers only read 8-bit
+  // canvas channels. The low byte is folded (reversed when the high byte is odd), so the image has no
+  // sawtooth jumps and lossless WebP packs it to about 0.8 MB (the plain 16-bit PNG was 2 MB).
+  const STEP = 2;
   const buf = Buffer.alloc(W * H * 3);
   for (let i = 0; i < elev.length; i++) {
-    const v = Math.round(((elev[i] - min) / (max - min)) * 65535);
-    buf[i * 3] = v >> 8;
-    buf[i * 3 + 1] = v & 255;
+    const q = Math.round((elev[i] - min) / STEP), hi = q >> 8, lo = q & 255;
+    buf[i * 3] = hi;
+    buf[i * 3 + 1] = hi & 1 ? 255 - lo : lo;
   }
-  const out = path.join(process.cwd(), "public", "map", "az-height.png");
+  const out = path.join(process.cwd(), "public", "map", "az-height.webp");
   fs.mkdirSync(path.dirname(out), { recursive: true });
-  await sharp(buf, { raw: { width: W, height: H, channels: 3 } }).png({ compressionLevel: 9 }).toFile(out);
+  await sharp(buf, { raw: { width: W, height: H, channels: 3 } }).webp({ lossless: true, effort: 6 }).toFile(out);
   fs.writeFileSync(path.join(process.cwd(), "lib", "terrain-meta.json"),
-    JSON.stringify({ x0, y0, width: x1 - x0, height: y1 - y0, scale: SCALE, min, max, source: "AWS Terrain Tiles (terrarium), public domain" }, null, 2) + "\n");
+    JSON.stringify({ x0, y0, width: x1 - x0, height: y1 - y0, scale: SCALE, min, max, source: "AWS Terrain Tiles (terrarium), public domain", file: "az-height.webp", step: STEP }, null, 2) + "\n");
   console.log(`[terrain] ${out} ${W}x${H}, elevation ${min}..${max} m`);
 }
 

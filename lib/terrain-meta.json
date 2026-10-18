@@ -6,5 +6,7 @@
   "scale": 2,
   "min": -30,
   "max": 4423,
-  "source": "AWS Terrain Tiles (terrarium), public domain"
+  "source": "AWS Terrain Tiles (terrarium), public domain",
+  "file": "az-height.webp",
+  "step": 2
 }

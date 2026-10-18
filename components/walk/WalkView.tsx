@@ -122,14 +122,20 @@ export function WalkView({ bundle }: { bundle: MonumentBundle }) {
           }).catch(() => { bodyState.current = "failed"; bodySettled(); if (showWanted.current) gg.avatar.root.visible = true; });
           else { bodyState.current = "ready"; bodySettled(); }
         } catch (e) { console.warn("[guide] disabled:", e); bodySettled(); }
-        v.start();
         // compile every shader (world, trees, models, the guide's body) behind the start screen,
         // so pressing "Start" doesn't freeze while the GPU compiles (it took seconds on rich scenes)
         const vw = v;
         Promise.race([bodyDone, new Promise((r) => setTimeout(r, 12000))])
           .then(() => vw.warmUp(guide.current ? [guide.current.avatar.root] : []))
           .catch((e) => console.warn("[walk] warm-up:", e))
-          .finally(() => { if (!dead) setReady(true); });
+          // the render loop starts only now: rendering earlier compiled each shader synchronously on first
+          // draw (seconds of frozen page), before the parallel compile above could do it
+          // (the first frames still compile the effect passes, so "Start" is enabled only after them)
+          .finally(() => {
+            if (dead) return;
+            vw.start();
+            requestAnimationFrame(() => requestAnimationFrame(() => { if (!dead) setReady(true); }));
+          });
         viewer.current = v;
         (window as unknown as { __walk?: WalkViewer; __guide?: Guide | null }).__walk = v; // for automated tests
         (window as unknown as { __guide?: Guide | null }).__guide = g;

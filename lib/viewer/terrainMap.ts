@@ -1,7 +1,7 @@
 /* 3D relief map of Azerbaijan for the home page: a terrain diorama in the style of a cut-out
    relief block (layered soil on the sides), with the 14 economic regions painted on top and
    monument pins standing on the terrain. World units = map units of lib/map-data.json
-   (x right, z = map y down); heights come from public/map/az-height.png (scripts/make-terrain.ts). */
+   (x right, z = map y down); heights come from public/map/az-height.webp (scripts/make-terrain.ts). */
 import * as THREE from "three";
 import { MapControls } from "three/examples/jsm/controls/MapControls.js";
 import mapData from "../map-data.json";
@@ -88,6 +88,9 @@ export class TerrainMap {
     r.outputColorSpace = THREE.SRGBColorSpace;
     r.shadowMap.enabled = true;
     r.shadowMap.type = THREE.PCFShadowMap;
+    // sun and terrain never move: draw the (4096 px) shadow map only when something casting a shadow changes,
+    // not on every frame of a camera flight
+    r.shadowMap.autoUpdate = false;
 
     this.placeCamera(1);
     // no mouse / touch navigation: the camera only moves by hovering a region or via the buttons
@@ -125,7 +128,7 @@ export class TerrainMap {
 
   async load() {
     const img = new Image();
-    img.src = "/map/az-height.png";
+    img.src = `/map/${meta.file}`;
     await img.decode();
     if (this.disposed) return;
     const cv = document.createElement("canvas");
@@ -134,13 +137,22 @@ export class TerrainMap {
     const ctx = cv.getContext("2d", { willReadFrequently: true })!;
     ctx.drawImage(img, 0, 0);
     const px = ctx.getImageData(0, 0, GW, GH).data;
-    for (let i = 0; i < this.heights.length; i++) this.heights[i] = ((px[i * 4] * 256 + px[i * 4 + 1]) / 65535) * (meta.max - meta.min) + meta.min;
+    // elevation in `meta.step` metre steps: R = high byte, G = low byte folded (reversed when R is odd) so the
+    // image stays smooth and compresses well
+    for (let i = 0; i < this.heights.length; i++) {
+      const hi = px[i * 4], g = px[i * 4 + 1];
+      this.heights[i] = (hi * 256 + (hi & 1 ? 255 - g : g)) * meta.step + meta.min;
+    }
 
     this.buildBaseLayer();
     this.buildTerrain();
     this.buildWalls();
     this.buildPins();
     this.resize();
+    // compile the shaders in parallel first, so the first frame doesn't freeze the page while they compile
+    await this.renderer.compileAsync(this.scene, this.camera).catch(() => {});
+    if (this.disposed) return;
+    this.renderer.shadowMap.needsUpdate = true;
     this.loop();
   }
 
@@ -322,6 +334,7 @@ export class TerrainMap {
       (head.material as THREE.MeshStandardMaterial).color.copy(on ? HOT : ACCENT);
       head.scale.setScalar(on ? 1.3 : 1);
     }
+    this.renderer.shadowMap.needsUpdate = true;
     this.dirty = true;
   }
 
